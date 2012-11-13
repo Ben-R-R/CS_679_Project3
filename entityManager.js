@@ -106,23 +106,21 @@ function addSpawnedEntities(){
 
 function updateList(list,elapsedTime){
 	
-		var iter = list.iterator(); 
-		list.isIterating = true;
+	var iter = list.iterator(); 
+	list.isIterating = true;
+	
+	var tempEntity = null;
+	
+	while(iter.hasNext()){
+		tempEntity = iter.next();
 		
-		var tempEntity = null;
-	try{	
-		while(iter.hasNext){
-			tempEntity = iter.next();
-			
-			if(tempEntity.update(elapsedTime) === STATE_DEAD){
-				iter.removeCurrent();
-			}
-				
+		if(tempEntity.update(elapsedTime) === STATE_DEAD){
+			iter.removeCurrent();
 		}
-	} catch (e){
-		
+			
 	}
-		list.isIterating = false;
+
+	list.isIterating = false;
 }
 
 /**
@@ -145,18 +143,14 @@ function updateEntities(elapsedTime){
 	var iter = particleList.iterator(); 
 	particleList.isIterating = true;
 	var tempEntity = null;
-	try{
 	
-	
-		while(iter.hasNext){
-			tempEntity = iter.next();
-			if(tempEntity.update(elapsedTime) === STATE_DEAD || particleList.size > MAX_PARTICLES){
-				iter.removeCurrent();
-			}	
-		}
-	} catch (e){
-	
+	while(iter.hasNext()){
+		tempEntity = iter.next();
+		if(tempEntity.update(elapsedTime) === STATE_DEAD || particleList.size > MAX_PARTICLES){
+			iter.removeCurrent();
+		}	
 	}
+
 	particleList.isIterating = false;
 	
 
