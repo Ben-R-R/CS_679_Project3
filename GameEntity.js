@@ -16,24 +16,24 @@ var GameEntity = {
 	update : function(elapsedTime){
 		this.coords.add(vScalarMult(elapsedTime, this.velocity));
 		
-		this.velocity.add(vScalarMult(elapsedTime, this.acceleration))
+		//this.velocity.add(vScalarMult(elapsedTime, this.acceleration))
 		
-		if(this.coords.x < 0){
+		if( this.velocity.x < 0 && this.coords.x < 0){
 			this.coords.x = 0;
 			this.velocity.x = -this.velocity.x;
 		}
-		if(this.coords.y < 0){
+		if(this.velocity.y < 0 && this.coords.y < 0){
 			this.coords.y = 0;
-			this.velocity.y = 0;
+			this.velocity.y = -this.velocity.y;
 		}
 		
-		if(this.coords.x > theCanvas.width){
+		if(this.velocity.x > 0 && this.coords.x > theCanvas.width){
 			this.coords.x = theCanvas.width;
 			this.velocity.x = -this.velocity.x;
 		}
-		if(this.coords.y > theCanvas.height){
+		if(this.velocity.y > 0 && this.coords.y > theCanvas.height){
 			this.coords.y = theCanvas.height;
-			this.velocity.y = -this.velocity.y + .3;
+			this.velocity.y = -this.velocity.y;
 		}
 		
 		return STATE_ALIVE;			
@@ -101,7 +101,7 @@ function newGameEntity(coords, velocity, radius){
 	newEnt.coords = coords;
 	newEnt.velocity = velocity;
 	newEnt.radius = radius;
-	newEnt.acceleration = newVector(0,0.00098);
+	newEnt.acceleration = newVector(0,0);
 
 	return newEnt;
 		
