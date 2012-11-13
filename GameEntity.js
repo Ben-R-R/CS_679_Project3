@@ -73,7 +73,7 @@ var GameEntity = {
 	 **/
 	collisionResponse : function(responseVector, other){
 		this.coords.add(responseVector);
-		this.velocity.reflect(responseVector);
+		this.velocity.reflect(vOrthoNormal(responseVector));
 	},
 	
 	/**

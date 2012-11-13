@@ -52,11 +52,18 @@ function vDot(lhs, rhs){
 	
 	return lhs.x * rhs.x + lhs.y * rhs.y;	
 }
+
 function vNormal(lhs){
 	var vec = Object.create(Vector);
 	var length = Math.sqrt(lhs.x * lhs.x + lhs.y * lhs.y);
 	vec.x = lhs.x/length;
 	vec.y = lhs.y/length;
+	return vec;	
+}
+function vOrthoNormal(lhs){
+	var vec = Object.create(Vector);
+	vec.x = -lhs.y;
+	vec.y = lhs.x;
 	return vec;	
 }
 
