@@ -12,7 +12,7 @@ function initLevelManager(){
 					Math.random() * theCanvas.height
 					),
 				newVector(Math.random() * .3 - 0.6, Math.random() * .3 - 0.6),
-				15), 
+				Math.random() * 7 + 8), 
 			dynamicList);
 	}
 }

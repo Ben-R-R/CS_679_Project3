@@ -4,6 +4,8 @@ var GameEntity = {
 	coords : null,
 	velocity : null,
 	radius : 0,
+	aabb : null,
+	fixed : false,
 	acceleration : null,
 	/**
 	 * Update the entity, this usualy entails moving and animating the entity 
@@ -54,11 +56,26 @@ var GameEntity = {
 	 * then call B.collisionResponse(...) with the remainder. 	  	 	 
 	 */	 	  
 	collideWith: function(other){
-		var resVec = circle_circle(this.coords, this.radius, other.coords, other.radius);
+		
+		// indicates what portion of the response vector we use
+		var resUse = -0.5;
+		if(this.fixed){
+			resUse = 0;			
+		}
+	
+		var resVec = null;
+		if(this.aabb === null){
+			resVec = circle_circle(this.coords, this.radius, other.coords, other.radius);
+		} else {
+			resVec = AABB_circle(other.aabb, other.coords, other.radius)
+		}
+		
+		
+		
 		if(resVec !== null){
 		    
-			this.collisionResponse(vScalarMult(-0.5,resVec), other);
-			resVec.scalarMult(0.5);
+			this.collisionResponse(vScalarMult(resUse,resVec), other);
+			resVec.scalarMult(1 + resUse);
 			other.collisionResponse(resVec);
 			 
 		}	
@@ -97,6 +114,17 @@ var GameEntity = {
 }
 
 function newGameEntity(coords, velocity, radius){
+	var newEnt = Object.create(GameEntity);
+	newEnt.coords = coords;
+	newEnt.velocity = velocity;
+	newEnt.radius = radius;
+	newEnt.acceleration = newVector(0,0);
+
+	return newEnt;
+		
+}
+
+function newBoxEntity(org, w, h){
 	var newEnt = Object.create(GameEntity);
 	newEnt.coords = coords;
 	newEnt.velocity = velocity;
