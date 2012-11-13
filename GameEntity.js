@@ -54,7 +54,14 @@ var GameEntity = {
 	 * then call B.collisionResponse(...) with the remainder. 	  	 	 
 	 */	 	  
 	collideWith: function(other){
-		
+		var resVec = circle_circle(this.coords, this.radius, other.coords, other.radius);
+		if(resVec !== null){
+		    
+			this.collisionResponse(vScalarMult(-0.5,resVec), other);
+			resVec.scalarMult(0.5);
+			other.collisionResponse(resVec);
+			 
+		}	
 	},
 	
 	/**
@@ -65,7 +72,8 @@ var GameEntity = {
 	 * spike death sprite. 	 	 	 
 	 **/
 	collisionResponse : function(responseVector, other){
-	
+		this.coords.add(responseVector);
+		this.velocity.reflect(responseVector);
 	},
 	
 	/**
@@ -93,7 +101,7 @@ function newGameEntity(coords, velocity, radius){
 	newEnt.coords = coords;
 	newEnt.velocity = velocity;
 	newEnt.radius = radius;
-	newEnt.acceleration = newVector(0,0.0098);
+	newEnt.acceleration = newVector(0,0.00098);
 
 	return newEnt;
 		

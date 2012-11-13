@@ -28,6 +28,7 @@ window.onload = function () {
 	
 	startT = Date.now();
 	
+	
 	// run the main loop
 	mainLoop();
 }

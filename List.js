@@ -3,11 +3,13 @@
  * List.js
  * Ben Reddersen
  * reddersen@wisc.edu
- * Version: 2.0
+ * Version: 2.1
  *
  * 2.0 changelog:
  * 		Converted to a prototypal pattern from 
  *      the old Pseudoclassical pattern
+ * 2.1 changelog:
+ * 		Added a pair iterator to List
  * 
  * 2.x roadmap:      
  *		Implement sort()
@@ -68,6 +70,61 @@ function newListNode(data, prev, next){
 	return newNode;
 }
 
+/*=====================================================================
+  _     _     _   ____       _     ___ _                 _             
+ | |   (_)___| |_|  _ \ __ _(_)_ _|_ _| |_ ___ _ __ __ _| |_ ___  _ __ 
+ | |   | / __| __| |_) / _` | | '__| || __/ _ \ '__/ _` | __/ _ \| '__|
+ | |___| \__ \ |_|  __/ (_| | | |  | || ||  __/ | | (_| | || (_) | |   
+ |_____|_|___/\__|_|   \__,_|_|_| |___|\__\___|_|  \__,_|\__\___/|_|   
+                                                                       
+=====================================================================*/
+
+/**
+ * ListPairIterator does not return the same element as a pair, so if the 
+ * list contains [A, B, C, D], the iterator will return:
+ * AB AC AD
+ * BC BD
+ * CD
+ * 
+ * The ordering of the items in the tuple returned and the ordering of the 
+ * tuples is not guaranteed.       
+ *     
+ * */
+var ListPairIterator = {
+	currentNodeA : null,
+	currentNodeB : null,
+	_List : null,
+	
+	hasNext : function(){
+		return (this.currentNodeB === this._List.tail || this.currentNodeB === null);
+	},
+	
+	next : function() {
+		if(this.currentNodeB === this._List.tail || this.currentNodeB === null){
+			throw StopIteration;
+		}
+		var out = {A : this.currentNodeA.data, B : this.currentNodeB.data};
+		this.currentNodeB = this.currentNodeB.next;	
+		if(this.currentNodeB === this._List.tail){
+			this.currentNodeA = this.currentNodeA.next;
+			this.currentNodeB = this.currentNodeA.next;
+		}
+		return out;
+	}
+
+
+}
+
+// 
+function newListPairIterator(_List){
+	
+	var outIter = Object.create(ListPairIterator);
+	outIter._List = _List;
+	outIter.currentNodeA = outIter._List.head.next;
+	outIter.currentNodeB = outIter.currentNodeA.next;
+	return outIter;
+}
+
 /*======================================================
   _     _     _   ___ _                 _             
  | |   (_)___| |_|_ _| |_ ___ _ __ __ _| |_ ___  _ __ 
@@ -125,6 +182,7 @@ var ListIterator = {
 }
 
 function newListIterator(_List){
+	
 	var listIter = Object.create(ListIterator);
 	listIter.currentNode = _List.head;
 	listIter._List = _List;
@@ -246,6 +304,13 @@ var List = {
 	
 	iterator : function(){
 		return newListIterator(this);
+	},
+	
+	pairs : {
+		parent : null,
+		__iterator__ : function(){
+		  return newListPairIterator(this.parent);
+		}	
 	} 
 		
 };
@@ -261,7 +326,12 @@ function newList(){
 	newL.tail = newListNode(null, newL.head, null);
 	
 	newL.head.next = newL.tail;
-	
+	newL.pairs = {
+		parent : newL,
+		__iterator__ : function(){
+		  return newListPairIterator(this.parent);
+		}	
+	} 
 	return newL;
 };
 

@@ -160,6 +160,19 @@ function updateEntities(elapsedTime){
 	//var staticIter = staticList.iterator();
 	//var dynamicIter = staticList.iterator();
 	
+	for(statEnt in staticList){
+		for(dynEnt in dynamicList){
+			statEnt.collideWith(dynEnt);	
+		}
+	}
+	
+	//console.log(dynamicList);
+	
+	for(dynPair in dynamicList.pairs){
+		
+		 dynPair.A.collideWith(dynPair.B);
+	}
+	
 }  
 
 function drawList(list){

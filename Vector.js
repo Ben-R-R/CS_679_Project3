@@ -3,10 +3,10 @@
 var Vector = {
 	x : 0,
 	y : 0,
-	dot: function(rhVec){
-		this.x *= rhVec.x;
-		this.y *= rhVec.y;	
-	},
+	//dot: function(rhVec){
+	//	this.x *= rhVec.x;
+	//	this.y *= rhVec.y;	
+	//},
 	add : function(rhVec){
 		this.x += rhVec.x;
 		this.y += rhVec.y;
@@ -23,6 +23,21 @@ var Vector = {
 	},
 	length : function(){
 		return  Math.sqrt(this.x * this.x + this.y * this.y);
+	},
+	// mirrors the vector over the line of the given vector
+	reflect : function(rhs){
+		if(rhs.x === 0 && rhs.y === 0){
+			return;
+		}
+	
+		var a = vScalarMult(2 * (vDot(this, rhs)/vDot(rhs, rhs)), rhs);
+		
+		this.scalarMult(-1);
+		var b = vAdd(a,this);
+		this.x = b.x;
+		this.y = b.y;
+		
+		 	
 	}
 };
 
@@ -34,10 +49,8 @@ function vAdd(lhs, rhs){
 	return vec;
 }
 function vDot(lhs, rhs){
-	var vec = Object.create(Vector);
-	vec.x = lhs.x * rhs.x;
-	vec.y = lhs.y * rhs.y;
-	return vec;	
+	
+	return lhs.x * rhs.x + lhs.y * rhs.y;	
 }
 function vNormal(lhs){
 	var vec = Object.create(Vector);
@@ -53,6 +66,8 @@ function vScalarMult(scalar, lhs){
 	vec.y = lhs.y * scalar;
 	return vec;	
 }
+
+
 
 
 
