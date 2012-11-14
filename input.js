@@ -11,6 +11,13 @@ function initInput(){
     window.addEventListener("keyup", function (e) { 
 		keysStateBuffer [e.keyCode] = KEY_STATE.FIRST_UP; 
 	}, false);
+	
+	theCanvas.addEventListener("mousemove", function (e) {
+        
+        mouseX = (e.pageX - theCanvas.offsetLeft);
+        mouseY = (e.pageY - theCanvas.offsetTop);
+
+    }, false);
 
 }
 

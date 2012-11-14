@@ -81,12 +81,12 @@ function AABB_circle(box, pos, r){
 	// note that inside |= (res = (0,0))
 	if(inside){
 		if(Math.abs(AxisSet.x) < Math.abs(AxisSet.y)){
-			res.x = AxisSet.x + ((AxisSet.x > 0) ? r:-r);
+			res.x = AxisSet.x + ((AxisSet.x > 0) ? (r + .0001): -(r + .0001));
 			
 			
 			//console.log(AxisSet.x + ", " + res.x + ", " + r);
 		} else {
-		    res.y = AxisSet.y + ((AxisSet.y > 0) ? r:-r);
+		    res.y = AxisSet.y + ((AxisSet.y > 0) ? (r + .0001): -(r + .0001));
 		}
 		
 		return res;
@@ -96,7 +96,9 @@ function AABB_circle(box, pos, r){
 		return null;
 	}
 	
-	
+	var l = res.length();
+	res.normalize();
+	res.scalarMult(r - l);
 	
 	return res ;
 

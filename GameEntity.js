@@ -149,6 +149,29 @@ function newGameEntity(coords, velocity, radius){
 		
 }
 
+function newGameMouseEntity(radius){
+	var newEnt = Object.create(GameEntity);
+	newEnt.coords = newVector(mouseX,mouseY);
+	newEnt.velocity = newVector(0,0);
+	newEnt.radius = radius;
+	newEnt.acceleration = newVector(0,0);
+	newEnt.fixed = true;
+	newEnt.update = function(elapsedTime){
+		this.coords.x = mouseX;
+		this.coords.y = mouseY;
+	}
+	newEnt.collisionResponse = function(responseVector, other){
+		if(responseVector == NaN){
+			return;
+		}
+		//this.coords.add(responseVector);
+		//this.velocity.reflect(vOrthoNormal(responseVector));
+		this.resVec = responseVector; 
+	}
+	return newEnt;
+		
+}
+
 function newBoxEntity(org, w, h){
 	var newEnt = Object.create(GameEntity);
 	newEnt.coords = org;
@@ -156,13 +179,14 @@ function newBoxEntity(org, w, h){
 	newEnt.radius = 0;
 	newEnt.aabb = newBox(org.x, org.y, w , h)
 	newEnt.acceleration = newVector(0,0);
-	newEnt.fixed = false
+	newEnt.fixed = true;
 	newEnt.draw = function(origin){
 		//theContext.strokeStyle = "#000000";
         theContext.fillStyle = "#000000";
         
         theContext.fillRect(this.aabb.x,this.aabb.y,this.aabb.w,this.aabb.h);
 	}
+	
 	return newEnt;
 		
 }

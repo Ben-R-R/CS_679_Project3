@@ -48,3 +48,7 @@ function newUserException(message, name = "UserException") {
    newUserEx.message = message;
    newUserEx.name = name;
 }
+
+// stores the coordinates of the mouse relitive to the canvas;
+mouseX = 0;
+mouseY = 0;
