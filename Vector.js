@@ -101,5 +101,10 @@ var Box = {
 }
 
 function newBox(x,y,w,h){
-
+	var outBox = Object.create(Box);
+	outBox.x = x;
+	outBox.y = y;
+	outBox.w = w;
+	outBox.h = h;
+	return outBox;
 }

@@ -65,15 +65,19 @@ function AABB_circle(box, pos, r){
 			inside = false;
 			res[i] = e;
 			d += (e * e)
-		} else { // we know it collides, just figure out the direction of the response vector:
+		} else { 
+			// we know it collides in this dimension, we just 
+			// need to figure out the direction of the response 
+			// vector:
 		
-		
+		    // e = pos[i] - boxMax[i]
 			var e2 = (pos[i] - boxMin[i]);
-			// at this point the e vectors are along the line of action of the
-			// response vector, but point in the wrong direction. 
+			
+			// 
 			AxisSet[i] = (e2 < -e) ? -e2: -e;
 		}
 	}
+	// note that inside |= (res = (0,0))
 	if(inside){
 		// find the closest edge
 		var minDist = Math.abs(AxisSet["x"]);
@@ -86,10 +90,10 @@ function AABB_circle(box, pos, r){
 							
 		}
 		
-		res[axis] = AxisSet[axis];
-		
+		res[axis] = AxisSet[axis] + r;
+		return res;
 	}
-	responseInside = inside;
+	
 	if(d > (r * r) ){
 		return null;
 	}
