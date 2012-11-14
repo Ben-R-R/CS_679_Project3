@@ -15,4 +15,8 @@ function initLevelManager(){
 				Math.random() * 7 + 8), 
 			dynamicList);
 	}
+	
+	spawnNewEntity(newBoxEntity(newVector(100,100), 100, 20), staticList);
+	
+	spawnNewEntity(newBoxEntity(newVector(200,100), 200, 200), staticList);
 }

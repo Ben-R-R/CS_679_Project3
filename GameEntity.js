@@ -65,9 +65,22 @@ var GameEntity = {
 	
 		var resVec = null;
 		if(this.aabb === null){
-			resVec = circle_circle(this.coords, this.radius, other.coords, other.radius);
+			if(other.aabb === null){
+				resVec = circle_circle(this.coords, this.radius, other.coords, other.radius);
+			} else {
+				resVec = AABB_circle(other.aabb, this.coords, this.radius);
+				if(resVec !== null){
+					resVec.scalarMult(-1);
+				}
+			}
+			
 		} else {
-			resVec = AABB_circle(other.aabb, other.coords, other.radius)
+			if(other.aabb === null){
+				resVec = AABB_circle(this.aabb, other.coords, other.radius);
+			} else {
+			    resVec = AABB_AABB(this.aabb, other.aabb);
+			}
+			
 		}
 		
 		
@@ -126,11 +139,18 @@ function newGameEntity(coords, velocity, radius){
 
 function newBoxEntity(org, w, h){
 	var newEnt = Object.create(GameEntity);
-	newEnt.coords = coords;
-	newEnt.velocity = velocity;
-	newEnt.radius = radius;
+	newEnt.coords = org;
+	newEnt.velocity = newVector(0,0);
+	newEnt.radius = 0;
+	newEnt.aabb = newBox(org.x, org.y, w , h)
 	newEnt.acceleration = newVector(0,0);
-
+	newEnt.fixed = false
+	newEnt.draw = function(origin){
+		//theContext.strokeStyle = "#000000";
+        theContext.fillStyle = "#000000";
+        
+        theContext.fillRect(this.aabb.x,this.aabb.y,this.aabb.w,this.aabb.h);
+	}
 	return newEnt;
 		
 }

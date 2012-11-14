@@ -37,10 +37,10 @@ function circle_circle(pos1, r1, pos2, r2){
 }
 
 function AABB_circle(box, pos, r){
-	var boxMin = newVector(box.x, box,y);
+	var boxMin = newVector(box.x, box.y);
 	var boxMax = newVector(box.x + box.w, box.y + box.h);
 	
-	var InterDistVect = newVector(0,0);
+	var res = newVector(0,0);
 
 	var d = 0;
 	var e = 0;
@@ -90,7 +90,7 @@ function AABB_circle(box, pos, r){
 							
 		}
 		
-		res[axis] = AxisSet[axis] + r;
+		res[axis] = AxisSet[axis] + (AxisSet[axis] > 0) ? r:-r;
 		return res;
 	}
 	
