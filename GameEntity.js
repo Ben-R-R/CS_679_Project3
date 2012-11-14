@@ -102,8 +102,12 @@ var GameEntity = {
 	 * spike death sprite. 	 	 	 
 	 **/
 	collisionResponse : function(responseVector, other){
+		if(responseVector == NaN){
+			return;
+		}
 		this.coords.add(responseVector);
 		this.velocity.reflect(vOrthoNormal(responseVector));
+		this.resVec = responseVector; 
 	},
 	
 	/**
@@ -122,6 +126,14 @@ var GameEntity = {
         theContext.closePath();
         theContext.stroke();
         theContext.fill();
+        
+        if(this.resVec){
+        	theContext.strokeStyle = "#FF0000";
+			theContext.moveTo(this.coords.x,this.coords.y);
+			theContext.lineTo(this.coords.x + this.resVec.x, this.coords.y + this.resVec.y );
+			theContext.stroke();	
+		}
+        
 	}
 
 }

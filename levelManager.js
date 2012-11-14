@@ -19,4 +19,6 @@ function initLevelManager(){
 	spawnNewEntity(newBoxEntity(newVector(100,100), 100, 20), staticList);
 	
 	spawnNewEntity(newBoxEntity(newVector(200,100), 200, 200), staticList);
+	
+	spawnNewEntity(newBoxEntity(newVector(400 - 20,200), 20, 400), staticList);
 }
