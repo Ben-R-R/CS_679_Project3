@@ -38,6 +38,10 @@ var Vector = {
 		this.y = b.y;
 		
 		 	
+	},
+	set : function (x,y){
+		this.x = x;
+		this.y = y;
 	}
 };
 

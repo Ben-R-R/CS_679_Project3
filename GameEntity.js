@@ -20,7 +20,7 @@ var GameEntity = {
 		
 		//this.velocity.add(vScalarMult(elapsedTime, this.acceleration))
 		
-		if( this.velocity.x < 0 && this.coords.x < 0){
+		/*if( this.velocity.x < 0 && this.coords.x < 0){
 			this.coords.x = 0;
 			this.velocity.x = -this.velocity.x;
 		}
@@ -36,7 +36,7 @@ var GameEntity = {
 		if(this.velocity.y > 0 && this.coords.y > theCanvas.height){
 			this.coords.y = theCanvas.height;
 			this.velocity.y = -this.velocity.y;
-		}
+		}*/
 		
 		return STATE_ALIVE;			
 	},
@@ -61,7 +61,10 @@ var GameEntity = {
 		var resUse = -0.5;
 		if(this.fixed){
 			resUse = 0;			
+		} else if(other.fixed){
+		    resUse = -1;
 		}
+		
 	
 		var resVec = null;
 		if(this.aabb === null){
@@ -155,7 +158,7 @@ function newGameMouseEntity(radius){
 	newEnt.velocity = newVector(0,0);
 	newEnt.radius = radius;
 	newEnt.acceleration = newVector(0,0);
-	newEnt.fixed = true;
+	newEnt.fixed = false;
 	newEnt.update = function(elapsedTime){
 		this.coords.x = mouseX;
 		this.coords.y = mouseY;
@@ -185,6 +188,69 @@ function newBoxEntity(org, w, h){
         theContext.fillStyle = "#000000";
         
         theContext.fillRect(this.aabb.x,this.aabb.y,this.aabb.w,this.aabb.h);
+	}
+	
+	return newEnt;
+		
+}
+
+function newGameKeyEntity(x,y, radius){
+	var newEnt = Object.create(GameEntity);
+	newEnt.coords = newVector(x,y);
+	newEnt.velocity = newVector(0,0);
+	newEnt.radius = radius;
+	newEnt.acceleration = newVector(0,GRAVITY);
+	newEnt.fixed = false;
+	this.onGround=false;
+	
+	newEnt.update = function(elapsedTime){
+		
+		if(keydown(65)){
+			this.velocity.x = -.3
+		}else if(keydown(68)){
+			this.velocity.x = .3
+		} else {
+		    this.velocity.x = 0;
+		}
+		
+		if(keydown(32) && this.onGround){
+			this.velocity.y = -.6
+							
+		}
+		
+		this.coords.add(vScalarMult(elapsedTime,this.velocity))
+		
+		this.velocity.add(vScalarMult(elapsedTime,this.acceleration))
+		if(this.velocity.y > .5){
+		   this.velocity.y = .5;
+		}
+		
+		this.onGround = false;
+		return STATE_ALIVE; 
+	}
+	
+	newEnt.collisionResponse = function(responseVector, other){
+		if(responseVector == NaN){
+			return;
+		}
+		this.coords.add(responseVector);
+		if(responseVector.y < 0){
+			this.onGround = true;
+			
+		}
+		if(responseVector.x > 0 && this.velocity.x < 0){
+			this.velocity.x	= 0;		
+		}else if(responseVector.x < 0 && this.velocity.x > 0){
+			this.velocity.x	= 0;		
+		}       
+		
+		if(responseVector.y > 0 && this.velocity.y < 0){
+			this.velocity.y	= 0;		
+		}else if(responseVector.y < 0 && this.velocity.y > 0){
+			this.velocity.y	= 0;		
+		}  
+		 
+		this.resVec = responseVector; 
 	}
 	
 	return newEnt;

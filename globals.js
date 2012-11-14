@@ -52,3 +52,6 @@ function newUserException(message, name = "UserException") {
 // stores the coordinates of the mouse relitive to the canvas;
 mouseX = 0;
 mouseY = 0;
+
+// gravitational constant
+GRAVITY = 0.0015;
