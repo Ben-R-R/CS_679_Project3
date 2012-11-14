@@ -43,10 +43,10 @@ var UserException = {
    name : "UserException"
 }
 
-function newUserException(message, name = "UserException") {
+function newUserException(message) {
    var newUserEx = Object.create(UserException);
    newUserEx.message = message;
-   newUserEx.name = name;
+   newUserEx.name = "UserException";
 }
 
 // stores the coordinates of the mouse relitive to the canvas;

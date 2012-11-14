@@ -194,6 +194,10 @@ function newBoxEntity(org, w, h){
 		
 }
 
+/**
+ * 
+ *
+ **/
 function newGameKeyEntity(x,y, radius){
 	var newEnt = Object.create(GameEntity);
 	newEnt.coords = newVector(x,y);
@@ -206,15 +210,16 @@ function newGameKeyEntity(x,y, radius){
 	newEnt.update = function(elapsedTime){
 		
 		if(keydown(65)){
-			this.velocity.x = -.3
+			this.velocity.x = -.3;
 		}else if(keydown(68)){
-			this.velocity.x = .3
+			this.velocity.x = .3;
 		} else {
 		    this.velocity.x = 0;
 		}
 		
+		// apply impulse to velocity. 
 		if(keydown(32) && this.onGround){
-			this.velocity.y = -.6
+			this.velocity.y = -.6;
 							
 		}
 		
@@ -224,31 +229,47 @@ function newGameKeyEntity(x,y, radius){
 		}
 		this.coords.add(vScalarMult(elapsedTime,this.velocity))
 		
+		// we assume we are not on the ground unless the physics engine tells 
+		// us otherwise.
 		this.onGround = false;
 		return STATE_ALIVE; 
 	}
 	
 	newEnt.collisionResponse = function(responseVector, other){
+		
+		// not sure if we need to do this. Was trying to stop the disapearing 
+		// ball problem
 		if(responseVector == NaN){
 			return;
 		}
+		
+		// move so we are not colliding anymore
 		this.coords.add(responseVector);
+		
+		/**
+		 * We consider ourselves "on the ground" if there is something to 
+		 * push on.		 
+		 **/ 
 		if(responseVector.y < 0){
 			this.onGround = true;
 			
 		}
+		
+		// if we bump an opposing force, stop. This is not entirely physicly
+		// correct but will work for the most part.
 		if(responseVector.x > 0 && this.velocity.x < 0){
 			this.velocity.x	= 0;		
 		}else if(responseVector.x < 0 && this.velocity.x > 0){
 			this.velocity.x	= 0;		
-		}       
-		
+		}
 		if(responseVector.y > 0 && this.velocity.y < 0){
 			this.velocity.y	= 0;		
 		}else if(responseVector.y < 0 && this.velocity.y > 0){
 			this.velocity.y	= 0;		
 		}  
-		 
+		
+		// hold on to the response vector, currently we only do this so we can
+		// draw it for debugging purposes  
 		this.resVec = responseVector; 
 	}
 	
