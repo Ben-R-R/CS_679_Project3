@@ -218,12 +218,11 @@ function newGameKeyEntity(x,y, radius){
 							
 		}
 		
-		this.coords.add(vScalarMult(elapsedTime,this.velocity))
-		
 		this.velocity.add(vScalarMult(elapsedTime,this.acceleration))
 		if(this.velocity.y > .5){
 		   this.velocity.y = .5;
 		}
+		this.coords.add(vScalarMult(elapsedTime,this.velocity))
 		
 		this.onGround = false;
 		return STATE_ALIVE; 
