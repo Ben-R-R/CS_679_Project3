@@ -84,9 +84,9 @@ function AABB_circle(box, pos, r){
 			res.x = AxisSet.x + ((AxisSet.x > 0) ? r:-r);
 			
 			
-			console.log(AxisSet.x + ", " + res.x + ", " + r);
+			//console.log(AxisSet.x + ", " + res.x + ", " + r);
 		} else {
-		    res.y = AxisSet.y + (AxisSet.y > 0) ? r:-r;
+		    res.y = AxisSet.y + ((AxisSet.y > 0) ? r:-r);
 		}
 		
 		return res;
