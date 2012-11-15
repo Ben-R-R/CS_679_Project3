@@ -39,6 +39,9 @@ function mainLoop(){
 	startT = Date.now();
 
 	updateInput();
+	if(elapsedT > 100){
+		elapsedT = 100;
+	}
 	updateEntities(elapsedT);
 	theContext.clearRect(0, 0, theCanvas.width, theCanvas.height);	
 	drawEntities()
