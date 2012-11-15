@@ -6,7 +6,10 @@ var GameEntity = {
 	radius : 0,
 	aabb : null,
 	fixed : false,
+	virtual : false, // if an object collides with a virtual entity, it should 
+					 // not respond to the collision
 	acceleration : null,
+	
 	/**
 	 * Update the entity, this usualy entails moving and animating the entity 
 	 * In the special case of the player entity, this is where you would read 
@@ -57,6 +60,8 @@ var GameEntity = {
 	 */	 	  
 	collideWith: function(other){
 		
+		
+		
 		// indicates what portion of the response vector we use
 		var resUse = -0.5;
 		if(this.fixed){
@@ -92,7 +97,7 @@ var GameEntity = {
 		    
 			this.collisionResponse(vScalarMult(resUse,resVec), other);
 			resVec.scalarMult(1 + resUse);
-			other.collisionResponse(resVec);
+			other.collisionResponse(resVec, this);
 			 
 		}	
 	},
@@ -106,6 +111,9 @@ var GameEntity = {
 	 **/
 	collisionResponse : function(responseVector, other){
 		if(responseVector == NaN){
+			return;
+		}
+		if(other.virtual){
 			return;
 		}
 		this.coords.add(responseVector);
@@ -165,6 +173,9 @@ function newGameMouseEntity(radius){
 	}
 	newEnt.collisionResponse = function(responseVector, other){
 		if(responseVector == NaN){
+			return;
+		}
+		if(other.virtual){
 			return;
 		}
 		//this.coords.add(responseVector);
@@ -240,6 +251,9 @@ function newGameKeyEntity(x,y, radius){
 		// not sure if we need to do this. Was trying to stop the disapearing 
 		// ball problem
 		if(responseVector == NaN){
+			return;
+		}
+		if(other.virtual){
 			return;
 		}
 		
