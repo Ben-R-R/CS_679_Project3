@@ -38,7 +38,6 @@ function mainLoop(){
 	elapsedT = Date.now() - startT;
 	startT = Date.now();
 
-	updateInput();
 	if(elapsedT > 100){
 		elapsedT = 100;
 	}
@@ -47,5 +46,6 @@ function mainLoop(){
 	drawEntities()
 	
 	updateSound(); // does nothing right now
+	updateInput();
 	onNextFrame(mainLoop);
 }   

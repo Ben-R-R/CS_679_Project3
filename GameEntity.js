@@ -1,5 +1,8 @@
 // GameEntity.js
 
+var kangaJumps = 0;	//number of jumps available as kangaroo
+var kangaJmpA = 0;	//kangaroo jump acceleration
+
 var GameEntity = {
 	coords : null,
 	velocity : null,
@@ -233,6 +236,22 @@ function newGameKeyEntity(x,y, radius){
 		else if(keydown(50)){
 			this.form = "c";
 		} 
+		/* TODO: Unblock to add flying squirrel
+		//press 3 for flying squirrel
+		else if(keydown(51)){
+			this.form = "f";
+		}
+		*/
+		//press 4 for kangaroo
+		else if(keydown(52)){
+			this.form = "k";
+		}
+		/* TODO: Unblock to add spider
+		//press 5 for spider
+		else if(keydown(52)){
+			this.form = "s";
+		}
+		*/
 		//human form movement
 		if(this.form == "h"){
 			if(keydown(65)){
@@ -280,7 +299,7 @@ function newGameKeyEntity(x,y, radius){
 				}
 				//can only accelerate while on the ground
 				else if(tvx < .8  && this.onGround){
-					tvx += .02;
+					tvx += .1;
 				}
 			} else {
 				tvx = 0;
@@ -315,6 +334,43 @@ function newGameKeyEntity(x,y, radius){
 		//kangaroo movement
 		else if(this.form == "k"){
 			
+			//ground motion
+			if(this.onGround){
+				kangaJumps = 2;
+				if(keydown(65) || keydown(68)){	//left or right hops
+					this.velocity.y -= .2;
+				} else this.velocity.x = 0;	//stops movement on ground
+			}
+			//aerial motion
+			else{
+				if(keydown(65)){	//left movement in air
+					this.velocity.x -= .15;
+				}
+				if(keydown(68)){	//right movement in air
+					this.velocity.x += .15;
+				}
+				
+				if(this.velocity.x > .3) this.velocity.x = .3;
+				else if(this.velocity.x < -.3) this.velocity.x = -.3;
+			}
+			//jumps
+			if(keyhit(32) && kangaJumps > 0){	//initial jump-off
+				this.velocity.y = -.35;
+				kangaJumps--;
+				kangaJmpA = -.12;
+			} else if(keydown(32) && kangaJmpA < -0.01){	//jump "carry"
+				this.velocity.y += kangaJmpA;
+				kangaJmpA = kangaJmpA / 1.4;
+			}
+			
+			this.velocity.add(vScalarMult(elapsedTime,this.acceleration))
+			if(this.velocity.y > .5){
+			   this.velocity.y = .5;
+			}
+			this.coords.add(vScalarMult(elapsedTime,this.velocity))
+			//assume we're not on the ground
+			this.onGround = false;
+			return STATE_ALIVE;
 		}
 		
 		//spider movement
