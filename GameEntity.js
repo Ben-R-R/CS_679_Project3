@@ -95,9 +95,16 @@ var GameEntity = {
 		
 		if(resVec !== null){
 		    
-			this.collisionResponse(vScalarMult(resUse,resVec), other);
+		    if(!other.virtual){
+				this.collisionResponse(vScalarMult(resUse,resVec), other);
+			}
+			
+			
 			resVec.scalarMult(1 + resUse);
-			other.collisionResponse(resVec, this);
+			if(!this.virtual){
+				other.collisionResponse(resVec, this);
+			}
+			
 			 
 		}	
 	},
@@ -113,9 +120,7 @@ var GameEntity = {
 		if(responseVector == NaN){
 			return;
 		}
-		if(other.virtual){
-			return;
-		}
+		
 		this.coords.add(responseVector);
 		this.velocity.reflect(vOrthoNormal(responseVector));
 		this.resVec = responseVector; 
@@ -167,6 +172,7 @@ function newGameMouseEntity(radius){
 	newEnt.radius = radius;
 	newEnt.acceleration = newVector(0,0);
 	newEnt.fixed = false;
+	newEnt.virtual = true;
 	newEnt.update = function(elapsedTime){
 		this.coords.x = mouseX;
 		this.coords.y = mouseY;
@@ -175,9 +181,7 @@ function newGameMouseEntity(radius){
 		if(responseVector == NaN){
 			return;
 		}
-		if(other.virtual){
-			return;
-		}
+		
 		//this.coords.add(responseVector);
 		//this.velocity.reflect(vOrthoNormal(responseVector));
 		this.resVec = responseVector; 
@@ -253,9 +257,7 @@ function newGameKeyEntity(x,y, radius){
 		if(responseVector == NaN){
 			return;
 		}
-		if(other.virtual){
-			return;
-		}
+	
 		
 		// move so we are not colliding anymore
 		this.coords.add(responseVector);
