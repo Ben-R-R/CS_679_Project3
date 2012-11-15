@@ -117,7 +117,7 @@ var GameEntity = {
 	 * spike death sprite. 	 	 	 
 	 **/
 	collisionResponse : function(responseVector, other){
-		if(responseVector == NaN){
+		if(vectorError(responseVector) ){
 			return;
 		}
 		
@@ -178,7 +178,7 @@ function newGameMouseEntity(radius){
 		this.coords.y = mouseY;
 	}
 	newEnt.collisionResponse = function(responseVector, other){
-		if(responseVector == NaN){
+		if(vectorError(responseVector) ){
 			return;
 		}
 		
@@ -279,7 +279,7 @@ function newGameKeyEntity(x,y, radius){
 		
 		// not sure if we need to do this. Was trying to stop the disapearing 
 		// ball problem
-		if(responseVector == NaN){
+		if(vectorError(responseVector) ){
 			return;
 		}
 	

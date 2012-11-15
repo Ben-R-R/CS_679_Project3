@@ -45,6 +45,15 @@ var Vector = {
 	}
 };
 
+function vectorError(vec){
+	if(vec === NaN || vec === null || !vec){
+		return true;
+	} else if(vec.x === NaN || vec.x === null || vec.y === NaN || vec.y === null ){
+		return true;
+	}
+	return false;
+}
+
 // returns a vector that is the sum of the two given vectors
 function vAdd(lhs, rhs){
 	var vec = Object.create(Vector);
