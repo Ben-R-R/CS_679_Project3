@@ -195,7 +195,7 @@ function newBoxEntity(org, w, h){
 }
 
 /**
- * 
+ * i.e. the player for now - may need to move into its own file
  *
  **/
 function newGameKeyEntity(x,y, radius){
@@ -205,34 +205,59 @@ function newGameKeyEntity(x,y, radius){
 	newEnt.radius = radius;
 	newEnt.acceleration = newVector(0,GRAVITY);
 	newEnt.fixed = false;
-	this.onGround=false;
+	newEnt.onGround = false;
+	//set the form value to the current animal form
+	newEnt.form = "h";
 	
 	newEnt.update = function(elapsedTime){
 		
-		if(keydown(65)){
-			this.velocity.x = -.3;
-		}else if(keydown(68)){
-			this.velocity.x = .3;
-		} else {
-		    this.velocity.x = 0;
+		//human form movement
+		if(this.form == "h"){
+			if(keydown(65)){
+				this.velocity.x = -.3;
+			}else if(keydown(68)){
+				this.velocity.x = .3;
+			} else {
+				this.velocity.x = 0;
+			}
+			
+			// apply impulse to velocity. 
+			if(keydown(32) && this.onGround){
+				this.velocity.y = -.6;
+								
+			}
+			
+			this.velocity.add(vScalarMult(elapsedTime,this.acceleration))
+			if(this.velocity.y > .5){
+			   this.velocity.y = .5;
+			}
+			this.coords.add(vScalarMult(elapsedTime,this.velocity))
+			
+			// we assume we are not on the ground unless the physics engine tells 
+			// us otherwise.
+			this.onGround = false;
+			return STATE_ALIVE; 
 		}
 		
-		// apply impulse to velocity. 
-		if(keydown(32) && this.onGround){
-			this.velocity.y = -.6;
-							
+		//cheetah form movement
+		else if(this.form == "c"){
+			
 		}
 		
-		this.velocity.add(vScalarMult(elapsedTime,this.acceleration))
-		if(this.velocity.y > .5){
-		   this.velocity.y = .5;
+		//flying squirrel movement
+		else if(this.form == "f"){
+			
 		}
-		this.coords.add(vScalarMult(elapsedTime,this.velocity))
 		
-		// we assume we are not on the ground unless the physics engine tells 
-		// us otherwise.
-		this.onGround = false;
-		return STATE_ALIVE; 
+		//kangaroo movement
+		else if(this.form == "k"){
+			
+		}
+		
+		//spider movement
+		else if(this.form == "s"){
+			
+		}
 	}
 	
 	newEnt.collisionResponse = function(responseVector, other){
