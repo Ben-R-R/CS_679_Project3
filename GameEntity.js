@@ -225,7 +225,14 @@ function newGameKeyEntity(x,y, radius){
 	newEnt.form = "h";
 	
 	newEnt.update = function(elapsedTime){
-		
+		//press 1 for human
+		if(keydown(49)){
+			this.form = "h";
+		} 
+		//press 2 for cheetah
+		else if(keydown(50)){
+			this.form = "c";
+		} 
 		//human form movement
 		if(this.form == "h"){
 			if(keydown(65)){
@@ -256,7 +263,48 @@ function newGameKeyEntity(x,y, radius){
 		
 		//cheetah form movement
 		else if(this.form == "c"){
+			var tvx = this.velocity.x;
+			var tvy = this.velocity.y;
 			
+			if(keydown(65)){
+				if(tvx == 0){
+					tvx = -.3;
+				}
+				//can only accelerate while on the ground
+				else if(tvx > -.8 && this.onGround){
+					tvx -= .1;
+				}
+			}else if(keydown(68)){
+				if(tvx == 0){
+					tvx = .3;
+				}
+				//can only accelerate while on the ground
+				else if(tvx < .8  && this.onGround){
+					tvx += .02;
+				}
+			} else {
+				tvx = 0;
+			}
+			
+			// apply impulse to velocity. 
+			if(keydown(32) && this.onGround){
+				tvy = -.4;
+			}
+			
+			this.velocity.x = tvx;
+			this.velocity.y = tvy;
+			
+			//this bit can probably be moved outside for all of them
+			//unless we want to apply special cases to certain powers
+			this.velocity.add(vScalarMult(elapsedTime,this.acceleration))
+			if(this.velocity.y > .5){
+			   this.velocity.y = .5;
+			}
+			this.coords.add(vScalarMult(elapsedTime,this.velocity))
+			
+			// we assume we are not on the ground
+			this.onGround = false;
+			return STATE_ALIVE; 
 		}
 		
 		//flying squirrel movement
