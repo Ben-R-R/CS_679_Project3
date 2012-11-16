@@ -179,8 +179,8 @@ function newGameMouseEntity(radius){
 	newEnt.fixed = false;
 	newEnt.virtual = false;
 	newEnt.update = function(elapsedTime){
-		this.coords.x = mouseX;
-		this.coords.y = mouseY;
+		this.coords.x = mouseX - origin.x;
+		this.coords.y = mouseY + origin.y;
 		this.aabb.x = this.coords.x-15;//BOXCODE
 		this.aabb.y = this.coords.y-15;//BOXCODE
 		this.resVec = null;//BOXCODE
@@ -196,22 +196,6 @@ function newGameMouseEntity(radius){
 		//this.velocity.reflect(vOrthoNormal(responseVector));
 		this.resVec = responseVector; 
 	}
-	//ALL BOXCODE
-	/*newEnt.draw = function(origin){
-		theContext.strokeStyle = "#000000";
-        theContext.fillStyle = "#0099FF";
-        
-        theContext.fillRect(this.aabb.x,this.aabb.y,this.aabb.w,this.aabb.h);
-        
-        if(this.resVec){
-        	theContext.strokeStyle = "#FF0000";
-        	theContext.beginPath();
-			theContext.moveTo(this.coords.x,this.coords.y);
-			theContext.lineTo(this.coords.x + this.resVec.x, this.coords.y + this.resVec.y );
-			theContext.stroke();	
-		}
-        
-	}*/
 	return newEnt;
 		
 }
