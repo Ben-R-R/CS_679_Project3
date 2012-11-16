@@ -30,6 +30,8 @@ function initLevelManager(){
 	
 	spawnNewEntity(newBoxEntity(newVector(0 ,500), 100, 20), staticList);
 	
+	spawnNewEntity(newGearEntity(400 - 10, 300 - 10), staticList);
+	
 	//sides
 	spawnNewEntity(newBoxEntity(newVector(0,-100), 800, 100), staticList);
 	spawnNewEntity(newBoxEntity(newVector(-100,-100), 100, 800), staticList);

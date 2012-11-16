@@ -212,6 +212,38 @@ function newBoxEntity(org, w, h){
 		
 }
 
+function newGearEntity(x,y){
+	var newEnt = Object.create(GameEntity);
+	newEnt.coords = newVector(x,y);
+	newEnt.velocity = newVector(0,0);
+	newEnt.radius = GearLarge.width/2;
+	//newEnt.aabb = newBox(org.x, org.y, w , h)
+	newEnt.acceleration = newVector(0,0);
+	newEnt.fixed = true;
+	newEnt.theta = 0;	
+	newEnt.update = function(eTime){
+	    this.theta += eTime * 0.001
+        
+        
+	}
+	
+	newEnt.draw = function(origin){
+		var x = this.coords.x ;
+		var y = this.coords.y ;
+	
+		theContext.translate(x, y)
+        theContext.rotate(this.theta);
+        theContext.translate(-x,-y)
+        theContext.drawImage(GearLarge,  this.coords.x - this.radius,  this.coords.y - this.radius);
+        theContext.translate(x, y)
+        theContext.rotate(-this.theta);
+        theContext.translate(-x,-y)
+	}
+	
+	return newEnt;
+		
+}
+
 /**
  * i.e. the player for now - may need to move into its own file
  *
