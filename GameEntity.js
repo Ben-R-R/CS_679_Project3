@@ -313,6 +313,7 @@ function newGameKeyEntity(x,y, radius){
 			// we assume we are not on the ground unless the physics engine tells 
 			// us otherwise.
 			this.onGround = false;
+			origin.x = -this.coords.x + 400;
 			return STATE_ALIVE; 
 			
 		//cheetah form movement
@@ -360,6 +361,7 @@ function newGameKeyEntity(x,y, radius){
 			
 			// we assume we are not on the ground
 			this.onGround = false;
+			origin.x = -this.coords.x + 400;
 			return STATE_ALIVE;
 			
 		//flying squirrel movement 
@@ -406,6 +408,7 @@ function newGameKeyEntity(x,y, radius){
 			this.coords.add(vScalarMult(elapsedTime,this.velocity))
 			//assume we're not on the ground
 			this.onGround = false;
+			origin.x = -this.coords.x + 400;
 			return STATE_ALIVE;
 		}
 		

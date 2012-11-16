@@ -74,7 +74,7 @@ function initEntityManager(){
 
 	tempStorageList = newList();
 	
-	origin = newVector(20,20);
+	origin = newVector(100,-10);
 } 
 
 /**
