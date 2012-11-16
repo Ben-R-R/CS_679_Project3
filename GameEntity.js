@@ -223,7 +223,9 @@ function newGearEntity(x,y){
 	newEnt.theta = 0;	
 	newEnt.update = function(eTime){
 	    this.theta += eTime * 0.003
-        
+        if(this.theta > Math.PI * 2){
+			this.theta -= Math.PI * 2;	
+		}
         
 	}
 	
@@ -235,9 +237,7 @@ function newGearEntity(x,y){
         theContext.rotate(this.theta);
         theContext.translate(-x,-y)
         theContext.drawImage(GearLarge, x - GearLarge.width/2, y - GearLarge.width/2);
-        theContext.translate(x, y)
-        theContext.rotate(-this.theta);
-        theContext.translate(-x,-y)
+        theContext.setTransform(1,0,0,1,0,0);
 	}
 	
 	return newEnt;
