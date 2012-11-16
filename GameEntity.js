@@ -141,15 +141,15 @@ var GameEntity = {
         theContext.fillStyle = "#0099FF";
         
 		theContext.beginPath(); 
-        theContext.arc(this.coords.x, this.coords.y, this.radius, 0, Math.PI * 2, true);
+        theContext.arc(this.coords.x + origin.x, this.coords.y + origin.y, this.radius, 0, Math.PI * 2, true);
         theContext.closePath();
         theContext.stroke();
         theContext.fill();
         
         if(this.resVec){
         	theContext.strokeStyle = "#FF0000";
-			theContext.moveTo(this.coords.x,this.coords.y);
-			theContext.lineTo(this.coords.x + this.resVec.x, this.coords.y + this.resVec.y );
+			theContext.moveTo(this.coords.x + origin.x, this.coords.y + origin.y);
+			theContext.lineTo(this.coords.x + this.resVec.x + origin.x, this.coords.y + this.resVec.y + origin.y);
 			theContext.stroke();	
 		}
         
@@ -205,7 +205,7 @@ function newBoxEntity(org, w, h){
 		//theContext.strokeStyle = "#000000";
         theContext.fillStyle = "#000000";
         
-        theContext.fillRect(this.aabb.x,this.aabb.y,this.aabb.w,this.aabb.h);
+        theContext.fillRect(this.aabb.x + origin.x,this.aabb.y + origin.y,this.aabb.w,this.aabb.h);
 	}
 	
 	return newEnt;
@@ -230,13 +230,13 @@ function newGearEntity(x,y){
 	}
 	
 	newEnt.draw = function(origin){
-		var x = this.coords.x;
-		var y = this.coords.y;
+		var x = this.coords.x + origin.x;
+		var y = this.coords.y + origin.y;
 	
 		theContext.translate(x, y)
         theContext.rotate(this.theta);
         theContext.translate(-x,-y)
-        theContext.drawImage(GearLarge, x - GearLarge.width/2, y - GearLarge.width/2);
+        theContext.drawImage(GearLarge, x - GearLarge.width/2 , y  - GearLarge.width/2 );
         theContext.setTransform(1,0,0,1,0,0);
 	}
 	
@@ -458,24 +458,24 @@ function newGameKeyEntity(x,y, radius){
 		if(this.form == "k"){
 			if(this.onGround){
 				if(this.direction === -1){
-					theContext.drawImage(kangaroo1L,this.coords.x - kangaroo1R.width/2,this.coords.y - kangaroo1R.height/2);
+					theContext.drawImage(kangaroo1L,this.coords.x - kangaroo1R.width/2 + origin.x,this.coords.y - kangaroo1R.height/2 + origin.y);
 				} else {
-				    theContext.drawImage(kangaroo1R,this.coords.x - kangaroo1R.width/2,this.coords.y - kangaroo1R.height/2);
+				    theContext.drawImage(kangaroo1R,this.coords.x - kangaroo1R.width/2 + origin.x,this.coords.y - kangaroo1R.height/2 + origin.y);
 				}
 			} else {
 				if(this.direction === -1){
-					theContext.drawImage(kangaroo2L,this.coords.x - kangaroo1R.width/2,this.coords.y - kangaroo1R.height/2);
+					theContext.drawImage(kangaroo2L,this.coords.x - kangaroo1R.width/2 + origin.x,this.coords.y - kangaroo1R.height/2 + origin.y);
 				} else {
-				    theContext.drawImage(kangaroo2R,this.coords.x - kangaroo1R.width/2,this.coords.y - kangaroo1R.height/2);
+				    theContext.drawImage(kangaroo2R,this.coords.x - kangaroo1R.width/2 + origin.x,this.coords.y - kangaroo1R.height/2 + origin.y);
 				}
 			}
 		} else if(this.form == "h"){
-			theContext.drawImage(human1,this.coords.x - human1.width/2,this.coords.y - human1.height/2);
+			theContext.drawImage(human1,this.coords.x - human1.width/2 + origin.x,this.coords.y - human1.height/2 + origin.y);
 		} else if(this.form == "c"){
 			if(this.direction === -1){
-				theContext.drawImage(CheetahL,this.coords.x - CheetahR.width/2,this.coords.y - CheetahR.height/2);
+				theContext.drawImage(CheetahL,this.coords.x - CheetahR.width/2 + origin.x,this.coords.y - CheetahR.height/2 + origin.y);
 			} else {
-			    theContext.drawImage(CheetahR,this.coords.x - CheetahR.width/2,this.coords.y - CheetahR.height/2);
+			    theContext.drawImage(CheetahR,this.coords.x - CheetahR.width/2 + origin.x,this.coords.y - CheetahR.height/2 + origin.y);
 			}
 		}
 		

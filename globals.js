@@ -53,6 +53,11 @@ function newUserException(message) {
 mouseX = 0;
 mouseY = 0;
 
+// stores the origin
+
+origin = null;
+
+
 // gravitational constant
 GRAVITY = 0.0015;
 

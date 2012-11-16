@@ -73,6 +73,8 @@ function initEntityManager(){
 	particleList.isIterating = false;
 
 	tempStorageList = newList();
+	
+	origin = newVector(20,20);
 } 
 
 /**
@@ -177,7 +179,7 @@ function updateEntities(elapsedTime){
 
 function drawList(list){
 	for(var entity in list){
-		entity.draw(null); // need to replace null with an origin soon
+		entity.draw(origin); // need to replace null with an origin soon
 	}
 }
 
