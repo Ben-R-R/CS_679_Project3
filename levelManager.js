@@ -20,9 +20,15 @@ function initLevelManager(){
 	
 	spawnNewEntity(newBoxEntity(newVector(200,100), 200, 200), staticList);
 	
-	spawnNewEntity(newBoxEntity(newVector(400 - 20,300), 20, 400), staticList);
+	//spawnNewEntity(newBoxEntity(newVector(400 - 20,300), 20, 400), staticList);
 	
-	spawnNewEntity(newBoxEntity(newVector(450 ,300), 200, 20), staticList);
+	spawnNewEntity(newBoxEntity(newVector(100 ,300), 200, 20), staticList);
+	
+	spawnNewEntity(newBoxEntity(newVector(600 ,400), 20, 200), staticList); 
+	 
+	spawnNewEntity(newBoxEntity(newVector(750 ,100), 200, 20), staticList);
+	
+	spawnNewEntity(newBoxEntity(newVector(0 ,500), 100, 20), staticList);
 	
 	//sides
 	spawnNewEntity(newBoxEntity(newVector(0,-100), 800, 100), staticList);
