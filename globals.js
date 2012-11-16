@@ -62,8 +62,12 @@ var kangaroo2R = new Image();
 var kangaroo1L = new Image();
 var kangaroo2L = new Image();
 
+var human1 = new Image();
+
 kangaroo1R.src = './images/Kangaroo1.png';
 kangaroo2R.src = './images/Kangaroo2.png';
 
 kangaroo1L.src = './images/Kangaroo-1.png';
-kangaroo2L.src = './images/Kangaroo-2.png';
+kangaroo2L.src = './images/Kangaroo-2.png';       
+
+human1.src = './images/human1.png';

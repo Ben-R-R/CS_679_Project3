@@ -282,10 +282,9 @@ function newGameKeyEntity(x,y, radius){
 			// us otherwise.
 			this.onGround = false;
 			return STATE_ALIVE; 
-		}
-		
+			
 		//cheetah form movement
-		else if(this.form == "c"){
+		} else if(this.form == "c"){
 			var tvx = this.velocity.x;
 			var tvy = this.velocity.y;
 			
@@ -329,16 +328,13 @@ function newGameKeyEntity(x,y, radius){
 			
 			// we assume we are not on the ground
 			this.onGround = false;
-			return STATE_ALIVE; 
-		}
-		
-		//flying squirrel movement
-		else if(this.form == "f"){
+			return STATE_ALIVE;
 			
-		}
+		//flying squirrel movement 
+		} else if(this.form == "f"){
 		
-		//kangaroo movement
-		else if(this.form == "k"){
+		//kangaroo movement	
+		} else if(this.form == "k"){
 			
 			//ground motion
 			if(this.onGround){
@@ -427,25 +423,24 @@ function newGameKeyEntity(x,y, radius){
 	}
 	
 	newEnt.draw = function(origin){
-		if(this.onGround){
-			
-			if(this.direction === -1){
-				theContext.drawImage(kangaroo1L,this.coords.x - kangaroo1R.width/2,this.coords.y - kangaroo1R.height/2);
+		if(this.form == "k"){
+			if(this.onGround){
+				if(this.direction === -1){
+					theContext.drawImage(kangaroo1L,this.coords.x - kangaroo1R.width/2,this.coords.y - kangaroo1R.height/2);
+				} else {
+				    theContext.drawImage(kangaroo1R,this.coords.x - kangaroo1R.width/2,this.coords.y - kangaroo1R.height/2);
+				}
 			} else {
-			    theContext.drawImage(kangaroo1R,this.coords.x - kangaroo1R.width/2,this.coords.y - kangaroo1R.height/2);
+				if(this.direction === -1){
+					theContext.drawImage(kangaroo2L,this.coords.x - kangaroo1R.width/2,this.coords.y - kangaroo1R.height/2);
+				} else {
+				    theContext.drawImage(kangaroo2R,this.coords.x - kangaroo1R.width/2,this.coords.y - kangaroo1R.height/2);
+				}
 			}
-			
-			
-			
-		 
-		} else {
-			
-			if(this.direction === -1){
-				theContext.drawImage(kangaroo2L,this.coords.x - kangaroo1R.width/2,this.coords.y - kangaroo1R.height/2);
-			} else {
-			    theContext.drawImage(kangaroo2R,this.coords.x - kangaroo1R.width/2,this.coords.y - kangaroo1R.height/2);
-			}
+		} else if(this.form == "h"){
+			theContext.drawImage(human1,this.coords.x - human1.width/2,this.coords.y - human1.height/2);
 		}
+		
 		
 	}
 	
