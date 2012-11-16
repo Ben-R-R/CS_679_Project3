@@ -2,6 +2,7 @@
 
 var kangaJumps = 0;	//number of jumps available as kangaroo
 var kangaJmpA = 0;	//kangaroo jump acceleration
+var dropTime = 0;	//time since last grounded as kangaroo, used for d-jump stuff
 
 var GameEntity = {
 	coords : null,
@@ -173,22 +174,44 @@ function newGameMouseEntity(radius){
 	newEnt.coords = newVector(mouseX,mouseY);
 	newEnt.velocity = newVector(0,0);
 	newEnt.radius = radius;
+	newEnt.aabb = newBox(newEnt.coords.x,newEnt.coords.y,30,30); //BOXCODE
 	newEnt.acceleration = newVector(0,0);
 	newEnt.fixed = false;
-	newEnt.virtual = true;
+	newEnt.virtual = false;
 	newEnt.update = function(elapsedTime){
 		this.coords.x = mouseX;
 		this.coords.y = mouseY;
+		this.aabb.x = this.coords.x-15;//BOXCODE
+		this.aabb.y = this.coords.y-15;//BOXCODE
+		this.resVec = null;//BOXCODE
 	}
 	newEnt.collisionResponse = function(responseVector, other){
 		if(vectorError(responseVector) ){
 			return;
 		}
 		
-		//this.coords.add(responseVector);
+		this.coords.add(responseVector);
+		this.aabb.x = this.coords.x - this.aabb.w/2;
+		this.aabb.y = this.coords.y - this.aabb.h/2;
 		//this.velocity.reflect(vOrthoNormal(responseVector));
 		this.resVec = responseVector; 
 	}
+	//ALL BOXCODE
+	/*newEnt.draw = function(origin){
+		theContext.strokeStyle = "#000000";
+        theContext.fillStyle = "#0099FF";
+        
+        theContext.fillRect(this.aabb.x,this.aabb.y,this.aabb.w,this.aabb.h);
+        
+        if(this.resVec){
+        	theContext.strokeStyle = "#FF0000";
+        	theContext.beginPath();
+			theContext.moveTo(this.coords.x,this.coords.y);
+			theContext.lineTo(this.coords.x + this.resVec.x, this.coords.y + this.resVec.y );
+			theContext.stroke();	
+		}
+        
+	}*/
 	return newEnt;
 		
 }
@@ -198,7 +221,7 @@ function newBoxEntity(org, w, h){
 	newEnt.coords = org;
 	newEnt.velocity = newVector(0,0);
 	newEnt.radius = 0;
-	newEnt.aabb = newBox(org.x, org.y, w , h)
+	newEnt.aabb = newBox(org.x, org.y, w, h);
 	newEnt.acceleration = newVector(0,0);
 	newEnt.fixed = true;
 	newEnt.draw = function(origin){
@@ -339,6 +362,7 @@ function newGameKeyEntity(x,y, radius){
 			//ground motion
 			if(this.onGround){
 				kangaJumps = 2;
+				dropTime = 0;
 				if(keydown(65) || keydown(68)){	//left or right hops
 					this.velocity.y -= .2;
 				} else this.velocity.x = 0;	//stops movement on ground
@@ -346,25 +370,27 @@ function newGameKeyEntity(x,y, radius){
 			//aerial motion
 			else{
 				if(keydown(65)){	//left movement in air
-					this.velocity.x -= .15;
+					this.velocity.x -= .1;
 					this.direction = -1;
 				}
 				if(keydown(68)){	//right movement in air
-					this.velocity.x += .15;
+					this.velocity.x += .1;
 					this.direction = 1;
 				}
+				if(kangaJumps == 2 && dropTime < 10) dropTime++;
+				else if(kangaJumps == 2) kangaJumps = 1;
 				
-				if(this.velocity.x > .3) this.velocity.x = .3;
-				else if(this.velocity.x < -.3) this.velocity.x = -.3;
+				if(this.velocity.x > .2) this.velocity.x = .2;
+				else if(this.velocity.x < -.2) this.velocity.x = -.2;
 			}
 			//jumps
 			if(keyhit(32) && kangaJumps > 0){	//initial jump-off
-				this.velocity.y = -.35;
+				this.velocity.y = -.7;
 				kangaJumps--;
-				kangaJmpA = -.12;
+				//kangaJmpA = -.1;
 			} else if(keydown(32) && kangaJmpA < -0.01){	//jump "carry"
-				this.velocity.y += kangaJmpA;
-				kangaJmpA = kangaJmpA / 1.4;
+				//this.velocity.y += kangaJmpA;
+				//kangaJmpA = kangaJmpA / 1.5;
 			}
 			
 			this.velocity.add(vScalarMult(elapsedTime,this.acceleration))

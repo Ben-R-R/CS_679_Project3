@@ -6,6 +6,7 @@
  * returns a response vector for box2   
  */ 
 function AABB_AABB(box1, box2){
+	/*
 	var s1 = box1.x
 	var s2 = box2.x
 	var e1 = box1.x + box1.w;
@@ -15,8 +16,31 @@ function AABB_AABB(box1, box2){
 	var d2 = e2 - s1;
 	if(s1 < e2 && s2 < e1){
 			
+	}*/
+	var du = box2.y - box1.y + box2.h;	//upward trespass
+	var dd = box1.y - box2.y + box1.h;	//downward trespass
+	var dl = box2.x - box1.x + box2.w;	//leftward trespass
+	var dr = box1.x - box2.x + box1.w;	//rightward trespass
+	if(du <= 0.0 || dd <= 0.0 || dl <= 0.0 || dr <= 0.0) {return null;}	//no collision if any of these are negative
+	
+	
+	if(du < dd){
+		if(du < dl){
+			if(du < dr) return newVector(0,-du);
+			else return newVector(dr,0);
+		} else {
+			if(dl < dr) return newVector(-dl,0);
+			else return newVector(dr,0);
+		}
+	} else {
+		if(dd < dl){
+			if(dd < dr) return newVector(0,dd);
+			else return newVector(dr,0);
+		} else {
+			if(dl < dr) return newVector(-dl,0);
+			else return newVector(dr,0);
+		}
 	}
-				
 }
 
 function circle_circle(pos1, r1, pos2, r2){
