@@ -439,6 +439,12 @@ function newGameKeyEntity(x,y, radius){
 			}
 		} else if(this.form == "h"){
 			theContext.drawImage(human1,this.coords.x - human1.width/2,this.coords.y - human1.height/2);
+		} else if(this.form == "c"){
+			if(this.direction === -1){
+				theContext.drawImage(CheetahL,this.coords.x - CheetahR.width/2,this.coords.y - CheetahR.height/2);
+			} else {
+			    theContext.drawImage(CheetahR,this.coords.x - CheetahR.width/2,this.coords.y - CheetahR.height/2);
+			}
 		}
 		
 		

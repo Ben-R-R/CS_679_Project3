@@ -62,6 +62,9 @@ var kangaroo2R = new Image();
 var kangaroo1L = new Image();
 var kangaroo2L = new Image();
 
+var CheetahL = new Image();
+var CheetahR = new Image();
+
 var human1 = new Image();
 
 kangaroo1R.src = './images/Kangaroo1.png';
@@ -71,3 +74,6 @@ kangaroo1L.src = './images/Kangaroo-1.png';
 kangaroo2L.src = './images/Kangaroo-2.png';       
 
 human1.src = './images/human1.png';
+
+CheetahL.src = './images/Cheetah-1.png';
+CheetahR.src = './images/Cheetah1.png';
