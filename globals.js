@@ -53,6 +53,11 @@ function newUserException(message) {
 mouseX = 0;
 mouseY = 0;
 
+// stores the origin
+
+origin = null;
+
+
 // gravitational constant
 GRAVITY = 0.0015;
 
@@ -67,6 +72,8 @@ var CheetahR = new Image();
 
 var human1 = new Image();
 
+var GearLarge = new Image();
+
 kangaroo1R.src = './images/Kangaroo1.png';
 kangaroo2R.src = './images/Kangaroo2.png';
 
@@ -77,3 +84,5 @@ human1.src = './images/human1.png';
 
 CheetahL.src = './images/Cheetah-1.png';
 CheetahR.src = './images/Cheetah1.png';
+
+GearLarge.src = './images/AAGear.png';
