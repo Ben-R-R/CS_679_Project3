@@ -47,8 +47,11 @@ var Vector = {
 
 function vectorError(vec){
 	if(vec === NaN || vec === null || !vec){
+		console.log("Vector object Error");
 		return true;
+		
 	} else if(vec.x === NaN || vec.x === null || vec.y === NaN || vec.y === null ){
+		console.log("Vector value Error");
 		return true;
 	}
 	return false;

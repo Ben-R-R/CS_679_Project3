@@ -55,3 +55,15 @@ mouseY = 0;
 
 // gravitational constant
 GRAVITY = 0.0015;
+
+var kangaroo1R = new Image();
+var kangaroo2R = new Image();
+
+var kangaroo1L = new Image();
+var kangaroo2L = new Image();
+
+kangaroo1R.src = './images/Kangaroo1.png';
+kangaroo2R.src = './images/Kangaroo2.png';
+
+kangaroo1L.src = './images/Kangaroo-1.png';
+kangaroo2L.src = './images/Kangaroo-2.png';

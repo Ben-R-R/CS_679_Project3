@@ -227,6 +227,8 @@ function newGameKeyEntity(x,y, radius){
 	//set the form value to the current animal form
 	newEnt.form = "h";
 	
+	newEnt.direction = 1;
+	
 	newEnt.update = function(elapsedTime){
 		//press 1 for human
 		if(keydown(49)){
@@ -255,9 +257,11 @@ function newGameKeyEntity(x,y, radius){
 		//human form movement
 		if(this.form == "h"){
 			if(keydown(65)){
+				this.direction = -1;
 				this.velocity.x = -.3;
 			}else if(keydown(68)){
 				this.velocity.x = .3;
+				this.direction = 1;
 			} else {
 				this.velocity.x = 0;
 			}
@@ -288,19 +292,21 @@ function newGameKeyEntity(x,y, radius){
 			if(keydown(65)){
 				if(tvx == 0){
 					tvx = -.3;
-				}
+				
 				//can only accelerate while on the ground
-				else if(tvx > -.8 && this.onGround){
+				} else if(tvx > -.8 && this.onGround){
 					tvx -= .1;
 				}
+				this.direction = -1;
 			}else if(keydown(68)){
 				if(tvx == 0){
 					tvx = .3;
-				}
-				//can only accelerate while on the ground
-				else if(tvx < .8  && this.onGround){
+					
+				//can only accelerate while on the ground	
+				} else if(tvx < .8  && this.onGround){    
 					tvx += .1;
-				}
+				} 
+				this.direction = 1;
 			} else {
 				tvx = 0;
 			}
@@ -345,9 +351,11 @@ function newGameKeyEntity(x,y, radius){
 			else{
 				if(keydown(65)){	//left movement in air
 					this.velocity.x -= .15;
+					this.direction = -1;
 				}
 				if(keydown(68)){	//right movement in air
 					this.velocity.x += .15;
+					this.direction = 1;
 				}
 				
 				if(this.velocity.x > .3) this.velocity.x = .3;
@@ -416,6 +424,29 @@ function newGameKeyEntity(x,y, radius){
 		// hold on to the response vector, currently we only do this so we can
 		// draw it for debugging purposes  
 		this.resVec = responseVector; 
+	}
+	
+	newEnt.draw = function(origin){
+		if(this.onGround){
+			
+			if(this.direction === -1){
+				theContext.drawImage(kangaroo1L,this.coords.x - kangaroo1R.width/2,this.coords.y - kangaroo1R.height/2);
+			} else {
+			    theContext.drawImage(kangaroo1R,this.coords.x - kangaroo1R.width/2,this.coords.y - kangaroo1R.height/2);
+			}
+			
+			
+			
+		 
+		} else {
+			
+			if(this.direction === -1){
+				theContext.drawImage(kangaroo2L,this.coords.x - kangaroo1R.width/2,this.coords.y - kangaroo1R.height/2);
+			} else {
+			    theContext.drawImage(kangaroo2R,this.coords.x - kangaroo1R.width/2,this.coords.y - kangaroo1R.height/2);
+			}
+		}
+		
 	}
 	
 	return newEnt;

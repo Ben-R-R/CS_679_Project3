@@ -30,7 +30,7 @@ function initLevelManager(){
 	spawnNewEntity(newBoxEntity(newVector(800,-100), 100, 800), staticList);
 	spawnNewEntity(newBoxEntity(newVector(0,600), 800, 100), staticList);
 
-	spawnNewEntity(newGameKeyEntity(100,20, 20), dynamicList);
+	spawnNewEntity(newGameKeyEntity(100,20, kangaroo1R.height/2), dynamicList);
 	
 	spawnNewEntity(newGameMouseEntity(15), dynamicList);
 }
