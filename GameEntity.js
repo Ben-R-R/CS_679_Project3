@@ -216,25 +216,25 @@ function newGearEntity(x,y){
 	var newEnt = Object.create(GameEntity);
 	newEnt.coords = newVector(x,y);
 	newEnt.velocity = newVector(0,0);
-	newEnt.radius = GearLarge.width/2;
+	newEnt.radius = (GearLarge.width/2) - 5;
 	//newEnt.aabb = newBox(org.x, org.y, w , h)
 	newEnt.acceleration = newVector(0,0);
 	newEnt.fixed = true;
 	newEnt.theta = 0;	
 	newEnt.update = function(eTime){
-	    this.theta += eTime * 0.001
+	    this.theta += eTime * 0.003
         
         
 	}
 	
 	newEnt.draw = function(origin){
-		var x = this.coords.x ;
-		var y = this.coords.y ;
+		var x = this.coords.x;
+		var y = this.coords.y;
 	
 		theContext.translate(x, y)
         theContext.rotate(this.theta);
         theContext.translate(-x,-y)
-        theContext.drawImage(GearLarge,  this.coords.x - this.radius,  this.coords.y - this.radius);
+        theContext.drawImage(GearLarge, x - GearLarge.width/2, y - GearLarge.width/2);
         theContext.translate(x, y)
         theContext.rotate(-this.theta);
         theContext.translate(-x,-y)
