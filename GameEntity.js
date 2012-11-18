@@ -13,7 +13,8 @@ var GameEntity = {
 	virtual : false, // if an object collides with a virtual entity, it should 
 					 // not respond to the collision
 	acceleration : null,
-	
+	isPlayer : false,
+	isDeadly : false,	
 	/**
 	 * Update the entity, this usualy entails moving and animating the entity 
 	 * In the special case of the player entity, this is where you would read 
@@ -177,7 +178,8 @@ function newGameMouseEntity(radius){
 	newEnt.aabb = newBox(newEnt.coords.x,newEnt.coords.y,30,30); //BOXCODE
 	newEnt.acceleration = newVector(0,0);
 	newEnt.fixed = false;
-	newEnt.virtual = false;
+	//newEnt.virtual = true;
+	
 	newEnt.update = function(elapsedTime){
 		this.coords.x = mouseX - origin.x;
 		this.coords.y = mouseY + origin.y;
@@ -195,6 +197,11 @@ function newGameMouseEntity(radius){
 		this.aabb.y = this.coords.y - this.aabb.h/2;
 		//this.velocity.reflect(vOrthoNormal(responseVector));
 		this.resVec = responseVector; 
+	}
+	newEnt.draw =function(origin){
+		theContext.fillStyle = "#000000";
+        
+        theContext.fillRect(this.aabb.x + origin.x,this.aabb.y + origin.y,this.aabb.w,this.aabb.h);
 	}
 	return newEnt;
 		
@@ -219,11 +226,53 @@ function newBoxEntity(org, w, h){
 		
 }
 
+function newCheckpointEntity(org, w, h){
+	var newEnt = Object.create(GameEntity);
+	newEnt.coords = org;
+	newEnt.velocity = newVector(0,0);
+	newEnt.radius = 0;
+	newEnt.aabb = newBox(org.x - w/2, org.y - h/2, w, h);
+	newEnt.acceleration = newVector(0,0);
+	newEnt.fixed = true;
+	newEnt.virtual = true;
+	newEnt.isCheckpoint = true;
+	newEnt.color = "#0000FF";
+	newEnt.draw = function(origin){
+		
+		theContext.strokeStyle = this.color;
+        //theContext.fillStyle = "#000000";
+        
+        theContext.strokeRect(this.aabb.x + origin.x,this.aabb.y + origin.y,this.aabb.w,this.aabb.h);
+	}
+	
+	newEnt.collisionResponse = function(responseVector, other){
+		
+		if(other.isPlayer){
+			other.checkpoint.disable();
+			other.checkpoint = this;
+			this.enable();
+		}
+		
+		
+	}
+	newEnt.disable = function(){
+		this.color = "#0000FF";	
+	}
+	
+	newEnt.enable = function(){
+		this.color = "#00AA00";	
+	}
+	
+	return newEnt;
+		
+}
+
 function newGearEntity(x,y){
 	var newEnt = Object.create(GameEntity);
 	newEnt.coords = newVector(x,y);
 	newEnt.velocity = newVector(0,0);
 	newEnt.radius = (GearLarge.width/2) - 5;
+	newEnt.isDeadly = true;
 	//newEnt.aabb = newBox(org.x, org.y, w , h)
 	newEnt.acceleration = newVector(0,0);
 	newEnt.fixed = true;
@@ -263,6 +312,7 @@ function newGameKeyEntity(x,y, radius){
 	newEnt.acceleration = newVector(0,GRAVITY);
 	newEnt.fixed = false;
 	newEnt.onGround = false;
+	newEnt.isPlayer = true;
 	//set the form value to the current animal form
 	newEnt.form = "h";
 	
@@ -403,7 +453,7 @@ function newGameKeyEntity(x,y, radius){
 			}
 			//jumps
 			if(keyhit(32) && kangaJumps > 0){	//initial jump-off
-				this.velocity.y = -.7;
+				this.velocity.y = -.6;
 				kangaJumps--;
 				//kangaJmpA = -.1;
 			} else if(keydown(32) && kangaJmpA < -0.01){	//jump "carry"
@@ -436,6 +486,12 @@ function newGameKeyEntity(x,y, radius){
 			return;
 		}
 	
+		if(other.isDeadly && this.checkpoint ){
+			// careful, if we did this.coords = this.checkpoint.coords, we 
+			// would cause the checkpoint to move along with the player.
+			this.coords.x = this.checkpoint.coords.x;
+			this.coords.y = this.checkpoint.coords.y; 			
+		}
 		
 		// move so we are not colliding anymore
 		this.coords.add(responseVector);

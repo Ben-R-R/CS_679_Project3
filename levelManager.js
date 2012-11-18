@@ -38,7 +38,17 @@ function initLevelManager(){
 	spawnNewEntity(newBoxEntity(newVector(800,100), 50, 800), staticList);
 	spawnNewEntity(newBoxEntity(newVector(0,600), 1600, 100), staticList);
 
-	spawnNewEntity(newGameKeyEntity(100,20, kangaroo1R.height/2), dynamicList);
+
+	// player 
+	
+	var player = newGameKeyEntity(775,575, kangaroo1R.height/2)
+	var checkpointAlpha = newCheckpointEntity(newVector(775,575), 50, 50);
+	player.checkpoint = checkpointAlpha; 
+	spawnNewEntity(checkpointAlpha, staticList);
+	
+	spawnNewEntity(newCheckpointEntity(newVector(800,50), 50, 100), staticList);
+		
+	spawnNewEntity(player, dynamicList);
 	
 	spawnNewEntity(newGameMouseEntity(15), dynamicList);
 }
