@@ -182,7 +182,7 @@ function newGameMouseEntity(radius){
 	
 	newEnt.update = function(elapsedTime){
 		this.coords.x = mouseX - origin.x;
-		this.coords.y = mouseY + origin.y;
+		this.coords.y = mouseY - origin.y;
 		this.aabb.x = this.coords.x-15;//BOXCODE
 		this.aabb.y = this.coords.y-15;//BOXCODE
 		this.resVec = null;//BOXCODE
@@ -343,6 +343,8 @@ function newGameKeyEntity(x,y, radius){
 			this.form = "s";
 		}
 		*/
+		
+		
 		//human form movement
 		if(this.form == "h"){
 			if(keydown(65)){
@@ -370,8 +372,7 @@ function newGameKeyEntity(x,y, radius){
 			// we assume we are not on the ground unless the physics engine tells 
 			// us otherwise.
 			this.onGround = false;
-			origin.x = -this.coords.x + 400;
-			return STATE_ALIVE; 
+			
 			
 		//cheetah form movement
 		} else if(this.form == "c"){
@@ -418,8 +419,7 @@ function newGameKeyEntity(x,y, radius){
 			
 			// we assume we are not on the ground
 			this.onGround = false;
-			origin.x = -this.coords.x + 400;
-			return STATE_ALIVE;
+			
 			
 		//flying squirrel movement 
 		} else if(this.form == "f"){
@@ -468,14 +468,21 @@ function newGameKeyEntity(x,y, radius){
 			this.coords.add(vScalarMult(elapsedTime,this.velocity))
 			//assume we're not on the ground
 			this.onGround = false;
-			origin.x = -this.coords.x + 400;
-			return STATE_ALIVE;
-		}
 		
-		//spider movement
-		else if(this.form == "s"){
+		//spider movement	
+		}else if(this.form == "s"){
 			
 		}
+		
+		if( (this.coords.y + origin.y) >= 400){
+			origin.y = -this.coords.y + 400;		
+		} else if( (this.coords.y + origin.y) <= 200){
+			origin.y = -this.coords.y + 200;		
+		}
+		// = ( - 300) * -0.5;
+		
+		origin.x = -this.coords.x + 400;
+		return STATE_ALIVE;
 	}
 	
 	newEnt.collisionResponse = function(responseVector, other){
