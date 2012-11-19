@@ -322,7 +322,8 @@ function newGameKeyEntity(x,y, radius){
 	newEnt.onGround = false;
 	//set the form value to the current animal form
 	newEnt.form = "h";
-	
+	newEnt.kick = newKickEntity(-5000,-5000,20,newEnt.radius * 2)	//entity used to "kick" blocks around
+	spawnNewEntity(newEnt.kick,staticList);
 	newEnt.direction = 1;
 	
 	newEnt.update = function(elapsedTime){
@@ -468,8 +469,12 @@ function newGameKeyEntity(x,y, radius){
 				//kangaJmpA = kangaJmpA / 1.5;
 			}
 			//kick
-			if(keydown(69)){
-				spawnNewEntity(newKickEntity(180,40,10,10),staticList);
+			if(keyhit(69)){
+				this.kick.coords.x = this.coords.x + this.radius * this.direction;
+				this.kick.coords.y = this.coords.y;
+				this.kick.aabb.x = this.coords.x + this.radius * this.direction - this.kick.aabb.w / 2;
+				this.kick.aabb.y = this.coords.y - this.kick.aabb.h / 2;
+				this.kick.active = true;
 			}
 			
 			this.velocity.add(vScalarMult(elapsedTime,this.acceleration))
@@ -496,7 +501,7 @@ function newGameKeyEntity(x,y, radius){
 		if(vectorError(responseVector) ){
 			return;
 		}
-	
+		if(other.type == kickType) return;
 		
 		// move so we are not colliding anymore
 		this.coords.add(responseVector);
@@ -563,22 +568,27 @@ function newGameKeyEntity(x,y, radius){
 function newKickEntity(x,y,w,h){	//fake entity that is used to kick crates around.
 	var newEnt = Object.create(GameEntity);
 	newEnt.coords = newVector(x,y);
-	newEnt.radius = w;
+	newEnt.radius = w/2;
 	newEnt.velocity = newVector(0,0);
 	newEnt.acceleration = newVector(0,0);
 	newEnt.aabb = newBox(x-w/2,y-h/2,w,h);
 	newEnt.type = kickType;
-	newEnt.del = false;
+	newEnt.active = false;
 	newEnt.update = function(eTime){
-		if(this.del) this.del = true;
-		else {}
+		if(this.active) this.active = false;	//only active for a single frame
+		else {	//when not active stows self away for later
+			this.coords.x = -5000;
+			this.coords.y = -5000;
+		}
+		this.aabb.x = this.coords.x - this.aabb.w;
+		this.aabb.y = this.coords.y - this.aabb.h;
 	}
-	/*newEnt.collisionResponse = function(responseVector, other){
+	newEnt.collisionResponse = function(responseVector, other){	//unaffected by collisions
 		if(vectorError(responseVector) ){
 			return;
 		}
 		this.resVec = responseVector;
-	}*/
-	//newEnt.draw = function(origin){}
+	}
+	newEnt.draw = function(origin){}	//object is not drawn
 	return newEnt;
 }
