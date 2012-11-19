@@ -43,4 +43,5 @@ function initLevelManager(){
 	spawnNewEntity(newGameMouseEntity(15), dynamicList);
 	
 	spawnNewEntity(newCrateEntity(200,30,50,50), dynamicList);
+	spawnNewEntity(newKickEntity(180,30,10,10),staticList);
 }

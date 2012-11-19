@@ -272,9 +272,9 @@ function newCrateEntity(x,y,w,h){
 			return;
 		}
 		
-		if(other.type == killType){
+		if(other.type == playerType){
 			
-		} else if(other.type == playerType){
+		} else if(other.type == kickType){
 			if(responseVector.x > 0){
 				this.velocity.add(newVector(0.5,-0.2));
 			} else if(responseVector.x < 0){
@@ -467,6 +467,10 @@ function newGameKeyEntity(x,y, radius){
 				//this.velocity.y += kangaJmpA;
 				//kangaJmpA = kangaJmpA / 1.5;
 			}
+			//kick
+			if(keydown(69)){
+				spawnNewEntity(newKickEntity(180,40,10,10),staticList);
+			}
 			
 			this.velocity.add(vScalarMult(elapsedTime,this.acceleration))
 			if(this.velocity.y > .5){
@@ -557,5 +561,24 @@ function newGameKeyEntity(x,y, radius){
 }
 
 function newKickEntity(x,y,w,h){	//fake entity that is used to kick crates around.
-	
+	var newEnt = Object.create(GameEntity);
+	newEnt.coords = newVector(x,y);
+	newEnt.radius = w;
+	newEnt.velocity = newVector(0,0);
+	newEnt.acceleration = newVector(0,0);
+	newEnt.aabb = newBox(x-w/2,y-h/2,w,h);
+	newEnt.type = kickType;
+	newEnt.del = false;
+	newEnt.update = function(eTime){
+		if(this.del) this.del = true;
+		else {}
+	}
+	/*newEnt.collisionResponse = function(responseVector, other){
+		if(vectorError(responseVector) ){
+			return;
+		}
+		this.resVec = responseVector;
+	}*/
+	//newEnt.draw = function(origin){}
+	return newEnt;
 }

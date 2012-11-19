@@ -37,10 +37,11 @@ window.onload = function () {
 function mainLoop(){
 	elapsedT = Date.now() - startT;
 	startT = Date.now();
-
+	
 	if(elapsedT > 100){
 		elapsedT = 100;
 	}
+	addSpawnedEntities();
 	updateEntities(elapsedT);
 	theContext.clearRect(0, 0, theCanvas.width, theCanvas.height);	
 	drawEntities()
