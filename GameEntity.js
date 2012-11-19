@@ -13,6 +13,7 @@ var GameEntity = {
 	virtual : false, // if an object collides with a virtual entity, it should 
 					 // not respond to the collision
 	acceleration : null,
+	type : 0,	//denotes a special type of object, used for collisions
 	
 	/**
 	 * Update the entity, this usualy entails moving and animating the entity 
@@ -228,6 +229,7 @@ function newGearEntity(x,y){
 	newEnt.acceleration = newVector(0,0);
 	newEnt.fixed = true;
 	newEnt.theta = 0;	
+	newEnt.type = killType;	//gears kill player on contact
 	newEnt.update = function(eTime){
 	    this.theta += eTime * 0.003
         if(this.theta > Math.PI * 2){
@@ -251,6 +253,60 @@ function newGearEntity(x,y){
 		
 }
 
+function newCrateEntity(x,y,w,h){
+	var newEnt = Object.create(GameEntity);
+	newEnt.coords = newVector(x,y);
+	newEnt.velocity = newVector(0,0);
+	newEnt.aabb = newBox(newEnt.coords.x - w/2, newEnt.coords.y - h/2, w, h);
+	newEnt.acceleration = newVector(0,GRAVITY);
+	newEnt.fixed = false;
+	newEnt.type = moveType;	//object is movable
+	newEnt.update = function(eTime){
+		this.velocity.add(vScalarMult(eTime,this.acceleration));
+		this.coords.add(vScalarMult(eTime,this.velocity));
+		this.aabb.x = this.coords.x - this.aabb.w / 2;
+		this.aabb.y = this.coords.y - this.aabb.h / 2;
+	}
+	newEnt.collisionResponse = function(responseVector,other){
+		if(vectorError(responseVector)){
+			return;
+		}
+		
+		if(other.type == killType){
+			
+		} else if(other.type == playerType){
+			if(responseVector.x > 0){
+				this.velocity.add(newVector(0.5,-0.2));
+			} else if(responseVector.x < 0){
+				this.velocity.add(newVector(-0.5,-0.2));
+			}
+		} else {
+			this.coords.add(responseVector);
+		if(responseVector.x > 0 && this.velocity.x < 0){
+			this.velocity.x	= 0;		
+		}else if(responseVector.x < 0 && this.velocity.x > 0){
+			this.velocity.x	= 0;		
+		}
+		if(responseVector.y > 0 && this.velocity.y < 0){
+			this.velocity.y	= 0;
+		}else if(responseVector.y < 0 && this.velocity.y > 0){
+			this.velocity.y	= 0;
+			if(this.velocity.x > 0.1) this.velocity.x -= 0.1;
+			else if(this.velocity.x < -0.1) this.velocity.x += 0.1;
+			if(this.velocity.x > -0.1 || this.velocity.x < 0.1) this.velocity.x = 0;
+		}
+		}
+		
+		this.resVec = responseVector;
+	}
+	newEnt.draw = function(origin){
+		theContext.fillStyle = "#995533";
+		theContext.fillRect(this.aabb.x + origin.x, this.aabb.y + origin.y, this.aabb.w, this.aabb.h);
+	}
+	
+	return newEnt;
+}
+
 /**
  * i.e. the player for now - may need to move into its own file
  *
@@ -261,6 +317,7 @@ function newGameKeyEntity(x,y, radius){
 	newEnt.velocity = newVector(0,0);
 	newEnt.radius = radius;
 	newEnt.acceleration = newVector(0,GRAVITY);
+	newEnt.type = playerType;	//player object
 	newEnt.fixed = false;
 	newEnt.onGround = false;
 	//set the form value to the current animal form
@@ -497,4 +554,8 @@ function newGameKeyEntity(x,y, radius){
 	
 	return newEnt;
 		
+}
+
+function newKickEntity(x,y,w,h){	//fake entity that is used to kick crates around.
+	
 }

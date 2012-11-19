@@ -61,6 +61,13 @@ origin = null;
 // gravitational constant
 GRAVITY = 0.0015;
 
+// type codes
+otherType = 0;		//if an object doesn't have its own type category, it has this type code.
+moveType = 4729;	//type given to crates and other movable objects.
+playerType = 2742;	//type given to the player.
+kickType = 7824;	//type given to the player's 'kick' object.
+killType = 6826;	//type given to objects that kill the player on contact.
+
 var kangaroo1R = new Image();
 var kangaroo2R = new Image();
 

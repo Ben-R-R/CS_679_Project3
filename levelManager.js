@@ -41,4 +41,6 @@ function initLevelManager(){
 	spawnNewEntity(newGameKeyEntity(100,20, kangaroo1R.height/2), dynamicList);
 	
 	spawnNewEntity(newGameMouseEntity(15), dynamicList);
+	
+	spawnNewEntity(newCrateEntity(200,30,50,50), dynamicList);
 }
