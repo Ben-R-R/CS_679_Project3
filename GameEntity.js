@@ -482,6 +482,8 @@ function newGameKeyEntity(x,y, radius){
 		// = ( - 300) * -0.5;
 		
 		origin.x = -this.coords.x + 400;
+		origin.y = Math.floor(origin.y);
+		origin.x = Math.floor(origin.x);
 		return STATE_ALIVE;
 	}
 	
