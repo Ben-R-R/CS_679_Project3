@@ -37,7 +37,7 @@ window.onload = function () {
 function mainLoop(){
 	elapsedT = Date.now() - startT;
 	startT = Date.now();
-
+	
 	if(elapsedT > 100){
 		elapsedT = 100;
 	}
