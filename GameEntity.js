@@ -447,6 +447,9 @@ function newGameKeyEntity(x,y, radius){
 					tvx -= .1;
 				}
 				this.direction = -1;
+				if(tvx <= -.8 && this.wasGround && !this.onGround){
+					tvy = -.4;
+				}
 			}else if(keydown(68)){
 				if(tvx == 0){
 					tvx = .3;
@@ -456,6 +459,9 @@ function newGameKeyEntity(x,y, radius){
 					tvx += .1;
 				} 
 				this.direction = 1;
+				if(tvx >= .8 && this.wasGround && !this.onGround){
+					tvy = -.4;
+				}
 			} else {
 				tvx = 0;
 			}
@@ -476,6 +482,7 @@ function newGameKeyEntity(x,y, radius){
 			}
 			this.coords.add(vScalarMult(elapsedTime,this.velocity))
 			
+			this.wasGround = this.onGround;	//used to check if cheetah just left ground
 			// we assume we are not on the ground
 			this.onGround = false;
 			
@@ -503,6 +510,9 @@ function newGameKeyEntity(x,y, radius){
 				if(keydown(68)){	//right movement in air
 					this.velocity.x += .1;
 					this.direction = 1;
+				}
+				if(!keydown(65) && !keydown(68)){	//cancels momentum if no key pressed
+					this.velocity.x = 0;
 				}
 				if(kangaJumps == 2 && dropTime < 10) dropTime++;
 				else if(kangaJumps == 2) kangaJumps = 1;
