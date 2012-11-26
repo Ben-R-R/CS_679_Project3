@@ -312,8 +312,10 @@ function newCrateEntity(x,y,w,h){
 	newEnt.fixed = false;
 	newEnt.type = moveType;	//object is movable
 	newEnt.update = function(eTime){
-		this.velocity.add(vScalarMult(eTime,this.acceleration));
 		this.coords.add(vScalarMult(eTime,this.velocity));
+		this.velocity.add(vScalarMult(eTime,this.acceleration));
+		
+		
 		this.aabb.x = this.coords.x - this.aabb.w / 2;
 		this.aabb.y = this.coords.y - this.aabb.h / 2;
 	}
@@ -332,19 +334,19 @@ function newCrateEntity(x,y,w,h){
 			}
 		} else {
 			this.coords.add(responseVector);
-		if(responseVector.x > 0 && this.velocity.x < 0){
-			this.velocity.x	= 0;		
-		}else if(responseVector.x < 0 && this.velocity.x > 0){
-			this.velocity.x	= 0;		
-		}
-		if(responseVector.y > 0 && this.velocity.y < 0){
-			this.velocity.y	= 0;
-		}else if(responseVector.y < 0 && this.velocity.y > 0){
-			this.velocity.y	= 0;
-			if(this.velocity.x > 0.1) this.velocity.x -= 0.1;
-			else if(this.velocity.x < -0.1) this.velocity.x += 0.1;
-			if(this.velocity.x > -0.1 || this.velocity.x < 0.1) this.velocity.x = 0;
-		}
+			if(responseVector.x > 0 && this.velocity.x < 0){
+				this.velocity.x	= 0;		
+			}else if(responseVector.x < 0 && this.velocity.x > 0){
+				this.velocity.x	= 0;		
+			}
+			if(responseVector.y > 0 && this.velocity.y < 0){
+				this.velocity.y	= 0;
+			}else if(responseVector.y < 0 && this.velocity.y > 0){
+				this.velocity.y	= 0;
+				if(this.velocity.x > 0.1) this.velocity.x -= 0.1;
+				else if(this.velocity.x < -0.1) this.velocity.x += 0.1;
+				if(this.velocity.x > -0.1 || this.velocity.x < 0.1) this.velocity.x = 0;
+			}
 		}
 		
 		this.resVec = responseVector;
