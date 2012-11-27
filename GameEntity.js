@@ -576,6 +576,11 @@ function newGameKeyEntity(x,y, radius){
 		else if(keydown(53)){
 			this.form = "s";
 			//console.log("Spider Mode Activated");
+			this.impX = 0.3; // impulsive x velocity, 
+			this.maxRun = 0.5; // maximum run speed,  
+			this.impY = -0.3; // impulsive x velocity, used for jumps
+			this.maxFall = 0.5; // maximum fall rate.
+			this._sState = 0; // starting state of the spider
 		}
 		
 		
@@ -703,9 +708,11 @@ function newGameKeyEntity(x,y, radius){
 		
 		//spider movement	
 		} else if(this.form === "s"){
-			//if(this._sState === 0){
-			//				
-			//}	
+			if(keydown(32) && this.onGround){
+				this.velocity.y = this.impY;
+				
+								
+			}	
 		}
 		
 		this.velocity.add(vScalarMult(elapsedTime,this.acceleration))
