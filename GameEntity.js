@@ -397,7 +397,7 @@ function newGameKeyEntity(x,y, radius){
 			this.form = "c";
 			this.impX = 0.3; // impulsive x velocity, 
 			this.maxRun = 0.5; // maximum run speed,  
-			this.impY = -0.6; // impulsive x velocity, used for jumps
+			this.impY = -0.5; // impulsive x velocity, used for jumps
 			this.maxFall = 0.5; // maximum fall rate.
 		} 
 		/* TODO: Unblock to add flying squirrel
@@ -409,9 +409,10 @@ function newGameKeyEntity(x,y, radius){
 		//press 4 for kangaroo
 		else if(keydown(52)){
 			this.form = "k";
-			this.impX = 0.0; // impulsive x velocity, 
+			
 			this.maxRun = 0.1; // maximum run speed,  
-			this.impY = 0.0; // impulsive x velocity, used for jumps
+			this.impY = 0.0; // zero out inpulsive velocity because we will 
+							 // be doing our own jumps for the kangaroo 
 		}
 		/* TODO: Unblock to add spider
 		//press 5 for spider
@@ -431,26 +432,22 @@ function newGameKeyEntity(x,y, radius){
 			this.direction = 1;
 		} else if(keydown(65)){
 			this.direction = -1;
-			//this.velocity.x = - this.impX;
+			
 		} else if(keydown(68)){
-			//this.velocity.x = this.impX;
 			this.direction = 1;
 		} else {
 			this.velocity.x = 0;
 		}
 			
-		// apply impulse to velocity. 
+		// apply impulse to velocity. Animals that override the default behavior
+		// should set the impulse to 0 
 		if(keydown(32) && this.onGround){
 			this.velocity.y = this.impY;
 							
 		}
 		
-		
-		
 		//human form movement
 		if(this.form == "h"){
-			
-			
 			
 		//cheetah form movement
 		} else if(this.form == "c"){
@@ -493,18 +490,6 @@ function newGameKeyEntity(x,y, radius){
 			this.velocity.x = tvx;
 			this.velocity.y = tvy;
 			
-			//this bit can probably be moved outside for all of them
-			//unless we want to apply special cases to certain powers
-			/*this.velocity.add(vScalarMult(elapsedTime,this.acceleration))
-			if(this.velocity.y > .5){
-			   this.velocity.y = .5;
-			}
-			this.coords.add(vScalarMult(elapsedTime,this.velocity))
-			
-			this.wasGround = this.onGround;	//used to check if cheetah just left ground
-			// we assume we are not on the ground
-			this.onGround = false;*/
-			
 			
 		//flying squirrel movement 
 		} else if(this.form == "f"){
@@ -515,16 +500,15 @@ function newGameKeyEntity(x,y, radius){
 			//ground motion
 			if(this.onGround){
 			
-				//this.impX = 0.0; // impulsive x velocity, 
-				this.maxRun = 0.1; // maximum run speed,  
+				this.maxRun = 0.2; // maximum run speed,  
 				this.impY = 0.0; // impulsive x velocity, used for jumps
-				//this.maxFall = 0.5; // maximum fall rate.
 				
 				kangaJumps = 2;
 				dropTime = 0;
 				if(keydown(65) || keydown(68)){	//left or right hops
 					this.velocity.y -= .2;
 					this.velocity.x = this.impX * this.direction;
+				
 				} else {
 				    this.velocity.x = 0;	//stops movement on ground
 				} 
@@ -532,33 +516,21 @@ function newGameKeyEntity(x,y, radius){
 			//aerial motion
 			else{
 				this.impX = 0.2; // impulsive x velocity,
-				/*if(keydown(65)){	//left movement in air
-					this.velocity.x -= .1;
-					this.direction = -1;
-				}
-				if(keydown(68)){	//right movement in air
-					this.velocity.x += .1;
-					this.direction = 1;
-				}
-				if(!keydown(65) && !keydown(68)){	//cancels momentum if no key pressed
-					this.velocity.x = 0;
-				} */
 				
-				if(kangaJumps == 2 && dropTime < 10) dropTime++;
-				else if(kangaJumps == 2) kangaJumps = 1;
-				
-				if(this.velocity.x > .2) this.velocity.x = .2;
-				else if(this.velocity.x < -.2) this.velocity.x = -.2;
 			}
+			
 			//jumps
 			if(keyhit(32) && kangaJumps > 0){	//initial jump-off
 				this.velocity.y = -.6;
 				kangaJumps--;
-				//kangaJmpA = -.1;
-			} else if(keydown(32) && kangaJmpA < -0.01){	//jump "carry"
-				//this.velocity.y += kangaJmpA;
-				//kangaJmpA = kangaJmpA / 1.5;
 			}
+			
+			if(kangaJumps == 2 && dropTime < 10){
+				dropTime++;
+			} else if(kangaJumps == 2) {
+				kangaJumps = 1;
+			} 
+			
 			//kick
 			if(keyhit(69)){
 				this.kick.coords.x = this.coords.x + this.radius * this.direction;
@@ -566,15 +538,8 @@ function newGameKeyEntity(x,y, radius){
 				this.kick.aabb.x = this.coords.x + this.radius * this.direction - this.kick.aabb.w / 2;
 				this.kick.aabb.y = this.coords.y - this.kick.aabb.h / 2;
 				this.kick.active = true;
+				this.kick.virtual = false;
 			}
-			
-			/*this.velocity.add(vScalarMult(elapsedTime,this.acceleration))
-			if(this.velocity.y > .5){
-			   this.velocity.y = .5;
-			}
-			this.coords.add(vScalarMult(elapsedTime,this.velocity))
-			//assume we're not on the ground
-			this.onGround = false;*/
 		
 		//spider movement	
 		}else if(this.form == "s"){
@@ -637,7 +602,7 @@ function newGameKeyEntity(x,y, radius){
 			this.velocity.x	= 0;		
 		}else if(responseVector.x < 0 && this.velocity.x > 0){
 			this.velocity.x	= 0;		
-		} */
+		} */                       // removed because it messes up the kangaroo
 		if(responseVector.y > 0 && this.velocity.y < 0){
 			this.velocity.y	= 0;		
 		}else if(responseVector.y < 0 && this.velocity.y > 0){
@@ -691,11 +656,14 @@ function newKickEntity(x,y,w,h){	//fake entity that is used to kick crates aroun
 	newEnt.type = kickType;
 	newEnt.active = false;
 	newEnt.update = function(eTime){
-		if(this.active) this.active = false;	//only active for a single frame
-		else {	//when not active stows self away for later
+		if(this.active) {
+		
+		this.active = false;	//only active for a single frame
+		this.virtual = true; // keep us from 
+		} /* else {	//when not active stows self away for later
 			this.coords.x = -5000;
 			this.coords.y = -5000;
-		}
+		}   */
 		this.aabb.x = this.coords.x - this.aabb.w;
 		this.aabb.y = this.coords.y - this.aabb.h;
 	}
