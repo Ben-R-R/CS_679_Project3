@@ -501,7 +501,7 @@ function newGameKeyEntity(x,y, radius){
 			if(this.form != "h"){
 				human.cloneNode(true).play();
 				this.form = "h";
-			this.impX = 0.3; // impulsive x velocity, 
+                this.impX = 0.3; // impulsive x velocity, 
 			this.maxRun = 0.5; // maximum run speed,  
 			this.impY = -0.6; // impulsive x velocity, used for jumps
 			this.maxFall = 0.5; // maximum fall rate.
