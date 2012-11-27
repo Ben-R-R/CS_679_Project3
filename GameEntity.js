@@ -380,11 +380,17 @@ function newGameKeyEntity(x,y, radius){
 	newEnt.update = function(elapsedTime){
 		//press 1 for human
 		if(keydown(49)){
-			this.form = "h";
+			if(this.form != "h"){
+				human.cloneNode(true).play();
+				this.form = "h";
+			}
 		} 
 		//press 2 for cheetah
 		else if(keydown(50)){
-			this.form = "c";
+			if(this.form != "c"){
+				cheetah.cloneNode(true).play();
+				this.form = "c";
+			}
 		} 
 		/* TODO: Unblock to add flying squirrel
 		//press 3 for flying squirrel
@@ -394,7 +400,10 @@ function newGameKeyEntity(x,y, radius){
 		*/
 		//press 4 for kangaroo
 		else if(keydown(52)){
-			this.form = "k";
+			if(this.form != "k"){
+				kangaroo.cloneNode(true).play();
+				this.form = "k";
+			}
 		}
 		/* TODO: Unblock to add spider
 		//press 5 for spider
@@ -524,6 +533,7 @@ function newGameKeyEntity(x,y, radius){
 			if(keyhit(32) && kangaJumps > 0){	//initial jump-off
 				this.velocity.y = -.6;
 				kangaJumps--;
+				kjump.cloneNode(true).play();
 				//kangaJmpA = -.1;
 			} else if(keydown(32) && kangaJmpA < -0.01){	//jump "carry"
 				//this.velocity.y += kangaJmpA;
