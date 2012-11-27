@@ -311,10 +311,12 @@ function newCrateEntity(x,y,w,h){
 	newEnt.acceleration = newVector(0,GRAVITY);
 	newEnt.fixed = false;
 	newEnt.type = moveType;	//object is movable
+	newEnt.onGround = false;
 	newEnt.update = function(eTime){
 		this.coords.add(vScalarMult(eTime,this.velocity));
 		this.velocity.add(vScalarMult(eTime,this.acceleration));
-		
+				
+		this.onGround = false;
 		
 		this.aabb.x = this.coords.x - this.aabb.w / 2;
 		this.aabb.y = this.coords.y - this.aabb.h / 2;
@@ -340,6 +342,7 @@ function newCrateEntity(x,y,w,h){
 				this.velocity.x	= 0;		
 			}
 			if(responseVector.y > 0 && this.velocity.y < 0){
+				this.onGround = true;
 				this.velocity.y	= 0;
 			}else if(responseVector.y < 0 && this.velocity.y > 0){
 				this.velocity.y	= 0;
@@ -357,6 +360,102 @@ function newCrateEntity(x,y,w,h){
 	}
 	
 	return newEnt;
+}
+
+
+function newSpiderGrappleEntity(x,y){
+	var newEnt = Object.create(GameEntity);
+	newEnt.coords = newVector(x,y);
+	newEnt.velocity = newVector(0,0);
+	newEnt.radius = 0;
+	newEnt.aabb = newBox(x - 10, y - 10, 20, 20);
+	newEnt.acceleration = newVector(0,0);
+	newEnt.fixed = true;
+	newEnt.isGrapplePoint = true;
+	newEnt.draw = function(origin){
+		//theContext.strokeStyle = "#000000";
+        theContext.fillStyle = "#FF0000";
+        
+        theContext.fillRect(this.aabb.x + origin.x,this.aabb.y + origin.y,this.aabb.w,this.aabb.h);
+	}
+	
+	return newEnt;
+}
+
+// this entity follows the mouse when the spider is active and 
+// detects when the mouse is near grappling points
+function newSpiderMouseEntity(radius, player){
+	var newEnt = Object.create(GameEntity);
+	newEnt.coords = newVector(mouseX,mouseY);
+	newEnt.velocity = newVector(0,0);
+	newEnt.acceleration = newVector(0,0);
+	
+	newEnt.radius = radius;
+	
+	newEnt.virtual = true;
+	newEnt.contactGrapplePoint = null;
+		
+	newEnt.fixed = false;
+	newEnt.player = player;
+
+	
+	newEnt.update = function(elapsedTime){
+		// if we are not a spider, don't do anything...
+		if(this.player.form !== 's' ){
+			this.contactGrapplePoint = null;
+			
+			return;		
+		}
+		
+		this.coords.x = mouseX - origin.x;
+		this.coords.y = mouseY - origin.y;
+		
+		// have we clicked on a grapple point when the spider not already
+		// connected to one?
+		if(this.contactGrapplePoint && mouse1 && this.player._sState === 0){
+			// are we close enough to reach it?
+			if(LenComp(this.player.coords, this.contactGrapplePoint.coords, this.player._sL)){
+				this.player._sGrpPnt = this.contactGrapplePoint;
+				this.player._sState = 1;							
+			}									
+		
+		}
+		
+		this.contactGrapplePoint = null
+		
+		
+		
+	}
+	
+	newEnt.collisionResponse = function(responseVector, other){
+		if(vectorError(responseVector) ){
+			return;
+		}
+		
+		if(other.isGrapplePoint){
+			this.contactGrapplePoint = other;
+		}
+		
+		this.resVec = responseVector; 
+	}
+	
+	newEnt.draw = function(origin){
+		if(this.player.form !== "s" ){
+			
+			return;	
+		}
+		if(this.contactGrapplePoint){
+		    theContext.strokeStyle = "#FF0000";
+		} else {
+			theContext.strokeStyle = "#00FF00";
+		}        
+        
+		theContext.beginPath();
+		theContext.arc(this.coords.x + origin.x , this.coords.y + origin.y, this.radius, 0, 2*Math.PI);
+		theContext.stroke();
+	}
+	return newEnt;
+		
 }
 
 /**
@@ -382,6 +481,19 @@ function newGameKeyEntity(x,y, radius){
 	newEnt.maxRun = 0.5; // maximum run speed,  
 	newEnt.impY = -0.6; // impulsive x velocity, used for jumps
 	newEnt.maxFall = 0.5; // maximum fall rate.
+	
+	// SPIDER STUFF
+	newEnt._sState = 0; // current state of the spiders swing
+	newEnt._sL = 30; // length of the spider thread for swinging
+	newEnt._sE = 0; // total starting swing energy of the spider. Kinetic + potential 
+	newEnt._sVa = 0; // starting velociy of the swing, t in n-t coordinates  
+	newEnt._sVb = 0; // current velocity of the swing, t in n-t coordinates
+	newEnt._sM = 0; // mass of the spider
+	newEnt._sA = 0; // current angle of the spider swing 
+	newEnt._sGrpPnt = null; // the grapple point of the spider  
+	
+	
+	spawnNewEntity(newSpiderMouseEntity(30, newEnt), dynamicList);
 	
 	newEnt.update = function(elapsedTime){
 		//press 1 for human
@@ -414,12 +526,13 @@ function newGameKeyEntity(x,y, radius){
 			this.impY = 0.0; // zero out inpulsive velocity because we will 
 							 // be doing our own jumps for the kangaroo 
 		}
-		/* TODO: Unblock to add spider
+		
 		//press 5 for spider
-		else if(keydown(52)){
+		else if(keydown(53)){
 			this.form = "s";
+			//console.log("Spider Mode Activated");
 		}
-		*/
+		
 		
 		// we set the velocity on a key hit, rather than continuously on a 
 		// key down so that if you swich animals you maintain your velocity 
@@ -542,8 +655,10 @@ function newGameKeyEntity(x,y, radius){
 			}
 		
 		//spider movement	
-		}else if(this.form == "s"){
-			
+		} else if(this.form === "s"){
+			//if(this._sState === 0){
+			//				
+			//}	
 		}
 		
 		this.velocity.add(vScalarMult(elapsedTime,this.acceleration))
@@ -637,6 +752,13 @@ function newGameKeyEntity(x,y, radius){
 			} else {
 			    theContext.drawImage(CheetahR,this.coords.x - CheetahR.width/2 + origin.x,this.coords.y - CheetahR.height/2 + origin.y);
 			}
+		} else {
+			theContext.fillStyle = "#FF6600";
+			//theContext.fillRect(this.coords.x + -this.radius/2 + origin.x, this.coords.y + -this.radius/2 + origin.y,  this.radius * 2,  this.radius * 2);
+			theContext.beginPath();
+			theContext.arc(this.coords.x + origin.x , this.coords.y + origin.y, this.radius, 0, 2*Math.PI);
+			theContext.fill();
+		
 		}
 		
 		

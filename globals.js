@@ -20,6 +20,8 @@ var elapsedT = 10; // stores the time since the last frame
  */
 var keysStateBuffer = {};
 
+var mouse1 = false;
+
 var KEY_STATE = {
 	FIRST_HIT:0,
 	DOWN:1,
