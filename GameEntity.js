@@ -340,7 +340,6 @@ function newCrateEntity(x,y,w,h){
 	newEnt.aabb = newBox(newEnt.coords.x - w/2, newEnt.coords.y - h/2, w, h);
 	newEnt.acceleration = newVector(0,GRAVITY);
 	newEnt.fixed = false;
-<<<<<<< HEAD
 	newEnt.isMovable = true;
 =======
 	newEnt.type = moveType;	//object is movable
