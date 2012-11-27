@@ -15,7 +15,8 @@ var GameEntity = {
 	acceleration : null,
 	isPlayer : false,
 	isDeadly : false,
-	type : 0,	//denotes a special type of object, used for collisions
+	isMovable : false,
+	isKick : false,
 	
 	/**
 	 * Update the entity, this usualy entails moving and animating the entity 
@@ -269,6 +270,36 @@ function newCheckpointEntity(org, w, h){
 		
 }
 
+function newSpikeEntity(x,y,w,h,dir,num){
+	var newEnt = Object.create(GameEntity);
+	newEnt.coords = newVector(x,y);
+	newEnt.velocity = newVector(0,0);
+	newEnt.radius = 5;
+	if(dir == 0 || dir == 2) newEnt.aabb = newBox(x - w/2, y - h/2, w, h);
+	else newEnt.aabb = newBox(x - h/2, y - w/2, h, w);
+	newEnt.acceleration = newVector(0,0);
+	newEnt.theta = dir * Math.PI / 2;
+	newEnt.fixed = true;
+	newEnt.spikeNum = num;
+	newEnt.isDeadly = true;
+	newEnt.sw = w / num;
+	newEnt.w = w;
+	newEnt.h = h;
+	newEnt.draw = function(origin){
+		theContext.translate(this.coords.x + origin.x,this.coords.y + origin.y);
+		theContext.rotate(this.theta);
+		theContext.translate(-this.w / 2,0);
+		for(i = 0; i < this.spikeNum; i++){
+			theContext.drawImage(Spike, i * this.sw, -this.h / 2, this.sw, this.h);
+		}
+		theContext.translate(this.w / 2,0);
+		theContext.rotate(-this.theta);
+		theContext.translate(-this.coords.x - origin.x,-this.coords.y - origin.y);
+	}
+	
+	return newEnt;
+}
+
 function newGearEntity(x,y){
 	var newEnt = Object.create(GameEntity);
 	newEnt.coords = newVector(x,y);
@@ -279,7 +310,6 @@ function newGearEntity(x,y){
 	newEnt.acceleration = newVector(0,0);
 	newEnt.fixed = true;
 	newEnt.theta = 0;	
-	newEnt.type = killType;	//gears kill player on contact
 	newEnt.update = function(eTime){
 	    this.theta += eTime * 0.003
         if(this.theta > Math.PI * 2){
@@ -310,7 +340,7 @@ function newCrateEntity(x,y,w,h){
 	newEnt.aabb = newBox(newEnt.coords.x - w/2, newEnt.coords.y - h/2, w, h);
 	newEnt.acceleration = newVector(0,GRAVITY);
 	newEnt.fixed = false;
-	newEnt.type = moveType;	//object is movable
+	newEnt.isMovable = true;
 	newEnt.update = function(eTime){
 		this.velocity.add(vScalarMult(eTime,this.acceleration));
 		this.coords.add(vScalarMult(eTime,this.velocity));
@@ -322,9 +352,9 @@ function newCrateEntity(x,y,w,h){
 			return;
 		}
 		
-		if(other.type == playerType){
+		if(other.isPlayer){
 			
-		} else if(other.type == kickType){
+		} else if(other.isKick){
 			if(responseVector.x > 0){
 				this.velocity.add(newVector(0.5,-0.2));
 			} else if(responseVector.x < 0){
@@ -367,7 +397,6 @@ function newGameKeyEntity(x,y, radius){
 	newEnt.velocity = newVector(0,0);
 	newEnt.radius = radius;
 	newEnt.acceleration = newVector(0,GRAVITY);
-	newEnt.type = playerType;	//player object
 	newEnt.fixed = false;
 	newEnt.onGround = false;
 	newEnt.isPlayer = true;
@@ -376,7 +405,6 @@ function newGameKeyEntity(x,y, radius){
 	newEnt.kick = newKickEntity(-5000,-5000,20,newEnt.radius * 2)	//entity used to "kick" blocks around
 	spawnNewEntity(newEnt.kick,staticList);
 	newEnt.direction = 1;
-	
 	newEnt.update = function(elapsedTime){
 		//press 1 for human
 		if(keydown(49)){
@@ -578,7 +606,7 @@ function newGameKeyEntity(x,y, radius){
 			this.coords.x = this.checkpoint.coords.x;
 			this.coords.y = this.checkpoint.coords.y; 			
 		}
-		if(other.type == kickType) return;
+		if(other.isKick) return;
 		
 		// move so we are not colliding anymore
 		this.coords.add(responseVector);
@@ -627,6 +655,14 @@ function newGameKeyEntity(x,y, radius){
 			}
 		} else if(this.form == "h"){
 			theContext.drawImage(human1,this.coords.x - human1.width/2 + origin.x,this.coords.y - human1.height/2 + origin.y);
+			
+			/* NOTE: this code flips the sprite upside-down. Just leaving it here for reference
+			theContext.translate(this.coords.x + origin.x,this.coords.y + origin.y);
+			theContext.rotate(Math.PI);
+			theContext.drawImage(kangaroo1R,-human1.width/2,-human1.height/2);
+			theContext.rotate(-Math.PI);
+			theContext.translate(-this.coords.x - origin.x,-this.coords.y - origin.y);
+			*/
 		} else if(this.form == "c"){
 			if(this.direction === -1){
 				theContext.drawImage(CheetahL,this.coords.x - CheetahR.width/2 + origin.x,this.coords.y - CheetahR.height/2 + origin.y);
@@ -649,7 +685,7 @@ function newKickEntity(x,y,w,h){	//fake entity that is used to kick crates aroun
 	newEnt.velocity = newVector(0,0);
 	newEnt.acceleration = newVector(0,0);
 	newEnt.aabb = newBox(x-w/2,y-h/2,w,h);
-	newEnt.type = kickType;
+	newEnt.isKick = true;
 	newEnt.active = false;
 	newEnt.update = function(eTime){
 		if(this.active) this.active = false;	//only active for a single frame
