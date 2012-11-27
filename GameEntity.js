@@ -291,8 +291,8 @@ function newSpikeEntity(x,y,w,h,dir,num){
 		theContext.translate(-this.w / 2,0);
 		var g = theContext.createLinearGradient(0,this.h/2,0,-this.h/2);
 		g.addColorStop(0,"black");
-		g.addColorStop(1,"#AAAAAA");
-		
+		g.addColorStop(0.5,"#000000");
+		g.addColorStop(1,"#FF0000");
 		for(i = 0; i < this.spikeNum; i++){
 			//theContext.drawImage(Spike, i * this.sw, -this.h / 2, this.sw, this.h);
 			
@@ -300,8 +300,11 @@ function newSpikeEntity(x,y,w,h,dir,num){
 			theContext.fillStyle = g;
 			theContext.beginPath();
 			theContext.moveTo(i*this.sw,this.h / 2);
+			
 			theContext.lineTo((i+1)*this.sw,this.h / 2);
-			theContext.lineTo((i+0.5)*this.sw,-this.h / 2);
+			
+			theContext.lineTo((i+0.5)*this.sw + 0.5,-this.h / 2);
+			
 			theContext.closePath();
 			theContext.stroke();
 			theContext.fill();
