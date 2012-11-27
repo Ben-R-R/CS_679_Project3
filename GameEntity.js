@@ -378,15 +378,27 @@ function newGameKeyEntity(x,y, radius){
 	newEnt.kick = newKickEntity(-5000,-5000,20,newEnt.radius * 2)	//entity used to "kick" blocks around
 	spawnNewEntity(newEnt.kick,staticList);
 	newEnt.direction = 1;
+	newEnt.impX = 0.3; // impulsive x velocity, 
+	newEnt.maxRun = 0.5; // maximum run speed,  
+	newEnt.impY = -0.6; // impulsive x velocity, used for jumps
+	newEnt.maxFall = 0.5; // maximum fall rate.
 	
 	newEnt.update = function(elapsedTime){
 		//press 1 for human
 		if(keydown(49)){
 			this.form = "h";
+			this.impX = 0.3; // impulsive x velocity, 
+			this.maxRun = 0.5; // maximum run speed,  
+			this.impY = -0.6; // impulsive x velocity, used for jumps
+			this.maxFall = 0.5; // maximum fall rate.
 		} 
 		//press 2 for cheetah
 		else if(keydown(50)){
 			this.form = "c";
+			this.impX = 0.3; // impulsive x velocity, 
+			this.maxRun = 0.5; // maximum run speed,  
+			this.impY = -0.6; // impulsive x velocity, used for jumps
+			this.maxFall = 0.5; // maximum fall rate.
 		} 
 		/* TODO: Unblock to add flying squirrel
 		//press 3 for flying squirrel
@@ -397,6 +409,9 @@ function newGameKeyEntity(x,y, radius){
 		//press 4 for kangaroo
 		else if(keydown(52)){
 			this.form = "k";
+			this.impX = 0.0; // impulsive x velocity, 
+			this.maxRun = 0.1; // maximum run speed,  
+			this.impY = 0.0; // impulsive x velocity, used for jumps
 		}
 		/* TODO: Unblock to add spider
 		//press 5 for spider
@@ -405,34 +420,36 @@ function newGameKeyEntity(x,y, radius){
 		}
 		*/
 		
+		// we set the velocity on a key hit, rather than continuously on a 
+		// key down so that if you swich animals you maintain your velocity 
+		
+		if(keyhit(65)){
+		    this.direction = -1;
+			this.velocity.x = - this.impX;
+		} else if (keyhit(68)){
+		    this.velocity.x = this.impX;
+			this.direction = 1;
+		} else if(keydown(65)){
+			this.direction = -1;
+			//this.velocity.x = - this.impX;
+		} else if(keydown(68)){
+			//this.velocity.x = this.impX;
+			this.direction = 1;
+		} else {
+			this.velocity.x = 0;
+		}
+			
+		// apply impulse to velocity. 
+		if(keydown(32) && this.onGround){
+			this.velocity.y = this.impY;
+							
+		}
+		
+		
 		
 		//human form movement
 		if(this.form == "h"){
-			if(keydown(65)){
-				this.direction = -1;
-				this.velocity.x = -.3;
-			}else if(keydown(68)){
-				this.velocity.x = .3;
-				this.direction = 1;
-			} else {
-				this.velocity.x = 0;
-			}
 			
-			// apply impulse to velocity. 
-			if(keydown(32) && this.onGround){
-				this.velocity.y = -.6;
-								
-			}
-			
-			this.velocity.add(vScalarMult(elapsedTime,this.acceleration))
-			if(this.velocity.y > .5){
-			   this.velocity.y = .5;
-			}
-			this.coords.add(vScalarMult(elapsedTime,this.velocity))
-			
-			// we assume we are not on the ground unless the physics engine tells 
-			// us otherwise.
-			this.onGround = false;
 			
 			
 		//cheetah form movement
@@ -478,7 +495,7 @@ function newGameKeyEntity(x,y, radius){
 			
 			//this bit can probably be moved outside for all of them
 			//unless we want to apply special cases to certain powers
-			this.velocity.add(vScalarMult(elapsedTime,this.acceleration))
+			/*this.velocity.add(vScalarMult(elapsedTime,this.acceleration))
 			if(this.velocity.y > .5){
 			   this.velocity.y = .5;
 			}
@@ -486,7 +503,7 @@ function newGameKeyEntity(x,y, radius){
 			
 			this.wasGround = this.onGround;	//used to check if cheetah just left ground
 			// we assume we are not on the ground
-			this.onGround = false;
+			this.onGround = false;*/
 			
 			
 		//flying squirrel movement 
@@ -497,15 +514,25 @@ function newGameKeyEntity(x,y, radius){
 			
 			//ground motion
 			if(this.onGround){
+			
+				//this.impX = 0.0; // impulsive x velocity, 
+				this.maxRun = 0.1; // maximum run speed,  
+				this.impY = 0.0; // impulsive x velocity, used for jumps
+				//this.maxFall = 0.5; // maximum fall rate.
+				
 				kangaJumps = 2;
 				dropTime = 0;
 				if(keydown(65) || keydown(68)){	//left or right hops
 					this.velocity.y -= .2;
-				} else this.velocity.x = 0;	//stops movement on ground
+					this.velocity.x = this.impX * this.direction;
+				} else {
+				    this.velocity.x = 0;	//stops movement on ground
+				} 
 			}
 			//aerial motion
 			else{
-				if(keydown(65)){	//left movement in air
+				this.impX = 0.2; // impulsive x velocity,
+				/*if(keydown(65)){	//left movement in air
 					this.velocity.x -= .1;
 					this.direction = -1;
 				}
@@ -515,7 +542,8 @@ function newGameKeyEntity(x,y, radius){
 				}
 				if(!keydown(65) && !keydown(68)){	//cancels momentum if no key pressed
 					this.velocity.x = 0;
-				}
+				} */
+				
 				if(kangaJumps == 2 && dropTime < 10) dropTime++;
 				else if(kangaJumps == 2) kangaJumps = 1;
 				
@@ -540,18 +568,27 @@ function newGameKeyEntity(x,y, radius){
 				this.kick.active = true;
 			}
 			
-			this.velocity.add(vScalarMult(elapsedTime,this.acceleration))
+			/*this.velocity.add(vScalarMult(elapsedTime,this.acceleration))
 			if(this.velocity.y > .5){
 			   this.velocity.y = .5;
 			}
 			this.coords.add(vScalarMult(elapsedTime,this.velocity))
 			//assume we're not on the ground
-			this.onGround = false;
+			this.onGround = false;*/
 		
 		//spider movement	
 		}else if(this.form == "s"){
 			
 		}
+		
+		this.velocity.add(vScalarMult(elapsedTime,this.acceleration))
+		if(this.velocity.y > .5){
+		   this.velocity.y = .5;
+		}
+		this.coords.add(vScalarMult(elapsedTime,this.velocity));
+		this.wasGround = this.onGround;	//used to check if cheetah just left ground
+		this.onGround = false;
+		
 		
 		if( (this.coords.y + origin.y) >= 400){
 			origin.y = -this.coords.y + 400;		
@@ -596,11 +633,11 @@ function newGameKeyEntity(x,y, radius){
 		
 		// if we bump an opposing force, stop. This is not entirely physicly
 		// correct but will work for the most part.
-		if(responseVector.x > 0 && this.velocity.x < 0){
+		/*if(responseVector.x > 0 && this.velocity.x < 0){
 			this.velocity.x	= 0;		
 		}else if(responseVector.x < 0 && this.velocity.x > 0){
 			this.velocity.x	= 0;		
-		}
+		} */
 		if(responseVector.y > 0 && this.velocity.y < 0){
 			this.velocity.y	= 0;		
 		}else if(responseVector.y < 0 && this.velocity.y > 0){
