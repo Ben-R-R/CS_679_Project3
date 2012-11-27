@@ -341,10 +341,10 @@ function newCrateEntity(x,y,w,h){
 	newEnt.acceleration = newVector(0,GRAVITY);
 	newEnt.fixed = false;
 	newEnt.isMovable = true;
-=======
-	newEnt.type = moveType;	//object is movable
+//=======
+	//newEnt.type = moveType;	//object is movable
 	newEnt.onGround = false;
->>>>>>> d2237d7377255951a4fb1846e7111433c85dd9b3
+//>>>>>>> d2237d7377255951a4fb1846e7111433c85dd9b3
 	newEnt.update = function(eTime){
 		this.coords.add(vScalarMult(eTime,this.velocity));
 		this.velocity.add(vScalarMult(eTime,this.acceleration));
@@ -509,8 +509,8 @@ function newGameKeyEntity(x,y, radius){
 	newEnt.kick = newKickEntity(-5000,-5000,20,newEnt.radius * 2)	//entity used to "kick" blocks around
 	spawnNewEntity(newEnt.kick,staticList);
 	newEnt.direction = 1;
-<<<<<<< HEAD
-=======
+//<<<<<<< HEAD
+//=======
 	newEnt.impX = 0.3; // impulsive x velocity, 
 	newEnt.maxRun = 0.5; // maximum run speed,  
 	newEnt.impY = -0.6; // impulsive x velocity, used for jumps
@@ -529,7 +529,7 @@ function newGameKeyEntity(x,y, radius){
 	
 	spawnNewEntity(newSpiderMouseEntity(30, newEnt), dynamicList);
 	
->>>>>>> d2237d7377255951a4fb1846e7111433c85dd9b3
+//>>>>>>> d2237d7377255951a4fb1846e7111433c85dd9b3
 	newEnt.update = function(elapsedTime){
 		//press 1 for human
 		if(keydown(49)){
