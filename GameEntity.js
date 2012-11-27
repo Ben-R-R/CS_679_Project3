@@ -415,9 +415,9 @@ function newSpiderGrappleEntity(x,y){
 	return newEnt;
 }
 
-// this entity follows the mouse when the spider is active and 
-// detects when the mouse is near grappling points
-function newSpiderMouseEntity(radius, player){
+// this entity follows the spider and detects when you are close to a grapple
+// point
+function newSpiderDetectEntity(radius, player){
 	var newEnt = Object.create(GameEntity);
 	newEnt.coords = newVector(mouseX,mouseY);
 	newEnt.velocity = newVector(0,0);
@@ -435,28 +435,17 @@ function newSpiderMouseEntity(radius, player){
 	newEnt.update = function(elapsedTime){
 		// if we are not a spider, don't do anything...
 		if(this.player.form !== 's' ){
-			this.contactGrapplePoint = null;
+			this.player._sGrpPnt  = null;
 			
 			return;		
 		}
 		
-		this.coords.x = mouseX - origin.x;
-		this.coords.y = mouseY - origin.y;
+		this.coords.x = this.player.coords.x;//mouseX - origin.x;
+		this.coords.y = this.player.coords.y;//mouseY - origin.y;
 		
-		// have we clicked on a grapple point when the spider not already
-		// connected to one?
-		if(this.contactGrapplePoint && keyhit(32) && this.player._sState === 0){
-			// are we close enough to reach it?
-			console.log("potential grapple contact: " + LenComp(this.player.coords, this.contactGrapplePoint.coords, this.player._sL));
-			if(LenComp(this.player.coords, this.contactGrapplePoint.coords, this.player._sL)){
-				this.player._sGrpPnt = this.contactGrapplePoint;
-				this.player._sState = 1;
-				console.log("Grapple Contact!");						
-			}									
 		
-		}
 		
-		this.contactGrapplePoint = null
+		//this.player._sGrpPnt  = null;
 		
 		
 		
@@ -468,7 +457,7 @@ function newSpiderMouseEntity(radius, player){
 		}
 		
 		if(other.isGrapplePoint){
-			this.contactGrapplePoint = other;
+			this.player._sGrpPnt = other;
 		}
 		
 		this.resVec = responseVector; 
@@ -479,7 +468,7 @@ function newSpiderMouseEntity(radius, player){
 			
 			return;	
 		}
-		if(this.contactGrapplePoint){
+		if(this.player._sGrpPnt){
 		    theContext.strokeStyle = "#FF0000";
 		} else {
 			theContext.strokeStyle = "#00FF00";
@@ -520,7 +509,7 @@ function newGameKeyEntity(x,y, radius){
 	
 	// SPIDER STUFF
 	newEnt._sState = 0; // current state of the spiders swing
-	newEnt._sL = 60; // length of the spider thread for swinging
+	newEnt._sL = 100; // length of the spider thread for swinging
 	newEnt._sE = 0; // total starting swing energy of the spider. Kinetic + potential 
 	newEnt._sVa = 0; // starting velociy of the swing, t in n-t coordinates  
 	newEnt._sVb = 0; // current velocity of the swing, t in n-t coordinates
@@ -529,7 +518,7 @@ function newGameKeyEntity(x,y, radius){
 	newEnt._sGrpPnt = null; // the grapple point of the spider  
 	
 	
-	spawnNewEntity(newSpiderMouseEntity(30, newEnt), dynamicList);
+	spawnNewEntity(newSpiderDetectEntity(newEnt._sL, newEnt), dynamicList);
 	
 //>>>>>>> d2237d7377255951a4fb1846e7111433c85dd9b3
 	newEnt.update = function(elapsedTime){
@@ -710,8 +699,26 @@ function newGameKeyEntity(x,y, radius){
 		} else if(this.form === "s"){
 			if(keydown(32) && this.onGround){
 				this.velocity.y = this.impY;
+			}
+			
+			if (this._sState === 0){
+			    // have we clicked on a grapple point when the spider not already
+				// connected to one?
+				if(this._sGrpPnt && keydown(32)){
+					// are we close enough to reach it?
+					//console.log("potential grapple contact: " + LenComp(this.player.coords, this._sGrpPnt.coords, this.player._sL));
+					if(LenComp(this.coords, this._sGrpPnt.coords, this._sL)){
+						//this._sGrpPnt = this.contactGrapplePoint;
+						this._sState = 1;
+						console.log("Grapple Contact!");						
+					}									
 				
-								
+				}
+			
+			} else if (this._sState === 1){
+			    if(! LenComp(this.coords, this._sGrpPnt.coords, this._sL)){
+					this._sState = 0;		
+				}
 			}	
 		}
 		
@@ -814,12 +821,20 @@ function newGameKeyEntity(x,y, radius){
 			} else {
 			    theContext.drawImage(CheetahR,this.coords.x - CheetahR.width/2 + origin.x,this.coords.y - CheetahR.height/2 + origin.y);
 			}
-		} else {
+		} else if (this.form === "s"){
 			theContext.fillStyle = "#FF6600";
 			//theContext.fillRect(this.coords.x + -this.radius/2 + origin.x, this.coords.y + -this.radius/2 + origin.y,  this.radius * 2,  this.radius * 2);
 			theContext.beginPath();
 			theContext.arc(this.coords.x + origin.x , this.coords.y + origin.y, this.radius, 0, 2*Math.PI);
 			theContext.fill();
+			if(this._sState === 1){
+			
+				theContext.strokeStyle = "#000000";
+				theContext.beginPath();
+				theContext.moveTo(this._sGrpPnt.coords.x + origin.x, this._sGrpPnt.coords.y + origin.y);
+				theContext.lineTo(this.coords.x + origin.x, this.coords.y + origin.y);
+				theContext.stroke();
+			}
 		
 		}
 		
