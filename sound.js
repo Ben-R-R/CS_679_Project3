@@ -4,16 +4,25 @@
 Placeholder functions for sound 
 
 */
-var human;
-var cheetah;
-var kangaroo;
-var kjump;
+var hSound;
+var hJumpSound;
+var cSound;
+var cJumpSound;
+var kSound;
+var kJumpSound;
 
 function initSound(){
-	human = new Audio( 'sound/human.ogg' );
-	cheetah  = new Audio('sound/cheetah.ogg');
-	kangaroo = new Audio('sound/boing.ogg');
-	kjump = new Audio('sound/kjump.ogg');
+	hSound = new Audio('sound/human.ogg');
+	hJumpSound = new Audio('sound/hjump.ogg');
+	cSound  = new Audio('sound/cheetah.ogg');
+	cJumpSound = new Audio('sound/cjump.ogg');
+	kSound = new Audio('sound/kangaroo.ogg');
+	kJumpSound = new Audio('sound/kjump.ogg');
+	
+	hSound.load();
+	cSound.load();
+	kSound.load();
+	kJumpSound.load();
 }
 
 function updateSound(){
