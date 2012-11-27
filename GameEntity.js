@@ -445,11 +445,13 @@ function newSpiderMouseEntity(radius, player){
 		
 		// have we clicked on a grapple point when the spider not already
 		// connected to one?
-		if(this.contactGrapplePoint && mouse1 && this.player._sState === 0){
+		if(this.contactGrapplePoint && keyhit(32) && this.player._sState === 0){
 			// are we close enough to reach it?
+			console.log("potential grapple contact: " + LenComp(this.player.coords, this.contactGrapplePoint.coords, this.player._sL));
 			if(LenComp(this.player.coords, this.contactGrapplePoint.coords, this.player._sL)){
 				this.player._sGrpPnt = this.contactGrapplePoint;
-				this.player._sState = 1;							
+				this.player._sState = 1;
+				console.log("Grapple Contact!");						
 			}									
 		
 		}
@@ -518,7 +520,7 @@ function newGameKeyEntity(x,y, radius){
 	
 	// SPIDER STUFF
 	newEnt._sState = 0; // current state of the spiders swing
-	newEnt._sL = 30; // length of the spider thread for swinging
+	newEnt._sL = 60; // length of the spider thread for swinging
 	newEnt._sE = 0; // total starting swing energy of the spider. Kinetic + potential 
 	newEnt._sVa = 0; // starting velociy of the swing, t in n-t coordinates  
 	newEnt._sVb = 0; // current velocity of the swing, t in n-t coordinates
