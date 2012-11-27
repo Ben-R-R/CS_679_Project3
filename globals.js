@@ -63,35 +63,26 @@ origin = null;
 // gravitational constant
 GRAVITY = 0.0015;
 
-// type codes
-otherType = 0;		//if an object doesn't have its own type category, it has this type code.
-moveType = 4729;	//type given to crates and other movable objects.
-playerType = 2742;	//type given to the player.
-kickType = 7824;	//type given to the player's 'kick' object.
-killType = 6826;	//type given to objects that kill the player on contact.
-
 var kangaroo1R = new Image();
-var kangaroo2R = new Image();
-
-var kangaroo1L = new Image();
-var kangaroo2L = new Image();
-
-var CheetahL = new Image();
-var CheetahR = new Image();
-
-var human1 = new Image();
-
-var GearLarge = new Image();
-
 kangaroo1R.src = './images/Kangaroo1.png';
+var kangaroo2R = new Image();
 kangaroo2R.src = './images/Kangaroo2.png';
 
+var kangaroo1L = new Image();
 kangaroo1L.src = './images/Kangaroo-1.png';
-kangaroo2L.src = './images/Kangaroo-2.png';       
+var kangaroo2L = new Image();
+kangaroo2L.src = './images/Kangaroo-2.png';  
 
-human1.src = './images/human1.png';
-
+var CheetahL = new Image();
 CheetahL.src = './images/Cheetah-1.png';
+var CheetahR = new Image();
 CheetahR.src = './images/Cheetah1.png';
 
+var human1 = new Image();
+human1.src = './images/human1.png';
+
+var GearLarge = new Image();
 GearLarge.src = './images/AAGear.png';
+
+var Spike = new Image();
+Spike.src = './images/Spike.png';

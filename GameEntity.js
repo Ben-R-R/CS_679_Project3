@@ -15,7 +15,8 @@ var GameEntity = {
 	acceleration : null,
 	isPlayer : false,
 	isDeadly : false,
-	type : 0,	//denotes a special type of object, used for collisions
+	isMovable : false,
+	isKick : false,
 	
 	/**
 	 * Update the entity, this usualy entails moving and animating the entity 
@@ -269,6 +270,36 @@ function newCheckpointEntity(org, w, h){
 		
 }
 
+function newSpikeEntity(x,y,w,h,dir,num){
+	var newEnt = Object.create(GameEntity);
+	newEnt.coords = newVector(x,y);
+	newEnt.velocity = newVector(0,0);
+	newEnt.radius = 5;
+	if(dir == 0 || dir == 2) newEnt.aabb = newBox(x - w/2, y - h/2, w, h);
+	else newEnt.aabb = newBox(x - h/2, y - w/2, h, w);
+	newEnt.acceleration = newVector(0,0);
+	newEnt.theta = dir * Math.PI / 2;
+	newEnt.fixed = true;
+	newEnt.spikeNum = num;
+	newEnt.isDeadly = true;
+	newEnt.sw = w / num;
+	newEnt.w = w;
+	newEnt.h = h;
+	newEnt.draw = function(origin){
+		theContext.translate(this.coords.x + origin.x,this.coords.y + origin.y);
+		theContext.rotate(this.theta);
+		theContext.translate(-this.w / 2,0);
+		for(i = 0; i < this.spikeNum; i++){
+			theContext.drawImage(Spike, i * this.sw, -this.h / 2, this.sw, this.h);
+		}
+		theContext.translate(this.w / 2,0);
+		theContext.rotate(-this.theta);
+		theContext.translate(-this.coords.x - origin.x,-this.coords.y - origin.y);
+	}
+	
+	return newEnt;
+}
+
 function newGearEntity(x,y){
 	var newEnt = Object.create(GameEntity);
 	newEnt.coords = newVector(x,y);
@@ -279,7 +310,6 @@ function newGearEntity(x,y){
 	newEnt.acceleration = newVector(0,0);
 	newEnt.fixed = true;
 	newEnt.theta = 0;	
-	newEnt.type = killType;	//gears kill player on contact
 	newEnt.update = function(eTime){
 	    this.theta += eTime * 0.003
         if(this.theta > Math.PI * 2){
@@ -310,8 +340,11 @@ function newCrateEntity(x,y,w,h){
 	newEnt.aabb = newBox(newEnt.coords.x - w/2, newEnt.coords.y - h/2, w, h);
 	newEnt.acceleration = newVector(0,GRAVITY);
 	newEnt.fixed = false;
+	newEnt.isMovable = true;
+=======
 	newEnt.type = moveType;	//object is movable
 	newEnt.onGround = false;
+>>>>>>> d2237d7377255951a4fb1846e7111433c85dd9b3
 	newEnt.update = function(eTime){
 		this.coords.add(vScalarMult(eTime,this.velocity));
 		this.velocity.add(vScalarMult(eTime,this.acceleration));
@@ -326,9 +359,9 @@ function newCrateEntity(x,y,w,h){
 			return;
 		}
 		
-		if(other.type == playerType){
+		if(other.isPlayer){
 			
-		} else if(other.type == kickType){
+		} else if(other.isKick){
 			if(responseVector.x > 0){
 				this.velocity.add(newVector(0.5,-0.2));
 			} else if(responseVector.x < 0){
@@ -468,7 +501,6 @@ function newGameKeyEntity(x,y, radius){
 	newEnt.velocity = newVector(0,0);
 	newEnt.radius = radius;
 	newEnt.acceleration = newVector(0,GRAVITY);
-	newEnt.type = playerType;	//player object
 	newEnt.fixed = false;
 	newEnt.onGround = false;
 	newEnt.isPlayer = true;
@@ -477,6 +509,8 @@ function newGameKeyEntity(x,y, radius){
 	newEnt.kick = newKickEntity(-5000,-5000,20,newEnt.radius * 2)	//entity used to "kick" blocks around
 	spawnNewEntity(newEnt.kick,staticList);
 	newEnt.direction = 1;
+<<<<<<< HEAD
+=======
 	newEnt.impX = 0.3; // impulsive x velocity, 
 	newEnt.maxRun = 0.5; // maximum run speed,  
 	newEnt.impY = -0.6; // impulsive x velocity, used for jumps
@@ -495,27 +529,28 @@ function newGameKeyEntity(x,y, radius){
 	
 	spawnNewEntity(newSpiderMouseEntity(30, newEnt), dynamicList);
 	
+>>>>>>> d2237d7377255951a4fb1846e7111433c85dd9b3
 	newEnt.update = function(elapsedTime){
 		//press 1 for human
 		if(keydown(49)){
 			if(this.form != "h"){
-				human.cloneNode(true).play();
+				hSound.cloneNode(true).play();
 				this.form = "h";
-			this.impX = 0.3; // impulsive x velocity, 
-			this.maxRun = 0.5; // maximum run speed,  
-			this.impY = -0.6; // impulsive x velocity, used for jumps
-			this.maxFall = 0.5; // maximum fall rate.
+				this.impX = 0.3; // impulsive x velocity, 
+				this.maxRun = 0.5; // maximum run speed,  
+				this.impY = -0.6; // impulsive x velocity, used for jumps
+				this.maxFall = 0.5; // maximum fall rate.
 			}
 		} 
 		//press 2 for cheetah
 		else if(keydown(50)){
 			if(this.form != "c"){
-				cheetah.cloneNode(true).play();
+				cSound.cloneNode(true).play();
 				this.form = "c";
-			this.impX = 0.3; // impulsive x velocity, 
-			this.maxRun = 0.5; // maximum run speed,  
-			this.impY = -0.5; // impulsive x velocity, used for jumps
-			this.maxFall = 0.5; // maximum fall rate.
+				this.impX = 0.3; // impulsive x velocity, 
+				this.maxRun = 0.5; // maximum run speed,  
+				this.impY = -0.5; // impulsive x velocity, used for jumps
+				this.maxFall = 0.5; // maximum fall rate.
 			}
 		} 
 		/* TODO: Unblock to add flying squirrel
@@ -527,12 +562,12 @@ function newGameKeyEntity(x,y, radius){
 		//press 4 for kangaroo
 		else if(keydown(52)){
 			if(this.form != "k"){
-				kangaroo.cloneNode(true).play();
+				kSound.cloneNode(true).play();
 				this.form = "k";
 			
-			this.maxRun = 0.1; // maximum run speed,  
-			this.impY = 0.0; // zero out inpulsive velocity because we will 
-							 // be doing our own jumps for the kangaroo 
+				this.maxRun = 0.1; // maximum run speed,  
+				this.impY = 0.0; // zero out inpulsive velocity because we will 
+								 // be doing our own jumps for the kangaroo 
 			}
 		}
 		//press 5 for spider
@@ -560,16 +595,17 @@ function newGameKeyEntity(x,y, radius){
 			this.velocity.x = 0;
 		}
 			
-		// apply impulse to velocity. Animals that override the default behavior
-		// should set the impulse to 0 
-		if(keydown(32) && this.onGround){
-			this.velocity.y = this.impY;
-							
-		}
+		
 		
 		//human form movement
 		if(this.form == "h"){
-			
+			// apply impulse to velocity. Animals that override the default behavior
+			// should set the impulse to 0 
+			if(keydown(32) && this.onGround){
+				this.velocity.y = this.impY;
+				hJumpSound.cloneNode(true).play();
+								
+			}
 		//cheetah form movement
 		} else if(this.form == "c"){
 			var tvx = this.velocity.x;
@@ -644,7 +680,7 @@ function newGameKeyEntity(x,y, radius){
 			if(keyhit(32) && kangaJumps > 0){	//initial jump-off
 				this.velocity.y = -.6;
 				kangaJumps--;
-				kjump.cloneNode(true).play();
+				kJumpSound.cloneNode(true).play();
 			}
 			
 			if(kangaJumps == 2 && dropTime < 10){
@@ -706,7 +742,7 @@ function newGameKeyEntity(x,y, radius){
 			this.coords.x = this.checkpoint.coords.x;
 			this.coords.y = this.checkpoint.coords.y; 			
 		}
-		if(other.type == kickType) return;
+		if(other.isKick) return;
 		
 		// move so we are not colliding anymore
 		this.coords.add(responseVector);
@@ -755,6 +791,14 @@ function newGameKeyEntity(x,y, radius){
 			}
 		} else if(this.form == "h"){
 			theContext.drawImage(human1,this.coords.x - human1.width/2 + origin.x,this.coords.y - human1.height/2 + origin.y);
+			
+			/* NOTE: this code flips the sprite upside-down. Just leaving it here for reference
+			theContext.translate(this.coords.x + origin.x,this.coords.y + origin.y);
+			theContext.rotate(Math.PI);
+			theContext.drawImage(kangaroo1R,-human1.width/2,-human1.height/2);
+			theContext.rotate(-Math.PI);
+			theContext.translate(-this.coords.x - origin.x,-this.coords.y - origin.y);
+			*/
 		} else if(this.form == "c"){
 			if(this.direction === -1){
 				theContext.drawImage(CheetahL,this.coords.x - CheetahR.width/2 + origin.x,this.coords.y - CheetahR.height/2 + origin.y);
@@ -784,7 +828,7 @@ function newKickEntity(x,y,w,h){	//fake entity that is used to kick crates aroun
 	newEnt.velocity = newVector(0,0);
 	newEnt.acceleration = newVector(0,0);
 	newEnt.aabb = newBox(x-w/2,y-h/2,w,h);
-	newEnt.type = kickType;
+	newEnt.isKick = true;
 	newEnt.active = false;
 	newEnt.update = function(eTime){
 		if(this.active) {
