@@ -1,12 +1,26 @@
 // sound.js
-/*
+var hSound;
+var hJumpSound;
+var cSound;
+var cJumpSound;
+var kSound;
+var kJumpSound;
 
-Placeholder functions for sound 
-
-*/
 
 function initSound(){
-	// empty for now
+    hSound = new Audio('sound/human.ogg');
+    hJumpSound = new Audio('sound/hjump.ogg');
+    cSound  = new Audio('sound/cheetah.ogg');
+    cJumpSound = new Audio('sound/cjump.ogg');
+    kSound = new Audio('sound/kangaroo.ogg');
+    kJumpSound = new Audio('sound/kjump.ogg');
+	
+    hSound.load();
+    hJumpSound.load();
+    cSound.load();
+    kSound.load();
+    kJumpSound.load();
+
 }
 
 function updateSound(){

@@ -30,10 +30,12 @@ function initLevelManager(){
 	
 	spawnNewEntity(newBoxEntity(newVector(0 ,500), 100, 20), staticList);
 	
+	spawnNewEntity(newSpiderGrappleEntity(1100,300), staticList);
+	
 	spawnNewEntity(newGearEntity(400 - 10, 300 - 10), staticList);
 	spawnNewEntity(newGearEntity(350, 600), staticList);
 	//sides
-	spawnNewEntity(newBoxEntity(newVector(0,-100), 800, 100), staticList);
+	//spawnNewEntity(newBoxEntity(newVector(0,-100), 800, 100), staticList);
 	spawnNewEntity(newBoxEntity(newVector(-100,-100), 100, 800), staticList);
 	spawnNewEntity(newBoxEntity(newVector(800,100), 50, 800), staticList);
 	spawnNewEntity(newBoxEntity(newVector(0,600), 1600, 100), staticList);

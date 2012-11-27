@@ -18,7 +18,18 @@ function initInput(){
         mouseY = (e.pageY - theCanvas.offsetTop);
 
     }, false);
+    
+    theCanvas.addEventListener("mousedown", function (e) {
+        
+        mouse1 = true; // technicly this will catch all mouse buttons, I'll fix it later...
 
+    }, false);
+    
+	theCanvas.addEventListener("mouseup", function (e) {
+        
+        mouse1 = false;
+
+    }, false);
 }
 
 function updateInput(){

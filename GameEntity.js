@@ -340,10 +340,18 @@ function newCrateEntity(x,y,w,h){
 	newEnt.aabb = newBox(newEnt.coords.x - w/2, newEnt.coords.y - h/2, w, h);
 	newEnt.acceleration = newVector(0,GRAVITY);
 	newEnt.fixed = false;
+<<<<<<< HEAD
 	newEnt.isMovable = true;
+=======
+	newEnt.type = moveType;	//object is movable
+	newEnt.onGround = false;
+>>>>>>> d2237d7377255951a4fb1846e7111433c85dd9b3
 	newEnt.update = function(eTime){
-		this.velocity.add(vScalarMult(eTime,this.acceleration));
 		this.coords.add(vScalarMult(eTime,this.velocity));
+		this.velocity.add(vScalarMult(eTime,this.acceleration));
+				
+		this.onGround = false;
+		
 		this.aabb.x = this.coords.x - this.aabb.w / 2;
 		this.aabb.y = this.coords.y - this.aabb.h / 2;
 	}
@@ -362,19 +370,20 @@ function newCrateEntity(x,y,w,h){
 			}
 		} else {
 			this.coords.add(responseVector);
-		if(responseVector.x > 0 && this.velocity.x < 0){
-			this.velocity.x	= 0;		
-		}else if(responseVector.x < 0 && this.velocity.x > 0){
-			this.velocity.x	= 0;		
-		}
-		if(responseVector.y > 0 && this.velocity.y < 0){
-			this.velocity.y	= 0;
-		}else if(responseVector.y < 0 && this.velocity.y > 0){
-			this.velocity.y	= 0;
-			if(this.velocity.x > 0.1) this.velocity.x -= 0.1;
-			else if(this.velocity.x < -0.1) this.velocity.x += 0.1;
-			if(this.velocity.x > -0.1 || this.velocity.x < 0.1) this.velocity.x = 0;
-		}
+			if(responseVector.x > 0 && this.velocity.x < 0){
+				this.velocity.x	= 0;		
+			}else if(responseVector.x < 0 && this.velocity.x > 0){
+				this.velocity.x	= 0;		
+			}
+			if(responseVector.y > 0 && this.velocity.y < 0){
+				this.onGround = true;
+				this.velocity.y	= 0;
+			}else if(responseVector.y < 0 && this.velocity.y > 0){
+				this.velocity.y	= 0;
+				if(this.velocity.x > 0.1) this.velocity.x -= 0.1;
+				else if(this.velocity.x < -0.1) this.velocity.x += 0.1;
+				if(this.velocity.x > -0.1 || this.velocity.x < 0.1) this.velocity.x = 0;
+			}
 		}
 		
 		this.resVec = responseVector;
@@ -385,6 +394,102 @@ function newCrateEntity(x,y,w,h){
 	}
 	
 	return newEnt;
+}
+
+
+function newSpiderGrappleEntity(x,y){
+	var newEnt = Object.create(GameEntity);
+	newEnt.coords = newVector(x,y);
+	newEnt.velocity = newVector(0,0);
+	newEnt.radius = 0;
+	newEnt.aabb = newBox(x - 10, y - 10, 20, 20);
+	newEnt.acceleration = newVector(0,0);
+	newEnt.fixed = true;
+	newEnt.isGrapplePoint = true;
+	newEnt.draw = function(origin){
+		//theContext.strokeStyle = "#000000";
+        theContext.fillStyle = "#FF0000";
+        
+        theContext.fillRect(this.aabb.x + origin.x,this.aabb.y + origin.y,this.aabb.w,this.aabb.h);
+	}
+	
+	return newEnt;
+}
+
+// this entity follows the mouse when the spider is active and 
+// detects when the mouse is near grappling points
+function newSpiderMouseEntity(radius, player){
+	var newEnt = Object.create(GameEntity);
+	newEnt.coords = newVector(mouseX,mouseY);
+	newEnt.velocity = newVector(0,0);
+	newEnt.acceleration = newVector(0,0);
+	
+	newEnt.radius = radius;
+	
+	newEnt.virtual = true;
+	newEnt.contactGrapplePoint = null;
+		
+	newEnt.fixed = false;
+	newEnt.player = player;
+
+	
+	newEnt.update = function(elapsedTime){
+		// if we are not a spider, don't do anything...
+		if(this.player.form !== 's' ){
+			this.contactGrapplePoint = null;
+			
+			return;		
+		}
+		
+		this.coords.x = mouseX - origin.x;
+		this.coords.y = mouseY - origin.y;
+		
+		// have we clicked on a grapple point when the spider not already
+		// connected to one?
+		if(this.contactGrapplePoint && mouse1 && this.player._sState === 0){
+			// are we close enough to reach it?
+			if(LenComp(this.player.coords, this.contactGrapplePoint.coords, this.player._sL)){
+				this.player._sGrpPnt = this.contactGrapplePoint;
+				this.player._sState = 1;							
+			}									
+		
+		}
+		
+		this.contactGrapplePoint = null
+		
+		
+		
+	}
+	
+	newEnt.collisionResponse = function(responseVector, other){
+		if(vectorError(responseVector) ){
+			return;
+		}
+		
+		if(other.isGrapplePoint){
+			this.contactGrapplePoint = other;
+		}
+		
+		this.resVec = responseVector; 
+	}
+	
+	newEnt.draw = function(origin){
+		if(this.player.form !== "s" ){
+			
+			return;	
+		}
+		if(this.contactGrapplePoint){
+		    theContext.strokeStyle = "#FF0000";
+		} else {
+			theContext.strokeStyle = "#00FF00";
+		}        
+        
+		theContext.beginPath();
+		theContext.arc(this.coords.x + origin.x , this.coords.y + origin.y, this.radius, 0, 2*Math.PI);
+		theContext.stroke();
+	}
+	return newEnt;
+		
 }
 
 /**
@@ -405,14 +510,49 @@ function newGameKeyEntity(x,y, radius){
 	newEnt.kick = newKickEntity(-5000,-5000,20,newEnt.radius * 2)	//entity used to "kick" blocks around
 	spawnNewEntity(newEnt.kick,staticList);
 	newEnt.direction = 1;
+<<<<<<< HEAD
+=======
+	newEnt.impX = 0.3; // impulsive x velocity, 
+	newEnt.maxRun = 0.5; // maximum run speed,  
+	newEnt.impY = -0.6; // impulsive x velocity, used for jumps
+	newEnt.maxFall = 0.5; // maximum fall rate.
+	
+	// SPIDER STUFF
+	newEnt._sState = 0; // current state of the spiders swing
+	newEnt._sL = 30; // length of the spider thread for swinging
+	newEnt._sE = 0; // total starting swing energy of the spider. Kinetic + potential 
+	newEnt._sVa = 0; // starting velociy of the swing, t in n-t coordinates  
+	newEnt._sVb = 0; // current velocity of the swing, t in n-t coordinates
+	newEnt._sM = 0; // mass of the spider
+	newEnt._sA = 0; // current angle of the spider swing 
+	newEnt._sGrpPnt = null; // the grapple point of the spider  
+	
+	
+	spawnNewEntity(newSpiderMouseEntity(30, newEnt), dynamicList);
+	
+>>>>>>> d2237d7377255951a4fb1846e7111433c85dd9b3
 	newEnt.update = function(elapsedTime){
 		//press 1 for human
 		if(keydown(49)){
-			this.form = "h";
+			if(this.form != "h"){
+				hSound.cloneNode(true).play();
+				this.form = "h";
+				this.impX = 0.3; // impulsive x velocity, 
+				this.maxRun = 0.5; // maximum run speed,  
+				this.impY = -0.6; // impulsive x velocity, used for jumps
+				this.maxFall = 0.5; // maximum fall rate.
+			}
 		} 
 		//press 2 for cheetah
 		else if(keydown(50)){
-			this.form = "c";
+			if(this.form != "c"){
+				cSound.cloneNode(true).play();
+				this.form = "c";
+				this.impX = 0.3; // impulsive x velocity, 
+				this.maxRun = 0.5; // maximum run speed,  
+				this.impY = -0.5; // impulsive x velocity, used for jumps
+				this.maxFall = 0.5; // maximum fall rate.
+			}
 		} 
 		/* TODO: Unblock to add flying squirrel
 		//press 3 for flying squirrel
@@ -422,45 +562,51 @@ function newGameKeyEntity(x,y, radius){
 		*/
 		//press 4 for kangaroo
 		else if(keydown(52)){
-			this.form = "k";
+			if(this.form != "k"){
+				kSound.cloneNode(true).play();
+				this.form = "k";
+			
+				this.maxRun = 0.1; // maximum run speed,  
+				this.impY = 0.0; // zero out inpulsive velocity because we will 
+								 // be doing our own jumps for the kangaroo 
+			}
 		}
-		/* TODO: Unblock to add spider
 		//press 5 for spider
-		else if(keydown(52)){
+		else if(keydown(53)){
 			this.form = "s";
+			//console.log("Spider Mode Activated");
 		}
-		*/
+		
+		
+		// we set the velocity on a key hit, rather than continuously on a 
+		// key down so that if you swich animals you maintain your velocity 
+		
+		if(keyhit(65)){
+		    this.direction = -1;
+			this.velocity.x = - this.impX;
+		} else if (keyhit(68)){
+		    this.velocity.x = this.impX;
+			this.direction = 1;
+		} else if(keydown(65)){
+			this.direction = -1;
+			
+		} else if(keydown(68)){
+			this.direction = 1;
+		} else {
+			this.velocity.x = 0;
+		}
+			
 		
 		
 		//human form movement
 		if(this.form == "h"){
-			if(keydown(65)){
-				this.direction = -1;
-				this.velocity.x = -.3;
-			}else if(keydown(68)){
-				this.velocity.x = .3;
-				this.direction = 1;
-			} else {
-				this.velocity.x = 0;
-			}
-			
-			// apply impulse to velocity. 
+			// apply impulse to velocity. Animals that override the default behavior
+			// should set the impulse to 0 
 			if(keydown(32) && this.onGround){
-				this.velocity.y = -.6;
+				this.velocity.y = this.impY;
+				hJumpSound.cloneNode(true).play();
 								
 			}
-			
-			this.velocity.add(vScalarMult(elapsedTime,this.acceleration))
-			if(this.velocity.y > .5){
-			   this.velocity.y = .5;
-			}
-			this.coords.add(vScalarMult(elapsedTime,this.velocity))
-			
-			// we assume we are not on the ground unless the physics engine tells 
-			// us otherwise.
-			this.onGround = false;
-			
-			
 		//cheetah form movement
 		} else if(this.form == "c"){
 			var tvx = this.velocity.x;
@@ -502,18 +648,6 @@ function newGameKeyEntity(x,y, radius){
 			this.velocity.x = tvx;
 			this.velocity.y = tvy;
 			
-			//this bit can probably be moved outside for all of them
-			//unless we want to apply special cases to certain powers
-			this.velocity.add(vScalarMult(elapsedTime,this.acceleration))
-			if(this.velocity.y > .5){
-			   this.velocity.y = .5;
-			}
-			this.coords.add(vScalarMult(elapsedTime,this.velocity))
-			
-			this.wasGround = this.onGround;	//used to check if cheetah just left ground
-			// we assume we are not on the ground
-			this.onGround = false;
-			
 			
 		//flying squirrel movement 
 		} else if(this.form == "f"){
@@ -523,40 +657,39 @@ function newGameKeyEntity(x,y, radius){
 			
 			//ground motion
 			if(this.onGround){
+			
+				this.maxRun = 0.2; // maximum run speed,  
+				this.impY = 0.0; // impulsive x velocity, used for jumps
+				
 				kangaJumps = 2;
 				dropTime = 0;
 				if(keydown(65) || keydown(68)){	//left or right hops
 					this.velocity.y -= .2;
-				} else this.velocity.x = 0;	//stops movement on ground
+					this.velocity.x = this.impX * this.direction;
+				
+				} else {
+				    this.velocity.x = 0;	//stops movement on ground
+				} 
 			}
 			//aerial motion
 			else{
-				if(keydown(65)){	//left movement in air
-					this.velocity.x -= .1;
-					this.direction = -1;
-				}
-				if(keydown(68)){	//right movement in air
-					this.velocity.x += .1;
-					this.direction = 1;
-				}
-				if(!keydown(65) && !keydown(68)){	//cancels momentum if no key pressed
-					this.velocity.x = 0;
-				}
-				if(kangaJumps == 2 && dropTime < 10) dropTime++;
-				else if(kangaJumps == 2) kangaJumps = 1;
+				this.impX = 0.2; // impulsive x velocity,
 				
-				if(this.velocity.x > .2) this.velocity.x = .2;
-				else if(this.velocity.x < -.2) this.velocity.x = -.2;
 			}
+			
 			//jumps
 			if(keyhit(32) && kangaJumps > 0){	//initial jump-off
 				this.velocity.y = -.6;
 				kangaJumps--;
-				//kangaJmpA = -.1;
-			} else if(keydown(32) && kangaJmpA < -0.01){	//jump "carry"
-				//this.velocity.y += kangaJmpA;
-				//kangaJmpA = kangaJmpA / 1.5;
+				kJumpSound.cloneNode(true).play();
 			}
+			
+			if(kangaJumps == 2 && dropTime < 10){
+				dropTime++;
+			} else if(kangaJumps == 2) {
+				kangaJumps = 1;
+			} 
+			
 			//kick
 			if(keyhit(69)){
 				this.kick.coords.x = this.coords.x + this.radius * this.direction;
@@ -564,20 +697,24 @@ function newGameKeyEntity(x,y, radius){
 				this.kick.aabb.x = this.coords.x + this.radius * this.direction - this.kick.aabb.w / 2;
 				this.kick.aabb.y = this.coords.y - this.kick.aabb.h / 2;
 				this.kick.active = true;
+				this.kick.virtual = false;
 			}
-			
-			this.velocity.add(vScalarMult(elapsedTime,this.acceleration))
-			if(this.velocity.y > .5){
-			   this.velocity.y = .5;
-			}
-			this.coords.add(vScalarMult(elapsedTime,this.velocity))
-			//assume we're not on the ground
-			this.onGround = false;
 		
 		//spider movement	
-		}else if(this.form == "s"){
-			
+		} else if(this.form === "s"){
+			//if(this._sState === 0){
+			//				
+			//}	
 		}
+		
+		this.velocity.add(vScalarMult(elapsedTime,this.acceleration))
+		if(this.velocity.y > .5){
+		   this.velocity.y = .5;
+		}
+		this.coords.add(vScalarMult(elapsedTime,this.velocity));
+		this.wasGround = this.onGround;	//used to check if cheetah just left ground
+		this.onGround = false;
+		
 		
 		if( (this.coords.y + origin.y) >= 400){
 			origin.y = -this.coords.y + 400;		
@@ -622,11 +759,11 @@ function newGameKeyEntity(x,y, radius){
 		
 		// if we bump an opposing force, stop. This is not entirely physicly
 		// correct but will work for the most part.
-		if(responseVector.x > 0 && this.velocity.x < 0){
+		/*if(responseVector.x > 0 && this.velocity.x < 0){
 			this.velocity.x	= 0;		
 		}else if(responseVector.x < 0 && this.velocity.x > 0){
 			this.velocity.x	= 0;		
-		}
+		} */                       // removed because it messes up the kangaroo
 		if(responseVector.y > 0 && this.velocity.y < 0){
 			this.velocity.y	= 0;		
 		}else if(responseVector.y < 0 && this.velocity.y > 0){
@@ -669,6 +806,13 @@ function newGameKeyEntity(x,y, radius){
 			} else {
 			    theContext.drawImage(CheetahR,this.coords.x - CheetahR.width/2 + origin.x,this.coords.y - CheetahR.height/2 + origin.y);
 			}
+		} else {
+			theContext.fillStyle = "#FF6600";
+			//theContext.fillRect(this.coords.x + -this.radius/2 + origin.x, this.coords.y + -this.radius/2 + origin.y,  this.radius * 2,  this.radius * 2);
+			theContext.beginPath();
+			theContext.arc(this.coords.x + origin.x , this.coords.y + origin.y, this.radius, 0, 2*Math.PI);
+			theContext.fill();
+		
 		}
 		
 		
@@ -688,11 +832,14 @@ function newKickEntity(x,y,w,h){	//fake entity that is used to kick crates aroun
 	newEnt.isKick = true;
 	newEnt.active = false;
 	newEnt.update = function(eTime){
-		if(this.active) this.active = false;	//only active for a single frame
-		else {	//when not active stows self away for later
+		if(this.active) {
+		
+		this.active = false;	//only active for a single frame
+		this.virtual = true; // keep us from 
+		} /* else {	//when not active stows self away for later
 			this.coords.x = -5000;
 			this.coords.y = -5000;
-		}
+		}   */
 		this.aabb.x = this.coords.x - this.aabb.w;
 		this.aabb.y = this.coords.y - this.aabb.h;
 	}
