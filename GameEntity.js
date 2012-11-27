@@ -499,23 +499,23 @@ function newGameKeyEntity(x,y, radius){
 		//press 1 for human
 		if(keydown(49)){
 			if(this.form != "h"){
-				hSound.cloneNode(true).play();
+				human.cloneNode(true).play();
 				this.form = "h";
-				this.impX = 0.3; // impulsive x velocity, 
-				this.maxRun = 0.5; // maximum run speed,  
-				this.impY = -0.6; // impulsive x velocity, used for jumps
-				this.maxFall = 0.5; // maximum fall rate.
+			this.impX = 0.3; // impulsive x velocity, 
+			this.maxRun = 0.5; // maximum run speed,  
+			this.impY = -0.6; // impulsive x velocity, used for jumps
+			this.maxFall = 0.5; // maximum fall rate.
 			}
 		} 
 		//press 2 for cheetah
 		else if(keydown(50)){
 			if(this.form != "c"){
-				cSound.cloneNode(true).play();
+				cheetah.cloneNode(true).play();
 				this.form = "c";
-				this.impX = 0.3; // impulsive x velocity, 
-				this.maxRun = 0.5; // maximum run speed,  
-				this.impY = -0.5; // impulsive x velocity, used for jumps
-				this.maxFall = 0.5; // maximum fall rate.
+			this.impX = 0.3; // impulsive x velocity, 
+			this.maxRun = 0.5; // maximum run speed,  
+			this.impY = -0.5; // impulsive x velocity, used for jumps
+			this.maxFall = 0.5; // maximum fall rate.
 			}
 		} 
 		/* TODO: Unblock to add flying squirrel
@@ -527,12 +527,12 @@ function newGameKeyEntity(x,y, radius){
 		//press 4 for kangaroo
 		else if(keydown(52)){
 			if(this.form != "k"){
-				kSound.cloneNode(true).play();
+				kangaroo.cloneNode(true).play();
 				this.form = "k";
 			
-				this.maxRun = 0.1; // maximum run speed,  
-				this.impY = 0.0; // zero out inpulsive velocity because we will 
-								 // be doing our own jumps for the kangaroo 
+			this.maxRun = 0.1; // maximum run speed,  
+			this.impY = 0.0; // zero out inpulsive velocity because we will 
+							 // be doing our own jumps for the kangaroo 
 			}
 		}
 		//press 5 for spider
@@ -560,15 +560,16 @@ function newGameKeyEntity(x,y, radius){
 			this.velocity.x = 0;
 		}
 			
-		
+		// apply impulse to velocity. Animals that override the default behavior
+		// should set the impulse to 0 
+		if(keydown(32) && this.onGround){
+			this.velocity.y = this.impY;
+							
+		}
 		
 		//human form movement
 		if(this.form == "h"){
-			// apply impulse to velocity
-			if(keydown(32) && this.onGround){
-				this.velocity.y = this.impY;
-				hJumpSound.cloneNode(true).play();			
-			}
+			
 		//cheetah form movement
 		} else if(this.form == "c"){
 			var tvx = this.velocity.x;
@@ -643,7 +644,7 @@ function newGameKeyEntity(x,y, radius){
 			if(keyhit(32) && kangaJumps > 0){	//initial jump-off
 				this.velocity.y = -.6;
 				kangaJumps--;
-				kJumpSound.cloneNode(true).play();
+				kjump.cloneNode(true).play();
 			}
 			
 			if(kangaJumps == 2 && dropTime < 10){
