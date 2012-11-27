@@ -290,7 +290,19 @@ function newSpikeEntity(x,y,w,h,dir,num){
 		theContext.rotate(this.theta);
 		theContext.translate(-this.w / 2,0);
 		for(i = 0; i < this.spikeNum; i++){
-			theContext.drawImage(Spike, i * this.sw, -this.h / 2, this.sw, this.h);
+			//theContext.drawImage(Spike, i * this.sw, -this.h / 2, this.sw, this.h);
+			var g = theContext.createLinearGradient(0,this.h/2,0,-this.h/2);
+			g.addColorStop(0,"black");
+			g.addColorStop(1,"#AAAAAA");
+			theContext.strokeStyle = g;
+			theContext.fillStyle = g;
+			theContext.beginPath();
+			theContext.moveTo(i*this.sw,this.h / 2);
+			theContext.lineTo((i+1)*this.sw,this.h / 2);
+			theContext.lineTo((i+0.5)*this.sw,-this.h / 2);
+			theContext.closePath();
+			theContext.stroke();
+			theContext.fill();
 		}
 		theContext.translate(this.w / 2,0);
 		theContext.rotate(-this.theta);
