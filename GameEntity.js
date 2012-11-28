@@ -287,7 +287,7 @@ function newSpikeEntity(x,y,w,h,dir,num){
 	//create a new canvas to pre-render spikes
 	var s_canvas = document.createElement('canvas');
 	s_canvas.width = w;
-	s_canvas.height = 100;
+	s_canvas.height = h;
 	var s_context = s_canvas.getContext('2d');
 	
 	//pre-render
