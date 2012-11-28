@@ -41,6 +41,9 @@ function initLevelManager(){
 	spawnNewEntity(newBoxEntity(newVector(0,600), 1600, 100), staticList);
 	
 	spawnNewEntity(newSpikeEntity(1350,550,1000,100,0,100), staticList);
+	
+	spawnNewEntity(newPathEntity(newBoxEntity(newVector(1000,1000), 100, 20), newPath([newVector(1000,100),newVector(1500,100),newVector(1250,300)]), 0.1), staticList)
+	
 
 
 	// player 

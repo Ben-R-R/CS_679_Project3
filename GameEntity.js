@@ -517,8 +517,6 @@ function newGameKeyEntity(x,y, radius){
 	newEnt.kick = newKickEntity(-5000,-5000,20,newEnt.radius * 2)	//entity used to "kick" blocks around
 	spawnNewEntity(newEnt.kick,staticList);
 	newEnt.direction = 1;
-//<<<<<<< HEAD
-//=======
 	newEnt.impX = 0.3; // impulsive x velocity, 
 	newEnt.maxRun = 0.5; // maximum run speed,  
 	newEnt.impY = -0.6; // impulsive x velocity, used for jumps
@@ -537,7 +535,6 @@ function newGameKeyEntity(x,y, radius){
 	
 	spawnNewEntity(newSpiderDetectEntity(newEnt._sL, newEnt), dynamicList);
 	
-//>>>>>>> d2237d7377255951a4fb1846e7111433c85dd9b3
 	newEnt.update = function(elapsedTime){
 		//press 1 for human
 		if(keydown(49)){
@@ -862,6 +859,9 @@ function newGameKeyEntity(x,y, radius){
 		
 }
 
+/**
+ * Object used to "kick" movables around in kangaroo form. 
+ */
 function newKickEntity(x,y,w,h){	//fake entity that is used to kick crates around.
 	var newEnt = Object.create(GameEntity);
 	newEnt.coords = newVector(x,y);
@@ -890,5 +890,84 @@ function newKickEntity(x,y,w,h){	//fake entity that is used to kick crates aroun
 		this.resVec = responseVector;
 	}
 	newEnt.draw = function(origin){}	//object is not drawn
+	return newEnt;
+}
+
+var PathNode = {
+	coords : null,
+	next : null
+};
+var Path = {
+	nextNode : null,
+	moveTrack : function(startcor, speed, eTime){
+		var dist = speed * eTime;
+		var tNext = vAdd(vScalarMult(-1,startcor),this.nextNode.coords);
+		if(tNext.length() > dist){
+			tNext = vScalarMult(dist / tNext.length(), tNext);
+		} else {
+			this.nextNode = this.nextNode.next;
+		}
+		return tNext;
+		
+	}
+};
+function newPath(coordList){
+	var nPath = Object.create(Path);
+	pNode = null;
+	nNode = null;
+	for(i = 0; i < coordList.length; i++){
+		nNode = Object.create(PathNode);
+		nNode.coords = coordList[i];
+		if(pNode != null){
+			pNode.next = nNode;
+		} else {
+			nPath.nextNode = nNode;
+		}
+		pNode = nNode;
+	}
+	nNode.next = nPath.nextNode;
+	return nPath;
+}
+
+/**
+ * Wrapper object that causes the enclosed object to move along a set path at a set velocity. 
+ */
+function newPathEntity(ent, path, speed){
+	var newEnt = Object.create(GameEntity);
+	newEnt.object = ent;
+	newEnt.path = path;
+	newEnt.speed = speed;
+	newEnt.coords = ent.coords;
+	newEnt.radius = ent.radius;
+	newEnt.velocity = ent.velocity;
+	newEnt.acceleration = ent.acceleration;
+	if(ent.aabb != null) newEnt.aabb = ent.aabb;
+	newEnt.fixed = ent.fixed;
+	newEnt.virtual = ent.virtual;
+	newEnt.isDeadly = ent.isDeadly;
+	newEnt.isMovable = ent.isMovable;
+	newEnt.update = function(eTime){
+		var reply = this.object.update(eTime);
+		var change = this.path.moveTrack(this.object.coords, this.speed, eTime);
+		this.object.coords.add(change);
+		this.object.aabb.x += change.x;
+		this.object.aabb.y += change.y;
+		
+		this.coords = this.object.coords;
+		this.velocity = this.object.velocity;
+		this.acceleration = this.object.acceleration;
+		if(this.aabb != null) this.aabb = this.object.aabb;
+		this.fixed = this.object.fixed;
+		this.virtual = this.object.virtual;
+		return reply;
+	}
+	newEnt.collisionResponse = function(responseVector, other){
+		this.object.collisionResponse(responseVector, other)
+		this.resVec = this.object.resVec;
+	}
+	newEnt.draw = function(origin){
+		this.object.draw(origin);
+	}
+	
 	return newEnt;
 }
