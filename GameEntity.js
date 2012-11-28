@@ -293,22 +293,18 @@ function newSpikeEntity(x,y,w,h,dir,num){
 		g.addColorStop(0,"black");
 		g.addColorStop(0.5,"#000000");
 		g.addColorStop(1,"#FF0000");
+		theContext.strokeStyle = g;
+		theContext.fillStyle = g;
+		theContext.beginPath();
 		for(i = 0; i < this.spikeNum; i++){
 			//theContext.drawImage(Spike, i * this.sw, -this.h / 2, this.sw, this.h);
-			
-			theContext.strokeStyle = g;
-			theContext.fillStyle = g;
-			theContext.beginPath();
 			theContext.moveTo(i*this.sw,this.h / 2);
-			
 			theContext.lineTo((i+1)*this.sw,this.h / 2);
-			
 			theContext.lineTo((i+0.5)*this.sw + 0.5,-this.h / 2);
-			
-			theContext.closePath();
-			theContext.stroke();
-			theContext.fill();
 		}
+		theContext.closePath();
+		theContext.stroke();
+		theContext.fill();
 		theContext.translate(this.w / 2,0);
 		theContext.rotate(-this.theta);
 		theContext.translate(-this.coords.x - origin.x,-this.coords.y - origin.y);
