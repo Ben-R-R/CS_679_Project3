@@ -743,7 +743,7 @@ function newGameKeyEntity(x,y, radius){
 						var normVector = newVector(this._sGrpPnt.coords.x  - this.coords.x, this._sGrpPnt.coords.y  - this.coords.y)
 						this._sL = normVector.length();
 						// make sure there is tension on the rope
-						if(vDot(normVector, this.velocity) >== 0){
+						if( vDot(normVector, this.velocity) >= 0){
 						
 							// get the angle of the swing
 							this._sA = Math.atan2(normVector.x,normVector.y);
