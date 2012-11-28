@@ -517,8 +517,7 @@ function newGameKeyEntity(x,y, radius){
 	newEnt.kick = newKickEntity(-5000,-5000,20,newEnt.radius * 2)	//entity used to "kick" blocks around
 	spawnNewEntity(newEnt.kick,staticList);
 	newEnt.direction = 1;
-//<<<<<<< HEAD
-//=======
+
 	newEnt.impX = 0.3; // impulsive x velocity, 
 	newEnt.maxRun = 0.5; // maximum run speed,  
 	newEnt.impY = -0.6; // impulsive x velocity, used for jumps
@@ -527,17 +526,18 @@ function newGameKeyEntity(x,y, radius){
 	// SPIDER STUFF
 	newEnt._sState = 0; // current state of the spiders swing
 	newEnt._sL = 100; // length of the spider thread for swinging
+	newEnt._sLmax = 100; // maximum length of the spider swing
 	newEnt._sE = 0; // total starting swing energy of the spider. Kinetic + potential 
 	newEnt._sVa = 0; // starting velociy of the swing, t in n-t coordinates  
 	newEnt._sVb = 0; // current velocity of the swing, t in n-t coordinates
-	newEnt._sM = 0; // mass of the spider
+	newEnt._sM = 1; // mass of the spider
 	newEnt._sA = 0; // current angle of the spider swing 
 	newEnt._sGrpPnt = null; // the grapple point of the spider  
 	
 	
-	spawnNewEntity(newSpiderDetectEntity(newEnt._sL, newEnt), dynamicList);
+	spawnNewEntity(newSpiderDetectEntity(newEnt._sLmax, newEnt), dynamicList);
 	
-//>>>>>>> d2237d7377255951a4fb1846e7111433c85dd9b3
+
 	newEnt.update = function(elapsedTime){
 		//press 1 for human
 		if(keydown(49)){
@@ -714,28 +714,67 @@ function newGameKeyEntity(x,y, radius){
 		
 		//spider movement	
 		} else if(this.form === "s"){
+			
+			// on ground jumps
 			if(keydown(32) && this.onGround){
 				this.velocity.y = this.impY;
 			}
 			
+			// falling through air 
 			if (this._sState === 0){
 			    // have we clicked on a grapple point when the spider not already
 				// connected to one?
 				if(this._sGrpPnt && keydown(32)){
+				
 					// are we close enough to reach it?
-					//console.log("potential grapple contact: " + LenComp(this.player.coords, this._sGrpPnt.coords, this.player._sL));
-					if(LenComp(this.coords, this._sGrpPnt.coords, this._sL)){
-						//this._sGrpPnt = this.contactGrapplePoint;
-						this._sState = 1;
-						console.log("Grapple Contact!");						
+					if(LenComp(this.coords, this._sGrpPnt.coords, this._sLmax)){
+						
+						
+						
+						var normVector = newVector(this._sGrpPnt.coords.x  - this.coords.x, this._sGrpPnt.coords.y  - this.coords.y)
+						this._sL = normVector.length();
+						// make sure there is tension on the rope
+						if(vDot(normVector, this.velocity) >== 0){
+						
+							// get the angle of the swing
+							this._sA = Math.atan2(normVector.x,normVector.y);
+							
+							// get a tangent unit vector							                             
+							var tanVector = vOrthoNormal(normVector);
+							tanVector.normalize();
+							
+							// figure out how much of the velocity will 
+							// contribute to the radial velocity
+							this._sVa = vDot(this.velocity, tanVector);
+
+							// calculate the starting energy of the spider
+							// potential energy = mgh
+							// kinetic energy = (0.5)mv^2														
+							this._sE = (this._sM * -this.coords.y * GRAVITY) + (0.5 * this._sM * Math.pow(this.velocity.length(), 2 ) );
+							
+																											
+							
+							this._sState = 2;							
+						} else {
+							// if there is no tension on the rope, transition 
+							// to state 1.
+							
+							this._sState = 1;
+						}
+						
+						
+						
 					}									
 				
 				}
-			
+				
+			// falling while connected to grapple point
 			} else if (this._sState === 1){
 			    if(! LenComp(this.coords, this._sGrpPnt.coords, this._sL)){
-					this._sState = 0;		
+					this._sState = 2;		
 				}
+			} else if(this._sState === 2){
+							
 			}	
 		}
 		
