@@ -280,18 +280,17 @@ function newSpikeEntity(x,y,w,h,dir,num){
 	newEnt.acceleration = newVector(0,0);
 	newEnt.theta = dir * Math.PI / 2;
 	newEnt.fixed = true;
-	newEnt.spikeNum = num;
 	newEnt.isDeadly = true;
-	newEnt.sw = w / num;
 	newEnt.w = w;
 	newEnt.h = h;
 	
+	//create a new canvas to pre-render spikes
 	var s_canvas = document.createElement('canvas');
 	s_canvas.width = w;
 	s_canvas.height = 100;
 	var s_context = s_canvas.getContext('2d');
-	//drawMario(s_context);
 	
+	//pre-render
 	var g = s_context.createLinearGradient(0,h,0,0);
 	g.addColorStop(0,"black");
 	g.addColorStop(0.5,"#000000");
@@ -300,7 +299,6 @@ function newSpikeEntity(x,y,w,h,dir,num){
 	s_context.fillStyle = g;
 	s_context.beginPath();
 	for(i = 0; i < num; i++){
-		//s_context.drawImage(Spike, i * w/num, -h / 2, w/num, h);
 		s_context.moveTo(i*w/num, h);
 		s_context.lineTo((i+1)*w/num, h);
 		s_context.lineTo((i+0.5)*w/num + 0.5,0);
@@ -309,17 +307,17 @@ function newSpikeEntity(x,y,w,h,dir,num){
 	s_context.stroke();
 	s_context.fill();
 	
-	
+	//assign this canvas to the newEnt so we can draw it as an image later
 	newEnt.canv = s_canvas;
-	newEnt.ctx = s_context;
 	
 	newEnt.draw = function(origin){
 		theContext.translate(this.coords.x + origin.x,this.coords.y + origin.y -this.h/2);
 		theContext.rotate(this.theta);
 		theContext.translate(-this.w / 2,0);
 		
-		
+		//draw pre-rendered spikes		
 		theContext.drawImage(this.canv, 0, 0);
+		
 		theContext.translate(this.w / 2,0);
 		theContext.rotate(-this.theta);
 		theContext.translate(-this.coords.x - origin.x,-this.coords.y - origin.y +this.h/2);
