@@ -280,38 +280,47 @@ function newSpikeEntity(x,y,w,h,dir,num){
 	newEnt.acceleration = newVector(0,0);
 	newEnt.theta = dir * Math.PI / 2;
 	newEnt.fixed = true;
-	newEnt.spikeNum = num;
 	newEnt.isDeadly = true;
-	newEnt.sw = w / num;
 	newEnt.w = w;
 	newEnt.h = h;
+	
+	//create a new canvas to pre-render spikes
+	var s_canvas = document.createElement('canvas');
+	s_canvas.width = w;
+	s_canvas.height = h;
+	var s_context = s_canvas.getContext('2d');
+	
+	//pre-render
+	var g = s_context.createLinearGradient(0,h,0,0);
+	g.addColorStop(0,"black");
+	g.addColorStop(0.5,"#000000");
+	g.addColorStop(1,"#FF0000");
+	s_context.strokeStyle = g;
+	s_context.fillStyle = g;
+	s_context.beginPath();
+	for(i = 0; i < num; i++){
+		s_context.moveTo(i*w/num, h);
+		s_context.lineTo((i+1)*w/num, h);
+		s_context.lineTo((i+0.5)*w/num + 0.5,0);
+	}
+	s_context.closePath();
+	s_context.stroke();
+	s_context.fill();
+	
+	//assign this canvas to the newEnt so we can draw it as an image later
+	newEnt.canv = s_canvas;
+	
 	newEnt.draw = function(origin){
-		theContext.translate(this.coords.x + origin.x,this.coords.y + origin.y);
+		theContext.translate(this.coords.x + origin.x,this.coords.y + origin.y -this.h/2);
 		theContext.rotate(this.theta);
 		theContext.translate(-this.w / 2,0);
-		var g = theContext.createLinearGradient(0,this.h/2,0,-this.h/2);
-		g.addColorStop(0,"black");
-		g.addColorStop(0.5,"#000000");
-		g.addColorStop(1,"#FF0000");
-		for(i = 0; i < this.spikeNum; i++){
-			//theContext.drawImage(Spike, i * this.sw, -this.h / 2, this.sw, this.h);
-			
-			theContext.strokeStyle = g;
-			theContext.fillStyle = g;
-			theContext.beginPath();
-			theContext.moveTo(i*this.sw,this.h / 2);
-			
-			theContext.lineTo((i+1)*this.sw,this.h / 2);
-			
-			theContext.lineTo((i+0.5)*this.sw + 0.5,-this.h / 2);
-			
-			theContext.closePath();
-			theContext.stroke();
-			theContext.fill();
-		}
+		
+		//draw pre-rendered spikes		
+		theContext.drawImage(this.canv, 0, 0);
+		
 		theContext.translate(this.w / 2,0);
 		theContext.rotate(-this.theta);
-		theContext.translate(-this.coords.x - origin.x,-this.coords.y - origin.y);
+		theContext.translate(-this.coords.x - origin.x,-this.coords.y - origin.y +this.h/2);
 	}
 	
 	return newEnt;
