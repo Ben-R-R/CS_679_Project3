@@ -285,29 +285,44 @@ function newSpikeEntity(x,y,w,h,dir,num){
 	newEnt.sw = w / num;
 	newEnt.w = w;
 	newEnt.h = h;
+	
+	var s_canvas = document.createElement('canvas');
+	s_canvas.width = w;
+	s_canvas.height = 100;
+	var s_context = s_canvas.getContext('2d');
+	//drawMario(s_context);
+	
+	var g = s_context.createLinearGradient(0,h,0,0);
+	g.addColorStop(0,"black");
+	g.addColorStop(0.5,"#000000");
+	g.addColorStop(1,"#FF0000");
+	s_context.strokeStyle = g;
+	s_context.fillStyle = g;
+	s_context.beginPath();
+	for(i = 0; i < num; i++){
+		//s_context.drawImage(Spike, i * w/num, -h / 2, w/num, h);
+		s_context.moveTo(i*w/num, h);
+		s_context.lineTo((i+1)*w/num, h);
+		s_context.lineTo((i+0.5)*w/num + 0.5,0);
+	}
+	s_context.closePath();
+	s_context.stroke();
+	s_context.fill();
+	
+	
+	newEnt.canv = s_canvas;
+	newEnt.ctx = s_context;
+	
 	newEnt.draw = function(origin){
-		theContext.translate(this.coords.x + origin.x,this.coords.y + origin.y);
+		theContext.translate(this.coords.x + origin.x,this.coords.y + origin.y -this.h/2);
 		theContext.rotate(this.theta);
 		theContext.translate(-this.w / 2,0);
-		var g = theContext.createLinearGradient(0,this.h/2,0,-this.h/2);
-		g.addColorStop(0,"black");
-		g.addColorStop(0.5,"#000000");
-		g.addColorStop(1,"#FF0000");
-		theContext.strokeStyle = g;
-		theContext.fillStyle = g;
-		theContext.beginPath();
-		for(i = 0; i < this.spikeNum; i++){
-			//theContext.drawImage(Spike, i * this.sw, -this.h / 2, this.sw, this.h);
-			theContext.moveTo(i*this.sw,this.h / 2);
-			theContext.lineTo((i+1)*this.sw,this.h / 2);
-			theContext.lineTo((i+0.5)*this.sw + 0.5,-this.h / 2);
-		}
-		theContext.closePath();
-		theContext.stroke();
-		theContext.fill();
+		
+		
+		theContext.drawImage(this.canv, 0, 0);
 		theContext.translate(this.w / 2,0);
 		theContext.rotate(-this.theta);
-		theContext.translate(-this.coords.x - origin.x,-this.coords.y - origin.y);
+		theContext.translate(-this.coords.x - origin.x,-this.coords.y - origin.y +this.h/2);
 	}
 	
 	return newEnt;
