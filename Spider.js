@@ -19,7 +19,7 @@ spider variable prefex is '_s'
 function initSpider(newEnt){
 	newEnt._sState = 0; // current state of the spiders swing
 	newEnt._sL = 100; // length of the spider thread for swinging
-	newEnt._sLmax = 100; // maximum length of the spider swing
+	newEnt._sLmax = 200; // maximum length of the spider swing
 	newEnt._sE = 0; // total starting swing energy of the spider. Kinetic + potential
 	newEnt._sYDatum = 0; // datum for mesuring the changes in potential energy
 	newEnt._sVa = 0; // starting velociy of the swing, t in n-t coordinates  
@@ -149,7 +149,7 @@ function spider_update(elapsedTime){
 			this._sState = 0;		
 		}
 	} else if(this._sState === 2){
-		this._sA += this._sVa / (this._sL * 0.1);
+		this._sA += (this._sVa * elapsedTime) / (this._sL);
 		this.coords.x = this._sGrpPnt.coords.x + Math.cos(this._sA) * this._sL;
 		this.coords.y = this._sGrpPnt.coords.y + Math.sin(this._sA) * this._sL;
 		if(!keydown(32)){
@@ -226,7 +226,7 @@ function spider_draw(origin){
 	theContext.beginPath();
 	theContext.arc(this.coords.x + origin.x , this.coords.y + origin.y, this.radius, 0, 2*Math.PI);
 	theContext.fill();
-	if(this._sState === 1){
+	if(this._sState === 1 || this._sState === 2){
 	
 		theContext.strokeStyle = "#000000";
 		theContext.beginPath();
