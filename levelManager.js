@@ -50,7 +50,8 @@ function initLevelManager(){
 
 	// player 
 	
-	var player = newGameKeyEntity(775,575, kangaroo1R.height/2)
+	//var player = newGameKeyEntity(775,575, kangaroo1R.height/2)
+	var player = newPlayerEntity(775,575, kangaroo1R.height/2);
 	var checkpointAlpha = newCheckpointEntity(newVector(775,575), 50, 50);
 	player.checkpoint = checkpointAlpha; 
 	spawnNewEntity(checkpointAlpha, staticList);

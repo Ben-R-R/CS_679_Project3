@@ -13,8 +13,9 @@ prefix '_p'.
 
 ======================================================================*/
 
-function newGamePlayerEntity(x,y, radius){
+function newPlayerEntity(x,y, radius){
 	var newEnt = Object.create(GameEntity);
+	
 	newEnt.coords = newVector(x,y);
 	newEnt.velocity = newVector(0,0);
 	newEnt.radius = radius;
@@ -22,8 +23,9 @@ function newGamePlayerEntity(x,y, radius){
 	newEnt.fixed = false;
 	newEnt.onGround = false;
 	newEnt.isPlayer = true;
-	//set the form value to the current animal form
-	newEnt.form = "h";
+	
+	
+	newEnt.form = "h";   //set the form value to the current animal form
 	
 	newEnt.direction = 1;
 
@@ -31,79 +33,120 @@ function newGamePlayerEntity(x,y, radius){
 	newEnt.maxRun = 0.5; // maximum run speed,  
 	newEnt.impY = -0.6; // impulsive x velocity, used for jumps
 	newEnt.maxFall = 0.5; // maximum fall rate.
-	
-	// SPIDER STUFF
-	
-	newEnt.disableMove = false;	
-	
-	
-	// KANGAROO STUFF
-	
-	
-	// SQUIRREL STUFF
-	newEnt._ropeState = 0;	//current state of ropeclimbingness
-	
-	
 
+	initKangaroo(newEnt);
+	initCheetah(newEnt);
+	initFlyingSquirrel(newEnt);
+	initSpider(newEnt);
+	initHuman(newEnt);
+	
+	newEnt.power_update = human_update;
+	newEnt.power_leave = human_leave;
+	newEnt.power_enter = human_enter;
+	
 	newEnt.update = function(elapsedTime){
 		//press 1 for human
 		if(keydown(49)){
-			this.form = "h";		
-		
-		} 
+					
+		    if(this.form !== "h"){
+				this.power_leave();
+			}
+			
+			// if we just called human_enter(), its 'this' keyword would not 
+			// point to the proper place  
+			this.power_enter = human_enter;
+			this.power_enter();
+			
+			this.power_leave = human_leave;
+			this.power_update = human_update;
+			
+	        this.form = "h";
 		//press 2 for cheetah
-		else if(keydown(50)){
-			 this.form = "c";
+		} else if(keydown(50)){
+			
+			if(this.form !== "c"){
+				this.power_leave();
+			}
+			
+			// if we just called cheetah_enter(), its 'this' keyword would not 
+			// point to the proper place  
+			this.power_enter = cheetah_enter;
+			this.power_enter();
+			
+			this.power_leave = cheetah_leave;
+			this.power_update = cheetah_update;
+			
+	        this.form = "c";
 
-		} 
+		 
 		//press 3 for flying squirrel
-		else if(keydown(51)){
-			this.form = "f";
+		} else if(keydown(51)){
+			if(this.form !== "f"){
+				this.power_leave();
+			}
+			
+			// if we just called flyingSquirrel_enter(), its 'this' keyword would not 
+			// point to the proper place  
+			this.power_enter = flyingSquirrel_enter;
+			this.power_enter();
+			
+			this.power_leave = flyingSquirrel_leave;
+			this.power_update = flyingSquirrel_update;
+			
+	        this.form = "f";
 			
 		}
 		//press 4 for kangaroo
 		else if(keydown(52)){
-			this.form = "k";
+			if(this.form !== "k"){
+				this.power_leave();
+			}
+			
+			// if we just called kangaroo_enter(), its 'this' keyword would not 
+			// point to the proper place  
+			this.power_enter = kangaroo_enter;
+			this.power_enter();
+			
+			this.power_leave = kangaroo_leave;
+			this.power_update = kangaroo_update;
+			
+	        this.form = "k";
 			
 
-		}
+		
 		//press 5 for spider
-		else if(keydown(53)){
-			this.form = "s";
+		} else if(keydown(53)){
+			if(this.form !== "s"){
+				this.power_leave();
+			}
 			
-			this.disableMove = true;
+			// if we just called kangaroo_enter(), its 'this' keyword would not 
+			// point to the proper place  
+			this.power_enter = spider_enter;
+			this.power_enter();
+			
+			this.power_leave = spider_leave;
+			this.power_update = spider_update;
+			
+	        this.form = "s";
 		}	
 		
-		//human form movement
-		if(this.form == "h"){
-			
-		//cheetah form movement
-		} else if(this.form == "c"){
-			
-		//flying squirrel movement 
-		} else if(this.form == "f"){
-			
-		//kangaroo movement	
-		} else if(this.form == "k"){
-		
-		//spider movement	
-		} else if(this.form === "s"){
-				
-		}
+		this.power_update(elapsedTime);
 		
 		
 		this.wasGround = this.onGround;	//used to check if cheetah just left ground
 		this.onGround = false;
 		
+		// move screen
 		if( (this.coords.y + origin.y) >= 400){
 			origin.y = -this.coords.y + 400;		
 		} else if( (this.coords.y + origin.y) <= 200){
 			origin.y = -this.coords.y + 200;		
 		}
-		
 		origin.x = -this.coords.x + 400;
 		origin.y = Math.floor(origin.y);
 		origin.x = Math.floor(origin.x);
+		
 		
 		return STATE_ALIVE;
 	}

@@ -17,7 +17,7 @@ flying squirrel variable prefex is '_f'
 // the 'this' keyword does not refer to the player entity, use newEnt
 // as you would in a normal constructor function. 
 function initFlyingSquirrel(newEnt){
-
+ 	newEnt._ropeState = 0;	//current state of ropeclimbingness
 
 }
 
