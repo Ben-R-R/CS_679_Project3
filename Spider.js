@@ -218,5 +218,17 @@ function spider_collisionResponse(responseVector, other){
 // called as the draw method of the the player entity when the spider is active
 // you can use the 'this' keyword as you normally would. 
 function spider_draw(origin){
-
+	theContext.fillStyle = "#FF6600";
+	//theContext.fillRect(this.coords.x + -this.radius/2 + origin.x, this.coords.y + -this.radius/2 + origin.y,  this.radius * 2,  this.radius * 2);
+	theContext.beginPath();
+	theContext.arc(this.coords.x + origin.x , this.coords.y + origin.y, this.radius, 0, 2*Math.PI);
+	theContext.fill();
+	if(this._sState === 1){
+	
+		theContext.strokeStyle = "#000000";
+		theContext.beginPath();
+		theContext.moveTo(this._sGrpPnt.coords.x + origin.x, this._sGrpPnt.coords.y + origin.y);
+		theContext.lineTo(this.coords.x + origin.x, this.coords.y + origin.y);
+		theContext.stroke();
+	}
 }

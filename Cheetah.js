@@ -163,5 +163,9 @@ function cheetah_collisionResponse(responseVector, other){
 // called as the draw method of the the player entity when the cheetah is active
 // you can use the 'this' keyword as you normally would. 
 function cheetah_draw(origin){
-
+	if(this.direction === -1){
+		theContext.drawImage(CheetahL,this.coords.x - CheetahR.width/2 + origin.x,this.coords.y - CheetahR.height/2 + origin.y);
+	} else {
+	    theContext.drawImage(CheetahR,this.coords.x - CheetahR.width/2 + origin.x,this.coords.y - CheetahR.height/2 + origin.y);
+	}
 }

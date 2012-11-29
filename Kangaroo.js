@@ -176,5 +176,17 @@ function kangaroo_collisionResponse(responseVector, other){
 // called as the draw method of the the player entity when the kangaroo is active
 // you can use the 'this' keyword as you normally would. 
 function kangaroo_draw(origin){
-
+	if(this.onGround){
+		if(this.direction === -1){
+			theContext.drawImage(kangaroo1L,this.coords.x - kangaroo1R.width/2 + origin.x,this.coords.y - kangaroo1R.height/2 + origin.y);
+		} else {
+		    theContext.drawImage(kangaroo1R,this.coords.x - kangaroo1R.width/2 + origin.x,this.coords.y - kangaroo1R.height/2 + origin.y);
+		}
+	} else {
+		if(this.direction === -1){
+			theContext.drawImage(kangaroo2L,this.coords.x - kangaroo1R.width/2 + origin.x,this.coords.y - kangaroo1R.height/2 + origin.y);
+		} else {
+		    theContext.drawImage(kangaroo2R,this.coords.x - kangaroo1R.width/2 + origin.x,this.coords.y - kangaroo1R.height/2 + origin.y);
+		}
+	}
 }

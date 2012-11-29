@@ -44,6 +44,7 @@ function newPlayerEntity(x,y, radius){
 	newEnt.power_leave = human_leave;
 	newEnt.power_enter = human_enter;
 	newEnt.collisionResponse = human_collisionResponse;
+	newEnt.draw = human_draw;
 	newEnt.update = function(elapsedTime){
 		//press 1 for human
 		if(keydown(49)){
@@ -60,6 +61,7 @@ function newPlayerEntity(x,y, radius){
 			this.power_leave = human_leave;
 			this.power_update = human_update;
 			this.collisionResponse = human_collisionResponse;
+			this.draw = human_draw;
 			
 	        this.form = "h";
 		//press 2 for cheetah
@@ -77,6 +79,8 @@ function newPlayerEntity(x,y, radius){
 			this.power_leave = cheetah_leave;
 			this.power_update = cheetah_update;
 			this.collisionResponse = cheetah_collisionResponse;
+			this.draw = cheetah_draw;
+			
 	        this.form = "c";
 
 		 
@@ -94,6 +98,7 @@ function newPlayerEntity(x,y, radius){
 			this.power_leave = flyingSquirrel_leave;
 			this.power_update = flyingSquirrel_update;
 			this.collisionResponse = flyingSquirrel_collisionResponse;
+			this.draw = flyingSquirrel_draw;
 			
 	        this.form = "f";
 			
@@ -112,6 +117,7 @@ function newPlayerEntity(x,y, radius){
 			this.power_leave = kangaroo_leave;
 			this.power_update = kangaroo_update;
 			this.collisionResponse = kangaroo_collisionResponse;
+			this.draw = kangaroo_draw;
 			
 	        this.form = "k";
 			
@@ -131,6 +137,7 @@ function newPlayerEntity(x,y, radius){
 			this.power_leave = spider_leave;
 			this.power_update = spider_update;
 			this.collisionResponse = spider_collisionResponse;
+			this.draw = spider_draw;
 			
 	        this.form = "s";
 		}	
@@ -153,62 +160,6 @@ function newPlayerEntity(x,y, radius){
 		
 		
 		return STATE_ALIVE;
-	}
-	
-	newEnt.draw = function(origin){
-		if(this.form == "k"){
-			if(this.onGround){
-				if(this.direction === -1){
-					theContext.drawImage(kangaroo1L,this.coords.x - kangaroo1R.width/2 + origin.x,this.coords.y - kangaroo1R.height/2 + origin.y);
-				} else {
-				    theContext.drawImage(kangaroo1R,this.coords.x - kangaroo1R.width/2 + origin.x,this.coords.y - kangaroo1R.height/2 + origin.y);
-				}
-			} else {
-				if(this.direction === -1){
-					theContext.drawImage(kangaroo2L,this.coords.x - kangaroo1R.width/2 + origin.x,this.coords.y - kangaroo1R.height/2 + origin.y);
-				} else {
-				    theContext.drawImage(kangaroo2R,this.coords.x - kangaroo1R.width/2 + origin.x,this.coords.y - kangaroo1R.height/2 + origin.y);
-				}
-			}
-		} else if(this.form == "h"){
-			theContext.drawImage(human1,this.coords.x - human1.width/2 + origin.x,this.coords.y - human1.height/2 + origin.y);
-			
-			/* NOTE: this code flips the sprite upside-down. Just leaving it here for reference
-			theContext.translate(this.coords.x + origin.x,this.coords.y + origin.y);
-			theContext.rotate(Math.PI);
-			theContext.drawImage(kangaroo1R,-human1.width/2,-human1.height/2);
-			theContext.rotate(-Math.PI);
-			theContext.translate(-this.coords.x - origin.x,-this.coords.y - origin.y);
-			*/
-		} else if(this.form == "c"){
-			if(this.direction === -1){
-				theContext.drawImage(CheetahL,this.coords.x - CheetahR.width/2 + origin.x,this.coords.y - CheetahR.height/2 + origin.y);
-			} else {
-			    theContext.drawImage(CheetahR,this.coords.x - CheetahR.width/2 + origin.x,this.coords.y - CheetahR.height/2 + origin.y);
-			}
-		} else if(this.form == "f"){
-			theContext.fillStyle = "#FFBB00";
-			theContext.beginPath();
-			theContext.arc(this.coords.x + origin.x , this.coords.y + origin.y, this.radius, 0, 2*Math.PI);
-			theContext.fill();
-		} else if (this.form === "s"){
-			theContext.fillStyle = "#FF6600";
-			//theContext.fillRect(this.coords.x + -this.radius/2 + origin.x, this.coords.y + -this.radius/2 + origin.y,  this.radius * 2,  this.radius * 2);
-			theContext.beginPath();
-			theContext.arc(this.coords.x + origin.x , this.coords.y + origin.y, this.radius, 0, 2*Math.PI);
-			theContext.fill();
-			if(this._sState === 1){
-			
-				theContext.strokeStyle = "#000000";
-				theContext.beginPath();
-				theContext.moveTo(this._sGrpPnt.coords.x + origin.x, this._sGrpPnt.coords.y + origin.y);
-				theContext.lineTo(this.coords.x + origin.x, this.coords.y + origin.y);
-				theContext.stroke();
-			}
-		
-		}
-		
-		
 	}
 	
 	return newEnt;

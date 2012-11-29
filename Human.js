@@ -130,5 +130,6 @@ function human_collisionResponse(responseVector, other){
 // called as the draw method of the the player entity when the human is active
 // you can use the 'this' keyword as you normally would. 
 function human_draw(origin){
-
+	theContext.drawImage(human1,this.coords.x - human1.width/2 + origin.x,this.coords.y - human1.height/2 + origin.y);
+			
 }
