@@ -1,9 +1,5 @@
 // GameEntity.js
 
-var kangaJumps = 0;	//number of jumps available as kangaroo
-var kangaJmpA = 0;	//kangaroo jump acceleration
-var dropTime = 0;	//time since last grounded as kangaroo, used for d-jump stuff
-
 var GameEntity = {
 	coords : null,
 	velocity : null,
@@ -12,11 +8,14 @@ var GameEntity = {
 	fixed : false,
 	virtual : false, // if an object collides with a virtual entity, it should 
 					 // not respond to the collision
+	pObject : false,	//flag this to make only the player interact with an object
 	acceleration : null,
 	isPlayer : false,
 	isDeadly : false,
 	isMovable : false,
 	isKick : false,
+	isGrapplePoint : false,
+	isRope : false,
 	
 	/**
 	 * Update the entity, this usualy entails moving and animating the entity 
@@ -103,13 +102,13 @@ var GameEntity = {
 		
 		if(resVec !== null){
 		    
-		    if(!other.virtual){
+		    if(!(other.virtual || (!this.isPlayer && other.pObject))){
 				this.collisionResponse(vScalarMult(resUse,resVec), other);
 			}
 			
 			
 			resVec.scalarMult(1 + resUse);
-			if(!this.virtual){
+			if(!(this.virtual || (!other.isPlayer && this.pObject))){
 				other.collisionResponse(resVec, this);
 			}
 			
@@ -270,6 +269,25 @@ function newCheckpointEntity(org, w, h){
 		
 }
 
+function newRopeEntity(x,y,h){
+	var newEnt = Object.create(GameEntity);
+	newEnt.coords = newVector(x,y);
+	newEnt.velocity = newVector(0,0);
+	newEnt.aabb = newBox(x - 1, y, 2, h);
+	newEnt.acceleration = newVector(0,0);
+	newEnt.fixed = true;
+	newEnt.isRope = true;
+	newEnt.pObject = true;
+	newEnt.draw = function(origin){
+		theContext.strokeStyle = "#000000";
+		theContext.beginPath();
+		theContext.moveTo(this.coords.x + origin.x, this.coords.y + origin.y);
+		theContext.lineTo(this.coords.x + origin.x, this.coords.y + this.aabb.h + origin.y);
+		theContext.stroke();
+	}
+	return newEnt;
+}
+
 function newSpikeEntity(x,y,w,h,dir,num){
 	var newEnt = Object.create(GameEntity);
 	newEnt.coords = newVector(x,y);
@@ -281,6 +299,7 @@ function newSpikeEntity(x,y,w,h,dir,num){
 	newEnt.theta = dir * Math.PI / 2;
 	newEnt.fixed = true;
 	newEnt.isDeadly = true;
+	newEnt.pObject = true;
 	newEnt.w = w;
 	newEnt.h = h;
 	
@@ -367,10 +386,7 @@ function newCrateEntity(x,y,w,h){
 	newEnt.acceleration = newVector(0,GRAVITY);
 	newEnt.fixed = false;
 	newEnt.isMovable = true;
-//=======
-	//newEnt.type = moveType;	//object is movable
 	newEnt.onGround = false;
-//>>>>>>> d2237d7377255951a4fb1846e7111433c85dd9b3
 	newEnt.update = function(eTime){
 		this.coords.add(vScalarMult(eTime,this.velocity));
 		this.velocity.add(vScalarMult(eTime,this.acceleration));
@@ -384,7 +400,6 @@ function newCrateEntity(x,y,w,h){
 		if(vectorError(responseVector)){
 			return;
 		}
-		
 		if(other.isPlayer){
 			
 		} else if(other.isKick){
@@ -541,6 +556,14 @@ function newGameKeyEntity(x,y, radius){
 	newEnt._sA = 0; // current angle of the spider swing 
 	newEnt._sGrpPnt = null; // the grapple point of the spider  
 	
+	// KANGAROO STUFF
+	newEnt._kJumps = 0;	//number of jumps available
+	newEnt._kJumpA = 0;	//jump acceleration
+	newEnt._kdTime = 0;	//current airtime used for disabling doublejump on falls
+	
+	// SQUIRREL STUFF
+	newEnt._ropeState = 0;	//current state of ropeclimbingness
+	
 	
 	spawnNewEntity(newSpiderDetectEntity(newEnt._sL, newEnt), dynamicList);
 	
@@ -567,12 +590,13 @@ function newGameKeyEntity(x,y, radius){
 				this.maxFall = 0.5; // maximum fall rate.
 			}
 		} 
-		/* TODO: Unblock to add flying squirrel
 		//press 3 for flying squirrel
 		else if(keydown(51)){
 			this.form = "f";
+			this.impX = 0.3;
+			this.maxRun = 0.5;
+			this.impY = -0.3;
 		}
-		*/
 		//press 4 for kangaroo
 		else if(keydown(52)){
 			if(this.form != "k"){
@@ -669,7 +693,12 @@ function newGameKeyEntity(x,y, radius){
 			
 		//flying squirrel movement 
 		} else if(this.form == "f"){
-		
+			if(this.onGround){	//ground motion
+				if(keydown(32)) this.velocity.y = this.impY;
+			} else {	//aerial motion
+				
+			}
+			
 		//kangaroo movement	
 		} else if(this.form == "k"){
 			
@@ -679,8 +708,8 @@ function newGameKeyEntity(x,y, radius){
 				this.maxRun = 0.2; // maximum run speed,  
 				this.impY = 0.0; // impulsive x velocity, used for jumps
 				
-				kangaJumps = 2;
-				dropTime = 0;
+				this._kJumps = 2;
+				this._kdTime = 0;
 				if(keydown(65) || keydown(68)){	//left or right hops
 					this.velocity.y -= .2;
 					this.velocity.x = this.impX * this.direction;
@@ -696,16 +725,16 @@ function newGameKeyEntity(x,y, radius){
 			}
 			
 			//jumps
-			if(keyhit(32) && kangaJumps > 0){	//initial jump-off
+			if(keyhit(32) && this._kJumps > 0){	//initial jump-off
 				this.velocity.y = -.6;
-				kangaJumps--;
+				this._kJumps--;
 				kJumpSound.cloneNode(true).play();
 			}
 			
-			if(kangaJumps == 2 && dropTime < 10){
-				dropTime++;
-			} else if(kangaJumps == 2) {
-				kangaJumps = 1;
+			if(this._kJumps == 2 && this._kdTime < 10){
+				this._kdTime++;
+			} else if(this._kJumps == 2) {
+				this._kJumps = 1;
 			} 
 			
 			//kick
@@ -748,6 +777,8 @@ function newGameKeyEntity(x,y, radius){
 		this.velocity.add(vScalarMult(elapsedTime,this.acceleration))
 		if(this.velocity.y > .5){
 		   this.velocity.y = .5;
+		} else if(this.velocity.y > .1 && this.form == 'f' && keydown(32)){
+			this.velocity.y = .1;
 		}
 		this.coords.add(vScalarMult(elapsedTime,this.velocity));
 		this.wasGround = this.onGround;	//used to check if cheetah just left ground
@@ -782,14 +813,17 @@ function newGameKeyEntity(x,y, radius){
 			this.coords.y = this.checkpoint.coords.y; 			
 		}
 		if(other.isKick) return;
+		if(other.isRope){
+			if(this.form != "f") return;
+			//TODO: SQUIRREL ROPE CODE
+		}
 		
 		// move so we are not colliding anymore
 		this.coords.add(responseVector);
 		
-		/**
-		 * We consider ourselves "on the ground" if there is something to 
-		 * push on.		 
-		 **/ 
+		
+		//We consider ourselves "on the ground" if there is something to push on.		 
+		
 		if(responseVector.y < 0){
 			this.onGround = true;
 			
@@ -844,6 +878,11 @@ function newGameKeyEntity(x,y, radius){
 			} else {
 			    theContext.drawImage(CheetahR,this.coords.x - CheetahR.width/2 + origin.x,this.coords.y - CheetahR.height/2 + origin.y);
 			}
+		} else if(this.form == "f"){
+			theContext.fillStyle = "#FFBB00";
+			theContext.beginPath();
+			theContext.arc(this.coords.x + origin.x , this.coords.y + origin.y, this.radius, 0, 2*Math.PI);
+			theContext.fill();
 		} else if (this.form === "s"){
 			theContext.fillStyle = "#FF6600";
 			//theContext.fillRect(this.coords.x + -this.radius/2 + origin.x, this.coords.y + -this.radius/2 + origin.y,  this.radius * 2,  this.radius * 2);
@@ -955,6 +994,8 @@ function newPathEntity(ent, path, speed){
 	newEnt.virtual = ent.virtual;
 	newEnt.isDeadly = ent.isDeadly;
 	newEnt.isMovable = ent.isMovable;
+	newEnt.isGrapplePoint = ent.isGrapplePoint;
+	newEnt.isRope = ent.isRope;
 	newEnt.update = function(eTime){
 		var reply = this.object.update(eTime);
 		var change = this.path.moveTrack(this.object.coords, this.speed, eTime);
