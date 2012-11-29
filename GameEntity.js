@@ -536,13 +536,14 @@ function newGameKeyEntity(x,y, radius){
 	newEnt._sState = 0; // current state of the spiders swing
 	newEnt._sL = 100; // length of the spider thread for swinging
 	newEnt._sLmax = 100; // maximum length of the spider swing
-	newEnt._sE = 0; // total starting swing energy of the spider. Kinetic + potential 
+	newEnt._sE = 0; // total starting swing energy of the spider. Kinetic + potential
+	newEnt._sYDatum = 0; // datum for mesuring the changes in potential energy
 	newEnt._sVa = 0; // starting velociy of the swing, t in n-t coordinates  
 	newEnt._sVb = 0; // current velocity of the swing, t in n-t coordinates
 	newEnt._sM = 1; // mass of the spider
 	newEnt._sA = 0; // current angle of the spider swing 
 	newEnt._sGrpPnt = null; // the grapple point of the spider  
-	
+	newEnt.disableMove = false;	
 	
 	spawnNewEntity(newSpiderDetectEntity(newEnt._sLmax, newEnt), dynamicList);
 	
@@ -558,6 +559,7 @@ function newGameKeyEntity(x,y, radius){
 				this.impY = -0.6; // impulsive x velocity, used for jumps
 				this.maxFall = 0.5; // maximum fall rate.
 			}
+			this.disableMove = false;
 		} 
 		//press 2 for cheetah
 		else if(keydown(50)){
@@ -569,6 +571,7 @@ function newGameKeyEntity(x,y, radius){
 				this.impY = -0.5; // impulsive x velocity, used for jumps
 				this.maxFall = 0.5; // maximum fall rate.
 			}
+			this.disableMove = false;
 		} 
 		/* TODO: Unblock to add flying squirrel
 		//press 3 for flying squirrel
@@ -586,6 +589,7 @@ function newGameKeyEntity(x,y, radius){
 				this.impY = 0.0; // zero out inpulsive velocity because we will 
 								 // be doing our own jumps for the kangaroo 
 			}
+			this.disableMove = false;
 		}
 		//press 5 for spider
 		else if(keydown(53)){
@@ -596,26 +600,29 @@ function newGameKeyEntity(x,y, radius){
 			this.impY = -0.3; // impulsive x velocity, used for jumps
 			this.maxFall = 0.5; // maximum fall rate.
 			this._sState = 0; // starting state of the spider
+			this.disableMove = true;
 		}
 		
 		
 		// we set the velocity on a key hit, rather than continuously on a 
 		// key down so that if you swich animals you maintain your velocity 
-		
-		if(keyhit(65)){
-		    this.direction = -1;
-			this.velocity.x = - this.impX;
-		} else if (keyhit(68)){
-		    this.velocity.x = this.impX;
-			this.direction = 1;
-		} else if(keydown(65)){
-			this.direction = -1;
-			
-		} else if(keydown(68)){
-			this.direction = 1;
-		} else {
-			this.velocity.x = 0;
+		if(!this.disableMove){
+			if(keyhit(65)){
+			    this.direction = -1;
+				this.velocity.x = - this.impX;
+			} else if (keyhit(68)){
+			    this.velocity.x = this.impX;
+				this.direction = 1;
+			} else if(keydown(65)){
+				this.direction = -1;
+				
+			} else if(keydown(68)){
+				this.direction = 1;
+			} else {
+				this.velocity.x = 0;
+			}
 		}
+		
 			
 		
 		
@@ -731,7 +738,33 @@ function newGameKeyEntity(x,y, radius){
 			
 			// falling through air 
 			if (this._sState === 0){
-			    // have we clicked on a grapple point when the spider not already
+			    if(this.onGround){
+					if(keyhit(65)){
+					    this.direction = -1;
+						this.velocity.x = - this.impX;
+					} else if (keyhit(68)){
+					    this.velocity.x = this.impX;
+						this.direction = 1;
+					} else if(keydown(65)){
+						this.direction = -1;
+						
+					} else if(keydown(68)){
+						this.direction = 1;
+					} else {
+						this.velocity.x = 0;
+					}
+				} else {
+				 	if(keydown(65)){
+						this.direction = -1;
+						this.velocity.x = Math.abs(this.velocity.x) * -1;
+					} else if(keydown(68)){
+						this.direction = 1;
+						this.velocity.x = Math.abs(this.velocity.x)
+					}
+				}
+				
+				
+				// have we clicked on a grapple point when the spider not already
 				// connected to one?
 				if(this._sGrpPnt && keydown(32)){
 				
@@ -746,24 +779,26 @@ function newGameKeyEntity(x,y, radius){
 						if( vDot(normVector, this.velocity) >= 0){
 						
 							// get the angle of the swing
-							this._sA = Math.atan2(normVector.x,normVector.y);
+							this._sA = Math.atan2(normVector.y ,-normVector.x );
 							
 							// get a tangent unit vector							                             
 							var tanVector = vOrthoNormal(normVector);
 							tanVector.normalize();
-							
+							tanVector.scalarMult(-1);
 							// figure out how much of the velocity will 
 							// contribute to the radial velocity
 							this._sVa = vDot(this.velocity, tanVector);
 
 							// calculate the starting energy of the spider
-							// potential energy = mgh
+							// potential energy = mgh = 0 // Let our currnet position be the datum
 							// kinetic energy = (0.5)mv^2														
-							this._sE = (this._sM * -this.coords.y * GRAVITY) + (0.5 * this._sM * Math.pow(this.velocity.length(), 2 ) );
+							this._sE = (0.5 * this._sM * Math.pow(this.velocity.length(), 2 ) );// + (this._sM * -this.coords.y * GRAVITY)
 							
-																											
+							this._sYDatum = this.coords.y;																				
 							
-							this._sState = 2;							
+							// on to the swinging! 
+							this._sState = 2;	
+							//this.disableMove = true;						
 						} else {
 							// if there is no tension on the rope, transition 
 							// to state 1.
@@ -780,10 +815,20 @@ function newGameKeyEntity(x,y, radius){
 			// falling while connected to grapple point
 			} else if (this._sState === 1){
 			    if(! LenComp(this.coords, this._sGrpPnt.coords, this._sL)){
-					this._sState = 2;		
+					this._sState = 0;		
 				}
 			} else if(this._sState === 2){
-							
+				this._sA += this._sVa / (this._sL * 0.1);
+				this.coords.x = this._sGrpPnt.coords.x + Math.cos(this._sA) * this._sL;
+				this.coords.y = this._sGrpPnt.coords.y + Math.sin(this._sA) * this._sL;
+				if(!keydown(32)){
+					console.log("795");
+					this._sState = 0;
+					this.velocity.x = -Math.sin(this._sA) * this._sVa;
+					this.velocity.y = Math.cos(this._sA) * this._sVa;
+					//this.disableMove = false;
+				}
+				 				
 			}	
 		}
 		
