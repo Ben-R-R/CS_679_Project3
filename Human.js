@@ -8,7 +8,7 @@
 ======================================================================
 Contains the Human parts of the player entity.
 
-human variable prefex is '_c' 
+human variable prefex is '_h' 
 
 =====================================================================*/
 
