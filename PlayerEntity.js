@@ -7,7 +7,9 @@
                 |___/                                 |___/ |__/     
 =======================================================================
 
-The base class for the player
+The base class for the player. Player entity variables that shouldn't
+be visible to the animal power parts of the object should use the 
+prefix '_p'. 
 
 ======================================================================*/
 
@@ -32,16 +34,7 @@ function newGamePlayerEntity(x,y, radius){
 	newEnt.maxFall = 0.5; // maximum fall rate.
 	
 	// SPIDER STUFF
-	newEnt._sState = 0; // current state of the spiders swing
-	newEnt._sL = 100; // length of the spider thread for swinging
-	newEnt._sLmax = 100; // maximum length of the spider swing
-	newEnt._sE = 0; // total starting swing energy of the spider. Kinetic + potential
-	newEnt._sYDatum = 0; // datum for mesuring the changes in potential energy
-	newEnt._sVa = 0; // starting velociy of the swing, t in n-t coordinates  
-	newEnt._sVb = 0; // current velocity of the swing, t in n-t coordinates
-	newEnt._sM = 1; // mass of the spider
-	newEnt._sA = 0; // current angle of the spider swing 
-	newEnt._sGrpPnt = null; // the grapple point of the spider  
+	
 	newEnt.disableMove = false;	
 	
 	spawnNewEntity(newSpiderDetectEntity(newEnt._sLmax, newEnt), dynamicList);
