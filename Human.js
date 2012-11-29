@@ -29,7 +29,14 @@ function initHuman(newEnt){
 // 'this.form' will be the _previous_ power. 
 // you shouldn't modify this.form in this method. 
 function human_enter(){
+	if(this.form != "h"){
+		hSound.cloneNode(true).play();
 
+		this.impX = 0.3; // impulsive x velocity, 
+		this.maxRun = 0.5; // maximum run speed,  
+		this.impY = -0.6; // impulsive x velocity, used for jumps
+		this.maxFall = 0.5; // maximum fall rate.
+	}
 }
 
 // called when human power is deactivated
@@ -65,7 +72,15 @@ function human_update(elapsedTime){
 		this.velocity.y = this.impY;
 		hJumpSound.cloneNode(true).play();
 						
-	}		
+	}
+	
+	this.velocity.add(vScalarMult(elapsedTime,this.acceleration))
+	if(this.velocity.y > .5){
+	   this.velocity.y = .5;
+	} else if(this.velocity.y > .1 && this.form == 'f' && keydown(32)){
+		this.velocity.y = .1;
+	}
+	this.coords.add(vScalarMult(elapsedTime,this.velocity));		
 }
 
 // called as the collisionResponse method of the player entity when the human 

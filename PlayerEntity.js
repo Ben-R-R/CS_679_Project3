@@ -48,27 +48,13 @@ function newGamePlayerEntity(x,y, radius){
 	newEnt.update = function(elapsedTime){
 		//press 1 for human
 		if(keydown(49)){
-			if(this.form != "h"){
-				hSound.cloneNode(true).play();
-				this.form = "h";
-				this.impX = 0.3; // impulsive x velocity, 
-				this.maxRun = 0.5; // maximum run speed,  
-				this.impY = -0.6; // impulsive x velocity, used for jumps
-				this.maxFall = 0.5; // maximum fall rate.
-			}
-			this.disableMove = false;
+			this.form = "h";		
+		
 		} 
 		//press 2 for cheetah
 		else if(keydown(50)){
-			if(this.form != "c"){
-				cSound.cloneNode(true).play();
-				this.form = "c";
-				this.impX = 0.3; // impulsive x velocity, 
-				this.maxRun = 0.5; // maximum run speed,  
-				this.impY = -0.5; // impulsive x velocity, used for jumps
-				this.maxFall = 0.5; // maximum fall rate.
-			}
-			this.disableMove = false;
+			 this.form = "c";
+
 		} 
 		//press 3 for flying squirrel
 		else if(keydown(51)){
@@ -79,37 +65,14 @@ function newGamePlayerEntity(x,y, radius){
 		else if(keydown(52)){
 			this.form = "k";
 			
-			this.disableMove = false;
+
 		}
 		//press 5 for spider
 		else if(keydown(53)){
 			this.form = "s";
 			
 			this.disableMove = true;
-		}
-		
-		
-		// we set the velocity on a key hit, rather than continuously on a 
-		// key down so that if you swich animals you maintain your velocity 
-		if(!this.disableMove){
-			if(keyhit(65)){
-			    this.direction = -1;
-				this.velocity.x = - this.impX;
-			} else if (keyhit(68)){
-			    this.velocity.x = this.impX;
-				this.direction = 1;
-			} else if(keydown(65)){
-				this.direction = -1;
-				
-			} else if(keydown(68)){
-				this.direction = 1;
-			} else {
-				this.velocity.x = 0;
-			}
-		}
-		
-			
-		
+		}	
 		
 		//human form movement
 		if(this.form == "h"){
@@ -117,146 +80,31 @@ function newGamePlayerEntity(x,y, radius){
 		//cheetah form movement
 		} else if(this.form == "c"){
 			
-			
-			
 		//flying squirrel movement 
 		} else if(this.form == "f"){
-			if(this.onGround){	//ground motion
-				if(keydown(32)) this.velocity.y = this.impY;
-			} else {	//aerial motion
-				
-			}
 			
 		//kangaroo movement	
 		} else if(this.form == "k"){
-			
-			
 		
 		//spider movement	
 		} else if(this.form === "s"){
-			
-			// on ground jumps
-			if(keydown(32) && this.onGround){
-				this.velocity.y = this.impY;
-			}
-			
-			// falling through air 
-			if (this._sState === 0){
-			    if(this.onGround){
-					if(keyhit(65)){
-					    this.direction = -1;
-						this.velocity.x = - this.impX;
-					} else if (keyhit(68)){
-					    this.velocity.x = this.impX;
-						this.direction = 1;
-					} else if(keydown(65)){
-						this.direction = -1;
-						
-					} else if(keydown(68)){
-						this.direction = 1;
-					} else {
-						this.velocity.x = 0;
-					}
-				} else {
-				 	if(keydown(65)){
-						this.direction = -1;
-						this.velocity.x = Math.abs(this.velocity.x) * -1;
-					} else if(keydown(68)){
-						this.direction = 1;
-						this.velocity.x = Math.abs(this.velocity.x)
-					}
-				}
 				
-				
-				// have we clicked on a grapple point when the spider not already
-				// connected to one?
-				if(this._sGrpPnt && keydown(32)){
-				
-					// are we close enough to reach it?
-					if(LenComp(this.coords, this._sGrpPnt.coords, this._sLmax)){
-						
-						
-						
-						var normVector = newVector(this._sGrpPnt.coords.x  - this.coords.x, this._sGrpPnt.coords.y  - this.coords.y)
-						this._sL = normVector.length();
-						// make sure there is tension on the rope
-						if( vDot(normVector, this.velocity) >= 0){
-						
-							// get the angle of the swing
-							this._sA = Math.atan2(normVector.y ,-normVector.x );
-							
-							// get a tangent unit vector							                             
-							var tanVector = vOrthoNormal(normVector);
-							tanVector.normalize();
-							tanVector.scalarMult(-1);
-							// figure out how much of the velocity will 
-							// contribute to the radial velocity
-							this._sVa = vDot(this.velocity, tanVector);
-
-							// calculate the starting energy of the spider
-							// potential energy = mgh = 0 // Let our currnet position be the datum
-							// kinetic energy = (0.5)mv^2														
-							this._sE = (0.5 * this._sM * Math.pow(this.velocity.length(), 2 ) );// + (this._sM * -this.coords.y * GRAVITY)
-							
-							this._sYDatum = this.coords.y;																				
-							
-							// on to the swinging! 
-							this._sState = 2;	
-							//this.disableMove = true;						
-						} else {
-							// if there is no tension on the rope, transition 
-							// to state 1.
-							
-							this._sState = 1;
-						}
-						
-						
-						
-					}									
-				
-				}
-				
-			// falling while connected to grapple point
-			} else if (this._sState === 1){
-			    if(! LenComp(this.coords, this._sGrpPnt.coords, this._sL)){
-					this._sState = 0;		
-				}
-			} else if(this._sState === 2){
-				this._sA += this._sVa / (this._sL * 0.1);
-				this.coords.x = this._sGrpPnt.coords.x + Math.cos(this._sA) * this._sL;
-				this.coords.y = this._sGrpPnt.coords.y + Math.sin(this._sA) * this._sL;
-				if(!keydown(32)){
-					console.log("795");
-					this._sState = 0;
-					this.velocity.x = -Math.sin(this._sA) * this._sVa;
-					this.velocity.y = Math.cos(this._sA) * this._sVa;
-					//this.disableMove = false;
-				}
-				 				
-			}	
 		}
 		
-		this.velocity.add(vScalarMult(elapsedTime,this.acceleration))
-		if(this.velocity.y > .5){
-		   this.velocity.y = .5;
-		} else if(this.velocity.y > .1 && this.form == 'f' && keydown(32)){
-			this.velocity.y = .1;
-		}
-		this.coords.add(vScalarMult(elapsedTime,this.velocity));
+		
 		this.wasGround = this.onGround;	//used to check if cheetah just left ground
 		this.onGround = false;
-		
 		
 		if( (this.coords.y + origin.y) >= 400){
 			origin.y = -this.coords.y + 400;		
 		} else if( (this.coords.y + origin.y) <= 200){
 			origin.y = -this.coords.y + 200;		
 		}
-		// = ( - 300) * -0.5;
 		
 		origin.x = -this.coords.x + 400;
 		origin.y = Math.floor(origin.y);
 		origin.x = Math.floor(origin.x);
+		
 		return STATE_ALIVE;
 	}
 	

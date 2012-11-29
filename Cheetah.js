@@ -30,7 +30,14 @@ function initCheetah(newEnt){
 // 'this.form' will be the _previous_ power. 
 // you shouldn't modify this.form in this method.
 function cheetah_enter(){
-
+	if(this.form != "c"){
+		cSound.cloneNode(true).play();
+	
+		this.impX = 0.3; // impulsive x velocity, 
+		this.maxRun = 0.5; // maximum run speed,  
+		this.impY = -0.5; // impulsive x velocity, used for jumps
+		this.maxFall = 0.5; // maximum fall rate.
+	}
 }
 
 // called when cheetah power is deactivated
@@ -46,6 +53,21 @@ function cheetah_leave(){
 // called from the update method of the player entity when the cheetah is active.
 // you can use the 'this' keyword as you normally would. 
 function cheetah_update(elapsedTime){
+	if(keyhit(65)){
+	    this.direction = -1;
+		this.velocity.x = - this.impX;
+	} else if (keyhit(68)){
+	    this.velocity.x = this.impX;
+		this.direction = 1;
+	} else if(keydown(65)){
+		this.direction = -1;
+		
+	} else if(keydown(68)){
+		this.direction = 1;
+	} else {
+		this.velocity.x = 0;
+	}
+
 	var tvx = this.velocity.x;
 	var tvy = this.velocity.y;
 	
@@ -83,7 +105,15 @@ function cheetah_update(elapsedTime){
 	}
 	
 	this.velocity.x = tvx;
-	this.velocity.y = tvy;		
+	this.velocity.y = tvy;
+	
+	this.velocity.add(vScalarMult(elapsedTime,this.acceleration))
+	if(this.velocity.y > .5){
+	   this.velocity.y = .5;
+	} else if(this.velocity.y > .1 && this.form == 'f' && keydown(32)){
+		this.velocity.y = .1;
+	}
+	this.coords.add(vScalarMult(elapsedTime,this.velocity));		
 }
 
 // called as the collisionResponse method of the player entity when the cheetah 

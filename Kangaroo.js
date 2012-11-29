@@ -118,7 +118,15 @@ function kangaroo_update(elapsedTime){
 		this.kick.aabb.y = this.coords.y - this.kick.aabb.h / 2;
 		this.kick.active = true;
 		this.kick.virtual = false;
-	}		
+	}
+	
+	this.velocity.add(vScalarMult(elapsedTime,this.acceleration))
+	if(this.velocity.y > .5){
+	   this.velocity.y = .5;
+	} else if(this.velocity.y > .1 && this.form == 'f' && keydown(32)){
+		this.velocity.y = .1;
+	}
+	this.coords.add(vScalarMult(elapsedTime,this.velocity));		
 }
 
 // called as the collisionResponse method of the player entity when the kangaroo 

@@ -48,7 +48,34 @@ function flyingSquirrel_leave(){
 // called from the update method of the player entity when the flying squirrel is active.
 // you can use the 'this' keyword as you normally would. 
 function flyingSquirrel_update(elapsedTime){
+	if(keyhit(65)){
+	    this.direction = -1;
+		this.velocity.x = - this.impX;
+	} else if (keyhit(68)){
+	    this.velocity.x = this.impX;
+		this.direction = 1;
+	} else if(keydown(65)){
+		this.direction = -1;
 		
+	} else if(keydown(68)){
+		this.direction = 1;
+	} else {
+		this.velocity.x = 0;
+	}
+	
+	if(this.onGround){	//ground motion
+		if(keydown(32)) this.velocity.y = this.impY;
+	} else {	//aerial motion
+				
+	}
+	
+	this.velocity.add(vScalarMult(elapsedTime,this.acceleration))
+	if(this.velocity.y > .5){
+	   this.velocity.y = .5;
+	} else if(this.velocity.y > .1 && this.form == 'f' && keydown(32)){
+		this.velocity.y = .1;
+	}
+	this.coords.add(vScalarMult(elapsedTime,this.velocity));		
 }
 
 // called as the collisionResponse method of the player entity when the flying squirrel 

@@ -62,7 +62,113 @@ function spider_leave(){
 // called from the update method of the player entity when the spider is active.
 // you can use the 'this' keyword as you normally would. 
 function spider_update(elapsedTime){
+	// on ground jumps
+	if(keydown(32) && this.onGround){
+		this.velocity.y = this.impY;
+	}
+	
+	// falling through air 
+	if (this._sState === 0){
+	    if(this.onGround){
+			if(keyhit(65)){
+			    this.direction = -1;
+				this.velocity.x = - this.impX;
+			} else if (keyhit(68)){
+			    this.velocity.x = this.impX;
+				this.direction = 1;
+			} else if(keydown(65)){
+				this.direction = -1;
+				
+			} else if(keydown(68)){
+				this.direction = 1;
+			} else {
+				this.velocity.x = 0;
+			}
+		} else {
+		 	if(keydown(65)){
+				this.direction = -1;
+				this.velocity.x = Math.abs(this.velocity.x) * -1;
+			} else if(keydown(68)){
+				this.direction = 1;
+				this.velocity.x = Math.abs(this.velocity.x)
+			}
+		}
 		
+		
+		// have we clicked on a grapple point when the spider not already
+		// connected to one?
+		if(this._sGrpPnt && keydown(32)){
+		
+			// are we close enough to reach it?
+			if(LenComp(this.coords, this._sGrpPnt.coords, this._sLmax)){
+				
+				
+				
+				var normVector = newVector(this._sGrpPnt.coords.x  - this.coords.x, this._sGrpPnt.coords.y  - this.coords.y)
+				this._sL = normVector.length();
+				// make sure there is tension on the rope
+				if( vDot(normVector, this.velocity) >= 0){
+				
+					// get the angle of the swing
+					this._sA = Math.atan2(normVector.y ,-normVector.x );
+					
+					// get a tangent unit vector							                             
+					var tanVector = vOrthoNormal(normVector);
+					tanVector.normalize();
+					tanVector.scalarMult(-1);
+					// figure out how much of the velocity will 
+					// contribute to the radial velocity
+					this._sVa = vDot(this.velocity, tanVector);
+
+					// calculate the starting energy of the spider
+					// potential energy = mgh = 0 // Let our currnet position be the datum
+					// kinetic energy = (0.5)mv^2														
+					this._sE = (0.5 * this._sM * Math.pow(this.velocity.length(), 2 ) );// + (this._sM * -this.coords.y * GRAVITY)
+					
+					this._sYDatum = this.coords.y;																				
+					
+					// on to the swinging! 
+					this._sState = 2;	
+					//this.disableMove = true;						
+				} else {
+					// if there is no tension on the rope, transition 
+					// to state 1.
+					
+					this._sState = 1;
+				}
+				
+				
+				
+			}									
+		
+		}
+		
+	// falling while connected to grapple point
+	} else if (this._sState === 1){
+	    if(! LenComp(this.coords, this._sGrpPnt.coords, this._sL)){
+			this._sState = 0;		
+		}
+	} else if(this._sState === 2){
+		this._sA += this._sVa / (this._sL * 0.1);
+		this.coords.x = this._sGrpPnt.coords.x + Math.cos(this._sA) * this._sL;
+		this.coords.y = this._sGrpPnt.coords.y + Math.sin(this._sA) * this._sL;
+		if(!keydown(32)){
+			console.log("795");
+			this._sState = 0;
+			this.velocity.x = -Math.sin(this._sA) * this._sVa;
+			this.velocity.y = Math.cos(this._sA) * this._sVa;
+			//this.disableMove = false;
+		}
+		 				
+	}
+	
+	this.velocity.add(vScalarMult(elapsedTime,this.acceleration))
+	if(this.velocity.y > .5){
+	   this.velocity.y = .5;
+	} else if(this.velocity.y > .1 && this.form == 'f' && keydown(32)){
+		this.velocity.y = .1;
+	}
+	this.coords.add(vScalarMult(elapsedTime,this.velocity));		
 }
 
 // called as the collisionResponse method of the player entity when the spider 
