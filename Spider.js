@@ -110,7 +110,7 @@ function spider_update(elapsedTime){
 				if( vDot(normVector, this.velocity) >= 0){
 				
 					// get the angle of the swing
-					this._sA = Math.atan2(normVector.y ,-normVector.x );
+					this._sA = Math.atan2( normVector.x , normVector.y );
 					
 					// get a tangent unit vector							                             
 					var tanVector = vOrthoNormal(normVector);
@@ -162,13 +162,16 @@ function spider_update(elapsedTime){
 		 				
 	}
 	
-	this.velocity.add(vScalarMult(elapsedTime,this.acceleration))
-	if(this.velocity.y > .5){
-	   this.velocity.y = .5;
-	} else if(this.velocity.y > .1 && this.form == 'f' && keydown(32)){
-		this.velocity.y = .1;
+	if(this._sState === 0 || this._sState === 1){
+		this.velocity.add(vScalarMult(elapsedTime,this.acceleration))
+		if(this.velocity.y > .5){
+		   this.velocity.y = .5;
+		} else if(this.velocity.y > .1 && this.form == 'f' && keydown(32)){
+			this.velocity.y = .1;
+		}
+		this.coords.add(vScalarMult(elapsedTime,this.velocity));
 	}
-	this.coords.add(vScalarMult(elapsedTime,this.velocity));		
+		
 }
 
 // called as the collisionResponse method of the player entity when the spider 
