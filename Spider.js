@@ -26,20 +26,35 @@ function initSpider(newEnt){
 	newEnt._sVb = 0; // current velocity of the swing, t in n-t coordinates
 	newEnt._sM = 1; // mass of the spider
 	newEnt._sA = 0; // current angle of the spider swing 
-	newEnt._sGrpPnt = null; // the grapple point of the spider  
+	newEnt._sGrpPnt = null; // the grapple point of the spider
+	
+	spawnNewEntity(newSpiderDetectEntity(newEnt._sLmax, newEnt), dynamicList);  
 
 }
 
 // called when the spider entity activated.
 // purpose is to set any local or player entity level state variables
 // you can use the 'this' keyword as you normally would. 
+// it is posible that this method could be called when the player's animal
+// power is already spider. If you wish to avoid having state variables reset,
+// be sure to test for that.
+// 'this.form' will be the _previous_ power. 
+// you shouldn't modify this.form in this method.
 function spider_enter(){
-
+	//console.log("Spider Mode Activated");
+	this.impX = 0.3; // impulsive x velocity, 
+	this.maxRun = 0.5; // maximum run speed,  
+	this.impY = -0.3; // impulsive x velocity, used for jumps
+	this.maxFall = 0.5; // maximum fall rate.
+	this._sState = 0; // starting state of the spider
 }
 
 // called when spider entity is deactivated
 // purpose is to reset local and player entity level state variables
-// you can use the 'this' keyword as you normally would. 
+// you can use the 'this' keyword as you normally would.
+// in contrast to spider_enter(), this method will ONLY be called on switching
+// to a different power.
+// This method will be called _before_ the new power's enter method.    
 function spider_leave(){
 
 }

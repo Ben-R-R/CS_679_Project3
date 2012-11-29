@@ -24,8 +24,7 @@ function newGamePlayerEntity(x,y, radius){
 	newEnt.isPlayer = true;
 	//set the form value to the current animal form
 	newEnt.form = "h";
-	newEnt.kick = newKickEntity(-5000,-5000,20,newEnt.radius * 2)	//entity used to "kick" blocks around
-	spawnNewEntity(newEnt.kick,staticList);
+	
 	newEnt.direction = 1;
 
 	newEnt.impX = 0.3; // impulsive x velocity, 
@@ -37,11 +36,9 @@ function newGamePlayerEntity(x,y, radius){
 	
 	newEnt.disableMove = false;	
 	
-	spawnNewEntity(newSpiderDetectEntity(newEnt._sLmax, newEnt), dynamicList);
+	
 	// KANGAROO STUFF
-	newEnt._kJumps = 0;	//number of jumps available
-	newEnt._kJumpA = 0;	//jump acceleration
-	newEnt._kdTime = 0;	//current airtime used for disabling doublejump on falls
+	
 	
 	// SQUIRREL STUFF
 	newEnt._ropeState = 0;	//current state of ropeclimbingness
@@ -76,31 +73,18 @@ function newGamePlayerEntity(x,y, radius){
 		//press 3 for flying squirrel
 		else if(keydown(51)){
 			this.form = "f";
-			this.impX = 0.3;
-			this.maxRun = 0.5;
-			this.impY = -0.3;
+			
 		}
 		//press 4 for kangaroo
 		else if(keydown(52)){
-			if(this.form != "k"){
-				kSound.cloneNode(true).play();
-				this.form = "k";
+			this.form = "k";
 			
-				this.maxRun = 0.1; // maximum run speed,  
-				this.impY = 0.0; // zero out inpulsive velocity because we will 
-								 // be doing our own jumps for the kangaroo 
-			}
 			this.disableMove = false;
 		}
 		//press 5 for spider
 		else if(keydown(53)){
 			this.form = "s";
-			//console.log("Spider Mode Activated");
-			this.impX = 0.3; // impulsive x velocity, 
-			this.maxRun = 0.5; // maximum run speed,  
-			this.impY = -0.3; // impulsive x velocity, used for jumps
-			this.maxFall = 0.5; // maximum fall rate.
-			this._sState = 0; // starting state of the spider
+			
 			this.disableMove = true;
 		}
 		
