@@ -153,7 +153,7 @@ function spider_update(elapsedTime){
 		this.coords.x = this._sGrpPnt.coords.x + Math.cos(this._sA) * this._sL;
 		this.coords.y = this._sGrpPnt.coords.y + Math.sin(this._sA) * this._sL;
 		if(!keydown(32)){
-			console.log("795");
+			
 			this._sState = 0;
 			this.velocity.x = -Math.sin(this._sA) * this._sVa;
 			this.velocity.y = Math.cos(this._sA) * this._sVa;
@@ -175,7 +175,44 @@ function spider_update(elapsedTime){
 // is active
 // you can use the 'this' keyword as you normally would. 
 function spider_collisionResponse(responseVector, other){
-
+	if(other.isDeadly && this.checkpoint ){
+		// careful, if we did this.coords = this.checkpoint.coords, we 
+		// would cause the checkpoint to move along with the player.
+		this.coords.x = this.checkpoint.coords.x;
+		this.coords.y = this.checkpoint.coords.y; 			
+	}
+	if(other.isKick) return;
+	if(other.isRope){
+		if(this.form != "f") return;
+		//TODO: SQUIRREL ROPE CODE
+	}
+	
+	// move so we are not colliding anymore
+	this.coords.add(responseVector);
+	
+	
+	//We consider ourselves "on the ground" if there is something to push on.		 
+	
+	if(responseVector.y < 0){
+		this.onGround = true;
+	}
+	
+	// if we bump an opposing force, stop. This is not entirely physicly
+	// correct but will work for the most part.
+	/*if(responseVector.x > 0 && this.velocity.x < 0){
+		this.velocity.x	= 0;		
+	}else if(responseVector.x < 0 && this.velocity.x > 0){
+		this.velocity.x	= 0;		
+	} */                       // removed because it messes up the kangaroo
+	if(responseVector.y > 0 && this.velocity.y < 0){
+		this.velocity.y	= 0;		
+	}else if(responseVector.y < 0 && this.velocity.y > 0){
+		this.velocity.y	= 0;		
+	}  
+	
+	// hold on to the response vector, currently we only do this so we can
+	// draw it for debugging purposes  
+	this.resVec = responseVector;
 }
 
 // called as the draw method of the the player entity when the spider is active

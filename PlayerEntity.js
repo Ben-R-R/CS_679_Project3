@@ -43,7 +43,7 @@ function newPlayerEntity(x,y, radius){
 	newEnt.power_update = human_update;
 	newEnt.power_leave = human_leave;
 	newEnt.power_enter = human_enter;
-	
+	newEnt.collisionResponse = human_collisionResponse;
 	newEnt.update = function(elapsedTime){
 		//press 1 for human
 		if(keydown(49)){
@@ -59,6 +59,7 @@ function newPlayerEntity(x,y, radius){
 			
 			this.power_leave = human_leave;
 			this.power_update = human_update;
+			this.collisionResponse = human_collisionResponse;
 			
 	        this.form = "h";
 		//press 2 for cheetah
@@ -75,7 +76,7 @@ function newPlayerEntity(x,y, radius){
 			
 			this.power_leave = cheetah_leave;
 			this.power_update = cheetah_update;
-			
+			this.collisionResponse = cheetah_collisionResponse;
 	        this.form = "c";
 
 		 
@@ -92,6 +93,7 @@ function newPlayerEntity(x,y, radius){
 			
 			this.power_leave = flyingSquirrel_leave;
 			this.power_update = flyingSquirrel_update;
+			this.collisionResponse = flyingSquirrel_collisionResponse;
 			
 	        this.form = "f";
 			
@@ -109,6 +111,7 @@ function newPlayerEntity(x,y, radius){
 			
 			this.power_leave = kangaroo_leave;
 			this.power_update = kangaroo_update;
+			this.collisionResponse = kangaroo_collisionResponse;
 			
 	        this.form = "k";
 			
@@ -127,6 +130,7 @@ function newPlayerEntity(x,y, radius){
 			
 			this.power_leave = spider_leave;
 			this.power_update = spider_update;
+			this.collisionResponse = spider_collisionResponse;
 			
 	        this.form = "s";
 		}	
@@ -149,55 +153,6 @@ function newPlayerEntity(x,y, radius){
 		
 		
 		return STATE_ALIVE;
-	}
-	
-	newEnt.collisionResponse = function(responseVector, other){
-		
-		// not sure if we need to do this. Was trying to stop the disapearing 
-		// ball problem
-		if(vectorError(responseVector) ){
-			return;
-		}
-	
-		if(other.isDeadly && this.checkpoint ){
-			// careful, if we did this.coords = this.checkpoint.coords, we 
-			// would cause the checkpoint to move along with the player.
-			this.coords.x = this.checkpoint.coords.x;
-			this.coords.y = this.checkpoint.coords.y; 			
-		}
-		if(other.isKick) return;
-		if(other.isRope){
-			if(this.form != "f") return;
-			//TODO: SQUIRREL ROPE CODE
-		}
-		
-		// move so we are not colliding anymore
-		this.coords.add(responseVector);
-		
-		
-		//We consider ourselves "on the ground" if there is something to push on.		 
-		
-		if(responseVector.y < 0){
-			this.onGround = true;
-			
-		}
-		
-		// if we bump an opposing force, stop. This is not entirely physicly
-		// correct but will work for the most part.
-		/*if(responseVector.x > 0 && this.velocity.x < 0){
-			this.velocity.x	= 0;		
-		}else if(responseVector.x < 0 && this.velocity.x > 0){
-			this.velocity.x	= 0;		
-		} */                       // removed because it messes up the kangaroo
-		if(responseVector.y > 0 && this.velocity.y < 0){
-			this.velocity.y	= 0;		
-		}else if(responseVector.y < 0 && this.velocity.y > 0){
-			this.velocity.y	= 0;		
-		}  
-		
-		// hold on to the response vector, currently we only do this so we can
-		// draw it for debugging purposes  
-		this.resVec = responseVector; 
 	}
 	
 	newEnt.draw = function(origin){
