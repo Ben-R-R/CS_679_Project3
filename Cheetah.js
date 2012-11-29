@@ -21,7 +21,7 @@ function initCheetah(newEnt){
 
 }
 
-// called when the cheetah entity activated.
+// called when the cheetah power is activated.
 // purpose is to set any local or player entity level state variables
 // you can use the 'this' keyword as you normally would. 
 // it is posible that this method could be called when the player's animal
@@ -33,7 +33,7 @@ function cheetah_enter(){
 
 }
 
-// called when cheetah entity is deactivated
+// called when cheetah power is deactivated
 // purpose is to reset local and player entity level state variables
 // you can use the 'this' keyword as you normally would.
 // in contrast to cheetah_enter(), this method will ONLY be called on switching
@@ -46,7 +46,44 @@ function cheetah_leave(){
 // called from the update method of the player entity when the cheetah is active.
 // you can use the 'this' keyword as you normally would. 
 function cheetah_update(elapsedTime){
+	var tvx = this.velocity.x;
+	var tvy = this.velocity.y;
+	
+	if(keydown(65)){
+		if(tvx == 0){
+			tvx = -.3;
 		
+		//can only accelerate while on the ground
+		} else if(tvx > -.8 && this.onGround){
+			tvx -= .1;
+		}
+		this.direction = -1;
+		if(tvx <= -.8 && this.wasGround && !this.onGround){
+			tvy = -.4;
+		}
+	}else if(keydown(68)){
+		if(tvx == 0){
+			tvx = .3;
+			
+		//can only accelerate while on the ground	
+		} else if(tvx < .8  && this.onGround){    
+			tvx += .1;
+		} 
+		this.direction = 1;
+		if(tvx >= .8 && this.wasGround && !this.onGround){
+			tvy = -.4;
+		}
+	} else {
+		tvx = 0;
+	}
+	
+	// apply impulse to velocity. 
+	if(keydown(32) && this.onGround){
+		tvy = -.4;
+	}
+	
+	this.velocity.x = tvx;
+	this.velocity.y = tvy;		
 }
 
 // called as the collisionResponse method of the player entity when the cheetah 

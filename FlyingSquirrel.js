@@ -21,7 +21,7 @@ function initFlyingSquirrel(newEnt){
 
 }
 
-// called when the flying squirrel entity activated.
+// called when the flying squirrel power is activated.
 // purpose is to set any local or player entity level state variables
 // you can use the 'this' keyword as you normally would.
 // it is posible that this method could be called when the player's animal
@@ -35,7 +35,7 @@ function flyingSquirrel_enter(){
 	this.impY = -0.3;
 }
 
-// called when flying squirrel entity is deactivated
+// called when flying squirrel power is deactivated
 // purpose is to reset local and player entity level state variables
 // you can use the 'this' keyword as you normally would.
 // in contrast to flyingSquirrel_enter(), this method will ONLY be called on switching

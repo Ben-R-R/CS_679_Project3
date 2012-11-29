@@ -20,7 +20,7 @@ function initHuman(newEnt){
 
 }
 
-// called when the human entity activated.
+// called when the human power is activated.
 // purpose is to set any local or player entity level state variables
 // you can use the 'this' keyword as you normally would.
 // it is posible that this method could be called when the player's animal
@@ -32,7 +32,7 @@ function human_enter(){
 
 }
 
-// called when human entity is deactivated
+// called when human power is deactivated
 // purpose is to reset local and player entity level state variables
 // you can use the 'this' keyword as you normally would.
 // in contrast to human_enter(), this method will ONLY be called on switching

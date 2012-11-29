@@ -113,53 +113,10 @@ function newGamePlayerEntity(x,y, radius){
 		
 		//human form movement
 		if(this.form == "h"){
-			// apply impulse to velocity. Animals that override the default behavior
-			// should set the impulse to 0 
-			if(keydown(32) && this.onGround){
-				this.velocity.y = this.impY;
-				hJumpSound.cloneNode(true).play();
-								
-			}
+			
 		//cheetah form movement
 		} else if(this.form == "c"){
-			var tvx = this.velocity.x;
-			var tvy = this.velocity.y;
 			
-			if(keydown(65)){
-				if(tvx == 0){
-					tvx = -.3;
-				
-				//can only accelerate while on the ground
-				} else if(tvx > -.8 && this.onGround){
-					tvx -= .1;
-				}
-				this.direction = -1;
-				if(tvx <= -.8 && this.wasGround && !this.onGround){
-					tvy = -.4;
-				}
-			}else if(keydown(68)){
-				if(tvx == 0){
-					tvx = .3;
-					
-				//can only accelerate while on the ground	
-				} else if(tvx < .8  && this.onGround){    
-					tvx += .1;
-				} 
-				this.direction = 1;
-				if(tvx >= .8 && this.wasGround && !this.onGround){
-					tvy = -.4;
-				}
-			} else {
-				tvx = 0;
-			}
-			
-			// apply impulse to velocity. 
-			if(keydown(32) && this.onGround){
-				tvy = -.4;
-			}
-			
-			this.velocity.x = tvx;
-			this.velocity.y = tvy;
 			
 			
 		//flying squirrel movement 
@@ -173,50 +130,7 @@ function newGamePlayerEntity(x,y, radius){
 		//kangaroo movement	
 		} else if(this.form == "k"){
 			
-			//ground motion
-			if(this.onGround){
 			
-				this.maxRun = 0.2; // maximum run speed,  
-				this.impY = 0.0; // impulsive x velocity, used for jumps
-				
-				this._kJumps = 2;
-				this._kdTime = 0;
-				if(keydown(65) || keydown(68)){	//left or right hops
-					this.velocity.y -= .2;
-					this.velocity.x = this.impX * this.direction;
-				
-				} else {
-				    this.velocity.x = 0;	//stops movement on ground
-				} 
-			}
-			//aerial motion
-			else{
-				this.impX = 0.2; // impulsive x velocity,
-				
-			}
-			
-			//jumps
-			if(keyhit(32) && this._kJumps > 0){	//initial jump-off
-				this.velocity.y = -.6;
-				this._kJumps--;
-				kJumpSound.cloneNode(true).play();
-			}
-			
-			if(this._kJumps == 2 && this._kdTime < 10){
-				this._kdTime++;
-			} else if(this._kJumps == 2) {
-				this._kJumps = 1;
-			} 
-			
-			//kick
-			if(keyhit(69)){
-				this.kick.coords.x = this.coords.x + this.radius * this.direction;
-				this.kick.coords.y = this.coords.y;
-				this.kick.aabb.x = this.coords.x + this.radius * this.direction - this.kick.aabb.w / 2;
-				this.kick.aabb.y = this.coords.y - this.kick.aabb.h / 2;
-				this.kick.active = true;
-				this.kick.virtual = false;
-			}
 		
 		//spider movement	
 		} else if(this.form === "s"){

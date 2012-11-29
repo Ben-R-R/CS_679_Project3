@@ -32,7 +32,7 @@ function initSpider(newEnt){
 
 }
 
-// called when the spider entity activated.
+// called when the spider power is activated.
 // purpose is to set any local or player entity level state variables
 // you can use the 'this' keyword as you normally would. 
 // it is posible that this method could be called when the player's animal
@@ -49,7 +49,7 @@ function spider_enter(){
 	this._sState = 0; // starting state of the spider
 }
 
-// called when spider entity is deactivated
+// called when spider power is deactivated
 // purpose is to reset local and player entity level state variables
 // you can use the 'this' keyword as you normally would.
 // in contrast to spider_enter(), this method will ONLY be called on switching
