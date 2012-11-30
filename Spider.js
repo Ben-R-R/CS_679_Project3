@@ -28,7 +28,8 @@ function initSpider(newEnt){
 	newEnt._sA = 0; // current angle of the spider swing 
 	newEnt._sGrpPnt = null; // the grapple point of the spider
 	
-	spawnNewEntity(newSpiderDetectEntity(newEnt._sLmax, newEnt), dynamicList);  
+	spawnNewEntity(newSpiderDetectEntity(newEnt._sLmax, newEnt), dynamicList); 
+	
 
 }
 
@@ -46,7 +47,7 @@ function spider_enter(){
 	this.maxRun = 0.5; // maximum run speed,  
 	this.impY = -0.3; // impulsive x velocity, used for jumps
 	this.maxFall = 0.5; // maximum fall rate.
-	this._sState = 0; // starting state of the spider
+	this._sState = 0; // starting state of the spider  
 }
 
 // called when spider power is deactivated
@@ -106,11 +107,12 @@ function spider_update(elapsedTime){
 				
 				var normVector = newVector(this._sGrpPnt.coords.x  - this.coords.x, this._sGrpPnt.coords.y  - this.coords.y)
 				this._sL = normVector.length();
+				
 				// make sure there is tension on the rope
 				if( vDot(normVector, this.velocity) >= 0){
 				
 					// get the angle of the swing
-					this._sA = Math.atan2( normVector.x , normVector.y );
+					this._sA = Math.atan2( normVector.y , normVector.x ) + Math.PI;
 					
 					// get a tangent unit vector							                             
 					var tanVector = vOrthoNormal(normVector);
