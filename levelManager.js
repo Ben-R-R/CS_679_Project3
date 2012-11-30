@@ -190,9 +190,11 @@ function parseInkscapeFile(){
 	//spawn grapple points ------------------------------
 	$("#grapple").children().each(function(){
 		var tx = Math.ceil($(this).attr("x"));
-		var ty = Math.ceil($(this).attr("y"))
+		var ty = Math.ceil($(this).attr("y"));
+		var tw = Math.ceil($(this).attr("width"));
+		var th = Math.ceil($(this).attr("height"));
 		
-		spawnNewEntity(newSpiderGrappleEntity(tx, ty), staticList);
+		spawnNewEntity(newSpiderGrappleEntity(tx+tw/2, ty+th/2), staticList);
 	});
 	
 	//spawn moving platforms ----------------------------
