@@ -1,0 +1,47 @@
+<svg width="612" height="792" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <title>Layer 1</title>
+  <g id="green">
+   <rect height="41.451" width="46.334" stroke-miterlimit="10" stroke="#6CBE45" fill="none" y="703.971" x="280.493" id="start"/>
+  </g>
+  <g id="rope">
+   <line y2="223.50001" x2="411.5" y1="-18.5" x1="411.5" stroke-miterlimit="10" stroke="#000000" fill="none"/>
+  </g>
+  <g id="spike">
+   <rect height="97.495" width="728.963" fill="#FF0000" y="649.411" x="368.921"/>
+  </g>
+  <g id="moving">
+   <g id="path">
+    <polygon points="627.425,256.264 975.057,256.264 798.065,425.59   " stroke-miterlimit="10" stroke="#000000" fill="none"/>
+    <rect height="14.504" width="147.875" y="249.012" x="554.487"/>
+   </g>
+  </g>
+  <g id="checkpoint">
+   <rect height="88.452" width="46.334" stroke-miterlimit="10" stroke="#6CBE45" fill="none" y="173.552" x="324.814" id="c"/>
+  </g>
+  <g id="gear">
+   <circle fill="black" r="68.99414" cy="500.415" cx="-72.995"/>
+   <circle fill="black" r="68.99414" cy="747.415" cx="-172.661"/>
+   <circle id="svg_8" fill="black" r="68.99414" cy="59.415" cx="-91.995"/>
+  </g>
+  <g id="svg_12">
+   <g id="box">
+    <rect fill="black" height="222.978" width="210.677" y="276.614" x="-308.672"/>
+    <rect height="19.499" width="113.994" y="661.581" x="-546.367"/>
+    <rect height="16.5" width="112.495" y="482.092" x="-416.877"/>
+    <rect fill="black" height="16.5" width="112.495" y="276.601" x="-416.877"/>
+    <rect fill="black" height="471.036" width="42.238" y="276.004" x="326.91" id="box2"/>
+    <rect height="131.694" width="1746.913" y="746.271" x="-541.945" id="box1"/>
+    <rect height="218.989" width="22.499" y="527.585" x="115.107"/>
+    <rect height="1401.878" width="131.694" y="-523.914" x="-672.274" id="box1_1_"/>
+    <rect fill="black" height="14.504" width="147.875" y="262.5" x="286.5"/>
+    <rect id="svg_10" fill="black" height="14.504" width="147.875" y="113.5" x="203.5"/>
+    <rect id="svg_11" fill="black" height="14.504" width="147.875" y="-34.5" x="293.5"/>
+   </g>
+  </g>
+  <g id="grapple">
+   <rect height="20.574" width="20.574" fill="#0C00FF" y="381.087" x="473.501"/>
+   <rect id="svg_9" height="20.574" width="20.574" fill="#0C00FF" y="78.087" x="525.501"/>
+  </g>
+ </g>
+</svg>

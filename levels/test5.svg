@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   width="744.09448"
+   height="1052.3622"
+   id="svg2">
+  <defs
+     id="defs4" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="box">
+    <rect
+       width="268.57144"
+       height="62.857143"
+       x="65"
+       y="256.21933"
+       id="rect2985"
+       style="fill:#0000ff;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <rect
+       width="335.15182"
+       height="132.52719"
+       x="296.42859"
+       y="383.34134"
+       id="rect2987"
+       style="fill:#0000ff;fill-rule:evenodd;stroke:#000000;stroke-width:1.18298221px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <rect
+       width="315.1463"
+       height="19.337681"
+       x="1"
+       y="611.64789"
+       id="rect2989"
+       style="fill:#0000ff;fill-rule:evenodd;stroke:#000000;stroke-width:0.69625121px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <rect
+       width="1429.3761"
+       height="179.70917"
+       x="-328.14166"
+       y="902.93359"
+       id="rect2991"
+       style="fill:#0000ff;fill-rule:evenodd;stroke:#000000;stroke-width:3.88019276px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <rect
+       width="48.748394"
+       height="48.748394"
+       x="118.12579"
+       y="713.48798"
+       id="rect2998"
+       style="fill:#0000ff;fill-rule:evenodd;stroke:#000000;stroke-width:1.25160563px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+  </g>
+  <g
+     id="green"
+     style="display:inline">
+    <rect
+       width="50"
+       height="50"
+       x="693"
+       y="849.36218"
+       id="start"
+       style="fill:#008000" />
+  </g>
+  <g
+     id="gear">
+    <path
+       d="m 247,460.86218 a 40.5,40.5 0 1 1 -81,0 40.5,40.5 0 1 1 81,0 z"
+       transform="translate(-10,-38)"
+       id="path2994"
+       style="fill:#ff0000;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       d="m 569,660.36218 a 90,90 0 1 1 -180,0 90,90 0 1 1 180,0 z"
+       transform="matrix(2.1270718,0,0,2.1270718,-441.8674,-802.27561)"
+       id="path2996"
+       style="fill:#ff0000;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+  </g>
+</svg>
