@@ -59,11 +59,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1"
-     inkscape:cx="1015.8059"
+     inkscape:zoom="0.32"
+     inkscape:cx="-758.66608"
      inkscape:cy="311.59454"
      inkscape:document-units="px"
-     inkscape:current-layer="background"
+     inkscape:current-layer="gear"
      showgrid="true"
      inkscape:window-width="1366"
      inkscape:window-height="716"
@@ -161,9 +161,9 @@
        xlink:href="file:///C:/Users/Ben_R_R/private/CODE/A_SCHOOL/Project3/CS_679_Project3/images/Girder1.png"
        height="124"
        width="116"
-       src="images/Girder1.png" />
+       src="./images/Girder1.png" />
     <image
-       src="images/Girder1.png"
+       src="./images/Girder1.png"
        width="116"
        height="124"
        xlink:href="file:///C:/Users/Ben_R_R/private/CODE/A_SCHOOL/Project3/CS_679_Project3/images/Girder1.png"
@@ -573,7 +573,7 @@
        style="display:inline" />
     <image
        style="display:inline"
-       y="828.50696"
+       y="843.50696"
        x="437.31592"
        id="image5519"
        xlink:href="file:///C:/Users/Ben_R_R/private/CODE/A_SCHOOL/Project3/CS_679_Project3/images/AAGear.png"
