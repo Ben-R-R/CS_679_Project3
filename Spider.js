@@ -121,8 +121,8 @@ function spider_update(elapsedTime){
 					tanVector.scalarMult(-1);
 					// figure out how much of the velocity will 
 					// contribute to the radial velocity
-					this._sVa = vDot(this.velocity, tanVector);
-					 this._sVb = vDot(this.velocity, tanVector);
+					this._sVa = vDot(this.velocity, tanVector) * 2;
+					this._sVb = vDot(this.velocity, tanVector) * 2;
 					// calculate the starting energy of the spider
 					// potential energy = mgh = 0 // Let our currnet position be the datum
 					// kinetic energy = (0.5)mv^2														
@@ -166,8 +166,8 @@ function spider_update(elapsedTime){
 			
 			// figure out how much of the velocity will 
 			// contribute to the radial velocity
-			this._sVa = vDot(this.velocity, tanVector);
-			this._sVb = vDot(this.velocity, tanVector);
+			this._sVa = vDot(this.velocity, tanVector) * 2;
+			this._sVb = vDot(this.velocity, tanVector) * 2;
 			// calculate the starting energy of the spider
 			// potential energy = mgh = 0 // Let our currnet position be the datum
 			// kinetic energy = (0.5)mv^2														
@@ -204,8 +204,8 @@ function spider_update(elapsedTime){
 		if(!keydown(32)){
 			
 			this._sState = 0;
-			this.velocity.x = -Math.sin(this._sA) * this._sVb * 2;
-			this.velocity.y = Math.cos(this._sA) * this._sVb * 2;
+			this.velocity.x = -Math.sin(this._sA) * this._sVb;
+			this.velocity.y = Math.cos(this._sA) * this._sVb;
 			
 		}
 		 				
