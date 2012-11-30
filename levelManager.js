@@ -42,7 +42,7 @@ function initLevelManager(){
 	
 	spawnNewEntity(newSpikeEntity(1350,550,1000,100,0,100), staticList);
 	
-	spawnNewEntity(newPathEntity(newBoxEntity(newVector(1000,1000), 100, 20), newPath([newVector(1000,100),newVector(1500,100),newVector(1250,300)]), 0.1), staticList);
+	spawnNewEntity(newPathEntity(newBoxEntity(newVector(1000,100), 100, 20), newPath([newVector(1000,100),newVector(1500,100),newVector(1250,-200)]), 0.1), staticList);
 	
 	spawnNewEntity(newRopeEntity(1000,20,500), staticList);
 	
