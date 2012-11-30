@@ -127,7 +127,7 @@ function parseFile(){
 	var tx = Math.ceil(next.attr("x"))+tw/2;
 	var ty = Math.ceil(next.attr("y"))+th/2;
 	
-	var player = newGameKeyEntity(tx,ty, kangaroo1R.height/2)
+	var player = newPlayerEntity(tx,ty, kangaroo1R.height/2)
 	var checkpointAlpha = newCheckpointEntity(newVector(tx,ty), tw, th);
 	player.checkpoint = checkpointAlpha; 
 	spawnNewEntity(checkpointAlpha, staticList);
