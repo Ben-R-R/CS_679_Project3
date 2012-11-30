@@ -23,6 +23,7 @@ function initSpider(newEnt){
 	newEnt._sE = 0; // total starting swing energy of the spider. Kinetic + potential
 	newEnt._sYDatum = 0; // datum for mesuring the changes in potential energy
 	newEnt._sVa = 0; // starting velociy of the swing, t in n-t coordinates  
+	newEnt._sVb = 0;
 	newEnt._sVb = 0; // current velocity of the swing, t in n-t coordinates
 	newEnt._sM = 1; // mass of the spider
 	newEnt._sA = 0; // current angle of the spider swing 
@@ -121,7 +122,7 @@ function spider_update(elapsedTime){
 					// figure out how much of the velocity will 
 					// contribute to the radial velocity
 					this._sVa = vDot(this.velocity, tanVector);
-
+					 this._sVb = vDot(this.velocity, tanVector);
 					// calculate the starting energy of the spider
 					// potential energy = mgh = 0 // Let our currnet position be the datum
 					// kinetic energy = (0.5)mv^2														
@@ -148,18 +149,64 @@ function spider_update(elapsedTime){
 	// falling while connected to grapple point
 	} else if (this._sState === 1){
 	    if(! LenComp(this.coords, this._sGrpPnt.coords, this._sL)){
-			this._sState = 0;		
+			
+			var normVector = newVector(this._sGrpPnt.coords.x  - this.coords.x, this._sGrpPnt.coords.y  - this.coords.y)
+			
+			// get the angle of the swing
+			this._sA = Math.atan2( normVector.y , normVector.x ) + Math.PI;
+			
+			// yank the player back
+			this.coords.x = this._sGrpPnt.coords.x + Math.cos(this._sA) * this._sL;
+			this.coords.y = this._sGrpPnt.coords.y + Math.sin(this._sA) * this._sL;
+			
+			// get a tangent unit vector							                             
+			var tanVector = vOrthoNormal(normVector);
+			tanVector.normalize();
+			tanVector.scalarMult(-1);  // put it in the right direction 
+			
+			// figure out how much of the velocity will 
+			// contribute to the radial velocity
+			this._sVa = vDot(this.velocity, tanVector);
+			this._sVb = vDot(this.velocity, tanVector);
+			// calculate the starting energy of the spider
+			// potential energy = mgh = 0 // Let our currnet position be the datum
+			// kinetic energy = (0.5)mv^2														
+			this._sE = (0.5 * this._sM * Math.pow(this.velocity.length(), 2 ) );// + (this._sM * -this.coords.y * GRAVITY)
+			
+			this._sYDatum = this.coords.y;
+			
+			this._sState = 2;		
 		}
+		if(!keydown(32)){
+			this._sState = 0;
+		} 
 	} else if(this._sState === 2){
-		this._sA += (this._sVa * elapsedTime) / (this._sL);
-		this.coords.x = this._sGrpPnt.coords.x + Math.cos(this._sA) * this._sL;
-		this.coords.y = this._sGrpPnt.coords.y + Math.sin(this._sA) * this._sL;
+		
+		var sinATemp = Math.sin(this._sA);
+		var cosATemp = Math.cos(this._sA);
+		// acceleration in the direction of the tangent vector. 
+		var accProj = this.acceleration.x * -sinATemp + this.acceleration.y * cosATemp;
+		
+		//console.log(this._sVb);
+		
+		this._sVb += accProj * elapsedTime;
+		this._sA += (this._sVb * elapsedTime) / (this._sL);
+		
+	
+		
+		
+		
+		this.coords.x = this._sGrpPnt.coords.x + cosATemp * this._sL;
+		this.coords.y = this._sGrpPnt.coords.y + sinATemp * this._sL;
+		
+		//this._sVb = Math.sqrt(this._sVa * this._sVa + 2 * GRAVITY * (this.coords.y - this._sYDatum ));
+		
 		if(!keydown(32)){
 			
 			this._sState = 0;
-			this.velocity.x = -Math.sin(this._sA) * this._sVa;
-			this.velocity.y = Math.cos(this._sA) * this._sVa;
-			//this.disableMove = false;
+			this.velocity.x = -Math.sin(this._sA) * this._sVb * 2;
+			this.velocity.y = Math.cos(this._sA) * this._sVb * 2;
+			
 		}
 		 				
 	}
@@ -184,7 +231,10 @@ function spider_collisionResponse(responseVector, other){
 		// careful, if we did this.coords = this.checkpoint.coords, we 
 		// would cause the checkpoint to move along with the player.
 		this.coords.x = this.checkpoint.coords.x;
-		this.coords.y = this.checkpoint.coords.y; 			
+		this.coords.y = this.checkpoint.coords.y;
+		this._sState = 0; 
+		this.velocity.x = 0;
+		this.velocity.y = 0;			
 	}
 	if(other.isKick) return;
 	if(other.isRope){
