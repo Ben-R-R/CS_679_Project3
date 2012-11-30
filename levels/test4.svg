@@ -60,10 +60,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1"
-     inkscape:cx="-1939.2078"
-     inkscape:cy="513.00167"
+     inkscape:cx="1015.8059"
+     inkscape:cy="311.59454"
      inkscape:document-units="px"
-     inkscape:current-layer="gear"
+     inkscape:current-layer="background"
      showgrid="true"
      inkscape:window-width="1366"
      inkscape:window-height="716"
@@ -93,6 +93,92 @@
       </cc:Work>
     </rdf:RDF>
   </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="background"
+     inkscape:label="background"
+     style="display:inline">
+    <rect
+       style="fill:#808080;fill-opacity:1;stroke:none"
+       id="rect5524"
+       width="255"
+       height="53"
+       x="-2322"
+       y="726.35999" />
+    <rect
+       style="fill:#808080;fill-opacity:1;stroke:none"
+       id="rect5526"
+       width="395"
+       height="59"
+       x="-1829"
+       y="641.35999" />
+    <rect
+       style="fill:#808080;fill-opacity:1;stroke:none"
+       id="rect5528"
+       width="439"
+       height="56"
+       x="-1870"
+       y="1046.36" />
+    <rect
+       style="fill:#808080;fill-opacity:1;stroke:none"
+       id="rect5530"
+       width="47"
+       height="76"
+       x="-1695"
+       y="988.35999" />
+    <rect
+       style="fill:#808080;fill-opacity:1;stroke:none"
+       id="rect5532"
+       width="43"
+       height="140"
+       x="-1541"
+       y="918.35999" />
+    <rect
+       style="fill:#808080;fill-opacity:1;stroke:none"
+       id="rect5534"
+       width="176"
+       height="47"
+       x="-1607"
+       y="1266.36" />
+    <rect
+       style="fill:#808080;fill-opacity:1;stroke:none"
+       id="rect5536"
+       width="20"
+       height="154"
+       x="134"
+       y="500.35999" />
+    <rect
+       style="fill:#808080;fill-opacity:1;stroke:none"
+       id="rect5538"
+       width="22"
+       height="168"
+       x="261"
+       y="503.35999" />
+    <image
+       y="505.85999"
+       x="148.5"
+       id="image3068"
+       xlink:href="file:///C:/Users/Ben_R_R/private/CODE/A_SCHOOL/Project3/CS_679_Project3/images/Girder1.png"
+       height="124"
+       width="116"
+       src="images/Girder1.png" />
+    <image
+       src="images/Girder1.png"
+       width="116"
+       height="124"
+       xlink:href="file:///C:/Users/Ben_R_R/private/CODE/A_SCHOOL/Project3/CS_679_Project3/images/Girder1.png"
+       id="image3077"
+       x="143.5"
+       y="716.85999" />
+    <image
+       y="687.20312"
+       x="662.33435"
+       id="image3079"
+       xlink:href="file:///C:/Users/Ben_R_R/private/CODE/A_SCHOOL/Project3/CS_679_Project3/images/Girder1.png"
+       height="236"
+       width="116"
+       src="./images/Girder1.png" />
+  </g>
   <g
      inkscape:label="box"
      inkscape:groupmode="layer"

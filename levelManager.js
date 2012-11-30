@@ -252,6 +252,30 @@ function parseInkscapeFile(){
 
 	});
 	
+	//spawn scenery points ------------------------------
+	$("#background").children().each(function(){
+	
+		var $target = $(this);
+		
+		if($target.is("rect")){
+			var tx = Math.ceil($target.attr("x"));
+			var ty = Math.ceil($target.attr("y"));
+			var tw = Math.ceil($target.attr("width"));
+			var th = Math.ceil($target.attr("height"));
+			
+			spawnNewEntity(newImageRectDraw(tx,ty, tw,th), sceneryList);	
+		} else if($target.is("image")){
+			var tx = Math.ceil($target.attr("x"));
+			var ty = Math.ceil($target.attr("y"));
+			var tw = Math.ceil($target.attr("width"));
+			var th = Math.ceil($target.attr("height"));
+			var src = $target.attr("src");	
+			spawnNewEntity(newImageDraw(src, tx,ty, tw,th), sceneryList);	
+		}
+		
+		
+		
+	});
 	
 	//spawn player & start ------------------------------
 	var next = $("#start");
