@@ -109,7 +109,7 @@ function spider_update(elapsedTime){
 				this._sL = normVector.length();
 				
 				// make sure there is tension on the rope
-				if( vDot(normVector, this.velocity) >= 0){
+				if( vDot(vNormal(normVector), this.velocity) <= 0){
 				
 					// get the angle of the swing
 					this._sA = Math.atan2( normVector.y , normVector.x ) + Math.PI;
