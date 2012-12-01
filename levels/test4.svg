@@ -59,18 +59,18 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.32"
-     inkscape:cx="-758.66608"
-     inkscape:cy="311.59454"
+     inkscape:zoom="0.26"
+     inkscape:cx="-918.41629"
+     inkscape:cy="213.25867"
      inkscape:document-units="px"
-     inkscape:current-layer="gear"
+     inkscape:current-layer="box"
      showgrid="true"
      inkscape:window-width="1366"
      inkscape:window-height="716"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:snap-grids="false"
+     inkscape:snap-grids="true"
      showborder="false"
      inkscape:showpageshadow="false">
     <inkscape:grid
@@ -152,8 +152,8 @@
        id="rect5538"
        width="22"
        height="168"
-       x="261"
-       y="503.35999" />
+       x="264.125"
+       y="500.23499" />
     <image
        y="505.85999"
        x="148.5"
@@ -178,6 +178,164 @@
        height="236"
        width="116"
        src="./images/Girder1.png" />
+    <image
+       src="./images/Girder1.png"
+       width="200.375"
+       height="124"
+       xlink:href="file:///C:/Users/Ben_R_R/private/CODE/A_SCHOOL/Project3/CS_679_Project3/images/Girder1.png"
+       id="image3081"
+       x="619.33331"
+       y="385.02664" />
+    <image
+       y="260.10999"
+       x="360.99997"
+       id="image3083"
+       xlink:href="file:///C:/Users/Ben_R_R/private/CODE/A_SCHOOL/Project3/CS_679_Project3/images/Girder1.png"
+       height="124"
+       width="200.375"
+       src="./images/Girder1.png" />
+    <image
+       src="./images/Girder1.png"
+       width="200.375"
+       height="124"
+       xlink:href="file:///C:/Users/Ben_R_R/private/CODE/A_SCHOOL/Project3/CS_679_Project3/images/Girder1.png"
+       id="image3085"
+       x="360.99997"
+       y="137.10999" />
+    <image
+       src="./images/Girder1.png"
+       width="200.375"
+       height="124"
+       xlink:href="file:///C:/Users/Ben_R_R/private/CODE/A_SCHOOL/Project3/CS_679_Project3/images/Girder1.png"
+       id="image3087"
+       x="-397.48587"
+       y="258.17108" />
+    <image
+       y="137.47437"
+       x="-397.48587"
+       id="image3089"
+       xlink:href="file:///C:/Users/Ben_R_R/private/CODE/A_SCHOOL/Project3/CS_679_Project3/images/Girder1.png"
+       height="124"
+       width="200.375"
+       src="./images/Girder1.png" />
+    <image
+       width="59.91684"
+       height="60.18919"
+       xlink:href="file:///C:/Users/Ben_R_R/private/CODE/A_SCHOOL/Project3/CS_679_Project3/images/Girder3.png"
+       id="image3153"
+       x="-1060"
+       y="682.35999"
+       src="./images/Girder3.png" />
+    <rect
+       style="fill:#808080;fill-opacity:1;stroke:none"
+       id="rect3155"
+       width="590"
+       height="10.000015"
+       x="-1050"
+       y="672.35999" />
+    <rect
+       style="fill:#808080;fill-opacity:1;stroke:none"
+       id="rect3157"
+       width="580"
+       height="10"
+       x="-1040"
+       y="742.35999" />
+    <image
+       src="./images/Girder3.png"
+       y="682.35999"
+       x="-999.91687"
+       id="image3161"
+       xlink:href="file:///C:/Users/Ben_R_R/private/CODE/A_SCHOOL/Project3/CS_679_Project3/images/Girder3.png"
+       height="60.18919"
+       width="59.91684" />
+    <image
+       width="59.91684"
+       height="60.18919"
+       xlink:href="file:///C:/Users/Ben_R_R/private/CODE/A_SCHOOL/Project3/CS_679_Project3/images/Girder3.png"
+       id="image3163"
+       x="-939.91687"
+       y="682.35999"
+       src="./images/Girder3.png" />
+    <image
+       src="./images/Girder3.png"
+       y="682.35999"
+       x="-879.91687"
+       id="image3165"
+       xlink:href="file:///C:/Users/Ben_R_R/private/CODE/A_SCHOOL/Project3/CS_679_Project3/images/Girder3.png"
+       height="60.18919"
+       width="59.91684" />
+    <image
+       width="59.91684"
+       height="60.18919"
+       xlink:href="file:///C:/Users/Ben_R_R/private/CODE/A_SCHOOL/Project3/CS_679_Project3/images/Girder3.png"
+       id="image3167"
+       x="-819.91687"
+       y="682.35999"
+       src="./images/Girder3.png" />
+    <image
+       src="./images/Girder3.png"
+       y="682.35999"
+       x="-759.91687"
+       id="image3169"
+       xlink:href="file:///C:/Users/Ben_R_R/private/CODE/A_SCHOOL/Project3/CS_679_Project3/images/Girder3.png"
+       height="60.18919"
+       width="59.91684" />
+    <image
+       width="59.91684"
+       height="60.18919"
+       xlink:href="file:///C:/Users/Ben_R_R/private/CODE/A_SCHOOL/Project3/CS_679_Project3/images/Girder3.png"
+       id="image3171"
+       x="-699.91687"
+       y="682.35999"
+       src="./images/Girder3.png" />
+    <image
+       src="./images/Girder3.png"
+       y="682.35999"
+       x="-639.91687"
+       id="image3173"
+       xlink:href="file:///C:/Users/Ben_R_R/private/CODE/A_SCHOOL/Project3/CS_679_Project3/images/Girder3.png"
+       height="60.18919"
+       width="59.91684" />
+    <image
+       width="59.91684"
+       height="60.18919"
+       xlink:href="file:///C:/Users/Ben_R_R/private/CODE/A_SCHOOL/Project3/CS_679_Project3/images/Girder3.png"
+       id="image3175"
+       x="-579.91687"
+       y="682.35999"
+       src="./images/Girder3.png" />
+    <image
+       src="./images/Girder3.png"
+       y="682.35999"
+       x="-519.91687"
+       id="image3177"
+       xlink:href="file:///C:/Users/Ben_R_R/private/CODE/A_SCHOOL/Project3/CS_679_Project3/images/Girder3.png"
+       height="60.18919"
+       width="59.91684" />
+    <image
+       y="388.56268"
+       x="-751.91888"
+       id="image3181"
+       xlink:href="file:///C:/Users/Ben_R_R/private/CODE/A_SCHOOL/Project3/CS_679_Project3/images/Girder2.png"
+       height="37.108109"
+       width="114.16217"
+       src="./images/Girder2.png" />
+    <image
+       src="./images/Girder2.png"
+       width="114.16217"
+       height="37.108109"
+       xlink:href="file:///C:/Users/Ben_R_R/private/CODE/A_SCHOOL/Project3/CS_679_Project3/images/Girder2.png"
+       id="image3951"
+       x="-637.91888"
+       y="388.56268" />
+    <image
+       y="388.56268"
+       x="-523.91888"
+       id="image3953"
+       xlink:href="file:///C:/Users/Ben_R_R/private/CODE/A_SCHOOL/Project3/CS_679_Project3/images/Girder2.png"
+       height="37.108109"
+       width="114.16217"
+       src="./images/Girder2.png" />
   </g>
   <g
      inkscape:label="box"
@@ -186,10 +344,10 @@
      transform="translate(0,-0.00218262)"
      style="display:inline">
     <rect
-       style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.10938143999999990px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1"
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
        id="rect2985"
        width="365"
-       height="56.922421"
+       height="56.999985"
        x="-460"
        y="382.36218" />
     <rect
@@ -200,18 +358,18 @@
        x="295"
        y="382.36218" />
     <rect
-       style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.00619339999999990;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;fill-opacity:1"
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.62090433;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        id="rect2989"
-       width="729.71765"
-       height="111.61694"
-       x="-460"
+       width="629.71765"
+       height="335.65332"
+       x="-360"
        y="816.70886" />
     <rect
-       style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.17888331000000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;fill-opacity:1"
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.16277575;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        id="rect2991"
-       width="1658.0632"
+       width="1613.0632"
        height="249.42859"
-       x="-460"
+       x="-415"
        y="902.93359" />
     <rect
        style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
@@ -224,14 +382,14 @@
        style="fill:#000000;fill-opacity:1"
        id="rect3036"
        width="295"
-       height="380.70563"
+       height="716.62744"
        x="-460"
        y="435.73474" />
     <rect
-       style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;fill-opacity:1"
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        id="rect2989-7"
        width="210"
-       height="19.337681"
+       height="109.99998"
        x="90"
        y="627.36218" />
     <rect
@@ -244,9 +402,9 @@
     <rect
        style="fill:#000000;fill-opacity:1"
        id="rect3099"
-       width="590"
+       width="500"
        height="95"
-       x="90"
+       x="180"
        y="642.36218" />
     <rect
        style="fill:#000000;fill-opacity:1"
@@ -260,15 +418,15 @@
        id="rect3103"
        width="391.06982"
        height="782.06012"
-       x="808.93018"
-       y="133.12338" />
+       x="810"
+       y="132.36217" />
     <rect
        style="fill:#000000;fill-opacity:1"
        id="rect3105"
-       width="1660"
+       width="1920"
        height="350.30713"
-       x="-460"
-       y="-207.63782" />
+       x="-720"
+       y="-207.94496" />
     <rect
        style="fill:#000000;fill-opacity:1;stroke:#00ff00;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none"
        id="rect3906"
@@ -285,20 +443,11 @@
        y="-207.63783" />
     <rect
        style="fill:#000000;fill-opacity:1;stroke:#00ff00;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect3913"
-       width="250"
-       height="350"
-       x="-710"
-       y="-207.64001"
-       transform="translate(0,0.00218262)" />
-    <rect
-       style="fill:#000000;fill-opacity:1;stroke:#00ff00;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none"
        id="rect3921"
-       width="970"
+       width="1130"
        height="330"
-       x="-1040"
-       y="1152.36"
-       transform="translate(0,0.00218262)" />
+       x="-1200"
+       y="1152.3622" />
     <rect
        y="-953.63782"
        x="-2690"
@@ -360,12 +509,12 @@
        x="-33.941124"
        y="518.87592" />
     <rect
-       style="fill:none;stroke:#00ff00"
+       style="fill:none;stroke:#00ff00;stroke-width:1.45627427"
        id="rect3900"
        width="48.08326"
-       height="111.72287"
-       x="510.5311"
-       y="268.88788" />
+       height="236.93457"
+       x="565.13617"
+       y="143.63998" />
     <rect
        y="142.36218"
        x="-177.98276"

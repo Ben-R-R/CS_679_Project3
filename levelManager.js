@@ -1,7 +1,7 @@
 // levelManager.js
 
 function initLevelManager(){
-	$("#level").load("levels/test4.svg", parseInkscapeFile);
+	$("#level").load("levels/levelBase.svg", parseInkscapeFile);
 	
 	spawnNewEntity(newGameMouseEntity(15), dynamicList);
 }
@@ -205,50 +205,48 @@ function parseInkscapeFile(){
 		var tw = Math.ceil(rect.attr("width"));
 		var th = Math.ceil(rect.attr("height"));
 		
-		var path = $(this).children("polygon");
-		var points = path.attr("points").split(" ");
+		var path = $(this).children("path");
+		var points = path.attr("d").split(" ");
 		
 		var pts = new Array();
-		//length-1 because polygon has spaces at end of "points" attribute
-		for(var i = 0; i < points.length-1; i++){
-			var temp = points[i].split(",");
-			pts.push(temp[0]);
-			pts.push(temp[1]);
+
+		var speed = 0.1;
+
+		if(path.attr('speed') !== undefined ){
+			speed = parseFloat(path.attr('speed'));			
+		}
+
+		// test for improperly formated taggs
+		if(points[0] !== 'm'){
+			return;		
 		}
 		
-		//2 point path
-		if(pts.length == 4){
-			var px1 = Math.ceil(pts[0]);
-			var py1 = Math.ceil(pts[1]);
-			var px2 = Math.ceil(pts[2]);
-			var py2 = Math.ceil(pts[3]);
+		var currX = 0;
+		var currY = 0;
+		
+		for(var i = 1; i < points.length; i++){
+
+			console.log(currX + " , " + currY);
 			
-			spawnNewEntity(newPathEntity(newBoxEntity(newVector(tx,ty), tw, th), newPath([newVector(px1, py1),newVector(px2,py2)]), 0.1), staticList);
-		} 
-		//3 point path
-		else if(pts.length == 6){
-			var px1 = Math.ceil(pts[0]);
-			var py1 = Math.ceil(pts[1]);
-			var px2 = Math.ceil(pts[2]);
-			var py2 = Math.ceil(pts[3]);
-			var px3 = Math.ceil(pts[4]);
-			var py3 = Math.ceil(pts[5]);
+			if(points[i] === 'z'){
+				break;			
+			}
 			
-			spawnNewEntity(newPathEntity(newBoxEntity(newVector(tx,ty), tw, th), newPath([newVector(px1, py1),newVector(px2,py2),newVector(px3,py3)]), 0.1), staticList);
-		} 
-		//4 point path
-		else if(pts.length == 8){
-			var px1 = Math.ceil(pts[0]);
-			var py1 = Math.ceil(pts[1]);
-			var px2 = Math.ceil(pts[2]);
-			var py2 = Math.ceil(pts[3]);
-			var px3 = Math.ceil(pts[4]);
-			var py3 = Math.ceil(pts[5]);
-			var px4 = Math.ceil(pts[6]);
-			var py4 = Math.ceil(pts[7]);
+			var temp = points[i].split(",");
 			
-			spawnNewEntity(newPathEntity(newBoxEntity(newVector(tx,ty), tw, th), newPath([newVector(px1, py1),newVector(px2,py2),newVector(px3,py3),newVector(px4,py4)]), 0.1), staticList);
+			currX += parseFloat(temp[0]);
+			currY += parseFloat(temp[1]);			
+			
+			if(currX === NaN || currY === NaN){
+				console.log("Path Error" + path.attr("id"));
+				return;
+			} 
+			
+			pts.push(newVector(currX, currY));
 		}
+		
+		spawnNewEntity(newPathEntity(newBoxEntity(newVector(tx,ty), tw, th), newPath(pts), speed), staticList);
+		
 
 	});
 	
