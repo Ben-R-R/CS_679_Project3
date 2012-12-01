@@ -72,25 +72,25 @@ function spider_update(elapsedTime){
 	// falling through air 
 	if (this._sState === 0){
 	    if(this.onGround){
-			if(keyhit(65)){
+			if(keyhit(MOVE_LEFT_KEY)){
 			    this.direction = -1;
 				this.velocity.x = - this.impX;
-			} else if (keyhit(68)){
+			} else if (keyhit(MOVE_RIGHT_KEY)){
 			    this.velocity.x = this.impX;
 				this.direction = 1;
-			} else if(keydown(65)){
+			} else if(keydown(MOVE_LEFT_KEY)){
 				this.direction = -1;
 				
-			} else if(keydown(68)){
+			} else if(keydown(MOVE_RIGHT_KEY)){
 				this.direction = 1;
 			} else {
 				this.velocity.x = 0;
 			}
 		} else {
-		 	if(keydown(65)){
+		 	if(keydown(MOVE_LEFT_KEY)){
 				this.direction = -1;
 				this.velocity.x = Math.abs(this.velocity.x) * -1;
-			} else if(keydown(68)){
+			} else if(keydown(MOVE_RIGHT_KEY)){
 				this.direction = 1;
 				this.velocity.x = Math.abs(this.velocity.x)
 			}

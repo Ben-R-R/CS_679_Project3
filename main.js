@@ -15,6 +15,8 @@ window.onload = function () {
 	
 	// get the canvas and the context
 	theCanvas = document.getElementById("maincanvas");
+	theCanvas.width = window.innerWidth;
+	theCanvas.height = window.innerHeight;
 	theContext = theCanvas.getContext("2d");
 	
 
