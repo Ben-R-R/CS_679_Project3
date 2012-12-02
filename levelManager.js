@@ -199,14 +199,30 @@ function parseInkscapeFile(){
 	
 	//spawn moving platforms ----------------------------
 	$("#moving").children().each(function(){
+		if( ! ($(this).is("g"))) {
+			return; // we aren't a group, so we can't parse this		
+		}
+		
+		var xforms = this.getAttribute('transform');
+		var firstX = 0;
+		var firstY = 0;
+		if(xforms){
+			var parts  = /translate\(\s*([^\s,)]+)[ ,]([^\s,)]+)/.exec(xforms);
+			firstX = parseFloat(parts[1]);
+			firstY = parseFloat(parts[2]);
+		}
+		
 		var rect = $(this).children("rect");
-		var tx = Math.ceil(rect.attr("x"));
-		var ty = Math.ceil(rect.attr("y"));
+		var tx = Math.ceil(rect.attr("x")) + firstX;
+		var ty = Math.ceil(rect.attr("y")) + firstY;
 		var tw = Math.ceil(rect.attr("width"));
 		var th = Math.ceil(rect.attr("height"));
 		
 		var path = $(this).children("path");
 		var points = path.attr("d").split(" ");
+		
+		
+		
 		
 		var pts = new Array();
 
@@ -221,8 +237,8 @@ function parseInkscapeFile(){
 			return;		
 		}
 		
-		var currX = 0;
-		var currY = 0;
+		var currX = firstX;
+		var currY = firstY;
 		
 		for(var i = 1; i < points.length; i++){
 
@@ -261,7 +277,16 @@ function parseInkscapeFile(){
 			var tw = Math.ceil($target.attr("width"));
 			var th = Math.ceil($target.attr("height"));
 			
-			spawnNewEntity(newImageRectDraw(tx,ty, tw,th), sceneryList);	
+			try{			
+				var color = this.style.fill;
+			}catch(e){
+				console.log($target.attr("id"));	
+			}
+			if(!color){
+				color = "#808080";
+			}
+			
+			spawnNewEntity(newImageRectDraw(tx,ty, tw,th, color), sceneryList);	
 		} else if($target.is("image")){
 			var tx = Math.ceil($target.attr("x"));
 			var ty = Math.ceil($target.attr("y"));
@@ -269,7 +294,7 @@ function parseInkscapeFile(){
 			var th = Math.ceil($target.attr("height"));
 			var src = $target.attr("src");	
 			spawnNewEntity(newImageDraw(src, tx,ty, tw,th), sceneryList);	
-		}
+		} 
 		
 		
 		

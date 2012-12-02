@@ -72,7 +72,7 @@ function newImageDraw(imgPath, x,y, w,h){
 	return newImgDr;
 }
 
-function newImageRectDraw(x,y, w,h){
+function newImageRectDraw(x,y, w,h, color){
 	
 	
 	
@@ -81,13 +81,26 @@ function newImageRectDraw(x,y, w,h){
 	newImgDr.y = y;
 	newImgDr.w = w;
 	newImgDr.h = h;
-
+	newImgDr.color = color;
 	newImgDr.draw = function(origin){
-		theContext.fillStyle = "#808080"
+		theContext.fillStyle = this.color;
 		theContext.fillRect(this.x + origin.x, this.y + origin.y, this.w, this.h);
 	}
 
 	return newImgDr;
+}
+
+function newSVGDraw(svgStr){
+	
+	var newSVG = Object.create(ImageDrawEntity);	
+	
+	newSVG.svgStr = svgStr;
+		                                         	
+	newSVG.draw = function(origin){
+		theContext.drawSvg(this.svgStr, origin.x, origin.h);
+	}
+
+	return newSVG;
 }
 
 function newComplexImageDraw(imgPath, x,y, w,h, a,b,c,d,e,f){
