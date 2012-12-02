@@ -25,18 +25,22 @@
      borderopacity="0.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="0"
-     inkscape:zoom="0.70710678"
-     inkscape:cx="651.85465"
-     inkscape:cy="877.07155"
+     inkscape:zoom="1"
+     inkscape:cx="596.07382"
+     inkscape:cy="708.09363"
      inkscape:document-units="px"
-     inkscape:current-layer="gear"
-     showgrid="false"
-     inkscape:window-width="1366"
-     inkscape:window-height="716"
-     inkscape:window-x="-8"
+     inkscape:current-layer="box"
+     showgrid="true"
+     inkscape:window-width="1920"
+     inkscape:window-height="1028"
+     inkscape:window-x="1358"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:snap-grids="false" />
+     inkscape:snap-grids="true">
+    <inkscape:grid
+       type="xygrid"
+       id="grid3098" />
+  </sodipodi:namedview>
   <metadata
      id="metadata3960">
     <rdf:RDF>
@@ -57,13 +61,13 @@
     <image
        sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/AAGear.png"
        xlink:href="../images/AAGear.png"
-       width="154"
-       height="154"
-       id="image5517"
-       x="-367.45938"
-       y="524.65869"
+       src="./images/AAGear.png"
        style="display:inline"
-       src="./images/AAGear.png" />
+       y="524.65869"
+       x="-367.45938"
+       id="image5517"
+       height="154"
+       width="154" />
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
@@ -145,33 +149,33 @@
     <image
        sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/Girder3.png"
        xlink:href="../images/Girder3.png"
-       style="display:inline"
-       width="59.91684"
-       height="60.18919"
-       id="image3175"
-       x="-155.82343"
+       src="./images/Girder3.png"
        y="564.06238"
-       src="./images/Girder3.png" />
+       x="-155.82343"
+       id="image3175"
+       height="60.18919"
+       width="59.91684"
+       style="display:inline" />
     <image
        sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/Girder1.png"
        xlink:href="../images/Girder1.png"
-       style="display:inline"
-       src="./images/Girder1.png"
-       width="127.90677"
-       height="136.72792"
-       id="image3077"
+       y="551.95593"
        x="-51.225464"
-       y="551.95593" />
+       id="image3077"
+       height="136.72792"
+       width="127.90677"
+       src="./images/Girder1.png"
+       style="display:inline" />
     <image
        sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/Girder2.png"
        xlink:href="../images/Girder2.png"
-       style="display:inline"
-       src="./images/Girder2.png"
-       width="114.16217"
-       height="37.108109"
-       id="image3951"
+       y="657.62732"
        x="-191.43137"
-       y="657.62732" />
+       id="image3951"
+       height="37.108109"
+       width="114.16217"
+       src="./images/Girder2.png"
+       style="display:inline" />
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
@@ -210,21 +214,21 @@
     <image
        sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/Bell_Jar.png"
        xlink:href="../images/Bell_Jar.png"
-       y="462.02603"
-       x="-621.9903"
-       id="image4644"
-       height="266"
+       src="./images/Bell_Jar.png"
        width="189"
-       src="./images/Bell_Jar.png" />
+       height="266"
+       id="image4644"
+       x="-621.9903"
+       y="462.02603" />
     <image
        sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/Bell_Jar2.png"
        xlink:href="../images/Bell_Jar2.png"
-       y="741.09711"
-       x="-607.5"
-       id="image4655"
-       height="266"
+       src="./images/Bell_Jar2.png"
        width="189"
-       src="./images/Bell_Jar2.png" />
+       height="266"
+       id="image4655"
+       x="-607.5"
+       y="741.09711" />
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
@@ -561,18 +565,18 @@
        style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        id="rect4658"
        width="504.86502"
-       height="17"
-       x="-4.6639957"
-       y="398.60272"
-       ry="8.5"
+       height="20"
+       x="-4.8650208"
+       y="397.36218"
+       ry="10"
        rx="0" />
     <rect
        rx="0"
-       ry="8.5"
-       y="399.43115"
-       x="1088.8284"
-       height="17"
-       width="438.10052"
+       ry="10"
+       y="397.36218"
+       x="1085"
+       height="20"
+       width="440"
        id="rect4668"
        style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
     <rect
@@ -623,17 +627,17 @@
      inkscape:label="moving">
     <g
        id="g4725"
-       transform="translate(5,12)">
+       transform="matrix(1,0,0,0.99531617,-134,-401.12477)">
       <path
          inkscape:connector-curvature="0"
          id="path4715"
-         d="m 1763,827.36218 0,-427"
+         d="m 1764,817.31512 0,-427"
          style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
       <rect
          ry="0"
-         y="800.36218"
+         y="802.24451"
          x="1659"
-         height="30"
+         height="20.094141"
          width="208"
          id="rect4719"
          style="fill:#000000;fill-opacity:1;stroke:none" />
@@ -680,8 +684,8 @@
        id="rect4666"
        width="90"
        height="142"
-       x="1130.1421"
-       y="252.23015" />
+       x="1130"
+       y="260.36218" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -690,19 +694,11 @@
     <rect
        style="fill:#ff0000;fill-opacity:1;stroke:#800080;stroke-width:0;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        id="rect4664"
-       width="1242"
+       width="1671.9209"
        height="24"
-       x="230"
-       y="921.36218"
+       x="-4.7594519"
+       y="678.11743"
        ry="0" />
-    <rect
-       ry="0"
-       y="819.36218"
-       x="150"
-       height="121"
-       width="54"
-       id="rect4779"
-       style="fill:#ff0000;fill-opacity:1;stroke:#800080;stroke-width:0;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
   </g>
   <g
      inkscape:groupmode="layer"
