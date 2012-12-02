@@ -1,9 +1,9 @@
 // levelManager.js
 
 function initLevelManager(){
-	$("#level").load("levels/levelBase.svg", parseInkscapeFile);
+	$("#level").load("levels/test6.svg", parseInkscapeFile);
 	
-	spawnNewEntity(newGameMouseEntity(15), dynamicList);
+	//spawnNewEntity(newGameMouseEntity(15), dynamicList);
 }
 
 function parseFile(){

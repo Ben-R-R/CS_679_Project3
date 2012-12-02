@@ -81,6 +81,9 @@ CheetahL.src = './images/Cheetah-1.png';
 var CheetahR = new Image();
 CheetahR.src = './images/Cheetah1.png';
 
+var SquirrelR = new Image();
+SquirrelR.src = './images/Squirrel-1.png';
+
 var human1 = new Image();
 human1.src = './images/human1.png';
 
