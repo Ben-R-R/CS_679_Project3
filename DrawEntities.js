@@ -135,8 +135,9 @@ function newPathDraw(coordArray, fill, stroke, lineWidth, closed){
 		theContext.fillStyle = this.fill;
 		theContext.strokeStyle = this.stroke;
 		theContext.fill();
-		theContext.stroke();
-		
+		if(this.stroke !== "none"){
+			theContext.stroke();
+		}		
 		theContext.lineWidth = tempLineWidth;	
 	
 	}
