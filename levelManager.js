@@ -287,6 +287,68 @@ function parseInkscapeFile(){
 			}
 			
 			spawnNewEntity(newImageRectDraw(tx,ty, tw,th, color), sceneryList);	
+		} else if($target.is("path")){
+		    
+			var xforms = this.getAttribute('transform');
+			var firstX = 0;
+			var firstY = 0;
+			
+			if(xforms){
+				var parts  = /translate\(\s*([^\s,)]+)[ ,]([^\s,)]+)/.exec(xforms);
+				firstX = parseFloat(parts[1]);
+				firstY = parseFloat(parts[2]);
+			}
+			
+			var points = $(this).attr("d").split(" ");
+		
+			var pts = new Array();
+	
+			var type = points[0];
+	
+			
+			var currX = firstX;
+			var currY = firstY;
+			
+			var closed = false;
+			
+			for(var i = 1; i < points.length; i++){
+
+				//console.log(currX + " , " + currY);
+				
+				if(points[i] === 'z'){
+					closed = true;
+					break;			
+				}
+				
+				var temp = points[i].split(",");
+				
+				if(type === 'm'){
+					currX += parseFloat(temp[0]);
+					currY += parseFloat(temp[1]);
+				} else {
+				    currX = parseFloat(temp[0]);
+					currY = parseFloat(temp[1]);
+				}
+							
+				
+				if(currX === NaN || currY === NaN){
+					console.log("Path Error" + path.attr("id"));
+					return;
+				} 
+				
+				pts.push(newVector(currX, currY));
+			}
+		
+			//spawnNewEntity(newPathEntity(newBoxEntity(newVector(tx,ty), tw, th), newPath(pts), speed), staticList);
+			
+						
+			var fill = this.style.fill;
+			var stroke = this.style.stroke;	
+			var lineWidth = $(this).css("stroke-width");
+		  	
+			
+			spawnNewEntity(newPathDraw(pts, fill, stroke, lineWidth, closed), sceneryList);
+				
 		} else if($target.is("image")){
 			var tx = Math.ceil($target.attr("x"));
 			var ty = Math.ceil($target.attr("y"));

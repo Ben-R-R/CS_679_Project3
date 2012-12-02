@@ -103,6 +103,46 @@ function newSVGDraw(svgStr){
 	return newSVG;
 }
 
+function newPathDraw(coordArray, fill, stroke, lineWidth, closed){
+	var newPath = Object.create(ImageDrawEntity);
+	newPath.coordArray = coordArray;
+	newPath.fill = fill;
+	newPath.stroke = stroke;
+	newPath.lineWidth = lineWidth;
+	newPath.closed = closed;
+
+	
+	
+	newPath.draw = function(origin){
+		theContext.beginPath();
+		
+		theContext.moveTo(this.coordArray[0].x + origin.x,this.coordArray[0].y + origin.y);
+		
+		for(var i = 1; i < this.coordArray.length; i++){
+		    var x = this.coordArray[i].x + origin.x;
+		    var y = this.coordArray[i].y + origin.y;
+		    theContext.lineTo(x,y);
+		    
+		}
+		
+		if (this.closed){
+			theContext.closePath();		
+		}
+		
+		var tempLineWidth = theContext.lineWidth;
+		
+		theContext.lineWidth = this.lineWidth;
+		theContext.fillStyle = this.fill;
+		theContext.strokeStyle = this.stroke;
+		theContext.fill();
+		theContext.stroke();
+		
+		theContext.lineWidth = tempLineWidth;	
+	
+	}
+	return newPath;	
+}
+
 function newComplexImageDraw(imgPath, x,y, w,h, a,b,c,d,e,f){
 	if(!(imgPath in imageBank)){
 		imageBank[imgPath] = new Image();
