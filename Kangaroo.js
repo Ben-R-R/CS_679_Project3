@@ -140,10 +140,7 @@ function kangaroo_collisionResponse(responseVector, other){
 		this.coords.y = this.checkpoint.coords.y; 			
 	}
 	if(other.isKick) return;
-	if(other.isRope){
-		if(this.form != "f") return;
-		//TODO: SQUIRREL ROPE CODE
-	}
+	if(other.isRope) return;
 	
 	// move so we are not colliding anymore
 	this.coords.add(responseVector);
