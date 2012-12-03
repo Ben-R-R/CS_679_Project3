@@ -60,16 +60,16 @@ function kangaroo_leave(){
 // you can use the 'this' keyword as you normally would. 
 function kangaroo_update(elapsedTime){
 	
-	if(keyhit(65)){
+	if(keyhit(MOVE_LEFT_KEY)){
 	    this.direction = -1;
 		this.velocity.x = - this.impX;
-	} else if (keyhit(68)){
+	} else if (keyhit(MOVE_RIGHT_KEY)){
 	    this.velocity.x = this.impX;
 		this.direction = 1;
-	} else if(keydown(65)){
+	} else if(keydown(MOVE_LEFT_KEY)){
 		this.direction = -1;
 		
-	} else if(keydown(68)){
+	} else if(keydown(MOVE_RIGHT_KEY)){
 		this.direction = 1;
 	} else {
 		this.velocity.x = 0;
@@ -83,7 +83,7 @@ function kangaroo_update(elapsedTime){
 		
 		this._kJumps = 2;
 		this._kdTime = 0;
-		if(keydown(65) || keydown(68)){	//left or right hops
+		if(keydown(MOVE_LEFT_KEY) || keydown(MOVE_RIGHT_KEY)){	//left or right hops
 			this.velocity.y -= .2;
 			this.velocity.x = this.impX * this.direction;
 		

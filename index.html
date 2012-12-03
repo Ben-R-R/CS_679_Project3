@@ -23,17 +23,22 @@
 <script type="text/javascript" src="levelManager.js"></script>
 <script type="text/javascript" src="List.js"></script>
 <script type="text/javascript" src="main.js"></script>
+<script type="text/javascript" src="DrawEntities.js"></script>
+<script type="text/javascript" src="./canvg/canvg.js"></script>
 <style>
 #level{
 	display: none;
+}
+body{
+	padding:0; 
+	margin:0;
 }
 </style>
 </head>
 <body>
 <div id="level"></div>
 <div>
-    <canvas id="maincanvas" width="800" height=600 style="border-color:#999; border-style:solid; cursor: none;"></canvas>
-    <a href="./large.html">Larger Screen Version<a/>
+    <canvas id="maincanvas" style="cursor: none;"></canvas>
 </div>
 </body>
 </html>

@@ -149,12 +149,12 @@ function newPlayerEntity(x,y, radius){
 		this.onGround = false;
 		
 		// move screen
-		if( (this.coords.y + origin.y) >= 400){
-			origin.y = -this.coords.y + 400;		
-		} else if( (this.coords.y + origin.y) <= 200){
-			origin.y = -this.coords.y + 200;		
+		if( (this.coords.y + origin.y) >= theCanvas.height - theCanvas.height * 0.4){
+			origin.y = -this.coords.y + theCanvas.height -  theCanvas.height * 0.4;		
+		} else if( (this.coords.y + origin.y) <=   theCanvas.height * 0.4){
+			origin.y = -this.coords.y +  theCanvas.height * 0.4;		
 		}
-		origin.x = -this.coords.x + 400;
+		origin.x = -this.coords.x + theCanvas.width/2;
 		origin.y = Math.floor(origin.y);
 		origin.x = Math.floor(origin.x);
 		
