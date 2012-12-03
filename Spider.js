@@ -237,10 +237,7 @@ function spider_collisionResponse(responseVector, other){
 		this.velocity.y = 0;			
 	}
 	if(other.isKick) return;
-	if(other.isRope){
-		if(this.form != "f") return;
-		//TODO: SQUIRREL ROPE CODE
-	}
+	if(other.isRope) return;
 	
 	// move so we are not colliding anymore
 	this.coords.add(responseVector);
