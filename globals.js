@@ -21,6 +21,9 @@ var elapsedT = 10; // stores the time since the last frame
 var keysStateBuffer = {};
 
 var mouse1 = false;
+var MOVE_LEFT_KEY = 37;
+var MOVE_RIGHT_KEY = 39;
+
 
 var KEY_STATE = {
 	FIRST_HIT:0,
@@ -77,6 +80,9 @@ var CheetahL = new Image();
 CheetahL.src = './images/Cheetah-1.png';
 var CheetahR = new Image();
 CheetahR.src = './images/Cheetah1.png';
+
+var SquirrelR = new Image();
+SquirrelR.src = './images/Squirrel-1.png';
 
 var human1 = new Image();
 human1.src = './images/human1.png';

@@ -179,20 +179,21 @@ function updateEntities(elapsedTime){
 
 function drawList(list){
 	for(var entity in list){
-		entity.draw(origin); // need to replace null with an origin soon
+		entity.draw(origin); 
 	}
 }
 
 function drawEntities(){
+	
+	// S C E N E R Y   L I S T 
+	drawList(sceneryList);
+
 	//  S T A T I C    L I S T 
 	drawList(staticList); 
 
 	//  D Y N A M I C   L I S T  
 	drawList(dynamicList);
-
-	// S C E N E R Y   L I S T 
-	drawList(sceneryList);
-
+	
 	// P A R T I C L E   L I S T
 	drawList(particleList);
 }

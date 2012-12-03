@@ -129,16 +129,16 @@ function flyingSquirrel_update(elapsedTime){
 	}
 	
 	if(nMove){
-		if(keyhit(65)){
+		if(keyhit(MOVE_LEFT_KEY)){
 		    this.direction = -1;
 			this.velocity.x = - this.impX;
-		} else if (keyhit(68)){
+		} else if (keyhit(MOVE_RIGHT_KEY)){
 		    this.velocity.x = this.impX;
 			this.direction = 1;
-		} else if(keydown(65)){
+		} else if(keydown(MOVE_LEFT_KEY)){
 			this.direction = -1;
 			
-		} else if(keydown(68)){
+		} else if(keydown(MOVE_RIGHT_KEY)){
 			this.direction = 1;
 		} else {
 			this.velocity.x = 0;
@@ -167,13 +167,13 @@ function flyingSquirrel_update(elapsedTime){
 			else if(keydown(83)) this.velocity.y = this.impX;
 			else this.velocity.y = 0;
 			if(keyhit(32)){	
-				if(keydown(65)){
+				if(keydown(MOVE_LEFT_KEY)){
 					this.direction = -1;
 					this.velocity.x = -this.impX;
 					this.velocity.y = this.impY;
 					this._fClimbState = _fsJumpOff;
 				}
-				else if(keydown(68)){
+				else if(keydown(MOVE_RIGHT_KEY)){
 					this.direction = 1;
 					this.velocity.x = this.impX;
 					this.velocity.y = this.impY;
@@ -249,8 +249,9 @@ function flyingSquirrel_collisionResponse(responseVector, other){
 // called as the draw method of the the player entity when the flying squirrel is active
 // you can use the 'this' keyword as you normally would. 
 function flyingSquirrel_draw(origin){
-	theContext.fillStyle = "#FFBB00";
-	theContext.beginPath();
-	theContext.arc(this.coords.x + origin.x , this.coords.y + origin.y, this.radius, 0, 2*Math.PI);
-	theContext.fill();
+	//theContext.fillStyle = "#FFBB00";
+	//theContext.beginPath();
+	//theContext.arc(this.coords.x + origin.x , this.coords.y + origin.y, this.radius, 0, 2*Math.PI);
+	//theContext.fill();
+	theContext.drawImage(SquirrelR,this.coords.x - SquirrelR.width/2 + origin.x,this.coords.y - SquirrelR.height/2 + origin.y);
 }

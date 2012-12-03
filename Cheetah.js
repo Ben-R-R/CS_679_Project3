@@ -53,16 +53,16 @@ function cheetah_leave(){
 // called from the update method of the player entity when the cheetah is active.
 // you can use the 'this' keyword as you normally would. 
 function cheetah_update(elapsedTime){
-	if(keyhit(65)){
+	if(keyhit(MOVE_LEFT_KEY)){
 	    this.direction = -1;
 		this.velocity.x = - this.impX;
-	} else if (keyhit(68)){
+	} else if (keyhit(MOVE_RIGHT_KEY)){
 	    this.velocity.x = this.impX;
 		this.direction = 1;
-	} else if(keydown(65)){
+	} else if(keydown(MOVE_LEFT_KEY)){
 		this.direction = -1;
 		
-	} else if(keydown(68)){
+	} else if(keydown(MOVE_RIGHT_KEY)){
 		this.direction = 1;
 	} else {
 		this.velocity.x = 0;
@@ -71,7 +71,7 @@ function cheetah_update(elapsedTime){
 	var tvx = this.velocity.x;
 	var tvy = this.velocity.y;
 	
-	if(keydown(65)){
+	if(keydown(MOVE_LEFT_KEY)){
 		if(tvx == 0){
 			tvx = -.3;
 		
@@ -83,7 +83,7 @@ function cheetah_update(elapsedTime){
 		if(tvx <= -.8 && this.wasGround && !this.onGround){
 			tvy = -.4;
 		}
-	}else if(keydown(68)){
+	}else if(keydown(MOVE_RIGHT_KEY)){
 		if(tvx == 0){
 			tvx = .3;
 			
