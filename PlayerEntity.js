@@ -23,7 +23,7 @@ function newPlayerEntity(x,y, radius){
 	newEnt.fixed = false;
 	newEnt.onGround = false;
 	newEnt.isPlayer = true;
-	
+	newEnt.powerQueue = newList();
 	
 	newEnt.form = "h";   //set the form value to the current animal form
 	

@@ -28,18 +28,18 @@
      borderopacity="0.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="0"
-     inkscape:zoom="0.35619339"
-     inkscape:cx="1909.1915"
-     inkscape:cy="885.04143"
+     inkscape:zoom="1.0074671"
+     inkscape:cx="2453.5141"
+     inkscape:cy="2836.3601"
      inkscape:document-units="px"
      inkscape:current-layer="background"
-     showgrid="false"
+     showgrid="true"
      inkscape:window-width="1366"
      inkscape:window-height="716"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:snap-grids="false"
+     inkscape:snap-grids="true"
      showguides="true">
     <inkscape:grid
        type="xygrid"
@@ -573,13 +573,13 @@
        style="fill:#999999;fill-opacity:1;stroke:none"
        id="rect5352"
        width="840"
-       height="439.99988"
+       height="465.26706"
        x="1300"
-       y="-2147.6377" />
+       y="-2172.9048" />
     <path
        sodipodi:nodetypes="cccc"
        style="fill:#e8e8e8;fill-opacity:1;stroke:none"
-       d="M 1263.5284,-1411.4885 1140,-2027.6378 l -180,560 z"
+       d="M 1271.9508,-1408.681 1142.8075,-2024.8303 960,-1467.6378 z"
        id="path5326"
        inkscape:connector-curvature="0" />
     <path
@@ -801,9 +801,10 @@
     </g>
     <path
        style="fill:#999999;fill-opacity:1;stroke:none"
-       d="m 600,-1377.6378 0,595.65674 140,-595.65674 z"
+       d="m 588.77015,-1433.7871 0,654.6135 148.42239,-601.2717 z"
        id="path5066"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccc" />
     <path
        sodipodi:nodetypes="cccc"
        style="fill:#e8e8e8;fill-opacity:1;stroke:none"
@@ -3252,7 +3253,7 @@
     <path
        inkscape:connector-curvature="0"
        id="path5348"
-       d="m 1328.0115,-2147.6378 -24.503,280 -183.5085,-280 z"
+       d="m 1336.4339,-2198.1721 -32.9254,330.5343 -183.5085,-280 z"
        style="fill:#999999;fill-opacity:1;stroke:none"
        sodipodi:nodetypes="cccc" />
     <path
@@ -3885,6 +3886,18 @@
        height="102.2366"
        x="709.70062"
        y="-191.35095" />
+    <path
+       style="fill:#1a1a1a;fill-opacity:1;stroke:none"
+       d="m 2840,-1797.6378 52.5796,40.5014 -102.5796,-0.5014 0,-60 z"
+       id="path5661"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       sodipodi:nodetypes="ccccc"
+       inkscape:connector-curvature="0"
+       id="path5663"
+       d="m 2639.9109,-1794.3321 -42.1574,47.1957 97.2465,-0.5014 -15,-70 z"
+       style="fill:#1a1a1a;fill-opacity:1;stroke:none" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -3966,10 +3979,10 @@
        style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        id="rect4826"
        width="2060"
-       height="2449.3354"
+       height="2092.7876"
        x="2820"
-       y="-1736.9733"
-       ry="1224.6677"
+       y="-1380.4254"
+       ry="880.06372"
        rx="0" />
     <rect
        rx="0"
@@ -3983,7 +3996,7 @@
     <rect
        style="fill:#000000;fill-opacity:1;stroke:none;display:inline"
        id="rect5046"
-       width="640"
+       width="898.28668"
        height="390"
        x="2200"
        y="-1737.6378" />
@@ -4045,7 +4058,7 @@
        y="-1747.6379"
        x="1630"
        height="20.000122"
-       width="2630"
+       width="1425.5981"
        id="rect5316"
        style="fill:#000000;fill-opacity:1;stroke:none;display:inline" />
     <rect
@@ -4062,6 +4075,20 @@
        height="400"
        x="1260"
        y="-2707.6377" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:none;display:inline"
+       id="rect5657"
+       width="367.49905"
+       height="20.000122"
+       x="2655.3438"
+       y="-1757.5638" />
+    <rect
+       y="-1817.6378"
+       x="2680.1584"
+       height="63.200111"
+       width="117.36681"
+       id="rect5659"
+       style="fill:#000000;fill-opacity:1;stroke:none;display:inline" />
   </g>
   <g
      inkscape:groupmode="layer"
