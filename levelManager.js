@@ -284,8 +284,8 @@ function parseInkscapeFile(){
 				
 				if(parentM){
 					var temp = new Array();
-					var p = parentM;
-					var t = transformM;
+					var t = parentM;
+					var p = transformM;
 					temp[0] = p[0] * t[0] + p[1] * t[2];
 					temp[1] = p[0] * t[1] + p[1] * t[3];
 					
