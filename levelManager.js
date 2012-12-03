@@ -429,18 +429,23 @@ function parseInkscapeFile(){
 	
 	}
 	
-	//spawn scenery points ------------------------------
-	$("#background").children().each(function(){
+	if($("#background").css("display") !== "none"){
 	
-		var $target = $(this);
+	
+		//spawn scenery points ------------------------------
+		$("#background").children().each(function(){
 		
-		// start parsing background elements.
-		// origin is 0,0, and there is no transformation matrix. 		
-		parseBackgroundElement($target, this, null, 0, 0); 
+			var $target = $(this);
 		
-		
-		
-	});
+			
+			// start parsing background elements.
+			// origin is 0,0, and there is no transformation matrix. 		
+			parseBackgroundElement($target, this, null, 0, 0); 
+			
+			
+			
+		});  
+	}
 	
 	//spawn player & start ------------------------------
 	var next = $("#start");
