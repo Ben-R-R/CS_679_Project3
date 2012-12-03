@@ -35,8 +35,26 @@ var ImageDrawEntity = {
 	
 	draw: function(origin){
 		try{
+			var origin2 = newVector();
+			origin2.x = origin.x; 
+			origin2.y = origin.y;
+			if(this.matrix){
+				theContext.translate(origin.x, origin.y);
+				theContext.transform(
+					this.matrix[0],
+					this.matrix[1],
+					this.matrix[2],
+					this.matrix[3],
+					this.matrix[4],
+					this.matrix[5]
+				);
+				
+				origin2.x = 0; 
+				origin2.y = 0;	
+			}
 		
-			theContext.drawImage(this.img, this.x + origin.x , this.y + origin.y, this.w, this.h );
+			theContext.drawImage(this.img, this.x + origin2.x , this.y + origin2.y, this.w, this.h );
+			theContext.setTransform(1,0,0,1,0,0);
 	    } catch(e){
 		
 		}
@@ -55,7 +73,7 @@ var ImageDrawEntity = {
 
 }
 
-function newImageDraw(imgPath, x,y, w,h){
+function newImageDraw(imgPath, x,y, w,h, matrix){
 	if(!(imgPath in imageBank)){
 		imageBank[imgPath] = new Image();
 		imageBank[imgPath].src = imgPath;
@@ -67,12 +85,13 @@ function newImageDraw(imgPath, x,y, w,h){
 	newImgDr.y = y;
 	newImgDr.w = w;
 	newImgDr.h = h;
+	newImgDr.matrix = matrix;
 	newImgDr.img = imageBank[imgPath];
 	
 	return newImgDr;
 }
 
-function newImageRectDraw(x,y, w,h, color){
+function newRectDraw(x,y, w,h, color, matrix){
 	
 	
 	
@@ -82,9 +101,30 @@ function newImageRectDraw(x,y, w,h, color){
 	newImgDr.w = w;
 	newImgDr.h = h;
 	newImgDr.color = color;
+	newImgDr.matrix = matrix;
 	newImgDr.draw = function(origin){
+	    var origin2 = newVector();
+		origin2.x = origin.x; 
+		origin2.y = origin.y;
+		if(this.matrix){
+			theContext.translate(origin.x, origin.y);
+			theContext.transform(
+				this.matrix[0],
+				this.matrix[1],
+				this.matrix[2],
+				this.matrix[3],
+				this.matrix[4],
+				this.matrix[5]
+			);
+			
+			origin2.x = 0; 
+			origin2.y = 0;	
+		}
+	
 		theContext.fillStyle = this.color;
-		theContext.fillRect(this.x + origin.x, this.y + origin.y, this.w, this.h);
+		theContext.fillRect(this.x + origin2.x, this.y + origin2.y, this.w, this.h);
+		theContext.setTransform(1,0,0,1,0,0);
+		
 	}
 
 	return newImgDr;
@@ -103,24 +143,42 @@ function newSVGDraw(svgStr){
 	return newSVG;
 }
 
-function newPathDraw(coordArray, fill, stroke, lineWidth, closed){
+function newPathDraw(coordArray, fill, stroke, lineWidth, closed, matrix){
 	var newPath = Object.create(ImageDrawEntity);
 	newPath.coordArray = coordArray;
 	newPath.fill = fill;
 	newPath.stroke = stroke;
 	newPath.lineWidth = lineWidth;
 	newPath.closed = closed;
-
+	newPath.matrix = matrix;
 	
 	
 	newPath.draw = function(origin){
-		theContext.beginPath();
 		
-		theContext.moveTo(this.coordArray[0].x + origin.x,this.coordArray[0].y + origin.y);
+		var origin2 = newVector();
+		origin2.x = origin.x; 
+		origin2.y = origin.y;
+		if(this.matrix){
+			theContext.translate(origin.x, origin.y);
+			theContext.transform(
+				this.matrix[0],
+				this.matrix[1],
+				this.matrix[2],
+				this.matrix[3],
+				this.matrix[4],
+				this.matrix[5]
+			);
+			
+			origin2.x = 0; 
+			origin2.y = 0;	
+		}
+		
+		theContext.beginPath();
+		theContext.moveTo(this.coordArray[0].x + origin2.x,this.coordArray[0].y + origin2.y);
 		
 		for(var i = 1; i < this.coordArray.length; i++){
-		    var x = this.coordArray[i].x + origin.x;
-		    var y = this.coordArray[i].y + origin.y;
+		    var x = this.coordArray[i].x + origin2.x;
+		    var y = this.coordArray[i].y + origin2.y;
 		    theContext.lineTo(x,y);
 		    
 		}
@@ -133,13 +191,15 @@ function newPathDraw(coordArray, fill, stroke, lineWidth, closed){
 		
 		theContext.lineWidth = this.lineWidth;
 		theContext.fillStyle = this.fill;
-		theContext.strokeStyle = this.stroke;
+		
 		theContext.fill();
 		if(this.stroke !== "none"){
+		    theContext.strokeStyle = this.stroke;
 			theContext.stroke();
 		}		
-		theContext.lineWidth = tempLineWidth;	
-	
+		theContext.lineWidth = tempLineWidth;
+			
+	    theContext.setTransform(1,0,0,1,0,0);
 	}
 	return newPath;	
 }
