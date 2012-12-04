@@ -30,7 +30,7 @@ window.onload = function () {
 	
 	startT = Date.now();
 	
-	
+	HUD.init();
 	// run the main loop
 	mainLoop();
 }
@@ -46,8 +46,10 @@ function mainLoop(){
 	updateEntities(elapsedT);
 	theContext.clearRect(0, 0, theCanvas.width, theCanvas.height);	
 	drawEntities()
+	HUD.draw();
 	
 	updateSound(); // does nothing right now
 	updateInput();
+	HUD.update();
 	onNextFrame(mainLoop);
 }   
