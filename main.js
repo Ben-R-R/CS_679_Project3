@@ -43,13 +43,21 @@ function mainLoop(){
 	if(elapsedT > 100){
 		elapsedT = 100;
 	}
-	updateEntities(elapsedT);
+	if(!pauseScreen.paused){
+		updateEntities(elapsedT);
+	}
+	
+	if(keyhit(27)){
+		pauseScreen.paused = ! pauseScreen.paused;
+	}
+	
+	HUD.update(elapsedT);
 	theContext.clearRect(0, 0, theCanvas.width, theCanvas.height);	
 	drawEntities()
 	HUD.draw();
 	
 	updateSound(); // does nothing right now
 	updateInput();
-	HUD.update();
+	
 	onNextFrame(mainLoop);
 }   

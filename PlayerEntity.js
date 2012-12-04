@@ -46,6 +46,10 @@ function newPlayerEntity(x,y, radius){
 	newEnt.collisionResponse = human_collisionResponse;
 	newEnt.draw = human_draw;
 	newEnt.update = function(elapsedTime){
+		
+		
+		
+		
 		//press 1 for human
 		if(keydown(49)){
 					

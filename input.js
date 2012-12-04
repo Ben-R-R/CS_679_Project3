@@ -52,3 +52,15 @@ function keyhit(scancode){
 	return (scancode in keysStateBuffer) && (keysStateBuffer[scancode] === KEY_STATE.FIRST_HIT );
 
 }
+
+function chardown(Char){
+	var scancode = Char.charCodeAt(0);
+	return (scancode in keysStateBuffer) && (keysStateBuffer[scancode] === KEY_STATE.FIRST_HIT || keysStateBuffer[scancode] === KEY_STATE.DOWN);
+}
+
+// helper function to determine if a key has been first pressed this frame
+function charhit(Char){
+	var scancode = Char.charCodeAt(0);
+	return (scancode in keysStateBuffer) && (keysStateBuffer[scancode] === KEY_STATE.FIRST_HIT );
+
+}
