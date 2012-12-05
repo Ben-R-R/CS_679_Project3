@@ -43,12 +43,13 @@ var pauseScreen = {
 			var tempLineWidth = theContext.lineWidth;
 		
 			theContext.lineWidth = 2.5;
+			theContext.textAlign="center"; 
 			theContext.fillRect(0, 0, theCanvas.width, theCanvas.height);
 			theContext.globalAlpha = 1;	
 			theContext.fillStyle = "#FFFFFF";
 			theContext.strokeStyle = "#000000";
-			theContext.fillText("Paused, press Esc to resume",10,90);
-			theContext.strokeText("Paused, press Esc to resume",10,90);
+			theContext.fillText("Paused, press Esc to resume",theCanvas.width/2,theCanvas.height/2);
+			theContext.strokeText("Paused, press Esc to resume",theCanvas.width/2,theCanvas.height/2 );
 			theContext.lineWidth =tempLineWidth;  			
 		}
 	
