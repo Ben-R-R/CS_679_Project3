@@ -1,7 +1,8 @@
 // levelManager.js
 
-function initLevelManager(){
-	$("#level").load("levels/test6.svg", parseInkscapeFile);
+function initLevelManager(path){
+	$("#level").empty();
+	$("#level").load(path, parseInkscapeFile);
 	
 	//spawnNewEntity(newGameMouseEntity(15), dynamicList);
 }
@@ -459,5 +460,17 @@ function parseInkscapeFile(){
 	player.checkpoint = checkpointAlpha; 
 	spawnNewEntity(checkpointAlpha, staticList);
 	spawnNewEntity(player, dynamicList);
+	
+	
+	//spawn finish checkpoint ----------------------------
+	var next = $("#finish");
+	var tw = Math.ceil(next.attr("width"));
+	var th = Math.ceil(next.attr("height"));
+	var tx = Math.ceil(next.attr("x"))+tw/2;
+	var ty = Math.ceil(next.attr("y"))+th/2;
+	
+	var checkpointOmega = newCheckpointEntity(newVector(tx, ty), tw, th);
+	checkpointOmega.finish = true;
+	spawnNewEntity(checkpointOmega, staticList);
 
 }

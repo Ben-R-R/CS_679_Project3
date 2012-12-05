@@ -1,11 +1,18 @@
 // globals.js
 
+//level paths
+var currLevel = 0;
+var levels = [];
+levels.push("levels/test4.svg");
+levels.push("levels/test6.svg");
+
+console.log(levels[0]+" "+levels[1]);
+
 var theCanvas = null;
 var theContext = null;
 
 // pointer to the browser's request animation frame method
 var onNextFrame = null;
-
 
 var startT = 0; // stores the time the current frame started
 var elapsedT = 10; // stores the time since the last frame

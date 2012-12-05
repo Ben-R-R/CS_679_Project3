@@ -24,9 +24,9 @@ window.onload = function () {
 	// Any calls to initializing functions should go here
 	//====================================================
 	initInput();
-	initSound(); // does nothing right now
+	initSound();
 	initEntityManager();
-	initLevelManager(); // depends on initEntityManager()
+	initLevelManager(levels[currLevel]);
 	
 	startT = Date.now();
 	

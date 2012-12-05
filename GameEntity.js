@@ -250,6 +250,13 @@ function newCheckpointEntity(org, w, h){
 	newEnt.collisionResponse = function(responseVector, other){
 		
 		if(other.isPlayer){
+			if(this.finish == true){
+				if(currLevel < levels.length -1){
+					 currLevel++;
+				}
+				initEntityManager();
+				initLevelManager(levels[currLevel]);
+			}
 			other.checkpoint.disable();
 			other.checkpoint = this;
 			this.enable();
