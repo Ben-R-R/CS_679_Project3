@@ -29,13 +29,13 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="0"
      inkscape:zoom="1.0074671"
-     inkscape:cx="2453.5141"
+     inkscape:cx="1924.1836"
      inkscape:cy="2836.3601"
      inkscape:document-units="px"
-     inkscape:current-layer="background"
+     inkscape:current-layer="checkpoint"
      showgrid="true"
      inkscape:window-width="1366"
-     inkscape:window-height="716"
+     inkscape:window-height="746"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -53,7 +53,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -64,15 +64,15 @@
      style="display:none"
      sodipodi:insensitive="true">
     <image
-       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/AAGear.png"
+       sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/AAGear.png"
        xlink:href="../images/AAGear.png"
-       src="./images/AAGear.png"
-       style="display:inline"
-       y="524.65869"
-       x="-367.45938"
-       id="image5517"
+       width="154"
        height="154"
-       width="154" />
+       id="image5517"
+       x="-367.45938"
+       y="524.65869"
+       style="display:inline"
+       src="./images/AAGear.png" />
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
@@ -152,35 +152,35 @@
          y="488.99551"
          id="tspan4536">Copy-Paste them as needed  </tspan></text>
     <image
-       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/Girder3.png"
+       sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/Girder3.png"
        xlink:href="../images/Girder3.png"
-       src="./images/Girder3.png"
-       y="564.06238"
-       x="-155.82343"
-       id="image3175"
-       height="60.18919"
+       style="display:inline"
        width="59.91684"
-       style="display:inline" />
+       height="60.18919"
+       id="image3175"
+       x="-155.82343"
+       y="564.06238"
+       src="./images/Girder3.png" />
     <image
-       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/Girder1.png"
+       sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/Girder1.png"
        xlink:href="../images/Girder1.png"
-       y="551.95593"
-       x="-51.225464"
-       id="image3077"
-       height="136.72792"
-       width="127.90677"
+       style="display:inline"
        src="./images/Girder1.png"
-       style="display:inline" />
+       width="127.90677"
+       height="136.72792"
+       id="image3077"
+       x="-51.225464"
+       y="551.95593" />
     <image
-       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/Girder2.png"
+       sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/Girder2.png"
        xlink:href="../images/Girder2.png"
-       y="657.62732"
-       x="-191.43137"
-       id="image3951"
-       height="37.108109"
-       width="114.16217"
+       style="display:inline"
        src="./images/Girder2.png"
-       style="display:inline" />
+       width="114.16217"
+       height="37.108109"
+       id="image3951"
+       x="-191.43137"
+       y="657.62732" />
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
@@ -217,23 +217,23 @@
        y="400.03778"
        ry="21.978909" />
     <image
-       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/Bell_Jar.png"
+       sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/Bell_Jar.png"
        xlink:href="../images/Bell_Jar.png"
-       src="./images/Bell_Jar.png"
-       width="189"
-       height="266"
-       id="image4644"
+       y="462.02603"
        x="-621.9903"
-       y="462.02603" />
-    <image
-       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/Bell_Jar2.png"
-       xlink:href="../images/Bell_Jar2.png"
-       src="./images/Bell_Jar2.png"
-       width="189"
+       id="image4644"
        height="266"
-       id="image4655"
+       width="189"
+       src="./images/Bell_Jar.png" />
+    <image
+       sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/Bell_Jar2.png"
+       xlink:href="../images/Bell_Jar2.png"
+       y="741.09711"
        x="-607.5"
-       y="741.09711" />
+       id="image4655"
+       height="266"
+       width="189"
+       src="./images/Bell_Jar2.png" />
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
@@ -3857,7 +3857,7 @@
        d="m 1646.0216,-1749.9626 7.8787,-4.963 -7.1963,-4.4106 -10e-5,-6.4919 -6.5757,1.0466 -4.839,7.5746 z"
        style="fill:#646464;fill-opacity:1;stroke:none" />
     <path
-       style="fill:#aaaaaa;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1"
+       style="fill:#aaaaaa;fill-opacity:1;stroke:none"
        d="m 1594.9653,-1806.9125 16.1296,-0.124 -11.6629,9.8018 z"
        id="path5649"
        inkscape:connector-curvature="0" />
@@ -4169,12 +4169,12 @@
        id="rect4982"
        style="fill:none;stroke:#00ff00;stroke-width:2.1362071;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
     <rect
-       style="fill:none;stroke:#00ff00;stroke-width:2.50070429;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       id="rect5641"
-       width="90"
-       height="222"
-       x="1730"
-       y="-1967.6378" />
+       style="fill:#008000;display:inline"
+       id="finish"
+       width="50"
+       height="200"
+       x="2310"
+       y="-1947.6378" />
   </g>
   <g
      inkscape:groupmode="layer"
