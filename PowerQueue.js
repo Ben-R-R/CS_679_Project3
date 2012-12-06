@@ -145,6 +145,7 @@ var PowerQueue = {
 				// spider		
 				this.image = S_Icon;
 				this.queue.pushBack(this.image);
+				
 				spawnNewEntity(newpqAnHelper(
 					theCanvas.width/2,
 					theCanvas.height/2,
@@ -201,15 +202,6 @@ var PowerQueue = {
 	},
 	
 	draw: function(){
-	
-		
-		var i = 0;
-		
-		for(i_img in this.queue){
-			
-			theContext.drawImage(i_img, this.x + i * this.iW, this.y , this.image.width * 0.7 , this.image.height * 0.7);
-			i++;
-		}
 		
 		// draw centered image. also takes the given scale value
 		var dCI = function(img,x,y,scale){
@@ -218,8 +210,79 @@ var PowerQueue = {
 		
 		if(this.mode === 0){
 			var gutter = 10;
+			var tempLine = theContext.lineWidth;
+			
+			theContext.globalAlpha = 0.5;
+			theContext.fillStyle = "#FFFFFF";
+			theContext.font= Math.floor(theCanvas.height * 0.1) +"px Arial";
+			var tempLineWidth = theContext.lineWidth;
+				
+			theContext.lineWidth = 2.5;
+			theContext.textAlign="center"; 
+			theContext.fillRect(0, 0, theCanvas.width, theCanvas.height);
+			theContext.globalAlpha = 1;	
+			theContext.fillStyle = "#FFFFFF";
+			theContext.strokeStyle = "#000000";
+			
+			
+			
+			theContext.fillText("Z",
+				theCanvas.width/2,
+				theCanvas.height/2 - 1.5 *  this.image.height - 2 * gutter - gutter);
+			theContext.strokeText("Z",
+				theCanvas.width/2,
+				theCanvas.height/2 - 1.5 *  this.image.height - 2 * gutter - gutter);
+			
+			theContext.fillText("X",
+				theCanvas.width/2 + 1.5 *  this.image.width + 2 * gutter + theCanvas.height * 0.05,
+				theCanvas.height/2 + theCanvas.height * 0.05);
+			theContext.strokeText("X",
+				theCanvas.width/2 + 1.5 *  this.image.width + 2 * gutter + theCanvas.height * 0.05,
+				theCanvas.height/2 + theCanvas.height * 0.05);
+				
+			theContext.fillText("C",
+				theCanvas.width/2,
+				theCanvas.height/2 + 1.5 *  this.image.height + 2 * gutter + theCanvas.height * 0.1);
+			theContext.strokeText("C",
+				theCanvas.width/2,
+				theCanvas.height/2 + 1.5 *  this.image.height + 2 * gutter + theCanvas.height * 0.1);
+			
+			theContext.fillText("V",
+				theCanvas.width/2 - 1.5 *  this.image.width - 2 * gutter - theCanvas.height * 0.05,
+				theCanvas.height/2 + theCanvas.height * 0.05);
+			theContext.strokeText("V",
+				theCanvas.width/2 - 1.5 *  this.image.width - 2 * gutter - theCanvas.height * 0.05,
+				theCanvas.height/2 + theCanvas.height * 0.05);
+			
+			theContext.fillText("Press 'G' to return to the game.",
+				theCanvas.width/2,
+				theCanvas.height/2 + 1.5 *  this.image.height + 2 * gutter + 2.4 * theCanvas.height * 0.1);
+			theContext.strokeText("Press 'G' to return to the game.",
+				theCanvas.width/2,
+				theCanvas.height/2 + 1.5 *  this.image.height + 2 * gutter + 2.4 * theCanvas.height * 0.1);
+			
 			
 			theContext.fillStyle = "#FFFFFF";
+			
+			
+			theContext.lineWidth = 8;
+			
+			theContext.strokeStyle = "#000000";
+			
+			theContext.strokeRect(
+				theCanvas.width/2 - 1.5 *  this.image.width - 2 * gutter, 
+				theCanvas.height/2 - 0.5 * this.image.height - gutter,
+				this.image.width * 3 + 4 * gutter,
+				this.image.height + 2 * gutter);
+			
+			theContext.strokeRect(
+				theCanvas.width/2 - 0.5 * this.image.width - gutter, 
+				theCanvas.height/2 - 1.5 *  this.image.height - 2 * gutter,
+				this.image.width + 2 * gutter,
+				this.image.height * 3 + 4 * gutter);
+				
+			theContext.lineWidth = tempLine;  
+			
 			theContext.fillRect(
 				theCanvas.width/2 - 1.5 *  this.image.width - 2 * gutter, 
 				theCanvas.height/2 - 0.5 * this.image.height - gutter,
@@ -230,16 +293,31 @@ var PowerQueue = {
 				theCanvas.width/2 - 0.5 * this.image.width - gutter, 
 				theCanvas.height/2 - 1.5 *  this.image.height - 2 * gutter,
 				this.image.width + 2 * gutter,
-				this.image.height * 3 + 4 * gutter);  
+				this.image.height * 3 + 4 * gutter); 
+				
+				
 			
-			dCI	(H_Icon, theCanvas.width/2, theCanvas.height/2, 1);	
+		
+			  
+			
+			//dCI	(H_Icon, theCanvas.width/2, theCanvas.height/2, 1);	
 		    dCI	(C_Icon, theCanvas.width/2 , theCanvas.height/2 - this.image.height - gutter, 1);	
 		    dCI	(FS_Icon, theCanvas.width/2 + this.image.width + gutter, theCanvas.height/2, 1);	
 		    dCI	(K_Icon, theCanvas.width/2, theCanvas.height/2 + this.image.height + gutter, 1);	
 		    dCI	(S_Icon, theCanvas.width/2 - this.image.width - gutter, theCanvas.height/2, 1);	
 		    
 		}	
-	    drawList(this.animationList);
+	    
+	    
+	    var _offset = 0;
+		
+		for(i_img in this.queue){
+			
+			theContext.drawImage(i_img, this.x + _offset * this.iW, this.y , this.image.width * 0.7 , this.image.height * 0.7);
+			_offset++;
+		} 
+		
+		drawList(this.animationList);
 	}
 
 }
