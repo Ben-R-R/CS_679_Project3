@@ -103,12 +103,12 @@ var PowerQueue = {
 	player: null,
 	x: 0,
 	y: 0,
-	mode: 0,
+	mode: 1,
 	image: H_Icon,
 	iW: H_Icon.width,
 	update: function(elapsedTime){
 		
-		
+		 updateList(this.animationList,elapsedTime);
 		
 		if(this.mode === 0){		
 			
@@ -121,7 +121,7 @@ var PowerQueue = {
 					theCanvas.width/2,
 					theCanvas.height/2,
 					this.x + this.iW * (this.queue.size - 1) , this.y, 
-					0.6, this.image,0.7), particleList);
+					0.6, this.image,0.7), this.animationList);
 				
 			} else if(charhit('X')){
 				// flying squirrel
@@ -131,7 +131,7 @@ var PowerQueue = {
 					theCanvas.width/2,
 					theCanvas.height/2,
 					this.x + this.iW * (this.queue.size - 1) , this.y, 
-					0.6, this.image,0.7), particleList);
+					0.6, this.image,0.7), this.animationList);
 			} else if(charhit('C')){
 				// kangaroo		
 				this.image = K_Icon;
@@ -140,7 +140,7 @@ var PowerQueue = {
 					theCanvas.width/2,
 					theCanvas.height/2,
 					this.x + this.iW * (this.queue.size - 1) , this.y, 
-					0.6, this.image,0.7), particleList);
+					0.6, this.image,0.7), this.animationList);
 			} else if(charhit('V')){
 				// spider		
 				this.image = S_Icon;
@@ -149,7 +149,7 @@ var PowerQueue = {
 					theCanvas.width/2,
 					theCanvas.height/2,
 					this.x + this.iW * (this.queue.size - 1) , this.y, 
-					0.6, this.image,0.7), particleList);
+					0.6, this.image,0.7), this.animationList);
 			} else if(charhit('B')){
 				// human		
 				this.image = H_Icon;
@@ -158,7 +158,7 @@ var PowerQueue = {
 					theCanvas.width/2,
 					theCanvas.height/2,
 					this.x + this.iW * (this.queue.size - 1) , this.y, 
-					0.6, this.image,0.7), particleList);
+					0.6, this.image,0.7), this.animationList);
 			} else if(keyhit(QUEUE_MODE_KEY)){
 				this.mode = 1;
 			
@@ -201,6 +201,8 @@ var PowerQueue = {
 	},
 	
 	draw: function(){
+	
+		
 		var i = 0;
 		
 		for(i_img in this.queue){
@@ -216,6 +218,20 @@ var PowerQueue = {
 		
 		if(this.mode === 0){
 			var gutter = 10;
+			
+			theContext.fillStyle = "#FFFFFF";
+			theContext.fillRect(
+				theCanvas.width/2 - 1.5 *  this.image.width - 2 * gutter, 
+				theCanvas.height/2 - 0.5 * this.image.height - gutter,
+				this.image.width * 3 + 4 * gutter,
+				this.image.height + 2 * gutter);
+			
+			theContext.fillRect(
+				theCanvas.width/2 - 0.5 * this.image.width - gutter, 
+				theCanvas.height/2 - 1.5 *  this.image.height - 2 * gutter,
+				this.image.width + 2 * gutter,
+				this.image.height * 3 + 4 * gutter);  
+			
 			dCI	(H_Icon, theCanvas.width/2, theCanvas.height/2, 1);	
 		    dCI	(C_Icon, theCanvas.width/2 , theCanvas.height/2 - this.image.height - gutter, 1);	
 		    dCI	(FS_Icon, theCanvas.width/2 + this.image.width + gutter, theCanvas.height/2, 1);	
@@ -223,7 +239,7 @@ var PowerQueue = {
 		    dCI	(S_Icon, theCanvas.width/2 - this.image.width - gutter, theCanvas.height/2, 1);	
 		    
 		}	
-	
+	    drawList(this.animationList);
 	}
 
 }
