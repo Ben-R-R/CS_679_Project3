@@ -175,6 +175,8 @@ function updateEntities(elapsedTime){
 		 dynPair.A.collideWith(dynPair.B);
 	}
 	
+	addSpawnedEntities();
+	
 }  
 
 function drawList(list){

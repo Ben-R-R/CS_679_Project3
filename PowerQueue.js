@@ -35,6 +35,10 @@ var pqAnHelper = {
 	speed: 0,
 	vX: 0,
 	vY: 0,
+	doneX: false,
+	doneY: false,
+	scale:1,
+	
 	update: function(elapsedTime){
 		
 		var dX = this.tX - this.x;
@@ -45,6 +49,8 @@ var pqAnHelper = {
 		
 		} else {
 			this.x = this.tX;
+			this.doneX = true;
+			
 		}
 		
 		if(dY * dY > Math.pow(this.vY * this.speed * elapsedTime,2)){
@@ -52,12 +58,41 @@ var pqAnHelper = {
 		
 		} else {
 			this.y = this.tY;
+			this.doneY = true;
 		}
+		return this.doneY && this.doneX;
 	},
 	
-	 draw: function(){
-		theContext.drawImage(this.image,this.x,this.y);
+	 draw: function(origin){
+		theContext.drawImage(this.image,this.x,this.y, this.image.width * this.scale, this.image.height * this.scale );
 	}
+
+}
+
+function newpqAnHelper(x,y,dx,dy, speed, image, scale){
+	var newEnt = Object.create(pqAnHelper);
+	newEnt.x = x;
+	newEnt.y = y;
+	newEnt.tX = dx;
+	newEnt.tY = dy;
+	newEnt.speed = speed;
+	newEnt.scale = scale;
+	
+	var vX = dx - x;
+	var vY = dy - y;
+	
+	var l = vX * vX + vY * vY;
+	l = Math.sqrt(l);
+	
+	vX = vX/l;
+	vY = vY/l;
+	
+	newEnt.vX = vX;
+	newEnt.vY = vY;
+	
+	newEnt.image = image;
+	
+	return newEnt;
 
 }
 
@@ -70,35 +105,92 @@ var PowerQueue = {
 	y: 0,
 	mode: 0,
 	image: H_Icon,
+	iW: H_Icon.width,
 	update: function(elapsedTime){
+		
+		
+		
 		if(this.mode === 0){		
 			
 			if(charhit('Z')){
 				// cheetah
 				this.image = C_Icon;
+				
+				this.queue.pushBack(this.image);
+				spawnNewEntity(newpqAnHelper(
+					theCanvas.width/2,
+					theCanvas.height/2,
+					this.x + this.iW * (this.queue.size - 1) , this.y, 
+					0.6, this.image,0.7), particleList);
+				
 			} else if(charhit('X')){
 				// flying squirrel
 				this.image = FS_Icon;
+				this.queue.pushBack(this.image);
+				spawnNewEntity(newpqAnHelper(
+					theCanvas.width/2,
+					theCanvas.height/2,
+					this.x + this.iW * (this.queue.size - 1) , this.y, 
+					0.6, this.image,0.7), particleList);
 			} else if(charhit('C')){
 				// kangaroo		
 				this.image = K_Icon;
+				this.queue.pushBack(this.image);
+				spawnNewEntity(newpqAnHelper(
+					theCanvas.width/2,
+					theCanvas.height/2,
+					this.x + this.iW * (this.queue.size - 1) , this.y, 
+					0.6, this.image,0.7), particleList);
 			} else if(charhit('V')){
 				// spider		
 				this.image = S_Icon;
+				this.queue.pushBack(this.image);
+				spawnNewEntity(newpqAnHelper(
+					theCanvas.width/2,
+					theCanvas.height/2,
+					this.x + this.iW * (this.queue.size - 1) , this.y, 
+					0.6, this.image,0.7), particleList);
 			} else if(charhit('B')){
 				// human		
 				this.image = H_Icon;
+				this.queue.pushBack(this.image);
+				spawnNewEntity(newpqAnHelper(
+					theCanvas.width/2,
+					theCanvas.height/2,
+					this.x + this.iW * (this.queue.size - 1) , this.y, 
+					0.6, this.image,0.7), particleList);
 			} else if(charhit(' ')){
 				// leave queue mode
+			
+			} else if(keyhit(16)){  // shift
+				var temp = this.queue.popFront();
+				
+				if(temp === H_Icon){
+					this.player.changePower("h");
+				} else if(temp === C_Icon){
+				    this.player.changePower("c");
+				} else if(temp === FS_Icon){
+				    this.player.changePower("f");
+				} else if(temp === K_Icon){
+				    this.player.changePower("k");
+				} else if(temp === S_Icon){
+				    this.player.changePower("s");
+				}
 			}
+			
+			
 		} else if (this.mode === 1){
-		
+		    
 		}			
 	},
 	
 	draw: function(){
-		
-		theContext.drawImage(this.image,theCanvas.width/2 - this.image.width/2, theCanvas.height - this.image.height, this.image.width * 0.7 , this.image.height * 0.7);	
+		var i = 0;
+		for(img in this.queue){
+			theContext.drawImage(img, this.x + i * this.iW, this.y , this.image.width * 0.7 , this.image.height * 0.7);
+			i++;
+		}
+			
 	
 	}
 
@@ -107,6 +199,8 @@ var PowerQueue = {
 function initPowerQueue(player){
 	self = PowerQueue;
 	self.queue = newList();
+	self.x = theCanvas.width/2 - self.image.width/2;
+	self.y = theCanvas.height - self.image.height;
 	self.player = player;
 	self.animationList = newList(); 
 
