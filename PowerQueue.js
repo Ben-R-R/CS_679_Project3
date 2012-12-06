@@ -256,10 +256,10 @@ var PowerQueue = {
 			
 			theContext.fillText("Press 'G' to return to the game.",
 				theCanvas.width/2,
-				theCanvas.height/2 + 1.5 *  this.image.height + 2 * gutter + 2.4 * theCanvas.height * 0.1);
+				theCanvas.height/2 - 1.5 *  this.image.height + 2 - gutter - 1.8 * theCanvas.height * 0.1);
 			theContext.strokeText("Press 'G' to return to the game.",
 				theCanvas.width/2,
-				theCanvas.height/2 + 1.5 *  this.image.height + 2 * gutter + 2.4 * theCanvas.height * 0.1);
+				theCanvas.height/2 - 1.5 *  this.image.height + 2 - gutter - 1.8 * theCanvas.height * 0.1);
 			
 			
 			theContext.fillStyle = "#FFFFFF";
