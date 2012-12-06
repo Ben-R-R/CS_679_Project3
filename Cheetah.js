@@ -100,7 +100,7 @@ function cheetah_update(elapsedTime){
 	}
 	
 	// apply impulse to velocity. 
-	if(keydown(32) && this.onGround){
+	if(keydown(JUMP_KEY) && this.onGround){
 		tvy = -.4;
 	}
 	

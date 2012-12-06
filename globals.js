@@ -30,7 +30,9 @@ var keysStateBuffer = {};
 var mouse1 = false;
 var MOVE_LEFT_KEY = 37;
 var MOVE_RIGHT_KEY = 39;
-
+var JUMP_KEY = 68;// D   //32;
+var CHANGE_KEY = 70;// F  //32;
+var QUEUE_MODE_KEY = 71;// G  //32;
 
 var KEY_STATE = {
 	FIRST_HIT:0,

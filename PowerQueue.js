@@ -159,10 +159,14 @@ var PowerQueue = {
 					theCanvas.height/2,
 					this.x + this.iW * (this.queue.size - 1) , this.y, 
 					0.6, this.image,0.7), particleList);
-			} else if(charhit(' ')){
-				// leave queue mode
+			} else if(keyhit(QUEUE_MODE_KEY)){
+				this.mode = 1;
 			
-			} else if(keyhit(16)){  // shift
+			} 
+			
+			
+		} else if (this.mode === 1){
+		    if(keyhit(CHANGE_KEY)){  
 				var temp = this.queue.popFront();
 				
 				if(temp === H_Icon){
@@ -175,24 +179,50 @@ var PowerQueue = {
 				    this.player.changePower("k");
 				} else if(temp === S_Icon){
 				    this.player.changePower("s");
+				} else {
+					if(this.player.form === 'h'){
+					   this.player.changePower("c");
+					} else if(this.player.form === 'c'){
+					   this.player.changePower("f");
+					} else if(this.player.form === 'f'){
+					   this.player.changePower("k");
+					} else if(this.player.form === 'k'){
+					   this.player.changePower("s");
+					} else if(this.player.form === 's'){
+					   this.player.changePower("h");
+					}
 				}
 			}
 			
-			
-		} else if (this.mode === 1){
-		    
+			if(keyhit(QUEUE_MODE_KEY)){
+			    this.mode = 0;
+			}
 		}			
 	},
 	
 	draw: function(){
 		var i = 0;
 		
-		for(img in this.queue){
+		for(i_img in this.queue){
 			
-			theContext.drawImage(img, this.x + i * this.iW, this.y , this.image.width * 0.7 , this.image.height * 0.7);
+			theContext.drawImage(i_img, this.x + i * this.iW, this.y , this.image.width * 0.7 , this.image.height * 0.7);
 			i++;
 		}
-			
+		
+		// draw centered image. also takes the given scale value
+		var dCI = function(img,x,y,scale){
+			theContext.drawImage(img, x - img.width/2, y - img.height/2 , img.width * scale , img.height * scale);
+		}
+		
+		if(this.mode === 0){
+			var gutter = 10;
+			dCI	(H_Icon, theCanvas.width/2, theCanvas.height/2, 1);	
+		    dCI	(C_Icon, theCanvas.width/2 , theCanvas.height/2 - this.image.height - gutter, 1);	
+		    dCI	(FS_Icon, theCanvas.width/2 + this.image.width + gutter, theCanvas.height/2, 1);	
+		    dCI	(K_Icon, theCanvas.width/2, theCanvas.height/2 + this.image.height + gutter, 1);	
+		    dCI	(S_Icon, theCanvas.width/2 - this.image.width - gutter, theCanvas.height/2, 1);	
+		    
+		}	
 	
 	}
 

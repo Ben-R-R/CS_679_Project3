@@ -65,7 +65,7 @@ function spider_leave(){
 // you can use the 'this' keyword as you normally would. 
 function spider_update(elapsedTime){
 	// on ground jumps
-	if(keydown(32) && this.onGround){
+	if(keydown(JUMP_KEY) && this.onGround){
 		this.velocity.y = this.impY;
 	}
 	
@@ -135,7 +135,7 @@ function spider_update(elapsedTime){
 		
 		// have we clicked on a grapple point when the spider not already
 		// connected to one?
-		if(this._sGrpPnt && keydown(32)){
+		if(this._sGrpPnt && keydown(JUMP_KEY)){
 		
 			// are we close enough to reach it?
 			if(LenComp(this.coords, this._sGrpPnt.coords, this._sLmax)){
@@ -237,7 +237,7 @@ function spider_update(elapsedTime){
 		
 		//this._sVb = Math.sqrt(this._sVa * this._sVa + 2 * GRAVITY * (this.coords.y - this._sYDatum ));
 		
-		if(!keydown(32)){
+		if(!keydown(JUMP_KEY)){
 			
 			this._sState = 0;
 			this.velocity.x = -Math.sin(this._sA) * this._sVb;

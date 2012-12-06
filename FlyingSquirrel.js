@@ -144,11 +144,11 @@ function flyingSquirrel_update(elapsedTime){
 	}
 	
 	if(this.onGround){	//ground motion
-		if(keydown(32)) this.velocity.y = this.impY;
+		if(keydown(JUMP_KEY)) this.velocity.y = this.impY;
 	} else {	//aerial motion
 		if(wMove){
 			if(this.velocity.y > 0) this.velocity.y = 0.01;
-			if(keyhit(32)){
+			if(keyhit(JUMP_KEY)){
 				this.velocity.x = this.direction * 0.2;
 				this.velocity.y = -0.6;
 				this._fClimbState = _fsDrop;
@@ -164,7 +164,7 @@ function flyingSquirrel_update(elapsedTime){
 			if(keydown(87)) this.velocity.y = -this.impX;
 			else if(keydown(83)) this.velocity.y = this.impX;
 			else this.velocity.y = 0;
-			if(keyhit(32)){	
+			if(keyhit(JUMP_KEY)){	
 				if(keydown(MOVE_LEFT_KEY)){
 					this.direction = -1;
 					this.velocity.x = -this.impX;
@@ -184,7 +184,7 @@ function flyingSquirrel_update(elapsedTime){
 	if(nMove || wMove && this.velocity.y < 0) this.velocity.add(vScalarMult(elapsedTime,this.acceleration));
 	if(this.velocity.y > .5){
 	   this.velocity.y = .5;
-	} if(this.velocity.y > .1 && keydown(32)){
+	} if(this.velocity.y > .1 && keydown(JUMP_KEY)){
 		this.velocity.y = .1;
 	}
 	this.coords.add(vScalarMult(elapsedTime,this.velocity));		
