@@ -45,6 +45,9 @@ function newPlayerEntity(x,y, radius){
 	newEnt.power_enter = human_enter;
 	newEnt.collisionResponse = human_collisionResponse;
 	newEnt.draw = human_draw;
+	initPowerQueue(newEnt);
+	HUD.items.push(PowerQueue);
+	
 	newEnt.update = function(elapsedTime){
 		
 		

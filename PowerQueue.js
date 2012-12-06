@@ -8,19 +8,19 @@
 ======================================================================*/
 
 var H_Icon = new Image();
-H_Icon = './images/HumanIcon.png';
+H_Icon.src = './images/HumanIcon.png';
 
 var C_Icon = new Image();
-C_Icon = './images/CheetahIcon.png';
+C_Icon.src = './images/CheetahIcon.png';
 
 var S_Icon = new Image();
-S_Icon = './images/SpiderIcon.png';
+S_Icon.src = './images/SpiderIcon.png';
 
 var K_Icon = new Image();
-K_Icon = './images/KangarooIcon.png';
+K_Icon.src = './images/KangarooIcon.png';
 
 var FS_Icon = new Image();
-FS_Icon = './images/FlyingSquirrelIcon.png';
+FS_Icon.src = './images/FlyingSquirrelIcon.png';
 
 
 /*
@@ -68,22 +68,27 @@ var PowerQueue = {
 	player: null,
 	x: 0,
 	y: 0,
-	mode: 1,
-	
+	mode: 0,
+	image: H_Icon,
 	update: function(elapsedTime){
 		if(this.mode === 0){		
 			
-			if(charhit('z')){
+			if(charhit('Z')){
 				// cheetah
-			} else if(charhit('x')){
+				this.image = C_Icon;
+			} else if(charhit('X')){
 				// flying squirrel
-			} else if(charhit('c')){
+				this.image = FS_Icon;
+			} else if(charhit('C')){
 				// kangaroo		
-			} else if(charhit('v')){
+				this.image = K_Icon;
+			} else if(charhit('V')){
 				// spider		
-			} else if(charhit('b')){
+				this.image = S_Icon;
+			} else if(charhit('B')){
 				// human		
-			} else if(charhit' ')){
+				this.image = H_Icon;
+			} else if(charhit(' ')){
 				// leave queue mode
 			}
 		} else if (this.mode === 1){
@@ -93,6 +98,7 @@ var PowerQueue = {
 	
 	draw: function(){
 		
+		theContext.drawImage(this.image,theCanvas.width/2 - this.image.width/2, theCanvas.height - this.image.height, this.image.width * 0.7 , this.image.height * 0.7);	
 	
 	}
 
