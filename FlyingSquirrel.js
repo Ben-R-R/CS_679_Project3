@@ -15,16 +15,15 @@ flying squirrel variable prefex is '_f'
 // Flying Squirrel globals
 
 var _fsNormal = 3783;
-var _fsClamber = 2384;
-var _fsClamberCheck1 = 4834;
-var _fsClamberCheck2 = 3824;
+var _fsCatch = 8565;
+var _fsCatchCheck1 = 3857;
+var _fsCatchCheck2 = 7127;
 var _fsDrop = 2845;
 var _fsGrab = 8637;
 var _fsGrabCheck1 = 7047;
 var _fsGrabCheck2 = 8537;
 var _fsJumpOff = 3812;
 var _fsJumpCheck = 5683;
-var _fsWallJump = 8566;
 
 // initialize the flying squirrel specific parts of the entity
 // the 'this' keyword does not refer to the player entity, use newEnt
@@ -33,7 +32,7 @@ function initFlyingSquirrel(newEnt){
  	newEnt._fClimbState = _fsNormal;	//current state of ropeclimbingness
  	newEnt._frCor = 0;
  	newEnt._fcTime = 0;
- 	newEnt._fcMaxTime = 10;
+ 	newEnt._fcMaxTime = 600;
 }
 
 // called when the flying squirrel power is activated.
@@ -67,7 +66,7 @@ function flyingSquirrel_leave(){
 function flyingSquirrel_update(elapsedTime){
 	var nMove = false;	//used to trigger normal movement
 	var rMove = false;	//triggers rope traversal
-	var wMove = false;	//triggers wall clamber
+	var wMove = false;	//triggers wall gripping
 	
 	if(this.onGround){	//ground motion
 		this._fClimbState = _fsNormal;
@@ -77,29 +76,29 @@ function flyingSquirrel_update(elapsedTime){
 		case _fsNormal:
 		nMove = true;
 		break;
-		case _fsClamber:
+		case _fsCatch:
+		this._fClimbState = _fsCatchCheck1;
 		wMove = true;
-		this.velocity.y = -0.3;
 		if(this._fcTime > this._fcMaxTime){
 			this._fClimbState = _fsDrop;
-			this._fcTime = 0;
 		} else {
-			this._fClimbState = _fsClamberCheck1;
-			this._fcTime++;	
+			this._fClimbState = _fsCatchCheck1;
+			this._fcTime += elapsedTime;
 		}
 		break;
-		case _fsClamberCheck1:
+		case _fsCatchCheck1:
+		this._fcTime += elapsedTime;
+		this._fClimbState = _fsCatchCheck2;
 		wMove = true;
-		this.velocity.y = -0.3;
-		this._fClimbState = _fsClamberCheck2;
 		break;
-		case _fsClamberCheck2:
-		this.velocity.y = -0.3;
-		wMove = true;
+		case _fsCatchCheck2:
+		this._fcTime += elapsedTime;
 		this._fClimbState = _fsDrop;
+		wMove = true;
 		break;
 		case _fsDrop:
 		nMove = true;
+		this._fcTime = 0;
 		break;
 		case _fsGrab:
 		this._fClimbState = _fsGrabCheck1;
@@ -121,9 +120,7 @@ function flyingSquirrel_update(elapsedTime){
 		this._fClimbState = _fsNormal;
 		nMove = true;
 		break;
-		case _fsWallJump:
-		this.velocity.add(vScalarMult(elapsedTime, this.acceleration));
-		wMove = true;
+		default:
 		break;
 		
 	}
@@ -137,9 +134,10 @@ function flyingSquirrel_update(elapsedTime){
 			this.direction = 1;
 		} else if(keydown(MOVE_LEFT_KEY)){
 			this.direction = -1;
-			
+			this.velocity.x = - this.impX;
 		} else if(keydown(MOVE_RIGHT_KEY)){
 			this.direction = 1;
+			this.velocity.x = this.impX;
 		} else {
 			this.velocity.x = 0;
 		}
@@ -149,11 +147,11 @@ function flyingSquirrel_update(elapsedTime){
 		if(keydown(32)) this.velocity.y = this.impY;
 	} else {	//aerial motion
 		if(wMove){
+			if(this.velocity.y > 0) this.velocity.y = 0.01;
 			if(keyhit(32)){
-				this.direction = -this.direction;
 				this.velocity.x = this.direction * 0.2;
-				this.velocity.y = -0.4;
-				this._fClimbState = _fsWallJump;
+				this.velocity.y = -0.6;
+				this._fClimbState = _fsDrop;
 			}
 		} else if(rMove){	//movement on ropes
 			this.velocity.x = (this._frCor - this.coords.x) / 20;
@@ -183,7 +181,7 @@ function flyingSquirrel_update(elapsedTime){
 		}
 	}
 	
-	if(nMove) this.velocity.add(vScalarMult(elapsedTime,this.acceleration));
+	if(nMove || wMove && this.velocity.y < 0) this.velocity.add(vScalarMult(elapsedTime,this.acceleration));
 	if(this.velocity.y > .5){
 	   this.velocity.y = .5;
 	} if(this.velocity.y > .1 && keydown(32)){
@@ -224,9 +222,15 @@ function flyingSquirrel_collisionResponse(responseVector, other){
 	if(responseVector.y < 0){
 		this.onGround = true;
 	}
-	if(!this.onGround && responseVector.x * this.direction < 0 && (this._fClimbState == _fsNormal || this._fClimbState == _fsClamber || this._fClimbState == _fsClamberCheck1 || this._fClimbState == _fsClamberCheck2 || this._fClimbState == _fsWallJump)){
-		this._fClimbState = _fsClamber;
-	}
+	
+	// If the player is in normal state or a catch state, "moving" into a wall will start/continue the catch state.
+	if(!this.onGround && 
+		((responseVector.x < 0 && keydown(MOVE_RIGHT_KEY)) || 
+		(responseVector.x > 0 && keydown(MOVE_LEFT_KEY))) &&
+		(this._fClimbState == _fsNormal || this._fClimbState == _fsCatch || this._fClimbState == _fsCatchCheck1 || this._fClimbState == _fsCatchCheck2)){
+			this._fClimbState = _fsCatch;
+		}
+	
 	
 	// if we bump an opposing force, stop. This is not entirely physicly
 	// correct but will work for the most part.
