@@ -1,6 +1,7 @@
 var HUD = {
 	items : [],
 	init : function(){
+		
 		this.items.push(pauseScreen);
 	},
 	update : function(elapsedTime){

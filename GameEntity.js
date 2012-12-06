@@ -251,11 +251,13 @@ function newCheckpointEntity(org, w, h){
 		
 		if(other.isPlayer){
 			if(this.finish == true){
+				HUD.items = [];
 				if(currLevel < levels.length -1){
 					 currLevel++;
 				}
 				initEntityManager();
 				initLevelManager(levels[currLevel]);
+				HUD.init();
 			}
 			other.checkpoint.disable();
 			other.checkpoint = this;

@@ -186,7 +186,9 @@ var PowerQueue = {
 	
 	draw: function(){
 		var i = 0;
+		
 		for(img in this.queue){
+			
 			theContext.drawImage(img, this.x + i * this.iW, this.y , this.image.width * 0.7 , this.image.height * 0.7);
 			i++;
 		}
