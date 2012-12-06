@@ -111,56 +111,59 @@ var PowerQueue = {
 		 updateList(this.animationList,elapsedTime);
 		
 		if(this.mode === 0){		
-			
-			if(charhit('Z')){
-				// cheetah
-				this.image = C_Icon;
-				
-				this.queue.pushBack(this.image);
-				spawnNewEntity(newpqAnHelper(
-					theCanvas.width/2,
-					theCanvas.height/2,
-					this.x + this.iW * (this.queue.size - 1) , this.y, 
-					0.6, this.image,0.7), this.animationList);
-				
-			} else if(charhit('X')){
-				// flying squirrel
-				this.image = FS_Icon;
-				this.queue.pushBack(this.image);
-				spawnNewEntity(newpqAnHelper(
-					theCanvas.width/2,
-					theCanvas.height/2,
-					this.x + this.iW * (this.queue.size - 1) , this.y, 
-					0.6, this.image,0.7), this.animationList);
-			} else if(charhit('C')){
-				// kangaroo		
-				this.image = K_Icon;
-				this.queue.pushBack(this.image);
-				spawnNewEntity(newpqAnHelper(
-					theCanvas.width/2,
-					theCanvas.height/2,
-					this.x + this.iW * (this.queue.size - 1) , this.y, 
-					0.6, this.image,0.7), this.animationList);
-			} else if(charhit('V')){
-				// spider		
-				this.image = S_Icon;
-				this.queue.pushBack(this.image);
-				
-				spawnNewEntity(newpqAnHelper(
-					theCanvas.width/2,
-					theCanvas.height/2,
-					this.x + this.iW * (this.queue.size - 1) , this.y, 
-					0.6, this.image,0.7), this.animationList);
-			} else if(charhit('B')){
-				// human		
-				this.image = H_Icon;
-				this.queue.pushBack(this.image);
-				spawnNewEntity(newpqAnHelper(
-					theCanvas.width/2,
-					theCanvas.height/2,
-					this.x + this.iW * (this.queue.size - 1) , this.y, 
-					0.6, this.image,0.7), this.animationList);
-			} else if(keyhit(QUEUE_MODE_KEY)){
+			if(this.queue.size < 5){
+		
+				if(charhit('Z')){
+					// cheetah
+					this.image = C_Icon;
+					
+					this.queue.pushBack(this.image);
+					spawnNewEntity(newpqAnHelper(
+						theCanvas.width/2,
+						theCanvas.height/2,
+						this.x + this.iW * (this.queue.size - 1) , this.y, 
+						0.6, this.image,0.7), this.animationList);
+					
+				} else if(charhit('X')){
+					// flying squirrel
+					this.image = FS_Icon;
+					this.queue.pushBack(this.image);
+					spawnNewEntity(newpqAnHelper(
+						theCanvas.width/2,
+						theCanvas.height/2,
+						this.x + this.iW * (this.queue.size - 1) , this.y, 
+						0.6, this.image,0.7), this.animationList);
+				} else if(charhit('C')){
+					// kangaroo		
+					this.image = K_Icon;
+					this.queue.pushBack(this.image);
+					spawnNewEntity(newpqAnHelper(
+						theCanvas.width/2,
+						theCanvas.height/2,
+						this.x + this.iW * (this.queue.size - 1) , this.y, 
+						0.6, this.image,0.7), this.animationList);
+				} else if(charhit('V')){
+					// spider		
+					this.image = S_Icon;
+					this.queue.pushBack(this.image);
+					
+					spawnNewEntity(newpqAnHelper(
+						theCanvas.width/2,
+						theCanvas.height/2,
+						this.x + this.iW * (this.queue.size - 1) , this.y, 
+						0.6, this.image,0.7), this.animationList);
+				} else if(charhit('B')){
+					// human		
+					this.image = H_Icon;
+					this.queue.pushBack(this.image);
+					spawnNewEntity(newpqAnHelper(
+						theCanvas.width/2,
+						theCanvas.height/2,
+						this.x + this.iW * (this.queue.size - 1) , this.y, 
+						0.6, this.image,0.7), this.animationList);
+				} 
+			}	
+			if(keyhit(QUEUE_MODE_KEY)){
 				this.mode = 1;
 			
 			} 

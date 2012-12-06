@@ -3,14 +3,16 @@
  * List.js
  * Ben Reddersen
  * reddersen@wisc.edu
- * Version: 2.1
+ * Version: 2.2
  *
  * 2.0 changelog:
  * 		Converted to a prototypal pattern from 
  *      the old Pseudoclassical pattern
  * 2.1 changelog:
  * 		Added a pair iterator to List
- * 
+ * 2.2 changelog:
+ * 		fixed list size bug
+ * 		 
  * 2.x roadmap:      
  *		Implement sort()
  *		Implement concat()
@@ -215,12 +217,12 @@ var List = {
 	},
 	
 	popBack : function(){
-	    this.size -= 1;
+	    
 		var retNode = this.tail.prev;
 	    if (retNode === this.head){
 			return null;
 		}
-		
+		this.size -= 1;
 		retNode.prev.next = retNode.next;
 		retNode.next.prev = retNode.prev;
 		
@@ -259,12 +261,12 @@ var List = {
 	},
 	
 	popFront : function(){
-	    this.size -= 1;
+	    
 		var retNode = this.head.next;
 	    if (retNode === this.tail){
 			return null;
 		}
-		
+		this.size -= 1;
 		retNode.prev.next = retNode.next;
 		retNode.next.prev = retNode.prev;
 		
