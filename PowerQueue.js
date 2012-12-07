@@ -221,6 +221,8 @@ var PowerQueue = {
 			var tempLineWidth = theContext.lineWidth;
 				
 			theContext.lineWidth = 2.5;
+			
+			var tempAlign = theContext.textAlign;
 			theContext.textAlign="center"; 
 			theContext.fillRect(0, 0, theCanvas.width, theCanvas.height);
 			theContext.globalAlpha = 1;	
@@ -309,6 +311,8 @@ var PowerQueue = {
 		    dCI	(K_Icon, theCanvas.width/2, theCanvas.height/2 + this.image.height + gutter, 1);	
 		    dCI	(S_Icon, theCanvas.width/2 - this.image.width - gutter, theCanvas.height/2, 1);	
 		    
+		 
+			theContext.textAlign= tempAlign; 
 		}	
 	    
 	    
