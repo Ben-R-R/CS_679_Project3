@@ -476,6 +476,14 @@ function parseInkscapeFile(){
 				
 				var tx = Math.ceil($target2.attr("x")) ;
 				var ty = Math.ceil($target2.attr("y")) ;
+				
+				if(transformM){
+					transformM[4] += firstX;
+					transformM[5] += firstY;
+				}else {
+				    tx += firstX;
+					ty += firstY;
+				}
 					
 				spawnNewEntity(newFontDraw( text, tx, ty, fill, stroke, style, transformM), sceneryList);
 				//parseBackgroundElement($target2, this, transformM, firstX, firstY); 
