@@ -245,14 +245,43 @@ function spider_update(elapsedTime){
 			
 		}
 		 				
+	} else if(this._sState === 3){
+		if(this.onGround){
+			this._sState = 0;
+	 	}
+		if(keydown(MOVE_LEFT_KEY)){
+			this.direction = -1;
+			if(Math.abs(this.velocity.x) > Math.abs(this.impX)){
+				this.velocity.x = Math.abs(this.velocity.x) * -1;	
+			} else {
+			    this.velocity.x = -this.impX;
+			}
+			
+		} else if(keydown(MOVE_RIGHT_KEY)){
+			this.direction = 1;
+			
+			if(Math.abs(this.velocity.x) > Math.abs(this.impX)){
+				this.velocity.x = Math.abs(this.velocity.x) * 1;	
+			} else {
+			    this.velocity.x = this.impX;
+			}
+			
+			
+		} else {
+		   this.velocity.x = 0;
+		}
+		
+		if(!LenComp(this.coords, this._sGrpPnt.coords, this._sLmax)){
+		    this._sState = 0;
+		}
+		
+		
 	}
 	
-	if(this._sState === 0 || this._sState === 1){
+	if(this._sState === 0 || this._sState === 1 || this._sState === 3){
 		this.velocity.add(vScalarMult(elapsedTime,this.acceleration))
 		if(this.velocity.y > .5){
 		   this.velocity.y = .5;
-		} else if(this.velocity.y > .1 && this.form == 'f' && keydown(32)){
-			this.velocity.y = .1;
 		}
 		this.coords.add(vScalarMult(elapsedTime,this.velocity));
 	}
@@ -278,6 +307,11 @@ function spider_collisionResponse(responseVector, other){
 	// move so we are not colliding anymore
 	this.coords.add(responseVector);
 	
+	if(this._sState === 2 ){
+		this._sState = 3;
+		this.velocity.x = -Math.sin(this._sA) * this._sVb;
+		this.velocity.y = Math.cos(this._sA) * this._sVb;	
+	}
 	
 	//We consider ourselves "on the ground" if there is something to push on.		 
 	
@@ -291,12 +325,12 @@ function spider_collisionResponse(responseVector, other){
 		this.velocity.x	= 0;		
 	}else if(responseVector.x < 0 && this.velocity.x > 0){
 		this.velocity.x	= 0;		
-	} */                       // removed because it messes up the kangaroo
+	} */                        // removed because it messes up the kangaroo
 	if(responseVector.y > 0 && this.velocity.y < 0){
 		this.velocity.y	= 0;		
 	}else if(responseVector.y < 0 && this.velocity.y > 0){
 		this.velocity.y	= 0;		
-	}  
+	} 
 	
 	// hold on to the response vector, currently we only do this so we can
 	// draw it for debugging purposes  
