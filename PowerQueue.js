@@ -230,7 +230,7 @@ var PowerQueue = {
 			theContext.strokeStyle = "#000000";
 			
 			
-			
+			/*
 			theContext.fillText("Z",
 				theCanvas.width/2,
 				theCanvas.height/2 - 1.5 *  this.image.height - 2 * gutter - gutter);
@@ -300,16 +300,61 @@ var PowerQueue = {
 				this.image.width + 2 * gutter,
 				this.image.height * 3 + 4 * gutter); 
 				
-				
-			
-		
-			  
+							  
 			
 			//dCI	(H_Icon, theCanvas.width/2, theCanvas.height/2, 1);	
-		    dCI	(C_Icon, theCanvas.width/2 , theCanvas.height/2 - this.image.height - gutter, 1);	
-		    dCI	(FS_Icon, theCanvas.width/2 + this.image.width + gutter, theCanvas.height/2, 1);	
-		    dCI	(K_Icon, theCanvas.width/2, theCanvas.height/2 + this.image.height + gutter, 1);	
-		    dCI	(S_Icon, theCanvas.width/2 - this.image.width - gutter, theCanvas.height/2, 1);	
+			
+		    dCI	(C_Icon, theCanvas.width/2 - this.image.width*1.5 - gutter*1.5, theCanvas.height/2, 1);	
+		    dCI	(FS_Icon, theCanvas.width/2 - this.image.width/2-gutter/2, theCanvas.height/2, 1);	
+		    dCI	(K_Icon, theCanvas.width/2 + this.image.width/2+gutter/2, theCanvas.height/2, 1);	
+		    dCI	(S_Icon, theCanvas.width/2 + this.image.width*1.5 + gutter*1.5, theCanvas.height/2, 1);	
+*/
+
+			theContext.fillText("Z",
+				theCanvas.width/2 - this.image.width*1.5 - gutter*1.5,
+				theCanvas.height/2 + this.image.height);
+			theContext.strokeText("Z",
+				theCanvas.width/2 - this.image.width*1.5 - gutter*1.5,
+				theCanvas.height/2 + this.image.height);
+			
+			theContext.fillText("X",
+				theCanvas.width/2 - this.image.width/2 - gutter/2,
+				theCanvas.height/2 + this.image.height);
+			theContext.strokeText("X",
+				theCanvas.width/2 - this.image.width/2 - gutter/2,
+				theCanvas.height/2 + this.image.height);
+				
+			theContext.fillText("C",
+				theCanvas.width/2 + this.image.width/2 + gutter/2,
+				theCanvas.height/2 + this.image.height);
+			theContext.strokeText("C",
+				theCanvas.width/2 + this.image.width/2 + gutter/2,
+				theCanvas.height/2 + this.image.height);
+			
+			theContext.fillText("V",
+				theCanvas.width/2 + this.image.width*1.5 + gutter*1.5,
+				theCanvas.height/2 + this.image.height);
+			theContext.strokeText("V",
+				theCanvas.width/2 + this.image.width*1.5 + gutter*1.5,
+				theCanvas.height/2 + this.image.height);
+			
+			theContext.fillText("Press 'G' to return to the game.",
+				theCanvas.width/2,
+				theCanvas.height/2 - this.image.height);
+			theContext.strokeText("Press 'G' to return to the game.",
+				theCanvas.width/2,
+				theCanvas.height/2 - this.image.height);
+
+			theContext.fillRect(
+				theCanvas.width/2 - this.image.width*2 - gutter*2, 
+				theCanvas.height/2 - this.image.height/2-gutter/2, 
+				this.image.width*4+gutter*4, 
+				this.image.height+gutter );
+			
+		    dCI	(C_Icon, theCanvas.width/2 - this.image.width*1.5 - gutter*1.5, theCanvas.height/2, 1);	
+		    dCI	(FS_Icon, theCanvas.width/2 - this.image.width/2-gutter/2, theCanvas.height/2, 1);	
+		    dCI	(K_Icon, theCanvas.width/2 + this.image.width/2+gutter/2, theCanvas.height/2, 1);	
+		    dCI	(S_Icon, theCanvas.width/2 + this.image.width*1.5 + gutter*1.5, theCanvas.height/2, 1);	
 		    
 		 
 			theContext.textAlign= tempAlign; 
