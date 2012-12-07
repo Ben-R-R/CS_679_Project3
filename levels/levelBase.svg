@@ -26,15 +26,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="0"
      inkscape:zoom="0.70710678"
-     inkscape:cx="1603.3606"
-     inkscape:cy="325.30496"
+     inkscape:cx="698.26392"
+     inkscape:cy="381.8735"
      inkscape:document-units="px"
-     inkscape:current-layer="layer2"
+     inkscape:current-layer="gear"
      showgrid="false"
-     inkscape:window-width="1920"
-     inkscape:window-height="1028"
-     inkscape:window-x="1358"
-     inkscape:window-y="-8"
+     inkscape:window-width="1680"
+     inkscape:window-height="1002"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
      inkscape:snap-grids="false" />
   <metadata
@@ -45,7 +45,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -55,15 +55,15 @@
      inkscape:label="instructions"
      style="display:inline">
     <image
-       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/AAGear.png"
+       sodipodi:absref="/Users/Nomad 1/Documents/JavaScript/CS679 Project 3/levels/../images/AAGear.png"
        xlink:href="../images/AAGear.png"
-       src="./images/AAGear.png"
-       style="display:inline"
-       y="524.65869"
-       x="-367.45938"
-       id="image5517"
+       width="154"
        height="154"
-       width="154" />
+       id="image5517"
+       x="-367.45938"
+       y="524.65869"
+       style="display:inline"
+       src="./images/AAGear.png" />
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
@@ -82,7 +82,7 @@
          sodipodi:role="line"
          x="-367.28571"
          y="815.50507"
-         id="tspan3994"></tspan><tspan
+         id="tspan3994" /><tspan
          sodipodi:role="line"
          x="-367.28571"
          y="833.00507"
@@ -137,41 +137,41 @@
          sodipodi:role="line"
          x="-379.00925"
          y="458.99551"
-         id="tspan4534"></tspan><tspan
+         id="tspan4534" /><tspan
          sodipodi:role="line"
          x="-379.00925"
          y="488.99551"
          id="tspan4536">Copy-Paste them as needed  </tspan></text>
     <image
-       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/Girder3.png"
+       sodipodi:absref="/Users/Nomad 1/Documents/JavaScript/CS679 Project 3/levels/../images/Girder3.png"
        xlink:href="../images/Girder3.png"
-       src="./images/Girder3.png"
-       y="564.06238"
-       x="-155.82343"
-       id="image3175"
-       height="60.18919"
+       style="display:inline"
        width="59.91684"
-       style="display:inline" />
+       height="60.18919"
+       id="image3175"
+       x="-155.82343"
+       y="564.06238"
+       src="./images/Girder3.png" />
     <image
-       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/Girder1.png"
+       sodipodi:absref="/Users/Nomad 1/Documents/JavaScript/CS679 Project 3/levels/../images/Girder1.png"
        xlink:href="../images/Girder1.png"
-       y="551.95593"
-       x="-51.225464"
-       id="image3077"
-       height="136.72792"
-       width="127.90677"
+       style="display:inline"
        src="./images/Girder1.png"
-       style="display:inline" />
+       width="127.90677"
+       height="136.72792"
+       id="image3077"
+       x="-51.225464"
+       y="551.95593" />
     <image
-       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/Girder2.png"
+       sodipodi:absref="/Users/Nomad 1/Documents/JavaScript/CS679 Project 3/levels/../images/Girder2.png"
        xlink:href="../images/Girder2.png"
-       y="657.62732"
-       x="-191.43137"
-       id="image3951"
-       height="37.108109"
-       width="114.16217"
+       style="display:inline"
        src="./images/Girder2.png"
-       style="display:inline" />
+       width="114.16217"
+       height="37.108109"
+       id="image3951"
+       x="-191.43137"
+       y="657.62732" />
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
@@ -208,23 +208,23 @@
        y="400.03778"
        ry="21.978909" />
     <image
-       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/Bell_Jar.png"
+       sodipodi:absref="/Users/Nomad 1/Documents/JavaScript/CS679 Project 3/levels/../images/Bell_Jar.png"
        xlink:href="../images/Bell_Jar.png"
-       src="./images/Bell_Jar.png"
-       width="189"
-       height="266"
-       id="image4644"
+       y="469.09711"
        x="-605.01971"
-       y="469.09711" />
-    <image
-       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/Bell_Jar2.png"
-       xlink:href="../images/Bell_Jar2.png"
-       src="./images/Bell_Jar2.png"
-       width="189"
+       id="image4644"
        height="266"
-       id="image4655"
+       width="189"
+       src="./images/Bell_Jar.png" />
+    <image
+       sodipodi:absref="/Users/Nomad 1/Documents/JavaScript/CS679 Project 3/levels/../images/Bell_Jar2.png"
+       xlink:href="../images/Bell_Jar2.png"
+       y="741.09711"
        x="-607.5"
-       y="741.09711" />
+       id="image4655"
+       height="266"
+       width="189"
+       src="./images/Bell_Jar2.png" />
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
@@ -243,7 +243,7 @@
          sodipodi:role="line"
          x="1700"
          y="941.36218"
-         id="tspan4753"></tspan><tspan
+         id="tspan4753" /><tspan
          sodipodi:role="line"
          x="1700"
          y="958.86218"
@@ -449,6 +449,71 @@
        width="668.58997"
        id="rect4904"
        style="fill:none;stroke:#0062c4;stroke-width:1.49691904;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <image
+       y="394.31891"
+       x="418.6438"
+       id="image3100"
+       xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAADVCAYAAABkKg1QAAAABHNCSVQICAgIfAhkiAAACUNJREFU
+eJzt3H1wFPUdx/HP7eXpQpLDXAIhQApBEqLjmPoEVgQVijMt1VELBQGxo51iW0Ut06lDO/0DO1al
+trWMWqujIqjDANaiCLUKHXkcKwiiIUqQmIRAYh4u4S7JJXfbP5B0GCDkAbzkO+/Xn3u7e99/3nM7
+v9tdj+u6rnopGnO1qzykzaVBffRlSKVHWlRe16ZozFVLe0yt7bHenhowzfFIfl+CJCkrPVHjcnwq
+yvVpUoFfkwoylJ7i7cvp53l6E/aBmla9vL1GK7bXqqklqsmFGbp6TLqKhqUqPztFg1O98vsS5Ety
++jIcYFY05irYElVjuENVDRGVHmnR7i9D2rS/URX1Ed16eUBzr87W1KLB8nh6fPqehf3J4bB+/2al
+3v64QTOuCOjuSTm6anRaj78VwJlVByN6cWuNXtxSI1+So99MH6nbLg/0JPDuhR1qi2rJuko9vbla
+C6fm6oFpubogNaFPwwPoWsyVVv/3Ky1eW668QLKemjtGhTm+7hx69rD3VYU18+n9ys9O0bI5YzQq
+K/ncTA2gW9o6Ylq64bAe31CppTNH6+5JQ892SNdhv/Npo370dKkWTx+hB6cN7821PoBzZOfBZs36
+W6luLg7oiVmj5Zy5xzOH/crOWj3w2hdataBQkwv9521YAN1XH+rQTU+WaPgFSVrxkwIlek9b97zT
+Lluv39uge1ce1Nv3X0TUQD+SOShB7/zyYlUHI1qwvOyM+50S9r6qsOb+/TOt+fk4XfYtVryB/saX
+5GjdfRfpg0PNemR95Wn3OSnscCSmWc+U6nc3j9R1/FID/Zbf59Xqn43T0g1V2nqg6ZTPTwr7t6+X
+68KhKbpvSu43NiCA3ikY6tOyOfm647nP1RI5+S7PzrD3VYX13PtH9eTt+ax+AwPE7PHZGp2Vokff
+PvmSvDPsJesqtHBqrvIy+Z8aGEj+NGu0/vLvajWGOzq3OdLxe7837GvQwqlcggMDzSUjUnVdoV9P
+bTrSuc2RpBe2HNWcCdkKpHGbKDAQPTgtV8+/f1Qn7kpxXFdasb1W878zJL6TAei1iWMzJEnbyo6v
+kDsfV4XUHnV11ej0eM4FoA88Humm4ky9tadBkuS8VxLUDUV+VsKBAW5KkV/vljRKkpxd5SGNz+fX
+GhjoJoxJ197KsFrbo45TeiSsomHdesYTQD+WlZao9BSv/rUvmOVU1EeUF+C/a8CCvMxkfXw4FHCa
+WqOdL1UDMLD5U71qCEV9TjgSVSovHQRMSEv2qrmtI8VxXbEiDhjheDyKRT0efqoBgwgbMIiwAYMI
+GzCIsAGDCBswiLABgwgbMIiwAYMIGzCIsAGDCBswiLABgwgbMIiwAYMIGzCIsAGDCBswiLABgwgb
+MIiwAYMIGzCIsAGDCBswiLABgwgbMIiwAYMIGzCIsAGDCBswiLABgwgbMIiwAYMIGzCIsAGDCBsw
+iLABgwgbMIiwAYMIGzCIsAGDCBswiLABgwgbMIiwAYMIGzCIsAGDCBswiLABgwgbMIiwAYMIGzCI
+sAGDCBswiLABgwgbMIiwAYMIGzCIsAGDCBswiLABgwgbMIiwAYMIGzCIsAGDCBswiLABgwgbMIiw
+AYMIGzCIsAGDCBswiLABgwgbMIiwAYMIGzCIsAGDCBswiLABgwgbMIiwAYMIGzCIsAGDCBswiLAB
+gwgbMIiwAYMIGzCIsAGDCBswiLABgwgbMIiwAYMIGzCIsAGDCBswiLABgwgbMIiwAYMIGzCIsAGD
+CBswiLABgwgbMIiwAYMIGzCIsAGDCBswiLABgwgbMIiwAYMIGzCIsAGDCBswiLABgwgbMIiwAYMI
+GzCIsAGDCBswiLABgwgbMIiwAYMIGzCIsAGDCBswiLABgwgbMIiwAYMIGzCIsAGDCBswiLABgwgb
+MIiwAYMIGzCIsAGDCBswiLABgwgbMIiwAYMIGzCIsAGDCBswiLABgwgbMIiwAYMIGzCIsAGDCBsw
+iLABgwgbMIiwAYMIGzCIsAGDCBswiLABgwgbMIiwAYMIGzCIsAGDCBswiLABgwgbMIiwAYMIGzDI
+8ToedUTdeM8B4Bxoj8aU6PVEnfQUr461xeI9D4BzoKk1qgyft8UZnOpVQ6gj3vMAOAcaQh0akpEY
+csYO8enzmpZ4zwOgj2KuVFbbqilFg484BTk+lRwmbGCgO/RVq3yJji4dmXrMmTg2Q5tLg/GeCUAf
+bS4N6tqCDEmSc11hhnaUNau1nQU0YCB7rySo68f5JUlOjj9JxXmDtHZXXZzHAtBbza1RvbG7Xrde
+FpD09Q0qs8dnafm2mrgOBqD31nxYp+K8QRqZmSzp67DvvGaodpWH9MEXx+I6HICei8ZcPfxmhRbd
+OLxzmyNJqUmO7rk+R49tqIzbcAB65/Vd9UryevSD4szObZ33ii+6cbh2lDXrrb0NcRkOQM8da4vq
+gdcO6s+z8+V4/r+9M+z0FK8enTFKC189qKaWaDxmBNBDD60u17fz0jTt4sEnbT/p6a7bx2frylFp
+WvBymVyeCwH6tX/srtOaD+v07Pwxp3x2ymObz86/UCXVYS1eW/6NDAeg57YdaNZdLxzQqnsKleNP
+OuXzU8JOT/Fq/f0X6ZWdtfrDehbTgP7moy9Duumvn+qZO8Zo4tiM0+5z2hctDPMnafOvLtHz7x/V
+olWHuCwH+ol3Sxp1w+P79MhtozTjiqwz7udx3TNnWx2M6JZl+xVIS9BLd41VVlrieRkWQNdcV1q6
+sUpLN1bp+Tsv1PRLM7vafV6XYUtSe9TVr1cf0kvbavTYjFH68TVD5fF0dQSAc2lPRUg/XV6mmOtq
+1YJxGpWVfLZDzh72Cf8pDWrhq18o5rp66HsjNPPKLHkdCgfOlz0VIT38ZoU27Q9q8fdH6hdThinR
+263muh+2dPxB7jd212nJugrVHevQnAnZ+uEVARXnpYnGgb6raoho3Z56rdxRq5LqsO7/bq7unZIr
+v8/bk9P0LOwTXFfa8nmTVu6o1cZPGhQMRzU+P11FuT4NzUhUapJXyQmUDnTFldQY7lCoLabPjrZo
+d3lIR5oimlzg14wrA7rlsoDSknsU9AnzPK7r/rOvA356OOzbeqDJX1LdklZZH/E1t0YTIx0uZQNn
+4U/1tmelJUQKc3zHivMGNV9b4G9K8nr6+j/UH/8Hm7Zo9xwm0KYAAAAASUVORK5CYII=
+"
+       height="213"
+       width="246" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text3130"
+       y="433.53375"
+       x="448.19806"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       xml:space="preserve"><tspan
+         id="tspan3140"
+         y="433.53375"
+         x="448.19806"
+         sodipodi:role="line">This checkpoint is where you</tspan><tspan
+         y="451.03375"
+         x="448.19806"
+         sodipodi:role="line"
+         id="tspan3156">end the level.</tspan></text>
   </g>
   <g
      inkscape:label="background"
@@ -462,24 +527,24 @@
        x="1301"
        y="515.36218" />
     <image
-       y="542.99823"
-       x="1371.0466"
-       id="image3077-9"
-       height="89.727936"
-       width="127.90677"
-       src="./images/Girder1.png"
+       sodipodi:absref="/Users/Nomad 1/Documents/JavaScript/CS679 Project 3/levels/../images/Girder1.png"
+       xlink:href="../images/Girder1.png"
        style="display:inline"
-       xlink:href="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/Girder1.png"
-       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/Girder1.png" />
+       src="./images/Girder1.png"
+       width="127.90677"
+       height="89.727936"
+       id="image3077-9"
+       x="1371.0466"
+       y="542.99823" />
     <image
-       src="./images/Bell_Jar2.png"
-       width="189"
-       height="266"
-       id="image4655-4"
-       x="1329.5"
+       sodipodi:absref="/Users/Nomad 1/Documents/JavaScript/CS679 Project 3/levels/../images/Bell_Jar2.png"
+       xlink:href="../images/Bell_Jar2.png"
        y="255.36218"
-       xlink:href="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/Bell_Jar2.png"
-       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/Bell_Jar2.png" />
+       x="1329.5"
+       id="image4655-4"
+       height="266"
+       width="189"
+       src="./images/Bell_Jar2.png" />
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
@@ -520,14 +585,15 @@
      id="gear"
      inkscape:label="gear">
     <image
-       src="./images/AAGear.png"
-       style="display:inline"
-       y="166.36218"
-       x="613"
-       id="image5517-7"
-       height="154"
+       sodipodi:absref="/Users/Nomad 1/Documents/JavaScript/CS679 Project 3/levels/../images/AAGear.png"
+       xlink:href="../images/AAGear.png"
        width="154"
-       xlink:href="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/AAGear.png" />
+       height="154"
+       id="image5517-7"
+       x="610.17157"
+       y="172.01903"
+       style="display:inline"
+       src="./images/AAGear.png" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -594,6 +660,14 @@
        height="142"
        x="1116"
        y="464.36218" />
+    <rect
+       y="475.67587"
+       x="428.69223"
+       height="142"
+       width="90"
+       id="finish"
+       style="fill:none;stroke:#00ff00;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       inkscape:label="#finish" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -625,7 +699,7 @@
        id="start"
        width="50"
        height="50"
-       x="138.69849"
-       y="549.15906" />
+       x="219.30867"
+       y="533.60272" />
   </g>
 </svg>
