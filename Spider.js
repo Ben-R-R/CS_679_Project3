@@ -157,8 +157,8 @@ function spider_update(elapsedTime){
 					tanVector.scalarMult(-1);
 					// figure out how much of the velocity will 
 					// contribute to the radial velocity
-					this._sVa = vDot(this.velocity, tanVector) * 2;
-					this._sVb = vDot(this.velocity, tanVector) * 2;
+					this._sVa = vDot(this.velocity, tanVector) * 1.5;
+					this._sVb = vDot(this.velocity, tanVector) * 1.5;
 					// calculate the starting energy of the spider
 					// potential energy = mgh = 0 // Let our currnet position be the datum
 					// kinetic energy = (0.5)mv^2														
