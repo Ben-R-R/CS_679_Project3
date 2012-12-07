@@ -3,10 +3,10 @@
 //level paths
 var currLevel = 0;
 var levels = [];
-levels.push("levels/test4.svg");
+//levels.push("levels/test4.svg");
 levels.push("levels/test6.svg");
 
-console.log(levels[0]+" "+levels[1]);
+//console.log(levels[0]+" "+levels[1]);
 
 var theCanvas = null;
 var theContext = null;

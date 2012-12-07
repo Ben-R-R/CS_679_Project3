@@ -143,6 +143,56 @@ function newSVGDraw(svgStr){
 	return newSVG;
 }
 
+function newFontDraw(text, x, y, fill, stroke, style, matrix){
+	var newImgDr = Object.create(ImageDrawEntity);
+	newImgDr.x = x;
+	newImgDr.y = y;
+
+	newImgDr.fill = fill;
+	newImgDr.stroke = stroke;
+	
+	newImgDr.text = text;
+	newImgDr.style = style;
+	
+	newImgDr.matrix = matrix;
+	
+	newImgDr.draw = function(origin){
+	
+	    var origin2 = newVector();
+		origin2.x = origin.x; 
+		origin2.y = origin.y;
+		if(this.matrix){
+			theContext.translate(origin.x, origin.y);
+			theContext.transform(
+				this.matrix[0],
+				this.matrix[1],
+				this.matrix[2],
+				this.matrix[3],
+				this.matrix[4],
+				this.matrix[5]
+			);
+			
+			origin2.x = 0; 
+			origin2.y = 0;	
+		}
+	
+		theContext.fillStyle = this.fill;
+		
+		theContext.font = this.style;
+		
+		
+		theContext.fillText(this.text, this.x + origin2.x, this.y + origin2.y);
+		if(this.stroke !== "none"){
+		    theContext.strokeStyle = this.stroke;
+			theContext.strokeText(this.text, this.x + origin2.x, this.y + origin2.y);
+		}
+		theContext.setTransform(1,0,0,1,0,0);
+		
+	}
+
+	return newImgDr;
+}
+
 function newPathDraw(coordArray, fill, stroke, lineWidth, closed, matrix){
 	var newPath = Object.create(ImageDrawEntity);
 	newPath.coordArray = coordArray;
