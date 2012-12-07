@@ -474,8 +474,8 @@ function parseInkscapeFile(){
 				
 				
 				
-				var tx = Math.ceil($target.attr("x")) ;
-				var ty = Math.ceil($target.attr("y")) ;
+				var tx = Math.ceil($target2.attr("x")) ;
+				var ty = Math.ceil($target2.attr("y")) ;
 					
 				spawnNewEntity(newFontDraw( text, tx, ty, fill, stroke, style, transformM), sceneryList);
 				//parseBackgroundElement($target2, this, transformM, firstX, firstY); 
