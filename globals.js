@@ -4,6 +4,7 @@
 var currLevel = 0;
 var levels = [];
 
+levels.push("levels/BasicTutorial.svg");
 levels.push("levels/squirrelTutorial.svg");
 levels.push("levels/kangarooTutorial.svg");
 levels.push("levels/spiderTutorial.svg");
