@@ -342,9 +342,11 @@ function spider_collisionResponse(responseVector, other){
 function spider_draw(origin){
 	theContext.fillStyle = "#FF6600";
 	//theContext.fillRect(this.coords.x + -this.radius/2 + origin.x, this.coords.y + -this.radius/2 + origin.y,  this.radius * 2,  this.radius * 2);
-	theContext.beginPath();
-	theContext.arc(this.coords.x + origin.x , this.coords.y + origin.y, this.radius, 0, 2*Math.PI);
-	theContext.fill();
+	//theContext.beginPath();
+	//theContext.arc(this.coords.x + origin.x , this.coords.y + origin.y, this.radius, 0, 2*Math.PI);
+	//theContext.fill();
+	theContext.drawImage(Spider1,this.coords.x - Spider1.width/2 + origin.x,this.coords.y - Spider1.height/2 + origin.y);
+
 	if(this._sState === 1 || this._sState === 2){
 	
 		theContext.strokeStyle = "#000000";
