@@ -98,7 +98,7 @@ function kangaroo_update(elapsedTime){
 	}
 	
 	//jumps
-	if(keyhit(32) && this._kJumps > 0){	//initial jump-off
+	if(keyhit(JUMP_KEY) && this._kJumps > 0){	//initial jump-off
 		this.velocity.y = -.6;
 		this._kJumps--;
 		kJumpSound.cloneNode(true).play();

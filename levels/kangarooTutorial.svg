@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg4647"
+   version="1.1"
+   inkscape:version="0.48.2 r9819"
+   sodipodi:docname="kangarooTutorial.svg">
+  <defs
+     id="defs4649" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="236.68454"
+     inkscape:cy="311.88612"
+     inkscape:document-units="px"
+     inkscape:current-layer="box"
+     showgrid="true"
+     inkscape:window-width="1366"
+     inkscape:window-height="746"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid4664" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata4652">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="begin"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#008000"
+       id="start"
+       width="50"
+       height="50"
+       x="0"
+       y="962.36218" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="spike" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="finish">
+    <rect
+       style="fill:#008000"
+       id="finish"
+       width="50"
+       height="50"
+       x="670"
+       y="962.36218" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer4"
+     inkscape:label="checkpoint" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer5"
+     inkscape:label="moving" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer6"
+     inkscape:label="gear" />
+  <g
+     inkscape:groupmode="layer"
+     id="box"
+     inkscape:label="box">
+    <rect
+       style="fill:#000000"
+       id="rect4668"
+       width="160"
+       height="1120"
+       x="-160"
+       y="-7.6378174" />
+    <rect
+       style="fill:#000000"
+       id="rect4670"
+       width="780"
+       height="100"
+       x="-20"
+       y="1012.3622" />
+    <rect
+       style="fill:#000000"
+       id="rect4714"
+       width="180"
+       height="20"
+       x="140"
+       y="852.36218" />
+    <rect
+       style="fill:#000000"
+       id="rect4716"
+       width="480"
+       height="20"
+       x="260"
+       y="632.36218" />
+    <rect
+       style="fill:#000000"
+       id="rect4718"
+       width="160"
+       height="20"
+       x="120"
+       y="382.36218" />
+    <rect
+       style="fill:#000000"
+       id="rect4718-1"
+       width="160"
+       height="20"
+       x="530"
+       y="312.36218" />
+    <rect
+       style="fill:#000000;display:inline"
+       id="rect5332"
+       width="20"
+       height="360"
+       x="560"
+       y="652.36218" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer8"
+     inkscape:label="background"
+     style="display:inline">
+    <g
+       style="display:inline"
+       id="g5731"
+       transform="translate(1130,90)">
+      <rect
+         style="fill:#4d4d4d;fill-opacity:1;stroke:none"
+         id="rect5392"
+         width="380"
+         height="140"
+         x="-1100"
+         y="582.36218"
+         ry="0" />
+      <text
+         xml:space="preserve"
+         style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+         x="-1080"
+         y="612.36218"
+         id="text5382"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           x="-1080"
+           y="612.36218"
+           id="tspan5390">Welcome to the spider tutorial </tspan><tspan
+           id="tspan5400"
+           sodipodi:role="line"
+           x="-1080"
+           y="642.36218">level! You should solve all these</tspan><tspan
+           id="tspan5402"
+           sodipodi:role="line"
+           x="-1080"
+           y="672.36218">puzzles using just the spider and</tspan><tspan
+           id="tspan5404"
+           sodipodi:role="line"
+           x="-1080"
+           y="702.36218">the human.</tspan></text>
+    </g>
+  </g>
+</svg>

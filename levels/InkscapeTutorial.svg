@@ -29,7 +29,7 @@
      inkscape:cx="730.56221"
      inkscape:cy="119.05146"
      inkscape:document-units="px"
-     inkscape:current-layer="layer2"
+     inkscape:current-layer="gear"
      showgrid="false"
      inkscape:window-width="1920"
      inkscape:window-height="1028"
@@ -57,13 +57,13 @@
     <image
        sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/AAGear.png"
        xlink:href="../images/AAGear.png"
-       src="./images/AAGear.png"
-       style="display:inline"
-       y="524.65869"
-       x="-367.45938"
-       id="image5517"
+       width="154"
        height="154"
-       width="154" />
+       id="image5517"
+       x="-367.45938"
+       y="524.65869"
+       style="display:inline"
+       src="./images/AAGear.png" />
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
@@ -145,33 +145,33 @@
     <image
        sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/Girder3.png"
        xlink:href="../images/Girder3.png"
-       src="./images/Girder3.png"
-       y="564.06238"
-       x="-155.82343"
-       id="image3175"
-       height="60.18919"
+       style="display:inline"
        width="59.91684"
-       style="display:inline" />
+       height="60.18919"
+       id="image3175"
+       x="-155.82343"
+       y="564.06238"
+       src="./images/Girder3.png" />
     <image
        sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/Girder1.png"
        xlink:href="../images/Girder1.png"
-       y="551.95593"
-       x="-51.225464"
-       id="image3077"
-       height="136.72792"
-       width="127.90677"
+       style="display:inline"
        src="./images/Girder1.png"
-       style="display:inline" />
+       width="127.90677"
+       height="136.72792"
+       id="image3077"
+       x="-51.225464"
+       y="551.95593" />
     <image
        sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/Girder2.png"
        xlink:href="../images/Girder2.png"
-       y="657.62732"
-       x="-191.43137"
-       id="image3951"
-       height="37.108109"
-       width="114.16217"
+       style="display:inline"
        src="./images/Girder2.png"
-       style="display:inline" />
+       width="114.16217"
+       height="37.108109"
+       id="image3951"
+       x="-191.43137"
+       y="657.62732" />
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
@@ -210,21 +210,21 @@
     <image
        sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/Bell_Jar.png"
        xlink:href="../images/Bell_Jar.png"
-       src="./images/Bell_Jar.png"
-       width="189"
-       height="266"
-       id="image4644"
+       y="469.09711"
        x="-605.01971"
-       y="469.09711" />
+       id="image4644"
+       height="266"
+       width="189"
+       src="./images/Bell_Jar.png" />
     <image
        sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/Bell_Jar2.png"
        xlink:href="../images/Bell_Jar2.png"
-       src="./images/Bell_Jar2.png"
-       width="189"
-       height="266"
-       id="image4655"
+       y="741.09711"
        x="-607.5"
-       y="741.09711" />
+       id="image4655"
+       height="266"
+       width="189"
+       src="./images/Bell_Jar2.png" />
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
@@ -452,11 +452,11 @@
     <image
        sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/Jumps.png"
        xlink:href="../images/Jumps.png"
-       y="1247.0682"
-       x="-445.90201"
-       id="image5026"
+       width="1189"
        height="517"
-       width="1189" />
+       id="image5026"
+       x="-445.90201"
+       y="1247.0682" />
     <text
        xml:space="preserve"
        style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
@@ -547,14 +547,15 @@
      id="gear"
      inkscape:label="gear">
     <image
-       src="./images/AAGear.png"
-       style="display:inline"
-       y="166.36218"
-       x="613"
-       id="image5517-7"
-       height="154"
+       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/AAGear.png"
+       xlink:href="../images/AAGear.png"
        width="154"
-       xlink:href="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/AAGear.png" />
+       height="154"
+       id="image5517-7"
+       x="613"
+       y="166.36218"
+       style="display:inline"
+       src="./images/AAGear.png" />
   </g>
   <g
      inkscape:groupmode="layer"

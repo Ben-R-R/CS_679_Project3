@@ -45,20 +45,18 @@ function newPlayerEntity(x,y, radius){
 	newEnt.power_enter = human_enter;
 	newEnt.collisionResponse = human_collisionResponse;
 	newEnt.draw = human_draw;
-	newEnt.update = function(elapsedTime){
+	initPowerQueue(newEnt);
+	HUD.items.push(PowerQueue);
+	
+	newEnt.changePower = function(newPower){
+		if(this.form !== newPower){
+			this.power_leave();
+		}
 		
+		// if we just called human_enter(), its 'this' keyword would not 
+		// point to the proper place  
 		
-		
-		
-		//press 1 for human
-		if(keydown(49)){
-					
-		    if(this.form !== "h"){
-				this.power_leave();
-			}
-			
-			// if we just called human_enter(), its 'this' keyword would not 
-			// point to the proper place  
+		if(newPower === 'h'){
 			this.power_enter = human_enter;
 			this.power_enter();
 			
@@ -67,83 +65,60 @@ function newPlayerEntity(x,y, radius){
 			this.collisionResponse = human_collisionResponse;
 			this.draw = human_draw;
 			
-	        this.form = "h";
-		//press 2 for cheetah
-		} else if(keydown(50)){
-			
-			if(this.form !== "c"){
-				this.power_leave();
-			}
-			
-			// if we just called cheetah_enter(), its 'this' keyword would not 
-			// point to the proper place  
-			this.power_enter = cheetah_enter;
+		} else if (newPower === 'c'){
+		    this.power_enter = cheetah_enter;
 			this.power_enter();
 			
 			this.power_leave = cheetah_leave;
 			this.power_update = cheetah_update;
 			this.collisionResponse = cheetah_collisionResponse;
 			this.draw = cheetah_draw;
-			
-	        this.form = "c";
-
-		 
-		//press 3 for flying squirrel
-		} else if(keydown(51)){
-			if(this.form !== "f"){
-				this.power_leave();
-			}
-			
-			// if we just called flyingSquirrel_enter(), its 'this' keyword would not 
-			// point to the proper place  
-			this.power_enter = flyingSquirrel_enter;
+		
+		} else if (newPower === 'f'){
+		    this.power_enter = flyingSquirrel_enter;
 			this.power_enter();
 			
 			this.power_leave = flyingSquirrel_leave;
 			this.power_update = flyingSquirrel_update;
 			this.collisionResponse = flyingSquirrel_collisionResponse;
 			this.draw = flyingSquirrel_draw;
-			
-	        this.form = "f";
-			
-		}
-		//press 4 for kangaroo
-		else if(keydown(52)){
-			if(this.form !== "k"){
-				this.power_leave();
-			}
-			
-			// if we just called kangaroo_enter(), its 'this' keyword would not 
-			// point to the proper place  
-			this.power_enter = kangaroo_enter;
+		
+		} else if (newPower === 'k'){
+		    this.power_enter = kangaroo_enter;
 			this.power_enter();
 			
 			this.power_leave = kangaroo_leave;
 			this.power_update = kangaroo_update;
 			this.collisionResponse = kangaroo_collisionResponse;
 			this.draw = kangaroo_draw;
-			
-	        this.form = "k";
-			
-
 		
-		//press 5 for spider
-		} else if(keydown(53)){
-			if(this.form !== "s"){
-				this.power_leave();
-			}
-			
-			// if we just called kangaroo_enter(), its 'this' keyword would not 
-			// point to the proper place  
-			this.power_enter = spider_enter;
+		} else if (newPower === 's'){
+		    this.power_enter = spider_enter;
 			this.power_enter();
 			
 			this.power_leave = spider_leave;
 			this.power_update = spider_update;
 			this.collisionResponse = spider_collisionResponse;
 			this.draw = spider_draw;
-			
-	        this.form = "s";
+		
+		}
+		
+		
+        this.form = newPower;
+	}
+	
+	newEnt.update = function(elapsedTime){
+		
+		if(keydown(49)){          //press 1 for human			
+		   this.changePower('h');
+		} else if(keydown(50)){   //press 2 for cheetah	
+			this.changePower('c');
+		} else if(keydown(51)){   //press 3 for flying squirrel
+			this.changePower('f');		
+		} else if(keydown(52)){   //press 4 for kangaroo
+			this.changePower('k');	
+		} else if(keydown(53)){   //press 5 for spider
+			this.changePower('s');
 		}	
 		
 		this.power_update(elapsedTime);

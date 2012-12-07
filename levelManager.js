@@ -300,7 +300,40 @@ function parseInkscapeFile(){
 					transformM = temp;						
 				}
 							 
-			}else{
+			} else if(xforms.charAt(0) === 's'){
+				
+				var parts  = /scale\(\s*([^\s,)]+)[ ,]([^\s,)]+)/.exec(xforms);
+				
+				
+			    transformM = new Array();
+			    
+			    transformM[0] = parseFloat(parts[1]);
+			    transformM[1] = 0;
+			    transformM[2] = 0;
+			    transformM[3] = parseFloat(parts[2]);
+			    transformM[4] = 0;
+			    transformM[5] = 0;
+			    
+				
+				
+				if(parentM){
+					var temp = new Array();
+					var t = parentM;
+					var p = transformM;
+					temp[0] = p[0] * t[0] + p[1] * t[2];
+					temp[1] = p[0] * t[1] + p[1] * t[3];
+					
+					temp[2] = p[2] * t[0] + p[3] * t[2];
+					temp[3] = p[2] * t[1] + p[3] * t[3];
+					
+					temp[4] = p[4] * t[0] + p[5] * t[2] + t[4];
+					temp[5] = p[4] * t[1] + p[5] * t[3] + t[5];
+					
+					
+					transformM = temp;						
+				}
+							 
+			} else{
 		        // this mess parses the translate form of the transform attribute 
 				var parts  = /translate\(\s*([^\s,)]+)[ ,]([^\s,)]+)/.exec(xforms);
 				firstX += parseFloat(parts[1]);
@@ -424,6 +457,36 @@ function parseInkscapeFile(){
 				var $target2 = $(this);	
 				
 				parseBackgroundElement($target2, this, transformM, firstX, firstY); 
+			});
+				
+		} else if($target.is("text")){
+			
+			var style = $target.css("font-style") + " "  + $target.css("font-weight") + " " + $target.css("font-size") + " " + $target.css("font-family");
+			
+			var fill = self.style.fill;
+			var stroke = self.style.stroke;
+			
+			style
+			
+			$target.children().each(function(){
+				var $target2 = $(this);	
+				var text = $target2.text();
+				
+				
+				
+				var tx = Math.ceil($target2.attr("x")) ;
+				var ty = Math.ceil($target2.attr("y")) ;
+				
+				if(transformM){
+					transformM[4] += firstX;
+					transformM[5] += firstY;
+				}else {
+				    tx += firstX;
+					ty += firstY;
+				}
+					
+				spawnNewEntity(newFontDraw( text, tx, ty, fill, stroke, style, transformM), sceneryList);
+				//parseBackgroundElement($target2, this, transformM, firstX, firstY); 
 			});
 				
 		}

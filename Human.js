@@ -68,7 +68,7 @@ function human_update(elapsedTime){
 	}
 	// apply impulse to velocity. Animals that override the default behavior
 	// should set the impulse to 0 
-	if(keydown(32) && this.onGround){
+	if(keydown(JUMP_KEY) && this.onGround){
 		this.velocity.y = this.impY;
 		hJumpSound.cloneNode(true).play();
 						
