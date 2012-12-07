@@ -80,7 +80,7 @@ function cheetah_update(elapsedTime){
 			tvx -= .1;
 		}
 		this.direction = -1;
-		if(tvx <= -.8 && this.wasGround && !this.onGround){
+		if(tvx <= -.8 && this.wasGround && !this.onGround && keydown(JUMP_KEY)){
 			tvy = -.4;
 		}
 	}else if(keydown(MOVE_RIGHT_KEY)){
@@ -92,7 +92,7 @@ function cheetah_update(elapsedTime){
 			tvx += .1;
 		} 
 		this.direction = 1;
-		if(tvx >= .8 && this.wasGround && !this.onGround){
+		if(tvx >= .8 && this.wasGround && !this.onGround && keydown(JUMP_KEY)){
 			tvy = -.4;
 		}
 	} else {
@@ -100,7 +100,7 @@ function cheetah_update(elapsedTime){
 	}
 	
 	// apply impulse to velocity. 
-	if(keydown(JUMP_KEY) && this.onGround){
+	if(keyhit(JUMP_KEY) && this.onGround){
 		tvy = -.4;
 	}
 	
