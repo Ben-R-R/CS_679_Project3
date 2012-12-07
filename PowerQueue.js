@@ -230,6 +230,7 @@ var PowerQueue = {
 			theContext.strokeStyle = "#000000";
 			
 			
+			
 			/*
 			theContext.fillText("Z",
 				theCanvas.width/2,
@@ -312,31 +313,31 @@ var PowerQueue = {
 
 			theContext.fillText("Z",
 				theCanvas.width/2 - this.image.width*1.5 - gutter*1.5,
-				theCanvas.height/2 + this.image.height);
+				theCanvas.height/2 + this.image.height + theCanvas.height * 0.05);
 			theContext.strokeText("Z",
 				theCanvas.width/2 - this.image.width*1.5 - gutter*1.5,
-				theCanvas.height/2 + this.image.height);
+				theCanvas.height/2 + this.image.height + theCanvas.height * 0.05);
 			
 			theContext.fillText("X",
 				theCanvas.width/2 - this.image.width/2 - gutter/2,
-				theCanvas.height/2 + this.image.height);
+				theCanvas.height/2 + this.image.height + theCanvas.height * 0.05);
 			theContext.strokeText("X",
 				theCanvas.width/2 - this.image.width/2 - gutter/2,
-				theCanvas.height/2 + this.image.height);
+				theCanvas.height/2 + this.image.height + theCanvas.height * 0.05);
 				
 			theContext.fillText("C",
 				theCanvas.width/2 + this.image.width/2 + gutter/2,
-				theCanvas.height/2 + this.image.height);
+				theCanvas.height/2 + this.image.height + theCanvas.height * 0.05);
 			theContext.strokeText("C",
 				theCanvas.width/2 + this.image.width/2 + gutter/2,
-				theCanvas.height/2 + this.image.height);
+				theCanvas.height/2 + this.image.height + theCanvas.height * 0.05);
 			
 			theContext.fillText("V",
 				theCanvas.width/2 + this.image.width*1.5 + gutter*1.5,
-				theCanvas.height/2 + this.image.height);
+				theCanvas.height/2 + this.image.height + theCanvas.height * 0.05);
 			theContext.strokeText("V",
 				theCanvas.width/2 + this.image.width*1.5 + gutter*1.5,
-				theCanvas.height/2 + this.image.height);
+				theCanvas.height/2 + this.image.height + theCanvas.height * 0.05);
 			
 			theContext.fillText("Press 'G' to return to the game.",
 				theCanvas.width/2,
@@ -344,12 +345,26 @@ var PowerQueue = {
 			theContext.strokeText("Press 'G' to return to the game.",
 				theCanvas.width/2,
 				theCanvas.height/2 - this.image.height);
-
+			
+			theContext.lineWidth = 8;
+			
+			theContext.strokeStyle = "#000000";
+			
+			theContext.strokeRect(
+				theCanvas.width/2 - this.image.width*2 - gutter*2, 
+				theCanvas.height/2 - this.image.height/2-gutter/2, 
+				this.image.width*4+gutter*4, 
+				this.image.height+gutter );
+			
+			theContext.lineWidth = tempLine;
+			  
 			theContext.fillRect(
 				theCanvas.width/2 - this.image.width*2 - gutter*2, 
 				theCanvas.height/2 - this.image.height/2-gutter/2, 
 				this.image.width*4+gutter*4, 
 				this.image.height+gutter );
+				
+			
 			
 		    dCI	(C_Icon, theCanvas.width/2 - this.image.width*1.5 - gutter*1.5, theCanvas.height/2, 1);	
 		    dCI	(FS_Icon, theCanvas.width/2 - this.image.width/2-gutter/2, theCanvas.height/2, 1);	
