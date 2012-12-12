@@ -1,0 +1,680 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg3955"
+   version="1.1"
+   inkscape:version="0.48.2 r9819"
+   sodipodi:docname="Corridor.svg">
+  <defs
+     id="defs3957" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#ffffff"
+     borderopacity="0.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="0"
+     inkscape:zoom="0.70710678"
+     inkscape:cx="1094.2437"
+     inkscape:cy="551.57913"
+     inkscape:document-units="px"
+     inkscape:current-layer="g4725"
+     showgrid="false"
+     inkscape:window-width="1680"
+     inkscape:window-height="1002"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:snap-grids="false" />
+  <metadata
+     id="metadata3960">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="instructions"
+     style="display:inline">
+    <image
+       sodipodi:absref="/Users/Nomad 1/Documents/JavaScript/CS679 Project 3/levels/../images/AAGear.png"
+       xlink:href="../images/AAGear.png"
+       src="./images/AAGear.png"
+       style="display:inline"
+       y="524.65869"
+       x="-367.45938"
+       id="image5517"
+       height="154"
+       width="154" />
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="-367.28571"
+       y="780.50507"
+       id="text3988"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="-367.28571"
+         y="780.50507"
+         id="tspan3992">images need to have their xlink:href property be </tspan><tspan
+         sodipodi:role="line"
+         x="-367.28571"
+         y="798.00507"
+         id="tspan3998">specified relative to the SVG file location.</tspan><tspan
+         sodipodi:role="line"
+         x="-367.28571"
+         y="815.50507"
+         id="tspan3994" /><tspan
+         sodipodi:role="line"
+         x="-367.28571"
+         y="833.00507"
+         id="tspan4000">In addition, they need an src property that is </tspan><tspan
+         sodipodi:role="line"
+         x="-367.28571"
+         y="850.50507"
+         id="tspan4002">specifed relative to the root web directory. </tspan><tspan
+         sodipodi:role="line"
+         x="-367.28571"
+         y="868.00507"
+         id="tspan4004" /><tspan
+         sodipodi:role="line"
+         x="-367.28571"
+         y="885.50507"
+         id="tspan4006">So to give an example: </tspan><tspan
+         sodipodi:role="line"
+         x="-367.28571"
+         y="903.00507"
+         id="tspan4008">xlink:href = &quot;../images/image.png&quot;</tspan><tspan
+         sodipodi:role="line"
+         x="-367.28571"
+         y="920.50507"
+         id="tspan4010">src = &quot;./images/image.png&quot;</tspan><tspan
+         sodipodi:role="line"
+         x="-367.28571"
+         y="938.00507"
+         id="tspan4012">Note the usage of single vs double dots. </tspan></text>
+    <rect
+       style="fill:none;stroke:#0062c4;stroke-width:3.29731584;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect4014"
+       width="771.06219"
+       height="665.39819"
+       x="-678.50269"
+       y="369.35989"
+       ry="69.099045" />
+    <text
+       xml:space="preserve"
+       style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="-379.00925"
+       y="398.99551"
+       id="text4524"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="-379.00925"
+         y="398.99551"
+         id="tspan4528">These images have the </tspan><tspan
+         sodipodi:role="line"
+         x="-379.00925"
+         y="428.99551"
+         id="tspan4532">correct properties. </tspan><tspan
+         sodipodi:role="line"
+         x="-379.00925"
+         y="458.99551"
+         id="tspan4534" /><tspan
+         sodipodi:role="line"
+         x="-379.00925"
+         y="488.99551"
+         id="tspan4536">Copy-Paste them as needed  </tspan></text>
+    <image
+       sodipodi:absref="/Users/Nomad 1/Documents/JavaScript/CS679 Project 3/levels/../images/Girder3.png"
+       xlink:href="../images/Girder3.png"
+       src="./images/Girder3.png"
+       y="564.06238"
+       x="-155.82343"
+       id="image3175"
+       height="60.18919"
+       width="59.91684"
+       style="display:inline" />
+    <image
+       sodipodi:absref="/Users/Nomad 1/Documents/JavaScript/CS679 Project 3/levels/../images/Girder1.png"
+       xlink:href="../images/Girder1.png"
+       y="551.95593"
+       x="-51.225464"
+       id="image3077"
+       height="136.72792"
+       width="127.90677"
+       src="./images/Girder1.png"
+       style="display:inline" />
+    <image
+       sodipodi:absref="/Users/Nomad 1/Documents/JavaScript/CS679 Project 3/levels/../images/Girder2.png"
+       xlink:href="../images/Girder2.png"
+       y="657.62732"
+       x="-191.43137"
+       id="image3951"
+       height="37.108109"
+       width="114.16217"
+       src="./images/Girder2.png"
+       style="display:inline" />
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="130"
+       y="436.36218"
+       id="text4610"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4612"
+         x="130"
+         y="436.36218">This green box is where you start</tspan><tspan
+         sodipodi:role="line"
+         x="130"
+         y="453.86218"
+         id="tspan4614">in the level. It is iterpreted as a </tspan><tspan
+         sodipodi:role="line"
+         x="130"
+         y="471.36218"
+         id="tspan4616">checkpoint. You should move it </tspan><tspan
+         sodipodi:role="line"
+         x="130"
+         y="488.86218"
+         id="tspan4783">to where you want to start the </tspan><tspan
+         sodipodi:role="line"
+         x="130"
+         y="506.36218"
+         id="tspan4785">level. Don't copy-paste or clone it</tspan></text>
+    <rect
+       style="fill:none;stroke:#0062c4;stroke-width:1.04678118;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect4014-1"
+       width="244.31271"
+       height="211.64874"
+       x="112.84364"
+       y="400.03778"
+       ry="21.978909" />
+    <image
+       sodipodi:absref="/Users/Nomad 1/Documents/JavaScript/CS679 Project 3/levels/../images/Bell_Jar.png"
+       xlink:href="../images/Bell_Jar.png"
+       src="./images/Bell_Jar.png"
+       width="189"
+       height="266"
+       id="image4644"
+       x="-605.01971"
+       y="469.09711" />
+    <image
+       sodipodi:absref="/Users/Nomad 1/Documents/JavaScript/CS679 Project 3/levels/../images/Bell_Jar2.png"
+       xlink:href="../images/Bell_Jar2.png"
+       src="./images/Bell_Jar2.png"
+       width="189"
+       height="266"
+       id="image4655"
+       x="-607.5"
+       y="741.09711" />
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="1700"
+       y="906.36218"
+       id="text4745"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4747"
+         x="1700"
+         y="906.36218">Currently, only paths with straight sides are supported. Paths can be closed or open. The last point on the </tspan><tspan
+         sodipodi:role="line"
+         x="1700"
+         y="923.86218"
+         id="tspan4749">path connects to the first point on the path. There is no limit to how many points a path may have. </tspan><tspan
+         sodipodi:role="line"
+         x="1700"
+         y="941.36218"
+         id="tspan4753" /><tspan
+         sodipodi:role="line"
+         x="1700"
+         y="958.86218"
+         id="tspan4757">You can give the path object an optional &quot;speed&quot; attribute that will control how fast the platform moves in</tspan><tspan
+         sodipodi:role="line"
+         x="1700"
+         y="976.36218"
+         id="tspan4761">pixels per millisecond.</tspan><tspan
+         sodipodi:role="line"
+         x="1700"
+         y="993.86218"
+         id="tspan4759" /><tspan
+         sodipodi:role="line"
+         x="1700"
+         y="1011.3622"
+         id="tspan4755">You need to group a rectangle with the path object. Select both objects and type Ctrl-G to group them.</tspan></text>
+    <rect
+       ry="70.11673"
+       y="376.26727"
+       x="1653.5995"
+       height="675.19818"
+       width="811.54932"
+       id="rect4765"
+       style="fill:none;stroke:#0062c4;stroke-width:3.40759635;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="206"
+       y="986.36218"
+       id="text4767"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4769"
+         x="206"
+         y="986.36218">all rect objects on the spike layer are interpreted as spike fields. The number of spikes per unit lenght is constant and defined in the code. </tspan><tspan
+         sodipodi:role="line"
+         x="206"
+         y="1003.8622"
+         id="tspan4771" /><tspan
+         sodipodi:role="line"
+         x="206"
+         y="1021.3622"
+         id="tspan4773">The hight of the spikes is determined by the height of the rectange.</tspan></text>
+    <rect
+       ry="27.625931"
+       y="780.5144"
+       x="104.9883"
+       height="266.02747"
+       width="1390.0956"
+       id="rect4781"
+       style="fill:none;stroke:#0062c4;stroke-width:2.79937196;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <rect
+       ry="14.689216"
+       y="619.33313"
+       x="111.47057"
+       height="141.45169"
+       width="1447.0758"
+       id="rect4791"
+       style="fill:none;stroke:#0062c4;stroke-width:2.08269048;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="739"
+       y="495.36218"
+       id="text4793"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4795"
+         x="739"
+         y="495.36218">All rect objects on the grapple layer are </tspan><tspan
+         sodipodi:role="line"
+         x="739"
+         y="512.86218"
+         id="tspan4797">interpreted as grapple points.</tspan><tspan
+         sodipodi:role="line"
+         x="739"
+         y="530.36218"
+         id="tspan4799" /><tspan
+         sodipodi:role="line"
+         x="739"
+         y="547.86218"
+         id="tspan4801">The grapple point is centered on the </tspan><tspan
+         sodipodi:role="line"
+         x="739"
+         y="565.36218"
+         id="tspan4803">rect.</tspan></text>
+    <rect
+       ry="19.694559"
+       y="413.0365"
+       x="721.84235"
+       height="189.65131"
+       width="271.31528"
+       id="rect4823"
+       style="fill:none;stroke:#0062c4;stroke-width:1.04421544;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="783"
+       y="243.36218"
+       id="text4825"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4827"
+         x="783"
+         y="243.36218">copy-paste this gear image to add gears on the gear layer.</tspan></text>
+    <rect
+       style="fill:none;stroke:#0062c4;stroke-width:1.51298153;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect4829"
+       width="569.58862"
+       height="189.65131"
+       x="590.84235"
+       y="156.0365"
+       ry="19.694559" />
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="1095"
+       y="420.36218"
+       id="text4837"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4839"
+         x="1095"
+         y="420.36218">rect objects on the </tspan><tspan
+         sodipodi:role="line"
+         x="1095"
+         y="437.86218"
+         id="tspan4841">checkpoint layer are</tspan><tspan
+         sodipodi:role="line"
+         x="1095"
+         y="455.36218"
+         id="tspan4843">interpreted as checkpoints</tspan></text>
+    <rect
+       style="fill:none;stroke:#0062c4;stroke-width:0.97604126;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect4845"
+       width="193.7477"
+       height="232.03296"
+       x="1080.8424"
+       y="381.0365"
+       ry="24.09573" />
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="1347"
+       y="204.36218"
+       id="text4865"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4867"
+         x="1347"
+         y="204.36218">background elements can be images or rect </tspan><tspan
+         sodipodi:role="line"
+         x="1347"
+         y="221.86218"
+         id="tspan4869">objects </tspan></text>
+    <rect
+       ry="45.226097"
+       y="177.0365"
+       x="1283.8424"
+       height="435.51056"
+       width="349.16299"
+       id="rect4871"
+       style="fill:none;stroke:#0062c4;stroke-width:1.7950995;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="129.20459"
+       y="698.98523"
+       id="text4787"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4789"
+         x="129.20459"
+         y="698.98523">all rect objects on the 'box' layer are interpreted as platforms</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:28px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="-610"
+       y="104.36218"
+       id="text4894"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="-610"
+         y="104.36218"
+         id="tspan4898">The instructions layer is not parsed by the program, </tspan><tspan
+         sodipodi:role="line"
+         x="-610"
+         y="139.36218"
+         id="tspan4906">so you can use for anything you want. I recomend </tspan><tspan
+         sodipodi:role="line"
+         x="-610"
+         y="174.36218"
+         id="tspan4910">putting comments in so others know what you are</tspan><tspan
+         sodipodi:role="line"
+         x="-610"
+         y="209.36218"
+         id="tspan4912">doing.</tspan></text>
+    <rect
+       ry="16.423933"
+       y="70.480789"
+       x="-624.38184"
+       height="158.15639"
+       width="668.58997"
+       id="rect4904"
+       style="fill:none;stroke:#0062c4;stroke-width:1.49691904;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <image
+       y="394.31891"
+       x="418.6438"
+       id="image3100"
+       xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAADVCAYAAABkKg1QAAAABHNCSVQICAgIfAhkiAAACUNJREFU eJzt3H1wFPUdx/HP7eXpQpLDXAIhQApBEqLjmPoEVgQVijMt1VELBQGxo51iW0Ut06lDO/0DO1al trWMWqujIqjDANaiCLUKHXkcKwiiIUqQmIRAYh4u4S7JJXfbP5B0GCDkAbzkO+/Xn3u7e99/3nM7 v9tdj+u6rnopGnO1qzykzaVBffRlSKVHWlRe16ZozFVLe0yt7bHenhowzfFIfl+CJCkrPVHjcnwq yvVpUoFfkwoylJ7i7cvp53l6E/aBmla9vL1GK7bXqqklqsmFGbp6TLqKhqUqPztFg1O98vsS5Ety +jIcYFY05irYElVjuENVDRGVHmnR7i9D2rS/URX1Ed16eUBzr87W1KLB8nh6fPqehf3J4bB+/2al 3v64QTOuCOjuSTm6anRaj78VwJlVByN6cWuNXtxSI1+So99MH6nbLg/0JPDuhR1qi2rJuko9vbla C6fm6oFpubogNaFPwwPoWsyVVv/3Ky1eW668QLKemjtGhTm+7hx69rD3VYU18+n9ys9O0bI5YzQq K/ncTA2gW9o6Ylq64bAe31CppTNH6+5JQ892SNdhv/Npo370dKkWTx+hB6cN7821PoBzZOfBZs36 W6luLg7oiVmj5Zy5xzOH/crOWj3w2hdataBQkwv9521YAN1XH+rQTU+WaPgFSVrxkwIlek9b97zT Lluv39uge1ce1Nv3X0TUQD+SOShB7/zyYlUHI1qwvOyM+50S9r6qsOb+/TOt+fk4XfYtVryB/saX 5GjdfRfpg0PNemR95Wn3OSnscCSmWc+U6nc3j9R1/FID/Zbf59Xqn43T0g1V2nqg6ZTPTwr7t6+X 68KhKbpvSu43NiCA3ikY6tOyOfm647nP1RI5+S7PzrD3VYX13PtH9eTt+ax+AwPE7PHZGp2Vokff PvmSvDPsJesqtHBqrvIy+Z8aGEj+NGu0/vLvajWGOzq3OdLxe7837GvQwqlcggMDzSUjUnVdoV9P bTrSuc2RpBe2HNWcCdkKpHGbKDAQPTgtV8+/f1Qn7kpxXFdasb1W878zJL6TAei1iWMzJEnbyo6v kDsfV4XUHnV11ej0eM4FoA88Humm4ky9tadBkuS8VxLUDUV+VsKBAW5KkV/vljRKkpxd5SGNz+fX GhjoJoxJ197KsFrbo45TeiSsomHdesYTQD+WlZao9BSv/rUvmOVU1EeUF+C/a8CCvMxkfXw4FHCa WqOdL1UDMLD5U71qCEV9TjgSVSovHQRMSEv2qrmtI8VxXbEiDhjheDyKRT0efqoBgwgbMIiwAYMI GzCIsAGDCBswiLABgwgbMIiwAYMIGzCIsAGDCBswiLABgwgbMIiwAYMIGzCIsAGDCBswiLABgwgb MIiwAYMIGzCIsAGDCBswiLABgwgbMIiwAYMIGzCIsAGDCBswiLABgwgbMIiwAYMIGzCIsAGDCBsw iLABgwgbMIiwAYMIGzCIsAGDCBswiLABgwgbMIiwAYMIGzCIsAGDCBswiLABgwgbMIiwAYMIGzCI sAGDCBswiLABgwgbMIiwAYMIGzCIsAGDCBswiLABgwgbMIiwAYMIGzCIsAGDCBswiLABgwgbMIiw AYMIGzCIsAGDCBswiLABgwgbMIiwAYMIGzCIsAGDCBswiLABgwgbMIiwAYMIGzCIsAGDCBswiLAB gwgbMIiwAYMIGzCIsAGDCBswiLABgwgbMIiwAYMIGzCIsAGDCBswiLABgwgbMIiwAYMIGzCIsAGD CBswiLABgwgbMIiwAYMIGzCIsAGDCBswiLABgwgbMIiwAYMIGzCIsAGDCBswiLABgwgbMIiwAYMI GzCIsAGDCBswiLABgwgbMIiwAYMIGzCIsAGDCBswiLABgwgbMIiwAYMIGzCIsAGDCBswiLABgwgb MIiwAYMIGzCIsAGDCBswiLABgwgbMIiwAYMIGzCIsAGDCBswiLABgwgbMIiwAYMIGzCIsAGDCBsw iLABgwgbMIiwAYMIGzCIsAGDCBswiLABgwgbMIiwAYMIGzCIsAGDCBswiLABgwgbMIiwAYMIGzDI 8ToedUTdeM8B4Bxoj8aU6PVEnfQUr461xeI9D4BzoKk1qgyft8UZnOpVQ6gj3vMAOAcaQh0akpEY csYO8enzmpZ4zwOgj2KuVFbbqilFg484BTk+lRwmbGCgO/RVq3yJji4dmXrMmTg2Q5tLg/GeCUAf bS4N6tqCDEmSc11hhnaUNau1nQU0YCB7rySo68f5JUlOjj9JxXmDtHZXXZzHAtBbza1RvbG7Xrde FpD09Q0qs8dnafm2mrgOBqD31nxYp+K8QRqZmSzp67DvvGaodpWH9MEXx+I6HICei8ZcPfxmhRbd OLxzmyNJqUmO7rk+R49tqIzbcAB65/Vd9UryevSD4szObZ33ii+6cbh2lDXrrb0NcRkOQM8da4vq gdcO6s+z8+V4/r+9M+z0FK8enTFKC189qKaWaDxmBNBDD60u17fz0jTt4sEnbT/p6a7bx2frylFp WvBymVyeCwH6tX/srtOaD+v07Pwxp3x2ymObz86/UCXVYS1eW/6NDAeg57YdaNZdLxzQqnsKleNP OuXzU8JOT/Fq/f0X6ZWdtfrDehbTgP7moy9Duumvn+qZO8Zo4tiM0+5z2hctDPMnafOvLtHz7x/V olWHuCwH+ol3Sxp1w+P79MhtozTjiqwz7udx3TNnWx2M6JZl+xVIS9BLd41VVlrieRkWQNdcV1q6 sUpLN1bp+Tsv1PRLM7vafV6XYUtSe9TVr1cf0kvbavTYjFH68TVD5fF0dQSAc2lPRUg/XV6mmOtq 1YJxGpWVfLZDzh72Cf8pDWrhq18o5rp66HsjNPPKLHkdCgfOlz0VIT38ZoU27Q9q8fdH6hdThinR 263muh+2dPxB7jd212nJugrVHevQnAnZ+uEVARXnpYnGgb6raoho3Z56rdxRq5LqsO7/bq7unZIr v8/bk9P0LOwTXFfa8nmTVu6o1cZPGhQMRzU+P11FuT4NzUhUapJXyQmUDnTFldQY7lCoLabPjrZo d3lIR5oimlzg14wrA7rlsoDSknsU9AnzPK7r/rOvA356OOzbeqDJX1LdklZZH/E1t0YTIx0uZQNn 4U/1tmelJUQKc3zHivMGNV9b4G9K8nr6+j/UH/8Hm7Zo9xwm0KYAAAAASUVORK5CYII= "
+       height="213"
+       width="246" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text3130"
+       y="433.53375"
+       x="448.19806"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       xml:space="preserve"><tspan
+         id="tspan3140"
+         y="433.53375"
+         x="448.19806"
+         sodipodi:role="line">This checkpoint is where you</tspan><tspan
+         y="451.03375"
+         x="448.19806"
+         sodipodi:role="line"
+         id="tspan3156">end the level.</tspan></text>
+  </g>
+  <g
+     inkscape:label="background"
+     inkscape:groupmode="layer"
+     id="background">
+    <rect
+       style="fill:#666666;fill-opacity:1;stroke:none"
+       id="rect4831"
+       width="246"
+       height="29"
+       x="1301"
+       y="515.36218" />
+    <image
+       sodipodi:absref="/Users/Nomad 1/Documents/JavaScript/CS679 Project 3/levels/../images/Girder1.png"
+       xlink:href="../images/Girder1.png"
+       y="542.99823"
+       x="1371.0466"
+       id="image3077-9"
+       height="89.727936"
+       width="127.90677"
+       src="./images/Girder1.png"
+       style="display:inline" />
+    <image
+       sodipodi:absref="/Users/Nomad 1/Documents/JavaScript/CS679 Project 3/levels/../images/Bell_Jar2.png"
+       xlink:href="../images/Bell_Jar2.png"
+       src="./images/Bell_Jar2.png"
+       width="189"
+       height="266"
+       id="image4655-4"
+       x="1329.5"
+       y="255.36218" />
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="1071"
+       y="440.36218"
+       id="text4833"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4835"
+         x="1071"
+         y="440.36218" /></text>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="box"
+     inkscape:label="box">
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect4658"
+       width="724.06812"
+       height="14.171584"
+       x="141"
+       y="633.36218"
+       ry="7.0857921"
+       rx="0" />
+    <rect
+       rx="0"
+       ry="8.5"
+       y="631.36218"
+       x="1086"
+       height="17"
+       width="448"
+       id="rect4668"
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="gear"
+     inkscape:label="gear">
+    <image
+       sodipodi:absref="/Users/Nomad 1/Documents/JavaScript/CS679 Project 3/levels/../images/AAGear.png"
+       xlink:href="../images/AAGear.png"
+       src="./images/AAGear.png"
+       style="display:inline"
+       y="172.01903"
+       x="610.17157"
+       id="image5517-7"
+       height="154"
+       width="154" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="moving"
+     inkscape:label="moving">
+    <g
+       id="g4725"
+       transform="translate(-1320.1181,-202.96046)">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4715"
+         d="m 1763,827.36218 0,-427"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         speed="2" />
+      <rect
+         ry="0"
+         y="583.98749"
+         x="1659"
+         height="246.37468"
+         width="208"
+         id="rect4719"
+         style="fill:#000000;fill-opacity:1;stroke:none" />
+    </g>
+    <g
+       id="g4741"
+       transform="translate(118,-12)">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4733"
+         d="m 1998,832.36218 -100,-99 272,-39 -273,-129 273,-55 -166,-80 z"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         sodipodi:nodetypes="ccccccc"
+         speed="0.2" />
+      <rect
+         y="816.36218"
+         x="1951"
+         height="31"
+         width="114"
+         id="rect4735"
+         style="fill:#000000;fill-opacity:1;stroke:none" />
+    </g>
+    <g
+       transform="translate(-1321.5323,133.62237)"
+       id="g3140">
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 1763,827.36218 0,-427"
+         id="path3142"
+         inkscape:connector-curvature="0" />
+      <rect
+         style="fill:#000000;fill-opacity:1;stroke:none"
+         id="rect3144"
+         width="208"
+         height="246.37468"
+         x="1659"
+         y="583.98749"
+         ry="0" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="grapple"
+     inkscape:label="grapple">
+    <rect
+       style="fill:#800080;fill-opacity:1;stroke:#800080;stroke-width:0;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect4660"
+       width="20"
+       height="21"
+       x="799"
+       y="430.36218"
+       ry="8.5"
+       rx="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="checkpoint"
+     inkscape:label="checkpoint">
+    <rect
+       style="fill:none;stroke:#00ff00;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect4666"
+       width="90"
+       height="142"
+       x="1116"
+       y="464.36218" />
+    <rect
+       y="467.19058"
+       x="722.84863"
+       height="142"
+       width="90"
+       id="finish"
+       style="fill:none;stroke:#00ff00;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       inkscape:label="#finish" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="spike"
+     inkscape:label="spike">
+    <rect
+       style="fill:#ff0000;fill-opacity:1;stroke:#800080;stroke-width:0;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect4664"
+       width="1242"
+       height="24"
+       x="230"
+       y="921.36218"
+       ry="0" />
+    <rect
+       ry="0"
+       y="819.36218"
+       x="150"
+       height="121"
+       width="54"
+       id="rect4779"
+       style="fill:#ff0000;fill-opacity:1;stroke:#800080;stroke-width:0;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer7"
+     inkscape:label="begin">
+    <rect
+       style="fill:#008000;display:inline"
+       id="start"
+       width="50"
+       height="50"
+       x="219.30867"
+       y="533.60272" />
+  </g>
+</svg>
