@@ -25,11 +25,11 @@
      borderopacity="0.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="0"
-     inkscape:zoom="1.0074671"
-     inkscape:cx="-506.33843"
-     inkscape:cy="339.4751"
+     inkscape:zoom="0.50373355"
+     inkscape:cx="-384.12047"
+     inkscape:cy="422.28929"
      inkscape:document-units="px"
-     inkscape:current-layer="background"
+     inkscape:current-layer="box"
      showgrid="true"
      inkscape:window-width="1366"
      inkscape:window-height="746"
@@ -67,13 +67,13 @@
     <image
        sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/AAGear.png"
        xlink:href="../images/AAGear.png"
-       width="154"
-       height="154"
-       id="image5517"
-       x="-367.45938"
-       y="524.65869"
+       src="./images/AAGear.png"
        style="display:inline"
-       src="./images/AAGear.png" />
+       y="524.65869"
+       x="-367.45938"
+       id="image5517"
+       height="154"
+       width="154" />
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
@@ -155,33 +155,33 @@
     <image
        sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/Girder3.png"
        xlink:href="../images/Girder3.png"
-       style="display:inline"
-       width="59.91684"
-       height="60.18919"
-       id="image3175"
-       x="-155.82343"
+       src="./images/Girder3.png"
        y="564.06238"
-       src="./images/Girder3.png" />
+       x="-155.82343"
+       id="image3175"
+       height="60.18919"
+       width="59.91684"
+       style="display:inline" />
     <image
        sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/Girder1.png"
        xlink:href="../images/Girder1.png"
-       style="display:inline"
-       src="./images/Girder1.png"
-       width="127.90677"
-       height="136.72792"
-       id="image3077"
+       y="551.95593"
        x="-51.225464"
-       y="551.95593" />
+       id="image3077"
+       height="136.72792"
+       width="127.90677"
+       src="./images/Girder1.png"
+       style="display:inline" />
     <image
        sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/Girder2.png"
        xlink:href="../images/Girder2.png"
-       style="display:inline"
-       src="./images/Girder2.png"
-       width="114.16217"
-       height="37.108109"
-       id="image3951"
+       y="657.62732"
        x="-191.43137"
-       y="657.62732" />
+       id="image3951"
+       height="37.108109"
+       width="114.16217"
+       src="./images/Girder2.png"
+       style="display:inline" />
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
@@ -220,21 +220,21 @@
     <image
        sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/Bell_Jar.png"
        xlink:href="../images/Bell_Jar.png"
-       y="469.09711"
-       x="-605.01971"
-       id="image4644"
-       height="266"
+       src="./images/Bell_Jar.png"
        width="189"
-       src="./images/Bell_Jar.png" />
+       height="266"
+       id="image4644"
+       x="-605.01971"
+       y="469.09711" />
     <image
        sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/Bell_Jar2.png"
        xlink:href="../images/Bell_Jar2.png"
-       y="741.09711"
-       x="-607.5"
-       id="image4655"
-       height="266"
+       src="./images/Bell_Jar2.png"
        width="189"
-       src="./images/Bell_Jar2.png" />
+       height="266"
+       id="image4655"
+       x="-607.5"
+       y="741.09711" />
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
@@ -462,11 +462,11 @@
     <image
        sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/Jumps.png"
        xlink:href="../images/Jumps.png"
-       width="1189"
-       height="517"
-       id="image5026"
+       y="1247.0682"
        x="-445.90201"
-       y="1247.0682" />
+       id="image5026"
+       height="517"
+       width="1189" />
     <text
        xml:space="preserve"
        style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
@@ -506,7 +506,7 @@
     <rect
        style="fill:#4d4d4d;fill-opacity:1;stroke:none"
        id="rect4846"
-       width="380"
+       width="375.03705"
        height="140"
        x="-390"
        y="452.36218"
@@ -525,15 +525,15 @@
          sodipodi:role="line"
          x="-380"
          y="512.36218"
-         id="tspan4842">down 'D' when you are in range,</tspan><tspan
+         id="tspan4842">down 'space' when you are in </tspan><tspan
          sodipodi:role="line"
          x="-380"
          y="542.36218"
-         id="tspan4844">then release 'D' when you are at </tspan><tspan
+         id="tspan4844">range, then release 'space' when</tspan><tspan
          sodipodi:role="line"
          x="-380"
          y="572.36218"
-         id="tspan5362">a good angle. </tspan></text>
+         id="tspan5362">you are at a good angle. </tspan></text>
     <g
        id="g5731"
        transform="translate(220,-10)">
@@ -961,7 +961,7 @@
     <rect
        style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        id="rect4658"
-       width="1130"
+       width="1181.6145"
        height="440"
        x="-1160"
        y="832.36218"
@@ -980,7 +980,7 @@
        rx="0"
        ry="10"
        y="722.36218"
-       x="-170"
+       x="-140.37059"
        height="20"
        width="140"
        id="rect4800"
@@ -1105,9 +1105,9 @@
     <rect
        style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        id="rect5677"
-       width="3050"
+       width="3214.7695"
        height="321.83694"
-       x="-560"
+       x="-724.76965"
        y="2970.5254"
        ry="160.91847"
        rx="0" />
@@ -1117,7 +1117,7 @@
        y="2052.3623"
        x="-1611.5055"
        height="1239.9999"
-       width="1051.5055"
+       width="888.72101"
        id="rect5681"
        style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
     <rect
@@ -1138,6 +1138,13 @@
        width="13685.092"
        id="rect5729"
        style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <rect
+       style="fill:#000000"
+       id="rect4782"
+       width="232.26566"
+       height="911.19598"
+       x="809.95203"
+       y="2062.8169" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -1147,121 +1154,101 @@
     <image
        sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/AAGear.png"
        xlink:href="../images/AAGear.png"
-       width="154"
-       height="154"
-       id="image5517-7"
-       x="3177.0527"
+       src="./images/AAGear.png"
+       style="display:inline"
        y="1380.8715"
-       style="display:inline"
-       src="./images/AAGear.png" />
+       x="3177.0527"
+       id="image5517-7"
+       height="154"
+       width="154" />
     <image
        sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/AAGear.png"
        xlink:href="../images/AAGear.png"
-       src="./images/AAGear.png"
-       style="display:inline"
-       y="1442.5734"
-       x="2093.0186"
+       width="154"
+       height="154"
        id="image5705"
-       height="154"
-       width="154" />
+       x="2093.0186"
+       y="1442.5734"
+       style="display:inline"
+       src="./images/AAGear.png" />
     <image
        sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/AAGear.png"
        xlink:href="../images/AAGear.png"
-       width="154"
-       height="154"
-       id="image5707"
-       x="1612.9425"
+       src="./images/AAGear.png"
+       style="display:inline"
        y="1683.1084"
-       style="display:inline"
-       src="./images/AAGear.png" />
+       x="1612.9425"
+       id="image5707"
+       height="154"
+       width="154" />
     <image
        sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/AAGear.png"
        xlink:href="../images/AAGear.png"
-       src="./images/AAGear.png"
-       style="display:inline"
-       y="1961.0331"
-       x="1151.3889"
+       width="154"
+       height="154"
        id="image5709"
-       height="154"
-       width="154" />
+       x="1151.3889"
+       y="1833.9818"
+       style="display:inline"
+       src="./images/AAGear.png" />
     <image
        sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/AAGear.png"
        xlink:href="../images/AAGear.png"
-       width="154"
-       height="154"
+       src="./images/AAGear.png"
+       style="display:inline"
+       y="1882.8422"
+       x="454.84995"
        id="image5711"
-       x="659.32312"
-       y="1862.9905"
-       style="display:inline"
-       src="./images/AAGear.png" />
+       height="154"
+       width="154" />
     <image
        sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/AAGear.png"
        xlink:href="../images/AAGear.png"
-       width="154"
-       height="154"
+       src="./images/AAGear.png"
+       style="display:inline"
+       y="1796.8569"
+       x="-3.1544406"
        id="image5715"
-       x="175.51144"
-       y="1761.1238"
-       style="display:inline"
-       src="./images/AAGear.png" />
+       height="154"
+       width="154" />
     <image
        sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/AAGear.png"
        xlink:href="../images/AAGear.png"
-       src="./images/AAGear.png"
-       style="display:inline"
-       y="1842.915"
-       x="-346.42679"
+       width="154"
+       height="154"
        id="image5717"
-       height="154"
-       width="154" />
+       x="-469.50772"
+       y="1834.9744"
+       style="display:inline"
+       src="./images/AAGear.png" />
     <image
        sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/AAGear.png"
        xlink:href="../images/AAGear.png"
-       width="154"
-       height="154"
-       id="image5719"
-       x="1116.6483"
+       src="./images/AAGear.png"
+       style="display:inline"
        y="1415.1095"
-       style="display:inline"
-       src="./images/AAGear.png" />
+       x="1116.6483"
+       id="image5719"
+       height="154"
+       width="154" />
     <image
        sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/AAGear.png"
        xlink:href="../images/AAGear.png"
-       src="./images/AAGear.png"
-       style="display:inline"
-       y="1329.7469"
-       x="29.764107"
+       width="154"
+       height="154"
        id="image5721"
-       height="154"
-       width="154" />
+       x="29.764107"
+       y="1329.7469"
+       style="display:inline"
+       src="./images/AAGear.png" />
     <image
        sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/AAGear.png"
        xlink:href="../images/AAGear.png"
-       width="154"
-       height="154"
-       id="image5723"
-       x="-355.36014"
+       src="./images/AAGear.png"
+       style="display:inline"
        y="1479.6278"
-       style="display:inline"
-       src="./images/AAGear.png" />
-    <image
-       sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/AAGear.png"
-       xlink:href="../images/AAGear.png"
-       src="./images/AAGear.png"
-       style="display:inline"
-       y="1582.8569"
-       x="-700.78088"
-       id="image5725"
-       height="154"
-       width="154" />
-    <image
-       sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/AAGear.png"
-       xlink:href="../images/AAGear.png"
-       src="./images/AAGear.png"
-       style="display:inline"
-       y="2212.3623"
-       x="166"
-       id="image5739"
+       x="-355.36014"
+       id="image5723"
        height="154"
        width="154" />
     <image
@@ -1269,21 +1256,31 @@
        xlink:href="../images/AAGear.png"
        width="154"
        height="154"
-       id="image5741"
-       x="926"
-       y="2418.3623"
+       id="image5725"
+       x="-700.78088"
+       y="1582.8569"
        style="display:inline"
        src="./images/AAGear.png" />
     <image
        sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/AAGear.png"
        xlink:href="../images/AAGear.png"
-       src="./images/AAGear.png"
-       style="display:inline"
-       y="2252.3623"
-       x="1920"
-       id="image5743"
+       width="154"
        height="154"
-       width="154" />
+       id="image5739"
+       x="156.07411"
+       y="2244.1252"
+       style="display:inline"
+       src="./images/AAGear.png" />
+    <image
+       sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/AAGear.png"
+       xlink:href="../images/AAGear.png"
+       width="154"
+       height="154"
+       id="image5743"
+       x="1920"
+       y="2252.3623"
+       style="display:inline"
+       src="./images/AAGear.png" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -1379,7 +1376,7 @@
     <rect
        rx="0"
        ry="8.5"
-       y="2031.3622"
+       y="1904.3109"
        x="1220"
        height="21"
        width="20"
@@ -1390,8 +1387,8 @@
        id="rect5669"
        width="20"
        height="21"
-       x="729.46564"
-       y="1933.1263"
+       x="524.99249"
+       y="1952.978"
        ry="8.5"
        rx="0" />
     <rect
@@ -1399,15 +1396,15 @@
        id="rect5673"
        width="20"
        height="21"
-       x="241.77692"
-       y="1830.6667"
+       x="63.111034"
+       y="1866.3999"
        ry="8.5"
        rx="0" />
     <rect
        rx="0"
        ry="8.5"
-       y="1911.3622"
-       x="-280"
+       y="1903.4215"
+       x="-403.08093"
        height="21"
        width="20"
        id="rect5683"
@@ -1467,6 +1464,13 @@
        width="90"
        id="rect5675"
        style="fill:none;stroke:#00ff00;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <rect
+       y="1914.395"
+       x="882.07745"
+       height="142"
+       width="90"
+       id="rect5675-1"
+       style="fill:none;stroke:#00ff00;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -1516,9 +1520,9 @@
     <rect
        ry="0"
        y="2912.3623"
-       x="-560"
+       x="-724.76965"
        height="60"
-       width="3050"
+       width="3214.7695"
        id="rect5679"
        style="fill:#ff0000;fill-opacity:1;stroke:#800080;stroke-width:0;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
   </g>
@@ -1532,7 +1536,7 @@
        id="start"
        width="50"
        height="50"
-       x="-833.52557"
-       y="782.36212" />
+       x="-829.55536"
+       y="780.37695" />
   </g>
 </svg>

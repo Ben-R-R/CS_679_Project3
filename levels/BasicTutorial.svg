@@ -26,13 +26,13 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="0"
      inkscape:zoom="0.5"
-     inkscape:cx="2312.7558"
-     inkscape:cy="841.0379"
+     inkscape:cx="1992"
+     inkscape:cy="681.0379"
      inkscape:document-units="px"
      inkscape:current-layer="background"
      showgrid="true"
      inkscape:window-width="1366"
-     inkscape:window-height="716"
+     inkscape:window-height="746"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -49,7 +49,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -59,15 +59,15 @@
      inkscape:label="instructions"
      style="display:none">
     <image
-       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/AAGear.png"
+       sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/AAGear.png"
        xlink:href="../images/AAGear.png"
-       src="./images/AAGear.png"
-       style="display:inline"
-       y="524.65869"
-       x="-367.45938"
-       id="image5517"
+       width="154"
        height="154"
-       width="154" />
+       id="image5517"
+       x="-367.45938"
+       y="524.65869"
+       style="display:inline"
+       src="./images/AAGear.png" />
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
@@ -147,35 +147,35 @@
          y="488.99551"
          id="tspan4536">Copy-Paste them as needed  </tspan></text>
     <image
-       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/Girder3.png"
+       sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/Girder3.png"
        xlink:href="../images/Girder3.png"
-       src="./images/Girder3.png"
-       y="564.06238"
-       x="-155.82343"
-       id="image3175"
-       height="60.18919"
+       style="display:inline"
        width="59.91684"
-       style="display:inline" />
+       height="60.18919"
+       id="image3175"
+       x="-155.82343"
+       y="564.06238"
+       src="./images/Girder3.png" />
     <image
-       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/Girder1.png"
+       sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/Girder1.png"
        xlink:href="../images/Girder1.png"
-       y="551.95593"
-       x="-51.225464"
-       id="image3077"
-       height="136.72792"
-       width="127.90677"
+       style="display:inline"
        src="./images/Girder1.png"
-       style="display:inline" />
+       width="127.90677"
+       height="136.72792"
+       id="image3077"
+       x="-51.225464"
+       y="551.95593" />
     <image
-       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/Girder2.png"
+       sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/Girder2.png"
        xlink:href="../images/Girder2.png"
-       y="657.62732"
-       x="-191.43137"
-       id="image3951"
-       height="37.108109"
-       width="114.16217"
+       style="display:inline"
        src="./images/Girder2.png"
-       style="display:inline" />
+       width="114.16217"
+       height="37.108109"
+       id="image3951"
+       x="-191.43137"
+       y="657.62732" />
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
@@ -212,23 +212,23 @@
        y="400.03778"
        ry="21.978909" />
     <image
-       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/Bell_Jar.png"
+       sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/Bell_Jar.png"
        xlink:href="../images/Bell_Jar.png"
-       src="./images/Bell_Jar.png"
-       width="189"
-       height="266"
-       id="image4644"
+       y="469.09711"
        x="-605.01971"
-       y="469.09711" />
-    <image
-       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/Bell_Jar2.png"
-       xlink:href="../images/Bell_Jar2.png"
-       src="./images/Bell_Jar2.png"
-       width="189"
+       id="image4644"
        height="266"
-       id="image4655"
+       width="189"
+       src="./images/Bell_Jar.png" />
+    <image
+       sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/Bell_Jar2.png"
+       xlink:href="../images/Bell_Jar2.png"
+       y="741.09711"
        x="-607.5"
-       y="741.09711" />
+       id="image4655"
+       height="266"
+       width="189"
+       src="./images/Bell_Jar2.png" />
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
@@ -454,13 +454,13 @@
        id="rect4904"
        style="fill:none;stroke:#0062c4;stroke-width:1.49691904;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
     <image
-       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/Jumps.png"
+       sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/Jumps.png"
        xlink:href="../images/Jumps.png"
-       y="1247.0682"
-       x="-445.90201"
-       id="image5026"
+       width="1189"
        height="517"
-       width="1189" />
+       id="image5026"
+       x="-445.90201"
+       y="1247.0682" />
     <text
        xml:space="preserve"
        style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
@@ -557,7 +557,7 @@
            id="tspan4224">arrow keys to move.</tspan></text>
     </g>
     <g
-       transform="matrix(1,0,0,1.094528,-1072.5391,-141.77613)"
+       transform="matrix(1.018633,0,0,1.094528,-1073.57,-141.77613)"
        id="g4230">
       <rect
          style="fill:#4d4d4d;fill-opacity:1;stroke:none"
@@ -569,15 +569,16 @@
          ry="0" />
       <text
          xml:space="preserve"
-         style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-         x="280"
-         y="468.15097"
+         style="font-size:23.51598167px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+         x="279.82709"
+         y="458.70959"
          id="text4234"
-         sodipodi:linespacing="125%"><tspan
+         sodipodi:linespacing="125%"
+         transform="scale(0.9798326,1.0205825)"><tspan
            id="tspan4238"
            sodipodi:role="line"
-           x="280"
-           y="468.15097">Press the 'D' key to jump.</tspan></text>
+           x="279.82709"
+           y="458.70959">Press the spacebar to jump.</tspan></text>
     </g>
     <path
        sodipodi:nodetypes="ccccccccc"
@@ -610,11 +611,11 @@
            id="tspan4311"
            sodipodi:role="line"
            x="280"
-           y="498.15097">Press 'D' and 'Right' to </tspan><tspan
+           y="498.15097">Press 'Space' and 'Right'</tspan><tspan
            id="tspan4313"
            sodipodi:role="line"
            x="280"
-           y="528.151">jump over it.</tspan></text>
+           y="528.151">to jump over it.</tspan></text>
     </g>
     <path
        style="fill:#ff0000;fill-opacity:1;stroke:none"
@@ -1017,15 +1018,15 @@
      id="gear"
      inkscape:label="gear">
     <image
-       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/AAGear.png"
+       sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/AAGear.png"
        xlink:href="../images/AAGear.png"
-       src="./images/AAGear.png"
-       style="display:inline"
-       y="470.66074"
-       x="-196.64084"
-       id="image5517-7"
+       width="154"
        height="154"
-       width="154" />
+       id="image5517-7"
+       x="-196.64084"
+       y="470.66074"
+       style="display:inline"
+       src="./images/AAGear.png" />
   </g>
   <g
      inkscape:groupmode="layer"
