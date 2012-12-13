@@ -24,6 +24,7 @@ function initKangaroo(newEnt){
 	newEnt._kJumps = 0;	//number of jumps available
 	newEnt._kJumpA = 0;	//jump acceleration
 	newEnt._kdTime = 0;	//current airtime used for disabling doublejump on falls
+	newEnt._kdY = 0;	//y-coordinate of last time on ground, used for disabling doublejump
 }
 
 // called when the kangaroo power is activated.
@@ -83,6 +84,7 @@ function kangaroo_update(elapsedTime){
 		
 		this._kJumps = 2;
 		this._kdTime = 0;
+		this._kdY = this.coords.y;
 		if(keydown(MOVE_LEFT_KEY) || keydown(MOVE_RIGHT_KEY)){	//left or right hops
 			this.velocity.y -= .2;
 			this.velocity.x = this.impX * this.direction;
@@ -104,8 +106,8 @@ function kangaroo_update(elapsedTime){
 		kJumpSound.cloneNode(true).play();
 	}
 	
-	if(this._kJumps == 2 && this._kdTime < 10){
-		this._kdTime++;
+	if(this._kJumps == 2 && this._kdTime < 3){
+		if(this.coords.y > this._kdY) this._kdTime++;
 	} else if(this._kJumps == 2) {
 		this._kJumps = 1;
 	} 

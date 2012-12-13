@@ -103,17 +103,17 @@ var PowerQueue = {
 	player: null,
 	x: 0,
 	y: 0,
-	mode: 1,
+	mode: 0,
 	image: H_Icon,
 	iW: H_Icon.width,
 	update: function(elapsedTime){
 		
 		 updateList(this.animationList,elapsedTime);
 		
-		if(this.mode === 0){		
+		//if(this.mode === 0){		
 			if(this.queue.size < 5){
 		
-				if(charhit('Z')){
+				if(charhit('W')){
 					// cheetah
 					this.image = C_Icon;
 					
@@ -124,7 +124,7 @@ var PowerQueue = {
 						this.x + this.iW * (this.queue.size - 1) , this.y, 
 						0.6, this.image,0.7), this.animationList);
 					
-				} else if(charhit('X')){
+				} else if(charhit('E')){
 					// flying squirrel
 					this.image = FS_Icon;
 					this.queue.pushBack(this.image);
@@ -133,7 +133,7 @@ var PowerQueue = {
 						theCanvas.height/2,
 						this.x + this.iW * (this.queue.size - 1) , this.y, 
 						0.6, this.image,0.7), this.animationList);
-				} else if(charhit('C')){
+				} else if(charhit('R')){
 					// kangaroo		
 					this.image = K_Icon;
 					this.queue.pushBack(this.image);
@@ -142,7 +142,7 @@ var PowerQueue = {
 						theCanvas.height/2,
 						this.x + this.iW * (this.queue.size - 1) , this.y, 
 						0.6, this.image,0.7), this.animationList);
-				} else if(charhit('V')){
+				} else if(charhit('T')){
 					// spider		
 					this.image = S_Icon;
 					this.queue.pushBack(this.image);
@@ -152,7 +152,7 @@ var PowerQueue = {
 						theCanvas.height/2,
 						this.x + this.iW * (this.queue.size - 1) , this.y, 
 						0.6, this.image,0.7), this.animationList);
-				} else if(charhit('B')){
+				} else if(charhit('Q')){
 					// human		
 					this.image = H_Icon;
 					this.queue.pushBack(this.image);
@@ -163,13 +163,13 @@ var PowerQueue = {
 						0.6, this.image,0.7), this.animationList);
 				} 
 			}	
-			if(keyhit(QUEUE_MODE_KEY)){
+			/*if(keyhit(QUEUE_MODE_KEY)){
 				this.mode = 1;
 			
-			} 
+			} */
 			
 			
-		} else if (this.mode === 1){
+		//} else if (this.mode === 1){
 		    if(keyhit(CHANGE_KEY)){  
 				var temp = this.queue.popFront();
 				
@@ -196,35 +196,39 @@ var PowerQueue = {
 					   this.player.changePower("h");
 					}
 				}
+			} else if(keyhit(DELETE_KEY)){
+				this.queue.popBack();
 			}
 			
-			if(keyhit(QUEUE_MODE_KEY)){
+			/*if(keyhit(QUEUE_MODE_KEY)){
 			    this.mode = 0;
-			}
-		}			
-	},
+			}*/
+	//	}			
+		},
 	
 	draw: function(){
 		
 		// draw centered image. also takes the given scale value
+		/*
 		var dCI = function(img,x,y,scale){
 			theContext.drawImage(img, x - img.width/2, y - img.height/2 , img.width * scale , img.height * scale);
 		}
 		
 		if(this.mode === 0){
+			
 			var gutter = 10;
 			var tempLine = theContext.lineWidth;
 			
-			theContext.globalAlpha = 0.5;
+			//theContext.globalAlpha = 0.5;
 			theContext.fillStyle = "#FFFFFF";
 			theContext.font= Math.floor(theCanvas.height * 0.1) +"px Arial";
 			var tempLineWidth = theContext.lineWidth;
 				
 			theContext.lineWidth = 2.5;
 			
-			var tempAlign = theContext.textAlign;
+			//var tempAlign = theContext.textAlign;
 			theContext.textAlign="center"; 
-			theContext.fillRect(0, 0, theCanvas.width, theCanvas.height);
+			//theContext.fillRect(0, 0, theCanvas.width, theCanvas.height);
 			theContext.globalAlpha = 1;	
 			theContext.fillStyle = "#FFFFFF";
 			theContext.strokeStyle = "#000000";
@@ -310,7 +314,7 @@ var PowerQueue = {
 		    dCI	(K_Icon, theCanvas.width/2 + this.image.width/2+gutter/2, theCanvas.height/2, 1);	
 		    dCI	(S_Icon, theCanvas.width/2 + this.image.width*1.5 + gutter*1.5, theCanvas.height/2, 1);	
 */
-
+/*
 			theContext.fillText("Z",
 				theCanvas.width/2 - this.image.width*1.5 - gutter*1.5,
 				theCanvas.height/2 + this.image.height + theCanvas.height * 0.05);
@@ -339,13 +343,14 @@ var PowerQueue = {
 				theCanvas.width/2 + this.image.width*1.5 + gutter*1.5,
 				theCanvas.height/2 + this.image.height + theCanvas.height * 0.05);
 			
-			theContext.fillText("Press 'G' to return to the game.",
+			/*theContext.fillText("Press 'G' to return to the game.",
 				theCanvas.width/2,
 				theCanvas.height/2 - this.image.height);
 			theContext.strokeText("Press 'G' to return to the game.",
 				theCanvas.width/2,
 				theCanvas.height/2 - this.image.height);
-			
+			*/
+			/*
 			theContext.lineWidth = 8;
 			
 			theContext.strokeStyle = "#000000";
@@ -373,7 +378,8 @@ var PowerQueue = {
 		    
 		 
 			theContext.textAlign= tempAlign; 
-		}	
+			*/
+	//	}	
 	    
 	    
 	    var _offset = 0;
