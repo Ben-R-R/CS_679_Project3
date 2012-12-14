@@ -26,10 +26,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="0"
      inkscape:zoom="0.5"
-     inkscape:cx="629.33976"
-     inkscape:cy="-2062.3487"
+     inkscape:cx="779.34218"
+     inkscape:cy="-302.3487"
      inkscape:document-units="px"
-     inkscape:current-layer="gear"
+     inkscape:current-layer="box"
      showgrid="true"
      inkscape:window-width="1680"
      inkscape:window-height="1002"
@@ -51,7 +51,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -63,13 +63,13 @@
     <image
        sodipodi:absref="/Users/Nomad 1/Documents/JavaScript/CS679 Project 3/levels/../images/AAGear.png"
        xlink:href="../images/AAGear.png"
-       src="./images/AAGear.png"
-       style="display:inline"
-       y="524.65869"
-       x="-367.45938"
-       id="image5517"
+       width="154"
        height="154"
-       width="154" />
+       id="image5517"
+       x="-367.45938"
+       y="524.65869"
+       style="display:inline"
+       src="./images/AAGear.png" />
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
@@ -151,33 +151,33 @@
     <image
        sodipodi:absref="/Users/Nomad 1/Documents/JavaScript/CS679 Project 3/levels/../images/Girder3.png"
        xlink:href="../images/Girder3.png"
-       src="./images/Girder3.png"
-       y="564.06238"
-       x="-155.82343"
-       id="image3175"
-       height="60.18919"
+       style="display:inline"
        width="59.91684"
-       style="display:inline" />
+       height="60.18919"
+       id="image3175"
+       x="-155.82343"
+       y="564.06238"
+       src="./images/Girder3.png" />
     <image
        sodipodi:absref="/Users/Nomad 1/Documents/JavaScript/CS679 Project 3/levels/../images/Girder1.png"
        xlink:href="../images/Girder1.png"
-       y="551.95593"
-       x="-51.225464"
-       id="image3077"
-       height="136.72792"
-       width="127.90677"
+       style="display:inline"
        src="./images/Girder1.png"
-       style="display:inline" />
+       width="127.90677"
+       height="136.72792"
+       id="image3077"
+       x="-51.225464"
+       y="551.95593" />
     <image
        sodipodi:absref="/Users/Nomad 1/Documents/JavaScript/CS679 Project 3/levels/../images/Girder2.png"
        xlink:href="../images/Girder2.png"
-       y="657.62732"
-       x="-191.43137"
-       id="image3951"
-       height="37.108109"
-       width="114.16217"
+       style="display:inline"
        src="./images/Girder2.png"
-       style="display:inline" />
+       width="114.16217"
+       height="37.108109"
+       id="image3951"
+       x="-191.43137"
+       y="657.62732" />
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
@@ -216,21 +216,21 @@
     <image
        sodipodi:absref="/Users/Nomad 1/Documents/JavaScript/CS679 Project 3/levels/../images/Bell_Jar.png"
        xlink:href="../images/Bell_Jar.png"
-       src="./images/Bell_Jar.png"
-       width="189"
-       height="266"
-       id="image4644"
+       y="469.09711"
        x="-605.01971"
-       y="469.09711" />
+       id="image4644"
+       height="266"
+       width="189"
+       src="./images/Bell_Jar.png" />
     <image
        sodipodi:absref="/Users/Nomad 1/Documents/JavaScript/CS679 Project 3/levels/../images/Bell_Jar2.png"
        xlink:href="../images/Bell_Jar2.png"
-       src="./images/Bell_Jar2.png"
-       width="189"
-       height="266"
-       id="image4655"
+       y="741.09711"
        x="-607.5"
-       y="741.09711" />
+       id="image4655"
+       height="266"
+       width="189"
+       src="./images/Bell_Jar2.png" />
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
@@ -492,22 +492,22 @@
     <image
        sodipodi:absref="/Users/Nomad 1/Documents/JavaScript/CS679 Project 3/levels/../images/Girder1.png"
        xlink:href="../images/Girder1.png"
-       y="542.99823"
-       x="1371.0466"
-       id="image3077-9"
-       height="89.727936"
-       width="127.90677"
+       style="display:inline"
        src="./images/Girder1.png"
-       style="display:inline" />
+       width="127.90677"
+       height="89.727936"
+       id="image3077-9"
+       x="1371.0466"
+       y="542.99823" />
     <image
        sodipodi:absref="/Users/Nomad 1/Documents/JavaScript/CS679 Project 3/levels/../images/Bell_Jar2.png"
        xlink:href="../images/Bell_Jar2.png"
-       src="./images/Bell_Jar2.png"
-       width="189"
-       height="266"
-       id="image4655-4"
+       y="255.36218"
        x="1329.5"
-       y="255.36218" />
+       id="image4655-4"
+       height="266"
+       width="189"
+       src="./images/Bell_Jar2.png" />
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
@@ -525,7 +525,7 @@
        width="410"
        height="10"
        x="990"
-       y="2912.3623" />
+       y="3672.3623" />
     <rect
        style="fill:#000000;stroke:#000000"
        id="rect3143"
@@ -563,10 +563,10 @@
        id="path3653"
        inkscape:connector-curvature="0" />
     <rect
-       style="fill:#000000;stroke:#000000"
+       style="fill:#000000;stroke:#000000;stroke-width:1.63030481"
        id="rect3655"
        width="490"
-       height="380"
+       height="1009.9997"
        x="970"
        y="2002.3622" />
     <rect
@@ -575,81 +575,81 @@
        width="10"
        height="290"
        x="1020"
-       y="2922.3623" />
+       y="3682.3623" />
     <rect
        style="fill:#333333;stroke:#333333"
        id="rect3659"
        width="10"
        height="290"
        x="1060"
-       y="2922.3623" />
+       y="3682.3623" />
     <rect
        style="fill:#333333;stroke:#333333"
        id="rect3661"
        width="10"
        height="290"
        x="1100"
-       y="2922.3623" />
+       y="3682.3623" />
     <rect
        style="fill:#333333;stroke:#333333"
        id="rect3663"
        width="10"
        height="290"
        x="1140"
-       y="2922.3623" />
+       y="3682.3623" />
     <rect
        style="fill:#333333;stroke:#333333"
        id="rect3665"
        width="10"
        height="290"
        x="1180"
-       y="2922.3623" />
+       y="3682.3623" />
     <rect
        style="fill:#333333;stroke:#333333"
        id="rect3667"
        width="10"
        height="290"
        x="1220"
-       y="2922.3623" />
+       y="3682.3623" />
     <rect
        style="fill:#333333;stroke:#333333"
        id="rect3669"
        width="10"
        height="290"
        x="1260"
-       y="2922.3623" />
+       y="3682.3623" />
     <rect
        style="fill:#333333;stroke:#333333"
        id="rect3671"
        width="10"
        height="290"
        x="1300"
-       y="2922.3623" />
+       y="3682.3623" />
     <rect
        style="fill:#333333;stroke:#333333"
        id="rect3673"
        width="10"
        height="290"
        x="1340"
-       y="2922.3623" />
+       y="3682.3623" />
     <rect
        style="fill:#333333;stroke:#333333"
        id="rect3675"
        width="10"
        height="290"
        x="1380"
-       y="2922.3623" />
+       y="3682.3623" />
     <text
        xml:space="preserve"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="1120"
-       y="2432.3623"
+       y="3192.3623"
        id="text3703"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3705"
          x="1120"
-         y="2432.3623">whoops!</tspan></text>
+         y="3192.3623">whoops!</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -676,13 +676,13 @@
        xml:space="preserve"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="1060"
-       y="3272.3623"
+       y="4032.3623"
        id="text3715"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3717"
          x="1060"
-         y="3272.3623">GAME OVER</tspan></text>
+         y="4032.3623">GAME OVER</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -707,68 +707,68 @@
        id="rect4668"
        style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
     <rect
-       style="fill:#000000;stroke:#000000;stroke-width:1.37436855"
+       style="fill:#000000;stroke:#000000;stroke-width:1.91485417"
        id="rect3117"
-       width="510"
+       width="990"
        height="1000"
-       x="-260"
+       x="-740"
        y="1242.3622" />
     <rect
-       style="fill:#000000;stroke:#000000;stroke-width:1.52591944"
+       style="fill:#000000;stroke:#000000;stroke-width:3.0362215"
        id="rect3119"
-       width="1250"
-       height="379.99982"
-       x="-260"
+       width="1791.0507"
+       height="1049.9999"
+       x="-801.0506"
        y="2002.3622" />
     <rect
-       style="fill:#000000;stroke:#000000;stroke-width:1.00430107"
+       style="fill:#000000;stroke:#000000;stroke-width:1.39682162"
        id="rect3125"
-       width="620"
-       height="1169.9999"
+       width="762.6297"
+       height="1839.9999"
        x="1390"
        y="1212.3622" />
     <rect
-       style="fill:#000000;stroke:#000000"
+       style="fill:#000000;stroke:#000000;stroke-width:1.8178091"
        id="rect3127"
-       width="1460"
-       height="460"
-       x="140"
-       y="1202.3622" />
+       width="2438.7419"
+       height="910"
+       x="-360"
+       y="752.36218" />
     <rect
        style="fill:#000000;stroke:#000000"
        id="rect3129"
        width="10"
        height="960"
        x="980"
-       y="2252.3623" />
+       y="3012.3623" />
     <rect
        style="fill:#000000;stroke:#000000"
        id="rect3131"
        width="10"
        height="980"
        x="1390"
-       y="2232.3623" />
+       y="2992.3623" />
     <rect
        style="fill:#000000;stroke:#000000"
        id="rect3133"
        width="440"
        height="10"
        x="970"
-       y="3212.3623" />
+       y="3972.3623" />
     <rect
        style="fill:#000000;stroke:#000000"
        id="rect3135"
        width="10"
        height="10"
        x="970"
-       y="2912.3623" />
+       y="3672.3623" />
     <rect
        style="fill:#000000;stroke:#000000"
        id="rect3137"
        width="10"
        height="10"
        x="1400"
-       y="2912.3623" />
+       y="3672.3623" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -777,121 +777,111 @@
     <image
        sodipodi:absref="/Users/Nomad 1/Documents/JavaScript/CS679 Project 3/levels/../images/AAGear.png"
        xlink:href="../images/AAGear.png"
-       src="./images/AAGear.png"
-       style="display:inline"
-       y="3398.3623"
-       x="1360"
+       width="154"
+       height="154"
        id="image5517-7"
-       height="154"
-       width="154" />
+       x="1360"
+       y="4158.3623"
+       style="display:inline"
+       src="./images/AAGear.png" />
     <image
        sodipodi:absref="/Users/Nomad 1/Documents/JavaScript/CS679 Project 3/levels/../images/AAGear.png"
        xlink:href="../images/AAGear.png"
-       width="154"
-       height="154"
-       id="image3677"
+       src="./images/AAGear.png"
+       style="display:inline"
+       y="3652.3623"
        x="620"
-       y="2892.3623"
-       style="display:inline"
-       src="./images/AAGear.png" />
+       id="image3677"
+       height="154"
+       width="154" />
     <image
        sodipodi:absref="/Users/Nomad 1/Documents/JavaScript/CS679 Project 3/levels/../images/AAGear.png"
        xlink:href="../images/AAGear.png"
-       src="./images/AAGear.png"
-       style="display:inline"
-       y="3098.3623"
-       x="1440"
+       width="154"
+       height="154"
        id="image3679"
-       height="154"
-       width="154" />
+       x="1440"
+       y="3858.3623"
+       style="display:inline"
+       src="./images/AAGear.png" />
     <image
        sodipodi:absref="/Users/Nomad 1/Documents/JavaScript/CS679 Project 3/levels/../images/AAGear.png"
        xlink:href="../images/AAGear.png"
-       width="154"
-       height="154"
-       id="image3681"
+       src="./images/AAGear.png"
+       style="display:inline"
+       y="3658.3623"
        x="1460"
-       y="2898.3623"
-       style="display:inline"
-       src="./images/AAGear.png" />
+       id="image3681"
+       height="154"
+       width="154" />
     <image
        sodipodi:absref="/Users/Nomad 1/Documents/JavaScript/CS679 Project 3/levels/../images/AAGear.png"
        xlink:href="../images/AAGear.png"
-       src="./images/AAGear.png"
-       style="display:inline"
-       y="3078.3623"
-       x="640"
+       width="154"
+       height="154"
        id="image3683"
-       height="154"
-       width="154" />
+       x="640"
+       y="3838.3623"
+       style="display:inline"
+       src="./images/AAGear.png" />
     <image
        sodipodi:absref="/Users/Nomad 1/Documents/JavaScript/CS679 Project 3/levels/../images/AAGear.png"
        xlink:href="../images/AAGear.png"
-       width="154"
-       height="154"
-       id="image3685"
+       src="./images/AAGear.png"
+       style="display:inline"
+       y="3678.3623"
        x="806"
-       y="2918.3623"
-       style="display:inline"
-       src="./images/AAGear.png" />
+       id="image3685"
+       height="154"
+       width="154" />
     <image
        sodipodi:absref="/Users/Nomad 1/Documents/JavaScript/CS679 Project 3/levels/../images/AAGear.png"
        xlink:href="../images/AAGear.png"
-       src="./images/AAGear.png"
-       style="display:inline"
-       y="3098.3623"
-       x="820"
+       width="154"
+       height="154"
        id="image3687"
-       height="154"
-       width="154" />
+       x="820"
+       y="3858.3623"
+       style="display:inline"
+       src="./images/AAGear.png" />
     <image
        sodipodi:absref="/Users/Nomad 1/Documents/JavaScript/CS679 Project 3/levels/../images/AAGear.png"
        xlink:href="../images/AAGear.png"
-       width="154"
-       height="154"
-       id="image3689"
+       src="./images/AAGear.png"
+       style="display:inline"
+       y="3778.3623"
        x="1620"
-       y="3018.3623"
-       style="display:inline"
-       src="./images/AAGear.png" />
+       id="image3689"
+       height="154"
+       width="154" />
     <image
        sodipodi:absref="/Users/Nomad 1/Documents/JavaScript/CS679 Project 3/levels/../images/AAGear.png"
        xlink:href="../images/AAGear.png"
-       src="./images/AAGear.png"
-       style="display:inline"
-       y="3272.3623"
-       x="1540"
+       width="154"
+       height="154"
        id="image3691"
-       height="154"
-       width="154" />
+       x="1540"
+       y="4032.3623"
+       style="display:inline"
+       src="./images/AAGear.png" />
     <image
        sodipodi:absref="/Users/Nomad 1/Documents/JavaScript/CS679 Project 3/levels/../images/AAGear.png"
        xlink:href="../images/AAGear.png"
-       width="154"
-       height="154"
-       id="image3693"
+       src="./images/AAGear.png"
+       style="display:inline"
+       y="4078.3623"
        x="1026"
-       y="3318.3623"
-       style="display:inline"
-       src="./images/AAGear.png" />
+       id="image3693"
+       height="154"
+       width="154" />
     <image
        sodipodi:absref="/Users/Nomad 1/Documents/JavaScript/CS679 Project 3/levels/../images/AAGear.png"
        xlink:href="../images/AAGear.png"
-       src="./images/AAGear.png"
-       style="display:inline"
-       y="3238.3623"
-       x="1326"
+       width="154"
+       height="154"
        id="image3695"
-       height="154"
-       width="154" />
-    <image
-       sodipodi:absref="/Users/Nomad 1/Documents/JavaScript/CS679 Project 3/levels/../images/AAGear.png"
-       xlink:href="../images/AAGear.png"
-       width="154"
-       height="154"
-       id="image3697"
-       x="880"
-       y="3452.3623"
+       x="1326"
+       y="3998.3623"
        style="display:inline"
        src="./images/AAGear.png" />
     <image
@@ -899,9 +889,9 @@
        xlink:href="../images/AAGear.png"
        src="./images/AAGear.png"
        style="display:inline"
-       y="3458.3623"
-       x="1186"
-       id="image3699"
+       y="4212.3623"
+       x="880"
+       id="image3697"
        height="154"
        width="154" />
     <image
@@ -909,11 +899,21 @@
        xlink:href="../images/AAGear.png"
        width="154"
        height="154"
-       id="image3701"
-       x="760"
-       y="3292.3623"
+       id="image3699"
+       x="1186"
+       y="4218.3623"
        style="display:inline"
        src="./images/AAGear.png" />
+    <image
+       sodipodi:absref="/Users/Nomad 1/Documents/JavaScript/CS679 Project 3/levels/../images/AAGear.png"
+       xlink:href="../images/AAGear.png"
+       src="./images/AAGear.png"
+       style="display:inline"
+       y="4052.3623"
+       x="760"
+       id="image3701"
+       height="154"
+       width="154" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -992,24 +992,7 @@
   <g
      inkscape:groupmode="layer"
      id="spike"
-     inkscape:label="spike">
-    <rect
-       style="fill:#ff0000;fill-opacity:1;stroke:#800080;stroke-width:0;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       id="rect4664"
-       width="1242"
-       height="24"
-       x="230"
-       y="921.36218"
-       ry="0" />
-    <rect
-       ry="0"
-       y="819.36218"
-       x="150"
-       height="121"
-       width="54"
-       id="rect4779"
-       style="fill:#ff0000;fill-opacity:1;stroke:#800080;stroke-width:0;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-  </g>
+     inkscape:label="spike" />
   <g
      inkscape:groupmode="layer"
      id="layer7"
