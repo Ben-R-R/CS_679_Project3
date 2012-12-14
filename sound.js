@@ -2,7 +2,6 @@
 var hSound;
 var hJumpSound;
 var cSound;
-var cJumpSound;
 var kSound;
 var kJumpSound;
 var fsSound;
@@ -15,7 +14,6 @@ function initSound(){
     hSound = new Audio('sound/human.ogg');
     hJumpSound = new Audio('sound/hjump.ogg');
     cSound  = new Audio('sound/cheetah2.ogg');
-    cJumpSound = new Audio('sound/cjump.ogg');
     kSound = new Audio('sound/kangaroo.ogg');
     kJumpSound = new Audio('sound/kjump.ogg');
 	fsSound = new Audio('sound/squirrel.ogg');
