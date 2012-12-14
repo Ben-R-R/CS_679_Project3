@@ -40,6 +40,7 @@ var JUMP_KEY = 32; // space
 var CHANGE_KEY = 70; // F
 var QUEUE_MODE_KEY = 71; // G
 var DELETE_KEY = 8; // backspace
+var MUTE_KEY = 77; // M
 
 var KEY_STATE = {
 	FIRST_HIT:0,

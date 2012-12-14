@@ -30,7 +30,9 @@ function initHuman(newEnt){
 // you shouldn't modify this.form in this method. 
 function human_enter(){
 	if(this.form != "h"){
-		hSound.cloneNode(true).play();
+		if(!mute){
+			hSound.cloneNode(true).play();
+		}
 
 		this.impX = 0.3; // impulsive x velocity, 
 		this.maxRun = 0.5; // maximum run speed,  
@@ -70,7 +72,9 @@ function human_update(elapsedTime){
 	// should set the impulse to 0 
 	if(keydown(JUMP_KEY) && this.onGround){
 		this.velocity.y = this.impY;
-		hJumpSound.cloneNode(true).play();
+		if(!mute){
+			hJumpSound.cloneNode(true).play();
+		}
 						
 	}
 	

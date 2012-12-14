@@ -37,7 +37,9 @@ function initKangaroo(newEnt){
 // you shouldn't modify this.form in this method.
 function kangaroo_enter(){
    	if(this.form != "k"){
-		kSound.cloneNode(true).play();
+		if(!mute){
+			kSound.cloneNode(true).play();
+		}
 		
 				
 		this.maxRun = 0.1; // maximum run speed,  
@@ -103,7 +105,9 @@ function kangaroo_update(elapsedTime){
 	if(keyhit(JUMP_KEY) && this._kJumps > 0){	//initial jump-off
 		this.velocity.y = -.6;
 		this._kJumps--;
-		kJumpSound.cloneNode(true).play();
+		if(!mute){
+			kJumpSound.cloneNode(true).play();
+		}
 	}
 	
 	if(this._kJumps == 2 && this._kdTime < 3){
