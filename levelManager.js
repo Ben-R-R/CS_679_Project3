@@ -398,15 +398,15 @@ function parseInkscapeFile(){
 			var tx = 0;
 			var ty = 0;
 			var link = ""; 
-		
-		    var inScope = "Yes";
+		    var auto = false;
+		    
 			
 			var drawArr = new Array();
 			
 			$target.children().each(function(){
 				var $target2 = $(this);	
 
-				if(this.getAttribute('ismain')){
+				if(this.getAttribute('ismain') === "true"){
 					
 					function cb2(drawObj){
 						tw = drawObj.w;
@@ -416,7 +416,9 @@ function parseInkscapeFile(){
 					}
 					parseGroupToDrawables($target2, this, null, 0, 0, cb2); 	
 					
-					console.log(tx);
+					if(this.getAttribute("autoactivate")){
+					  	auto = true;
+					}
 					
 					link = $(this).attr("link");
 				} else {
@@ -424,23 +426,22 @@ function parseInkscapeFile(){
 						drawArr.push(drawObj);	
 					}
 					parseGroupToDrawables($target2, this, null, 0, 0, cb); 	
-				}
-				
-
-									
-					
+				}		
 			});
-			console.log(tx + ", " + ty + ", " + tw);
-			spawnNewEntity(newDoorEntity(newVector(tx,ty), tw, th, link, null), staticList);
-		}
-		if($target.is("rect")){
-			var tw = Math.ceil($(this).attr("width"));
-			var th = Math.ceil($(this).attr("height"));
-			var tx = Math.ceil($(this).attr("x"));
-			var ty = Math.ceil($(this).attr("y"));
-			var link = $(this).attr("link");
 			
-			spawnNewEntity(newDoorEntity(newVector(tx,ty), tw, th, link, null), staticList);
+			spawnNewEntity(newDoorEntity(newVector(tx,ty), tw, th, link, drawArr, auto), staticList);
+		} else if($target.is("rect")){
+			tw = Math.ceil($(this).attr("width"));
+			th = Math.ceil($(this).attr("height"));
+			tx = Math.ceil($(this).attr("x"));
+			ty = Math.ceil($(this).attr("y"));
+			link = $(this).attr("link");
+			if(this.getAttribute("autoactivate") === "true"){
+				auto = true;
+				console.log("auto = true");
+			}
+			 console.log(this.getAttribute("style"));
+			spawnNewEntity(newDoorEntity(newVector(tx,ty), tw, th, link, null, auto), staticList);
 			
 		}	
 	});  
