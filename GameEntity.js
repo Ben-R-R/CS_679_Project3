@@ -277,6 +277,7 @@ function newDoorEntity(org, w, h, target, drawArray, auto){
 		if(other.isPlayer){
 			this.playerhit = true;		
 			if(charhit('L') || this.autoActivate){
+				currLevel = levels.indexOf(target);
 				HUD.items = [];
 				
 				initEntityManager();

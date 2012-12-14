@@ -44,11 +44,17 @@ function initSpider(newEnt){
 // you shouldn't modify this.form in this method.
 function spider_enter(){
 	//console.log("Spider Mode Activated");
-	this.impX = 0.3; // impulsive x velocity, 
-	this.maxRun = 0.5; // maximum run speed,  
-	this.impY = -0.3; // impulsive x velocity, used for jumps
-	this.maxFall = 0.5; // maximum fall rate.
-	this._sState = 0; // starting state of the spider  
+	if(this.form != "s"){
+		if(!mute){
+			sSound.cloneNode(true).play();
+		}
+		
+		this.impX = 0.3; // impulsive x velocity, 
+		this.maxRun = 0.5; // maximum run speed,  
+		this.impY = -0.3; // impulsive x velocity, used for jumps
+		this.maxFall = 0.5; // maximum fall rate.
+		this._sState = 0; // starting state of the spider  
+	}
 }
 
 // called when spider power is deactivated
@@ -139,7 +145,9 @@ function spider_update(elapsedTime){
 		
 			// are we close enough to reach it?
 			if(LenComp(this.coords, this._sGrpPnt.coords, this._sLmax)){
-				
+				if(!mute){
+					sGrapple.cloneNode(true).play();
+				}
 				
 				
 				var normVector = newVector(this._sGrpPnt.coords.x  - this.coords.x, this._sGrpPnt.coords.y  - this.coords.y)

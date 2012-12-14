@@ -6,6 +6,8 @@ var cJumpSound;
 var kSound;
 var kJumpSound;
 var fsSound;
+var sSound;
+var sGrapple;
 var background;
 var mute = false;
 
@@ -17,6 +19,8 @@ function initSound(){
     kSound = new Audio('sound/kangaroo.ogg');
     kJumpSound = new Audio('sound/kjump.ogg');
 	fsSound = new Audio('sound/squirrel.ogg');
+	sSound = new Audio('sound/spider.ogg');
+	sGrapple = new Audio('sound/sgrapple.ogg');
 	background = new Audio('sound/background.wav');
 	
     hSound.load();
@@ -25,7 +29,10 @@ function initSound(){
     kSound.load();
     kJumpSound.load();
 	fsSound.load();
+	sSound.load();
+	sGrapple.load();
 	background.load();
+	
 	background.play();
 	background.loop = true;
 	background.volume = .5;

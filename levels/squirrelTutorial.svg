@@ -25,22 +25,18 @@
      borderopacity="0.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="0"
-     inkscape:zoom="1"
-     inkscape:cx="530.86876"
-     inkscape:cy="-3123.2543"
+     inkscape:zoom="0.70710678"
+     inkscape:cx="562.39577"
+     inkscape:cy="-3299.3674"
      inkscape:document-units="px"
      inkscape:current-layer="box"
-     showgrid="true"
-     inkscape:window-width="1920"
-     inkscape:window-height="1028"
-     inkscape:window-x="1358"
-     inkscape:window-y="-8"
+     showgrid="false"
+     inkscape:window-width="1680"
+     inkscape:window-height="1002"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:snap-grids="true">
-    <inkscape:grid
-       type="xygrid"
-       id="grid3095" />
-  </sodipodi:namedview>
+     inkscape:snap-grids="false" />
   <metadata
      id="metadata3960">
     <rdf:RDF>
@@ -57,11 +53,61 @@
      inkscape:groupmode="layer"
      id="layer2"
      inkscape:label="instructions"
-     style="display:inline" />
+     style="display:inline">
+    <rect
+       style="fill:#808080;stroke:#000000"
+       id="rect3098"
+       width="298"
+       height="51"
+       x="1549"
+       y="2430.8623" />
+  </g>
   <g
      inkscape:label="background"
      inkscape:groupmode="layer"
      id="background">
+    <rect
+       style="fill:#666666;stroke:#000000"
+       id="rect3106"
+       width="262.5"
+       height="32.5"
+       x="4.5"
+       y="4235.3623" />
+    <rect
+       style="fill:#666666;stroke:#000000"
+       id="rect3104"
+       width="298.5"
+       height="52.5"
+       x="1781.5"
+       y="3966.3623" />
+    <rect
+       style="fill:#666666;stroke:#000000"
+       id="rect3102"
+       width="191.5"
+       height="49"
+       x="2110.5"
+       y="3100.3623" />
+    <rect
+       style="fill:#808080;stroke:#000000"
+       id="rect3100"
+       width="142"
+       height="28.5"
+       x="2451.5"
+       y="2916.8623" />
+    <rect
+       style="fill:#666666;stroke:#000000"
+       id="rect3096"
+       width="145.5"
+       height="105.5"
+       x="1112.5"
+       y="2519.3623" />
+    <rect
+       style="fill:#4d4d4d;stroke:#000000"
+       id="rect3081"
+       width="213"
+       height="65"
+       x="380.5"
+       y="2366.3623" />
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
@@ -75,17 +121,17 @@
          y="440.36218" /></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 1810,4182.3622 -1100,311"
+       d="m 1815,4109.8622 -1100,311"
        id="path3529"
        inkscape:connector-curvature="0" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 702,4365.3622 8,128"
+       style="fill:none;stroke:#000000;stroke-width:0.84918892px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 701.92459,4365.2868 13.15082,56.1508"
        id="path3531"
        inkscape:connector-curvature="0" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 724,4401.3622 -23,-33"
+       style="fill:none;stroke:#000000;stroke-width:0.61652011px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 721.19174,4379.5539 -19.38348,-14.8834"
        id="path3533"
        inkscape:connector-curvature="0" />
     <path
@@ -104,28 +150,28 @@
        id="path3539"
        inkscape:connector-curvature="0" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 1393,2663.3622 -140,21"
+       style="fill:none;stroke:#000000;stroke-width:1.10062659px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 1389.9496,2622.9126 -132.3992,26.8992"
        id="path3541"
        inkscape:connector-curvature="0" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 1390,2544.3622 1,116"
+       style="fill:none;stroke:#000000;stroke-width:1.15247655px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 1390.4237,2508.9384 -1.3474,114.3476"
        id="path3543"
        inkscape:connector-curvature="0" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 1375,2575.3622 14,-32"
+       d="m 1376,2539.8622 14,-32"
        id="path3545"
        inkscape:connector-curvature="0" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 1523,2496.3622 1001,399"
+       d="m 1522.5,2443.3622 1001,399"
        id="path3547"
        inkscape:connector-curvature="0" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 2501,2845.3622 22,49"
+       style="fill:none;stroke:#000000;stroke-width:0.87903333px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 2494.9395,2812.3017 28.121,29.621"
        id="path3549"
        inkscape:connector-curvature="0" />
     <path
@@ -140,22 +186,7 @@
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
-       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="-30.5"
-       y="2374.8623"
-       id="text3580"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan3582"
-         x="-30.5"
-         y="2374.8623">Use the flying squirrel power</tspan><tspan
-         sodipodi:role="line"
-         x="-30.5"
-         y="2394.8623"
-         id="tspan3584">to solve this level</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"
        x="384.5"
        y="2384.3623"
        id="text3586"
@@ -174,56 +205,45 @@
          id="tspan3592">a long distance</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:14.81277752px;font-style:normal;font-weight:normal;line-height:105.99999428%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="1250.8517"
-       y="2569.3179"
+       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"
+       x="1119.5"
+       y="2536.3623"
        id="text3594"
-       sodipodi:linespacing="105.99999%"
-       transform="scale(0.99386991,1.0061679)"><tspan
+       sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         x="1250.8517"
-         y="2569.3179"
-         id="tspan4262"
-         style="line-height:105.99999428%">While gliding, if you</tspan><tspan
+         x="1119.5"
+         y="2536.3623"
+         id="tspan3600">Jump at this wall</tspan><tspan
          sodipodi:role="line"
-         x="1250.8517"
-         y="2585.0195"
-         id="tspan4266"
-         style="line-height:105.99999428%">run into a wall, you </tspan><tspan
+         x="1119.5"
+         y="2556.3623"
+         id="tspan3088">and hold right to</tspan><tspan
          sodipodi:role="line"
-         x="1250.8517"
-         y="2600.7209"
-         id="tspan4268"
-         style="line-height:105.99999428%">will stick to it. You </tspan><tspan
+         x="1119.5"
+         y="2576.3623"
+         id="tspan3090">cling to it, then</tspan><tspan
          sodipodi:role="line"
-         x="1250.8517"
-         y="2616.4226"
-         id="tspan4270"
-         style="line-height:105.99999428%">can then clamber up </tspan><tspan
+         x="1119.5"
+         y="2596.3623"
+         id="tspan3092">jump up to the</tspan><tspan
          sodipodi:role="line"
-         x="1250.8517"
-         y="2632.124"
-         id="tspan4274"
-         style="line-height:105.99999428%">the wall by jumping </tspan><tspan
-         sodipodi:role="line"
-         x="1250.8517"
-         y="2647.8257"
-         id="tspan4294"
-         style="line-height:105.99999428%">multiple times.</tspan></text>
+         x="1119.5"
+         y="2616.3623"
+         id="tspan3094">ledge.</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="1559"
-       y="2434.3623"
+       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"
+       x="1557.5"
+       y="2450.8623"
        id="text3602"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         x="1559"
-         y="2434.3623"
+         x="1557.5"
+         y="2450.8623"
          id="tspan3608">You can change direction midair to</tspan><tspan
          sodipodi:role="line"
-         x="1559"
-         y="2454.3623"
+         x="1557.5"
+         y="2470.8623"
          id="tspan3614">maneuver around hazards</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -237,7 +257,7 @@
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
-       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"
        x="2461"
        y="2936.8623"
        id="text3620"
@@ -248,7 +268,7 @@
          id="tspan3624">Mind your head</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"
        x="2120"
        y="3120.3623"
        id="text3628"
@@ -263,7 +283,7 @@
          id="tspan3632">straight down</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"
        x="1796"
        y="3987.8623"
        id="text3634"
@@ -278,29 +298,37 @@
          id="tspan3638">to cross large gaps</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="270"
-       y="4282.3623"
+       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"
+       x="14"
+       y="4259.3623"
        id="text3640"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3642"
-         x="270"
-         y="4282.3623">Well done, see you next level!</tspan></text>
-  </g>
-  <g
-     inkscape:groupmode="layer"
-     id="links"
-     inkscape:label="links">
+         x="14"
+         y="4259.3623">Well done, see you next level!</tspan></text>
     <rect
-       style="fill:#42e61f;fill-opacity:1;stroke:none;display:inline"
-       id="rect3956"
-       width="124"
-       height="129.99988"
-       x="56"
-       y="4222.3623"
-       link="levels/KangarooTutorial.svg"
-       autoactivate="true" />
+       style="fill:#4d4d4d;stroke:#000000"
+       id="rect3077"
+       width="240"
+       height="44"
+       x="-11.5"
+       y="2360.3623" />
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"
+       x="-7"
+       y="2377.8623"
+       id="text3580"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3582"
+         x="-7"
+         y="2377.8623">Use the flying squirrel power</tspan><tspan
+         sodipodi:role="line"
+         x="-7"
+         y="2397.8623"
+         id="tspan3584">to solve this level</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -337,10 +365,10 @@
     <rect
        style="fill:#000000"
        id="rect3193"
-       width="97.580734"
-       height="19.79899"
-       x="137.17871"
-       y="2504.7595" />
+       width="76.080734"
+       height="93.798965"
+       x="158.67871"
+       y="2485.2595" />
     <rect
        style="fill:#000000"
        id="rect3195"
@@ -411,14 +439,21 @@
        height="383.25186"
        x="-1191.6123"
        y="3839.7771" />
+    <rect
+       style="fill:#000000;stroke:#000000"
+       id="rect3108"
+       width="68"
+       height="68"
+       x="96.5"
+       y="2533.3623" />
   </g>
   <g
      inkscape:groupmode="layer"
      id="gear"
      inkscape:label="gear">
     <image
-       y="2403.7178"
-       x="1204.2773"
+       y="2369.1321"
+       x="1182.3484"
        id="image3218"
        xlink:href="data:image/png;base64,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 kHNw/A8oxDlF/ADErQAAAABJRU5ErkJggg== "
        height="154"
@@ -591,8 +626,8 @@
      id="checkpoint"
      inkscape:label="checkpoint">
     <rect
-       y="4216.957"
-       x="-1464.5293"
+       y="4214.8564"
+       x="-247.30185"
        height="142"
        width="90"
        id="finish"
