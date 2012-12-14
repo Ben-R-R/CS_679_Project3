@@ -28,15 +28,22 @@
      inkscape:zoom="0.70710678"
      inkscape:cx="562.39577"
      inkscape:cy="-3299.3674"
+     inkscape:zoom="1"
+     inkscape:cx="530.86876"
+     inkscape:cy="-3123.2543"
      inkscape:document-units="px"
      inkscape:current-layer="box"
-     showgrid="false"
-     inkscape:window-width="1680"
-     inkscape:window-height="1002"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
+     showgrid="true"
+     inkscape:window-width="1920"
+     inkscape:window-height="1028"
+     inkscape:window-x="1358"
+     inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:snap-grids="false" />
+     inkscape:snap-grids="true">
+    <inkscape:grid
+       type="xygrid"
+       id="grid3095" />
+  </sodipodi:namedview>
   <metadata
      id="metadata3960">
     <rdf:RDF>
@@ -208,8 +215,27 @@
        style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"
        x="1119.5"
        y="2536.3623"
+       style="font-size:14.81277752px;font-style:normal;font-weight:normal;line-height:105.99999428%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="1250.8517"
+       y="2569.3179"
        id="text3594"
-       sodipodi:linespacing="125%"><tspan
+       sodipodi:linespacing="105.99999%"
+       transform="scale(0.99386991,1.0061679)"><tspan
+         sodipodi:role="line"
+         x="1250.8517"
+         y="2569.3179"
+         id="tspan4262"
+         style="line-height:105.99999428%">While gliding, if you</tspan><tspan
+         sodipodi:role="line"
+         x="1250.8517"
+         y="2585.0195"
+         id="tspan4266"
+         style="line-height:105.99999428%">run into a wall, you </tspan><tspan
+         sodipodi:role="line"
+         x="1250.8517"
+         y="2600.7209"
+         id="tspan4268"
+         style="line-height:105.99999428%">will stick to it. You </tspan><tspan
          sodipodi:role="line"
          x="1119.5"
          y="2536.3623"
@@ -230,6 +256,20 @@
          x="1119.5"
          y="2616.3623"
          id="tspan3094">ledge.</tspan></text>
+         x="1250.8517"
+         y="2616.4226"
+         id="tspan4270"
+         style="line-height:105.99999428%">can then clamber up </tspan><tspan
+         sodipodi:role="line"
+         x="1250.8517"
+         y="2632.124"
+         id="tspan4274"
+         style="line-height:105.99999428%">the wall by jumping </tspan><tspan
+         sodipodi:role="line"
+         x="1250.8517"
+         y="2647.8257"
+         id="tspan4294"
+         style="line-height:105.99999428%">multiple times.</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"
@@ -301,6 +341,9 @@
        style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"
        x="14"
        y="4259.3623"
+       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="270"
+       y="4282.3623"
        id="text3640"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
@@ -329,6 +372,22 @@
          x="-7"
          y="2397.8623"
          id="tspan3584">to solve this level</tspan></text>
+         x="270"
+         y="4282.3623">Well done, see you next level!</tspan></text>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="links"
+     inkscape:label="links">
+    <rect
+       style="fill:#42e61f;fill-opacity:1;stroke:none;display:inline"
+       id="rect3956"
+       width="124"
+       height="129.99988"
+       x="56"
+       y="4222.3623"
+       link="levels/KangarooTutorial.svg"
+       autoactivate="true" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -626,8 +685,8 @@
      id="checkpoint"
      inkscape:label="checkpoint">
     <rect
-       y="4214.8564"
-       x="-247.30185"
+       y="4216.957"
+       x="-1464.5293"
        height="142"
        width="90"
        id="finish"

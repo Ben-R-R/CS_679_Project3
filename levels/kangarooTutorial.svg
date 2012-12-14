@@ -25,18 +25,18 @@
      borderopacity="0.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="0"
-     inkscape:zoom="2"
-     inkscape:cx="1244.9572"
-     inkscape:cy="413.623"
+     inkscape:zoom="1"
+     inkscape:cx="929.44926"
+     inkscape:cy="472.69961"
      inkscape:document-units="px"
-     inkscape:current-layer="background"
+     inkscape:current-layer="box"
      showgrid="true"
-     inkscape:window-width="1680"
-     inkscape:window-height="1002"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:window-width="1920"
+     inkscape:window-height="1028"
+     inkscape:window-x="1358"
+     inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:snap-grids="false"
+     inkscape:snap-grids="true"
      inkscape:snap-bbox="false"
      inkscape:bbox-nodes="false"
      inkscape:bbox-paths="true">
@@ -62,7 +62,7 @@
      inkscape:label="instructions"
      style="display:none">
     <image
-       sodipodi:absref="/Users/Nomad 1/Documents/JavaScript/CS679 Project 3/levels/../images/AAGear.png"
+       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/AAGear.png"
        xlink:href="../images/AAGear.png"
        src="./images/AAGear.png"
        style="display:inline"
@@ -150,7 +150,7 @@
          y="488.99551"
          id="tspan4536">Copy-Paste them as needed  </tspan></text>
     <image
-       sodipodi:absref="/Users/Nomad 1/Documents/JavaScript/CS679 Project 3/levels/../images/Girder3.png"
+       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/Girder3.png"
        xlink:href="../images/Girder3.png"
        src="./images/Girder3.png"
        y="564.06238"
@@ -160,7 +160,7 @@
        width="59.91684"
        style="display:inline" />
     <image
-       sodipodi:absref="/Users/Nomad 1/Documents/JavaScript/CS679 Project 3/levels/../images/Girder1.png"
+       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/Girder1.png"
        xlink:href="../images/Girder1.png"
        y="551.95593"
        x="-51.225464"
@@ -170,7 +170,7 @@
        src="./images/Girder1.png"
        style="display:inline" />
     <image
-       sodipodi:absref="/Users/Nomad 1/Documents/JavaScript/CS679 Project 3/levels/../images/Girder2.png"
+       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/Girder2.png"
        xlink:href="../images/Girder2.png"
        y="657.62732"
        x="-191.43137"
@@ -215,7 +215,7 @@
        y="400.03778"
        ry="21.978909" />
     <image
-       sodipodi:absref="/Users/Nomad 1/Documents/JavaScript/CS679 Project 3/levels/../images/Bell_Jar.png"
+       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/Bell_Jar.png"
        xlink:href="../images/Bell_Jar.png"
        src="./images/Bell_Jar.png"
        width="189"
@@ -224,7 +224,7 @@
        x="-605.01971"
        y="469.09711" />
     <image
-       sodipodi:absref="/Users/Nomad 1/Documents/JavaScript/CS679 Project 3/levels/../images/Bell_Jar2.png"
+       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/Bell_Jar2.png"
        xlink:href="../images/Bell_Jar2.png"
        src="./images/Bell_Jar2.png"
        width="189"
@@ -457,7 +457,7 @@
        id="rect4904"
        style="fill:none;stroke:#0062c4;stroke-width:1.49691904;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
     <image
-       sodipodi:absref="/Users/Nomad 1/Documents/JavaScript/CS679 Project 3/levels/../images/Jumps.png"
+       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/Jumps.png"
        xlink:href="../images/Jumps.png"
        y="1247.0682"
        x="-445.90201"
@@ -504,7 +504,7 @@
        ry="0"
        y="969.40381"
        x="-400.91968"
-       height="140"
+       height="112.95837"
        width="390"
        id="rect5392"
        style="fill:#4d4d4d;fill-opacity:1;stroke:none" />
@@ -524,14 +524,10 @@
          x="-381.92706"
          sodipodi:role="line"
          id="tspan5400">level! You should solve all these</tspan><tspan
-         y="1077.3051"
+         y="1077.3052"
          x="-381.92706"
          sodipodi:role="line"
-         id="tspan5402">puzzles using just the kangaroo</tspan><tspan
-         y="1107.6973"
-         x="-381.92706"
-         sodipodi:role="line"
-         id="tspan5404"> and the human.</tspan></text>
+         id="tspan5404">puzzles using just the kangaroo.</tspan></text>
     <rect
        y="1148.1736"
        x="249.55109"
@@ -566,15 +562,15 @@
          y="1216.72"
          x="252.25342"
          sodipodi:role="line"
-         id="tspan3620">to jump twice! Simply press 'd'</tspan><tspan
+         id="tspan3620">to jump twice! Simply press</tspan><tspan
          y="1247.1121"
          x="252.25342"
          sodipodi:role="line"
-         id="tspan3624">a second time in midair</tspan><tspan
+         id="tspan3624">'Space' a second time in </tspan><tspan
          y="1277.5043"
          x="252.25342"
          sodipodi:role="line"
-         id="tspan3626">to activate the air jump.</tspan></text>
+         id="tspan3626">midair to double jump.</tspan></text>
     <flowRoot
        xml:space="preserve"
        id="flowRoot3601"
@@ -586,8 +582,8 @@
            x="499.21738"
            y="1188.1267" /></flowRegion><flowPara
          id="flowPara3607" /></flowRoot>    <rect
-       y="710.84387"
-       x="555.00146"
+       y="702.36218"
+       x="38.002926"
        height="99.036583"
        width="361.99707"
        id="rect3541-0"
@@ -595,28 +591,28 @@
     <text
        sodipodi:linespacing="125%"
        id="text5382-6-2"
-       y="743.28113"
-       x="557.71075"
-       style="font-size:24.31374167999999969px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:Arial;-inkscape-font-specification:Arial"
+       y="734.68854"
+       x="47.383469"
+       style="font-size:24.31374168px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;display:inline;font-family:Arial;-inkscape-font-specification:Arial"
        xml:space="preserve"
        transform="scale(1.0130725,0.98709619)"><tspan
-         y="743.28113"
-         x="557.71075"
+         y="734.68854"
+         x="47.383469"
          sodipodi:role="line"
-         id="tspan3626-5">Try to time your air jump</tspan><tspan
-         y="773.67328"
-         x="557.71075"
+         id="tspan3626-5">Try to time your second jump</tspan><tspan
+         y="765.08069"
+         x="47.383469"
          sodipodi:role="line"
          id="tspan3678">when you reach the top of the</tspan><tspan
-         y="804.06549"
-         x="557.71075"
+         y="795.4729"
+         x="47.383469"
          sodipodi:role="line"
          id="tspan3680">first to get the highest distance!</tspan></text>
     <rect
        y="356.34387"
        x="720.50146"
        height="62.036591"
-       width="295.99707"
+       width="245.08539"
        id="rect3541-0-0-1"
        style="fill:#4d4d4d;display:inline" />
     <text
@@ -630,14 +626,14 @@
          y="383.28973"
          x="717.62036"
          sodipodi:role="line"
-         id="tspan3753-4">You can even activate the</tspan><tspan
+         id="tspan3753-4">You can even double</tspan><tspan
          y="413.68192"
          x="717.62036"
          sodipodi:role="line"
-         id="tspan3801">air jump from a free fall!</tspan></text>
+         id="tspan3801">jump from a free fall!</tspan></text>
     <rect
-       y="-189.22292"
-       x="1553.3004"
+       y="-187.63782"
+       x="1444.0029"
        height="62.036591"
        width="415.99707"
        id="rect3541-0-0-1-3"
@@ -645,24 +641,33 @@
     <text
        sodipodi:linespacing="125%"
        id="text5382-6-2-9-3-7"
-       y="-169.409"
-       x="1539.6731"
+       y="-167.80318"
+       x="1431.786"
        style="font-size:24.31374168px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;display:inline;font-family:Arial;-inkscape-font-specification:Arial"
        xml:space="preserve"
        transform="scale(1.0130725,0.98709619)"><tspan
-         y="-169.409"
-         x="1539.6731"
+         y="-167.80318"
+         x="1431.786"
          sodipodi:role="line"
          id="tspan3801-8">Congratulations!</tspan><tspan
-         y="-139.01682"
-         x="1539.6731"
+         y="-137.411"
+         x="1431.786"
          sodipodi:role="line"
          id="tspan6043">Time to hop on over to the next level.</tspan></text>
-    <path
-       style="fill:#4d4d4d;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 1190,767.36218 -9,-24.5 -23.5,12.5 z"
-       id="path3125"
-       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="links"
+     inkscape:label="links">
+    <rect
+       style="fill:#42e61f;fill-opacity:1;stroke:none;display:inline"
+       id="rect3956"
+       width="124"
+       height="340"
+       x="1900"
+       y="-347.63782"
+       link="levels/spiderTutorial.svg"
+       autoactivate="true" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -702,14 +707,14 @@
        id="rect4718"
        width="160"
        height="20"
-       x="294.55109"
-       y="688.17365" />
+       x="240"
+       y="672.36218" />
     <rect
        style="fill:#000000;display:inline"
        id="rect4718-1"
-       width="414"
+       width="475.55109"
        height="20"
-       x="661.55109"
+       x="600"
        y="577.67365" />
     <rect
        style="fill:#000000;display:inline"
@@ -760,26 +765,40 @@
        height="1852"
        x="2033"
        y="-471.63782" />
+    <rect
+       y="912.36218"
+       x="590"
+       height="370"
+       width="360"
+       id="rect3131"
+       style="fill:#000000;display:inline" />
+    <rect
+       style="fill:#000000;display:inline"
+       id="rect3140"
+       width="250"
+       height="370"
+       x="700"
+       y="592.36218" />
   </g>
   <g
      inkscape:groupmode="layer"
      id="gear"
      inkscape:label="gear">
     <image
-       sodipodi:absref="/Users/Nomad 1/Documents/JavaScript/CS679 Project 3/levels/../images/AAGear.png"
+       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/AAGear.png"
        xlink:href="../images/AAGear.png"
        src="./images/AAGear.png"
        style="display:inline"
-       y="385.52115"
-       x="1148.3865"
+       y="411.02115"
+       x="1158.8865"
        id="image5517-7"
        height="154"
        width="154" />
     <image
        src="./images/AAGear.png"
        style="display:inline"
-       y="314.12296"
-       x="1266.5176"
+       y="344.62296"
+       x="1258.0176"
        id="image5517-7-1"
        height="154"
        width="154"
@@ -788,8 +807,8 @@
     <image
        src="./images/AAGear.png"
        style="display:inline"
-       y="263.29706"
-       x="1135.7947"
+       y="292.29706"
+       x="1146.2947"
        id="image5517-7-1-7"
        height="154"
        width="154"
@@ -850,7 +869,7 @@
        id="finish"
        width="50"
        height="50"
-       x="1977.1483"
-       y="-59.4006" />
+       x="920"
+       y="-1387.6378" />
   </g>
 </svg>

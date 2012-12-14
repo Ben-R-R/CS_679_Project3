@@ -44,11 +44,16 @@ function initFlyingSquirrel(newEnt){
 // 'this.form' will be the _previous_ power. 
 // you shouldn't modify this.form in this method. 
 function flyingSquirrel_enter(){
-	this._fClimbState = _fsNormal;
-	this._fcTime = 0;
-	this.impX = 0.3;
-	this.maxRun = 0.5;
-	this.impY = -0.5;
+	if(this.form != 'f'){
+		if(!mute){
+			fsSound.cloneNode(true).play();
+		}
+		this._fClimbState = _fsNormal;
+		this._fcTime = 0;
+		this.impX = 0.3;
+		this.maxRun = 0.5;
+		this.impY = -0.5;
+	}
 }
 
 // called when flying squirrel power is deactivated

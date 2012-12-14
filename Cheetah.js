@@ -31,7 +31,9 @@ function initCheetah(newEnt){
 // you shouldn't modify this.form in this method.
 function cheetah_enter(){
 	if(this.form != "c"){
-		cSound.cloneNode(true).play();
+		if(!mute){
+			cSound.cloneNode(true).play();
+		}
 	
 		this.impX = 0.3; // impulsive x velocity, 
 		this.maxRun = 0.5; // maximum run speed,  

@@ -25,21 +25,25 @@
      borderopacity="0.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="0"
-     inkscape:zoom="0.35355339"
-     inkscape:cx="90.19557"
-     inkscape:cy="680.19535"
+     inkscape:zoom="0.125"
+     inkscape:cx="367.55889"
+     inkscape:cy="96.647354"
      inkscape:document-units="px"
-     inkscape:current-layer="background"
+     inkscape:current-layer="layer7"
      showgrid="true"
      inkscape:window-width="1366"
-     inkscape:window-height="716"
+     inkscape:window-height="746"
      inkscape:window-x="-8"
-     inkscape:window-y="-8"
+     inkscape:window-y="304"
      inkscape:window-maximized="1"
      inkscape:snap-grids="true">
     <inkscape:grid
        type="xygrid"
-       id="grid4771" />
+       id="grid4771"
+       empspacing="5"
+       visible="true"
+       enabled="true"
+       snapvisiblegridlinesonly="true" />
   </sodipodi:namedview>
   <metadata
      id="metadata3960">
@@ -49,7 +53,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -552,34 +556,38 @@
        style="fill:#4d4d4d;fill-opacity:1;stroke:none"
        id="rect4844"
        width="309.07819"
-       height="141.01221"
+       height="168.22656"
        x="-290"
-       y="324.13562"
+       y="304.13562"
        ry="0" />
     <text
        xml:space="preserve"
        style="font-size:25.1087265px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
        x="-292.93509"
-       y="336.80292"
+       y="317.6861"
        id="text4846"
        sodipodi:linespacing="125%"
        transform="scale(0.95584301,1.0461969)"><tspan
          sodipodi:role="line"
          x="-292.93509"
-         y="336.80292"
-         id="tspan4852">Press and hold 'D'. Your </tspan><tspan
+         y="317.6861"
+         id="tspan4852">Press and hold 'Space'.</tspan><tspan
          id="tspan4858"
          sodipodi:role="line"
          x="-292.93509"
-         y="368.18881">cheetah will hop once, then</tspan><tspan
+         y="349.07199">Your cheetah will hop once,</tspan><tspan
          id="tspan4860"
          sodipodi:role="line"
          x="-292.93509"
-         y="399.57474">stay still. Auto jump is now</tspan><tspan
+         y="380.45792">then stay still and continue</tspan><tspan
+         sodipodi:role="line"
+         x="-292.93509"
+         y="411.84381"
+         id="tspan3623">holding 'Space'. Auto jump </tspan><tspan
          id="tspan4862"
          sodipodi:role="line"
          x="-292.93509"
-         y="430.96063">enabled.</tspan></text>
+         y="443.22974">is now enabled.</tspan></text>
     <rect
        ry="0"
        y="264.13562"
@@ -611,7 +619,7 @@
          id="tspan4892"
          y="373.61005"
          x="104.61965"
-         sodipodi:role="line">the edge, he will auto jump,</tspan><tspan
+         sodipodi:role="line">the edge, he will auto jump</tspan><tspan
          id="tspan4896"
          y="404.99597"
          x="104.61965"
@@ -619,7 +627,7 @@
          id="tspan4901"
          y="436.38187"
          x="104.61965"
-         sodipodi:role="line">holding down 'D', that is.</tspan></text>
+         sodipodi:role="line">holding down 'Space'.</tspan></text>
     <rect
        style="fill:#4d4d4d;fill-opacity:1;stroke:none"
        id="rect4905"
@@ -750,8 +758,22 @@
        style="fill:#008000;display:inline"
        id="finish"
        width="100"
-       height="360"
-       x="1320"
-       y="272.36218" />
+       height="60"
+       x="2860"
+       y="-387.63782" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="links"
+     inkscape:label="links">
+    <rect
+       style="fill:#42e61f;fill-opacity:1;stroke:none;display:inline"
+       id="rect3956"
+       width="124"
+       height="420"
+       x="1480"
+       y="212.36218"
+       link="levels/squirrelTutorial.svg"
+       autoactivate="true" />
   </g>
 </svg>

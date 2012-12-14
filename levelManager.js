@@ -7,134 +7,7 @@ function initLevelManager(path){
 	//spawnNewEntity(newGameMouseEntity(15), dynamicList);
 }
 
-function parseFile(){
-	//spawn boxes ---------------------------------------
-	$("#box").children().each(function(){
-		var tx = Math.ceil($(this).attr("x"));
-		var ty = Math.ceil($(this).attr("y"));
-		var tw = Math.ceil($(this).attr("width"));
-		var th = Math.ceil($(this).attr("height"));
 
-		spawnNewEntity(newBoxEntity(newVector(tx, ty), tw, th),staticList);
-	});
-	
-	//spawn gears ---------------------------------------
-	$("#gear").children().each(function(){
-		var tx = Math.ceil($(this).attr("cx"));
-		var ty = Math.ceil($(this).attr("cy"));
-		
-		spawnNewEntity(newGearEntity(tx, ty), staticList);
-	});
-	
-	//spawn checkpoints ---------------------------------
-	$("#checkpoint").children().each(function(){
-		var tw = Math.ceil($(this).attr("width"));
-		var th = Math.ceil($(this).attr("height"));
-		var tx = Math.ceil($(this).attr("x"))+tw/2;
-		var ty = Math.ceil($(this).attr("y"))+th/2;
-		
-		spawnNewEntity(newCheckpointEntity(newVector(tx, ty), tw, th), staticList);
-	});
-	
-	//spawn ropes ---------------------------------------
-	$("#rope").children().each(function(){
-		var tx = Math.ceil($(this).attr("x1"));
-		var ty = Math.ceil($(this).attr("y1"));
-		var th = Math.abs(Math.ceil($(this).attr("y2"))-ty);
-		
-		spawnNewEntity(newRopeEntity(tx, ty, th), staticList);
-	});
-	
-	//spawn spikes --------------------------------------
-	$("#spike").children().each(function(){
-		var tx = Math.ceil($(this).attr("x"));
-		var ty = Math.ceil($(this).attr("y"));
-		var tw = Math.ceil($(this).attr("width"));
-		var th = Math.ceil($(this).attr("height"));
-		var tnum = Math.floor(tw/10);
-
-		spawnNewEntity(newSpikeEntity(tx+tw/2, ty+th/2, tw, th, 0, tnum), staticList);
-	});
-	
-	
-	//spawn grapple points ------------------------------
-	$("#grapple").children().each(function(){
-		var tx = Math.ceil($(this).attr("x"));
-		var ty = Math.ceil($(this).attr("y"))
-		
-		spawnNewEntity(newSpiderGrappleEntity(tx, ty), staticList);
-	});
-	
-	//spawn moving platforms ----------------------------
-	$("#moving").children().each(function(){
-		var rect = $(this).children("rect");
-		var tx = Math.ceil(rect.attr("x"));
-		var ty = Math.ceil(rect.attr("y"));
-		var tw = Math.ceil(rect.attr("width"));
-		var th = Math.ceil(rect.attr("height"));
-		
-		var path = $(this).children("polygon");
-		var points = path.attr("points").split(" ");
-		
-		var pts = new Array();
-		//length-1 because polygon has spaces at end of "points" attribute
-		for(var i = 0; i < points.length-1; i++){
-			var temp = points[i].split(",");
-			pts.push(temp[0]);
-			pts.push(temp[1]);
-		}
-		
-		//2 point path
-		if(pts.length == 4){
-			var px1 = Math.ceil(pts[0]);
-			var py1 = Math.ceil(pts[1]);
-			var px2 = Math.ceil(pts[2]);
-			var py2 = Math.ceil(pts[3]);
-			
-			spawnNewEntity(newPathEntity(newBoxEntity(newVector(tx,ty), tw, th), newPath([newVector(px1, py1),newVector(px2,py2)]), 0.1), staticList);
-		} 
-		//3 point path
-		else if(pts.length == 6){
-			var px1 = Math.ceil(pts[0]);
-			var py1 = Math.ceil(pts[1]);
-			var px2 = Math.ceil(pts[2]);
-			var py2 = Math.ceil(pts[3]);
-			var px3 = Math.ceil(pts[4]);
-			var py3 = Math.ceil(pts[5]);
-			
-			spawnNewEntity(newPathEntity(newBoxEntity(newVector(tx,ty), tw, th), newPath([newVector(px1, py1),newVector(px2,py2),newVector(px3,py3)]), 0.1), staticList);
-		} 
-		//4 point path
-		else if(pts.length == 8){
-			var px1 = Math.ceil(pts[0]);
-			var py1 = Math.ceil(pts[1]);
-			var px2 = Math.ceil(pts[2]);
-			var py2 = Math.ceil(pts[3]);
-			var px3 = Math.ceil(pts[4]);
-			var py3 = Math.ceil(pts[5]);
-			var px4 = Math.ceil(pts[6]);
-			var py4 = Math.ceil(pts[7]);
-			
-			spawnNewEntity(newPathEntity(newBoxEntity(newVector(tx,ty), tw, th), newPath([newVector(px1, py1),newVector(px2,py2),newVector(px3,py3),newVector(px4,py4)]), 0.1), staticList);
-		}
-
-	});
-	
-	
-	//spawn player & start ------------------------------
-	var next = $("#start");
-	var tw = Math.ceil(next.attr("width"));
-	var th = Math.ceil(next.attr("height"));
-	var tx = Math.ceil(next.attr("x"))+tw/2;
-	var ty = Math.ceil(next.attr("y"))+th/2;
-	
-	var player = newPlayerEntity(tx,ty, kangaroo1R.height/2)
-	var checkpointAlpha = newCheckpointEntity(newVector(tx,ty), tw, th);
-	player.checkpoint = checkpointAlpha; 
-	spawnNewEntity(checkpointAlpha, staticList);
-	spawnNewEntity(player, dynamicList);
-
-}
 
 function parseInkscapeFile(){
 	//spawn boxes ---------------------------------------
@@ -205,6 +78,12 @@ function parseInkscapeFile(){
 		}
 		
 		var xforms = this.getAttribute('transform');
+		var moveingType = this.getAttribute('type'); // so we can have moving things other than gears 
+		
+		if(! moveingType){
+			moveingType = 'box';
+		}
+		
 		var firstX = 0;
 		var firstY = 0;
 		if(xforms){
@@ -262,12 +141,20 @@ function parseInkscapeFile(){
 			pts.push(newVector(currX, currY));
 		}
 		
-		spawnNewEntity(newPathEntity(newBoxEntity(newVector(tx,ty), tw, th), newPath(pts), speed), staticList);
+		var entity;
+		
+		if(moveingType === 'box'){
+			entity =  newBoxEntity(newVector(tx,ty), tw, th);
+		} else if(moveingType === 'gear'){
+		    entity =  newGearEntity(tx + tw/2, ty + th/2);
+		}
+		
+		spawnNewEntity(newPathEntity(entity, newPath(pts), speed), staticList);
 		
 
 	});
 	
-	var parseBackgroundElement = function($target, self, parentM, firstX, firstY){
+	var parseGroupToDrawables = function($target, self, parentM, firstX, firstY, callback){
 		
 		// first we see if there is any kind of overarching transform 
 		// we need to account for.
@@ -377,8 +264,8 @@ function parseInkscapeFile(){
 				ty += firstY;
 			}
 			
+			callback(newRectDraw(tx,ty, tw,th, color, transformM));
 			
-			spawnNewEntity(newRectDraw(tx,ty, tw,th, color, transformM), sceneryList);	
 		
 		} else if($target.is("path")){
 		    
@@ -430,7 +317,7 @@ function parseInkscapeFile(){
 			var lineWidth = $target.css("stroke-width");
 		  	
 			
-			spawnNewEntity(newPathDraw(pts, fill, stroke, lineWidth, closed, transformM), sceneryList);
+			callback(newPathDraw(pts, fill, stroke, lineWidth, closed, transformM));
 				
 		} else if($target.is("image")){
 			var tx = Math.ceil($target.attr("x")) ;
@@ -447,7 +334,7 @@ function parseInkscapeFile(){
 				ty += firstY;
 			}
 				
-			spawnNewEntity(newImageDraw(src, tx,ty, tw,th, transformM), sceneryList);	
+			callback(newImageDraw(src, tx,ty, tw,th, transformM));	
 		
 		// is this a group of child objects?
 		// if so, recursivly parse them.
@@ -456,7 +343,7 @@ function parseInkscapeFile(){
 			$target.children().each(function(){
 				var $target2 = $(this);	
 				
-				parseBackgroundElement($target2, this, transformM, firstX, firstY); 
+				parseGroupToDrawables($target2, this, transformM, firstX, firstY, callback); 
 			});
 				
 		} else if($target.is("text")){
@@ -466,7 +353,7 @@ function parseInkscapeFile(){
 			var fill = self.style.fill;
 			var stroke = self.style.stroke;
 			
-			style
+			//style
 			
 			$target.children().each(function(){
 				var $target2 = $(this);	
@@ -485,8 +372,8 @@ function parseInkscapeFile(){
 					ty += firstY;
 				}
 					
-				spawnNewEntity(newFontDraw( text, tx, ty, fill, stroke, style, transformM), sceneryList);
-				//parseBackgroundElement($target2, this, transformM, firstX, firstY); 
+				callback(newFontDraw( text, tx, ty, fill, stroke, style, transformM));
+				
 			});
 				
 		}
@@ -500,16 +387,151 @@ function parseInkscapeFile(){
 		$("#background").children().each(function(){
 		
 			var $target = $(this);
-		
+	
 			
 			// start parsing background elements.
 			// origin is 0,0, and there is no transformation matrix. 		
-			parseBackgroundElement($target, this, null, 0, 0); 
+			//parseBackgroundElement();
 			
+			function cb(drawObj){
+				spawnNewEntity(drawObj, sceneryList);	
+			}
+			 
+			parseGroupToDrawables($target, this, null, 0, 0, cb);
 			
 			
 		});  
 	}
+	
+	// links 
+	$("#links").children().each(function(){
+		var $target = $(this);
+		if ($target.is("g")){
+			var firstX = 0;
+			var firstY = 0;
+			var xforms = this.getAttribute('transform');
+		
+			var transformM = null;
+		
+			if(xforms){
+			    if(xforms.charAt(0) === 'm'){
+					
+				    transformM = xforms.substr(7, xforms.length - 8).split(',');
+					for(var i = 0; i < transformM.length; i++){
+						transformM[i] = parseFloat(transformM[i]);
+					}
+					
+					if(parentM){
+						var temp = new Array();
+						var t = parentM;
+						var p = transformM;
+						temp[0] = p[0] * t[0] + p[1] * t[2];
+						temp[1] = p[0] * t[1] + p[1] * t[3];
+						
+						temp[2] = p[2] * t[0] + p[3] * t[2];
+						temp[3] = p[2] * t[1] + p[3] * t[3];
+						
+						temp[4] = p[4] * t[0] + p[5] * t[2] + t[4];
+						temp[5] = p[4] * t[1] + p[5] * t[3] + t[5];
+						
+						
+						transformM = temp;						
+					}
+								 
+				} else if(xforms.charAt(0) === 's'){
+					
+					var parts  = /scale\(\s*([^\s,)]+)[ ,]([^\s,)]+)/.exec(xforms);
+					
+					
+				    transformM = new Array();
+				    
+				    transformM[0] = parseFloat(parts[1]);
+				    transformM[1] = 0;
+				    transformM[2] = 0;
+				    transformM[3] = parseFloat(parts[2]);
+				    transformM[4] = 0;
+				    transformM[5] = 0;
+				    
+					
+					
+					if(parentM){
+						var temp = new Array();
+						var t = parentM;
+						var p = transformM;
+						temp[0] = p[0] * t[0] + p[1] * t[2];
+						temp[1] = p[0] * t[1] + p[1] * t[3];
+						
+						temp[2] = p[2] * t[0] + p[3] * t[2];
+						temp[3] = p[2] * t[1] + p[3] * t[3];
+						
+						temp[4] = p[4] * t[0] + p[5] * t[2] + t[4];
+						temp[5] = p[4] * t[1] + p[5] * t[3] + t[5];
+						
+						
+						transformM = temp;						
+					}
+								 
+				} else{
+			        // this mess parses the translate form of the transform attribute 
+					var parts  = /translate\(\s*([^\s,)]+)[ ,]([^\s,)]+)/.exec(xforms);
+					firstX += parseFloat(parts[1]);
+					firstY += parseFloat(parts[2]);
+				}
+			}
+		
+		    var tw = 0;
+			var th = 0;
+			var tx = 0;
+			var ty = 0;
+			var link = ""; 
+		    var auto = false;
+		    
+			
+			var drawArr = new Array();
+			
+			$target.children().each(function(){
+				var $target2 = $(this);	
+
+				if(this.getAttribute('ismain') === "true"){
+					
+					function cb2(drawObj){
+						tw = drawObj.w;
+						th = drawObj.h;
+						tx = drawObj.x;
+						ty = drawObj.y;		
+					}
+					parseGroupToDrawables($target2, this, transformM, firstX, firstY, cb2); 	
+					
+					if(this.getAttribute("autoactivate")){
+					  	auto = true;
+					}
+					
+					link = $(this).attr("link");
+				} else {
+					function cb(drawObj){
+						drawArr.push(drawObj);	
+					}
+					parseGroupToDrawables($target2, this, transformM, firstX, firstY, cb); 	
+				}		
+			});
+			
+			spawnNewEntity(newDoorEntity(newVector(tx,ty), tw, th, link, drawArr, auto), staticList);
+		} else if($target.is("rect")){
+			tw = Math.ceil($(this).attr("width"));
+			th = Math.ceil($(this).attr("height"));
+			tx = Math.ceil($(this).attr("x"));
+			ty = Math.ceil($(this).attr("y"));
+			link = $(this).attr("link");
+			if(this.getAttribute("autoactivate") === "true"){
+				auto = true;
+				console.log("auto = true");
+			}
+			 console.log(this.getAttribute("style"));
+			spawnNewEntity(newDoorEntity(newVector(tx,ty), tw, th, link, null, auto), staticList);
+			
+		}	
+	});  
+	
 	
 	//spawn player & start ------------------------------
 	var next = $("#start");
