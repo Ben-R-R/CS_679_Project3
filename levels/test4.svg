@@ -59,14 +59,14 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4142136"
-     inkscape:cx="-1186.1633"
-     inkscape:cy="-488.30471"
+     inkscape:zoom="0.50000001"
+     inkscape:cx="-952.94887"
+     inkscape:cy="-304.96086"
      inkscape:document-units="px"
-     inkscape:current-layer="green"
+     inkscape:current-layer="links"
      showgrid="true"
      inkscape:window-width="1366"
-     inkscape:window-height="746"
+     inkscape:window-height="716"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -576,10 +576,24 @@
     <rect
        style="fill:#008000;display:inline"
        id="finish"
-       width="80"
-       height="240.00005"
-       x="-1360"
-       y="1482.3622" />
+       width="20"
+       height="19.999985"
+       x="540"
+       y="1632.3622" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="links"
+     inkscape:label="links">
+    <rect
+       style="fill:#42e61f;fill-opacity:1;stroke:none;display:inline"
+       id="rect3956"
+       width="124"
+       height="260"
+       x="-1144"
+       y="1472.36"
+       link="levels/test6.svg"
+       autoactivate="true" />
   </g>
   <g
      inkscape:groupmode="layer"
