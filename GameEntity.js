@@ -241,6 +241,8 @@ function newDoorEntity(org, w, h, target, drawArray){
 	newEnt.color = "#0000FF";
 	newEnt.drawArray = drawArray;
 	
+	newEnt.target = target;
+	
 	newEnt.draw = function(origin){
 		if(this.playerhit){
 			theContext.strokeStyle = this.color;
@@ -263,7 +265,7 @@ function newDoorEntity(org, w, h, target, drawArray){
 				HUD.items = [];
 				
 				initEntityManager();
-				initLevelManager(this.next);
+				initLevelManager(this.target);
 				HUD.init();
 			}
 		

@@ -393,26 +393,45 @@ function parseInkscapeFile(){
 	$("#links").children().each(function(){
 		var $target = $(this);
 		if ($target.is("g")){
-		    var tw = Math.ceil($(this).attr("width"));
-			var th = Math.ceil($(this).attr("height"));
-			var tx = Math.ceil($(this).attr("x"));
-			var ty = Math.ceil($(this).attr("y"));
-			var link = $(this).attr("link");
+		    var tw = 0;
+			var th = 0;
+			var tx = 0;
+			var ty = 0;
+			var link = ""; 
+		
+		    var inScope = "Yes";
 			
 			var drawArr = new Array();
 			
 			$target.children().each(function(){
 				var $target2 = $(this);	
 
+				if(this.getAttribute('ismain')){
+					
+					function cb2(drawObj){
+						tw = drawObj.w;
+						th = drawObj.h;
+						tx = drawObj.x;
+						ty = drawObj.y;		
+					}
+					parseGroupToDrawables($target2, this, null, 0, 0, cb2); 	
+					
+					console.log(tx);
+					
+					link = $(this).attr("link");
+				} else {
+					function cb(drawObj){
+						drawArr.push(drawObj);	
+					}
+					parseGroupToDrawables($target2, this, null, 0, 0, cb); 	
+				}
 				
 
-				function cb(drawObj){
-					drawArr.push(drawObj);	
-				}
-				parseGroupToDrawables($target2, this, null, 0, 0, cb); 						
+									
 					
 			});
-			newDoorEntity(newVector(tx,ty), tw, th, link, drawArr);	
+			console.log(tx + ", " + ty + ", " + tw);
+			spawnNewEntity(newDoorEntity(newVector(tx,ty), tw, th, link, null), staticList);
 		}
 		if($target.is("rect")){
 			var tw = Math.ceil($(this).attr("width"));
