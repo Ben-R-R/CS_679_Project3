@@ -11,7 +11,7 @@ levels.push("levels/kangarooTutorial.svg");
 levels.push("levels/spiderTutorial.svg");
 levels.push("levels/test4.svg");
 levels.push("levels/test6.svg"); 
-levels.push("levels/queueTutorial.svg"); 
+levels.push("levels/queueTutorial.svg");
 //console.log(levels[0]+" "+levels[1]);
 
 var theCanvas = null;
