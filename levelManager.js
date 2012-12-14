@@ -49,16 +49,7 @@ function parseInkscapeFile(){
 		spawnNewEntity(newRopeEntity(tx, ty, th), staticList);
 	});
 	
-	//spawn spikes --------------------------------------
-	$("#spike").children().each(function(){
-		var tx = Math.ceil($(this).attr("x"));
-		var ty = Math.ceil($(this).attr("y"));
-		var tw = Math.ceil($(this).attr("width"));
-		var th = Math.ceil($(this).attr("height"));
-		var tnum = Math.floor(tw/10);
-
-		spawnNewEntity(newSpikeEntity(tx+tw/2, ty+th/2, tw, th, 0, tnum), staticList);
-	});
+	
 	
 	
 	//spawn grapple points ------------------------------
@@ -152,6 +143,17 @@ function parseInkscapeFile(){
 		spawnNewEntity(newPathEntity(entity, newPath(pts), speed), staticList);
 		
 
+	});
+	
+	//spawn spikes --------------------------------------
+	$("#spike").children().each(function(){
+		var tx = Math.ceil($(this).attr("x"));
+		var ty = Math.ceil($(this).attr("y"));
+		var tw = Math.ceil($(this).attr("width"));
+		var th = Math.ceil($(this).attr("height"));
+		var tnum = Math.floor(tw/10);
+
+		spawnNewEntity(newSpikeEntity(tx+tw/2, ty+th/2, tw, th, 0, tnum), staticList);
 	});
 	
 	var parseGroupToDrawables = function($target, self, parentM, firstX, firstY, callback){
