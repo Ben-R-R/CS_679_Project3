@@ -9,11 +9,12 @@ levels.push("levels/CheetahTutorial.svg");
 levels.push("levels/squirrelTutorial.svg");
 levels.push("levels/kangarooTutorial.svg");
 levels.push("levels/spiderTutorial.svg");
-levels.push("levels/test4.svg");
-levels.push("levels/test6.svg"); 
 levels.push("levels/queueTutorial.svg");
 levels.push("levels/level1.svg");
 levels.push("levels/level2.svg");
+levels.push("levels/test4.svg");
+levels.push("levels/test6.svg"); 
+levels.push("levels/WINRAR.svg");
 
 //console.log(levels[0]+" "+levels[1]);
 
