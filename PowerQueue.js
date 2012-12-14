@@ -246,9 +246,11 @@ function initPowerQueue(player){
 	self = PowerQueue;
 	self.queue = newList();
 	self.oldQueue = null;
+	
 	self.x = theCanvas.width/2 - self.image.width/2;
 	self.y = theCanvas.height - self.image.height;
 	self.player = player;
+	self.createQueueBackup();
 	self.animationList = newList(); 
 
 }
