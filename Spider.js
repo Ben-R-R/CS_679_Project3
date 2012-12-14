@@ -307,7 +307,8 @@ function spider_collisionResponse(responseVector, other){
 		this.coords.y = this.checkpoint.coords.y;
 		this._sState = 0; 
 		this.velocity.x = 0;
-		this.velocity.y = 0;			
+		this.velocity.y = 0;
+		PowerQueue.restoreQueueFromBackup();			
 	}
 	if(other.isKick) return;
 	if(other.isRope) return;

@@ -203,7 +203,8 @@ function flyingSquirrel_collisionResponse(responseVector, other){
 		// careful, if we did this.coords = this.checkpoint.coords, we 
 		// would cause the checkpoint to move along with the player.
 		this.coords.x = this.checkpoint.coords.x;
-		this.coords.y = this.checkpoint.coords.y; 			
+		this.coords.y = this.checkpoint.coords.y;
+		PowerQueue.restoreQueueFromBackup(); 			
 	}
 	if(other.isKick) return;
 	if(other.isRope){

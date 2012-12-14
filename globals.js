@@ -12,6 +12,8 @@ levels.push("levels/spiderTutorial.svg");
 levels.push("levels/test4.svg");
 levels.push("levels/test6.svg"); 
 levels.push("levels/queueTutorial.svg");
+levels.push("levels/level1.svg");
+levels.push("levels/level2.svg");
 
 //console.log(levels[0]+" "+levels[1]);
 

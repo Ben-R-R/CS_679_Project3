@@ -96,9 +96,32 @@ function newpqAnHelper(x,y,dx,dy, speed, image, scale){
 
 }
 
+
+
 var PowerQueue = {
 	queue: null,
 	animationList: null,
+	
+	createQueueBackup : function(){
+	 	this.oldQueue = newList();
+	 	this.oldQueue.pushBack(this.player.form);
+	
+		for( obj in this.queue){
+			
+			this.oldQueue.pushBack(obj);		
+		}
+	},
+	
+	restoreQueueFromBackup : function(){
+		this.player.changePower(this.oldQueue.popFront());
+		this.queue = newList();
+	
+		for( obj in this.oldQueue){
+		
+			this.queue.pushBack(obj);		
+		}
+		this.createQueueBackup();	
+	},
 	
 	player: null,
 	x: 0,
@@ -110,277 +133,101 @@ var PowerQueue = {
 		
 		 updateList(this.animationList,elapsedTime);
 		
-		//if(this.mode === 0){		
-			if(this.queue.size < 5){
 		
-				if(charhit('W')){
-					// cheetah
-					this.image = C_Icon;
-					
-					this.queue.pushBack(this.image);
-					spawnNewEntity(newpqAnHelper(
-						theCanvas.width/2,
-						theCanvas.height/2,
-						this.x + this.iW * (this.queue.size - 1) , this.y, 
-						0.6, this.image,0.7), this.animationList);
-					
-				} else if(charhit('E')){
-					// flying squirrel
-					this.image = FS_Icon;
-					this.queue.pushBack(this.image);
-					spawnNewEntity(newpqAnHelper(
-						theCanvas.width/2,
-						theCanvas.height/2,
-						this.x + this.iW * (this.queue.size - 1) , this.y, 
-						0.6, this.image,0.7), this.animationList);
-				} else if(charhit('R')){
-					// kangaroo		
-					this.image = K_Icon;
-					this.queue.pushBack(this.image);
-					spawnNewEntity(newpqAnHelper(
-						theCanvas.width/2,
-						theCanvas.height/2,
-						this.x + this.iW * (this.queue.size - 1) , this.y, 
-						0.6, this.image,0.7), this.animationList);
-				} else if(charhit('T')){
-					// spider		
-					this.image = S_Icon;
-					this.queue.pushBack(this.image);
-					
-					spawnNewEntity(newpqAnHelper(
-						theCanvas.width/2,
-						theCanvas.height/2,
-						this.x + this.iW * (this.queue.size - 1) , this.y, 
-						0.6, this.image,0.7), this.animationList);
-				} else if(charhit('Q')){
-					// human		
-					this.image = H_Icon;
-					this.queue.pushBack(this.image);
-					spawnNewEntity(newpqAnHelper(
-						theCanvas.width/2,
-						theCanvas.height/2,
-						this.x + this.iW * (this.queue.size - 1) , this.y, 
-						0.6, this.image,0.7), this.animationList);
-				} 
-			}	
-			/*if(keyhit(QUEUE_MODE_KEY)){
-				this.mode = 1;
-			
-			} */
-			
-			
-		//} else if (this.mode === 1){
-		    if(keyhit(CHANGE_KEY)){  
-				var temp = this.queue.popFront();
+		if(this.queue.size < 5){
+	
+			if(charhit('W')){
+				// cheetah
+				this.image = C_Icon;
 				
-				if(temp === H_Icon){
-					this.player.changePower("h");
-				} else if(temp === C_Icon){
-				    this.player.changePower("c");
-				} else if(temp === FS_Icon){
-				    this.player.changePower("f");
-				} else if(temp === K_Icon){
-				    this.player.changePower("k");
-				} else if(temp === S_Icon){
-				    this.player.changePower("s");
-				} else {
-					if(this.player.form === 'h'){
-					   this.player.changePower("c");
-					} else if(this.player.form === 'c'){
-					   this.player.changePower("f");
-					} else if(this.player.form === 'f'){
-					   this.player.changePower("k");
-					} else if(this.player.form === 'k'){
-					   this.player.changePower("s");
-					} else if(this.player.form === 's'){
-					   this.player.changePower("h");
-					}
-				}
-			} else if(keyhit(DELETE_KEY)){
-				this.queue.popBack();
+				this.queue.pushBack(this.image);
+			    this.createQueueBackup(); 
+				spawnNewEntity(newpqAnHelper(
+					theCanvas.width/2,
+					theCanvas.height/2,
+					this.x + this.iW * (this.queue.size - 1) , this.y, 
+					0.6, this.image,0.7), this.animationList);
+				
+			} else if(charhit('E')){
+				// flying squirrel
+				this.image = FS_Icon;
+				this.queue.pushBack(this.image);
+				this.createQueueBackup(); 
+				spawnNewEntity(newpqAnHelper(
+					theCanvas.width/2,
+					theCanvas.height/2,
+					this.x + this.iW * (this.queue.size - 1) , this.y, 
+					0.6, this.image,0.7), this.animationList);
+			} else if(charhit('R')){
+				// kangaroo		
+				this.image = K_Icon;
+				this.queue.pushBack(this.image);
+				this.createQueueBackup(); 
+				spawnNewEntity(newpqAnHelper(
+					theCanvas.width/2,
+					theCanvas.height/2,
+					this.x + this.iW * (this.queue.size - 1) , this.y, 
+					0.6, this.image,0.7), this.animationList);
+			} else if(charhit('T')){
+				// spider		
+				this.image = S_Icon;
+				this.queue.pushBack(this.image);
+				this.createQueueBackup(); 
+				spawnNewEntity(newpqAnHelper(
+					theCanvas.width/2,
+					theCanvas.height/2,
+					this.x + this.iW * (this.queue.size - 1) , this.y, 
+					0.6, this.image,0.7), this.animationList);
+			} else if(charhit('Q')){
+				// human		
+				this.image = H_Icon;
+				this.queue.pushBack(this.image);
+				this.createQueueBackup(); 
+				spawnNewEntity(newpqAnHelper(
+					theCanvas.width/2,
+					theCanvas.height/2,
+					this.x + this.iW * (this.queue.size - 1) , this.y, 
+					0.6, this.image,0.7), this.animationList);
 			}
 			
-			/*if(keyhit(QUEUE_MODE_KEY)){
-			    this.mode = 0;
-			}*/
-	//	}			
-		},
+		}	
 	
-	draw: function(){
-		
-		// draw centered image. also takes the given scale value
-		/*
-		var dCI = function(img,x,y,scale){
-			theContext.drawImage(img, x - img.width/2, y - img.height/2 , img.width * scale , img.height * scale);
+	    if(keyhit(CHANGE_KEY)){  
+			var temp = this.queue.popFront();
+			
+			if(temp === H_Icon){
+				this.player.changePower("h");
+			} else if(temp === C_Icon){
+			    this.player.changePower("c");
+			} else if(temp === FS_Icon){
+			    this.player.changePower("f");
+			} else if(temp === K_Icon){
+			    this.player.changePower("k");
+			} else if(temp === S_Icon){
+			    this.player.changePower("s");
+			} else {
+				if(this.player.form === 'h'){
+				   this.player.changePower("c");
+				} else if(this.player.form === 'c'){
+				   this.player.changePower("f");
+				} else if(this.player.form === 'f'){
+				   this.player.changePower("k");
+				} else if(this.player.form === 'k'){
+				   this.player.changePower("s");
+				} else if(this.player.form === 's'){
+				   this.player.changePower("h");
+				}
+			}
+		} else if(keyhit(DELETE_KEY)){
+			 
+			this.queue.popBack();
+			this.createQueueBackup();
 		}
 		
-		if(this.mode === 0){
 			
-			var gutter = 10;
-			var tempLine = theContext.lineWidth;
-			
-			//theContext.globalAlpha = 0.5;
-			theContext.fillStyle = "#FFFFFF";
-			theContext.font= Math.floor(theCanvas.height * 0.1) +"px Arial";
-			var tempLineWidth = theContext.lineWidth;
-				
-			theContext.lineWidth = 2.5;
-			
-			//var tempAlign = theContext.textAlign;
-			theContext.textAlign="center"; 
-			//theContext.fillRect(0, 0, theCanvas.width, theCanvas.height);
-			theContext.globalAlpha = 1;	
-			theContext.fillStyle = "#FFFFFF";
-			theContext.strokeStyle = "#000000";
-			
-			
-			
-			/*
-			theContext.fillText("Z",
-				theCanvas.width/2,
-				theCanvas.height/2 - 1.5 *  this.image.height - 2 * gutter - gutter);
-			theContext.strokeText("Z",
-				theCanvas.width/2,
-				theCanvas.height/2 - 1.5 *  this.image.height - 2 * gutter - gutter);
-			
-			theContext.fillText("X",
-				theCanvas.width/2 + 1.5 *  this.image.width + 2 * gutter + theCanvas.height * 0.05,
-				theCanvas.height/2 + theCanvas.height * 0.05);
-			theContext.strokeText("X",
-				theCanvas.width/2 + 1.5 *  this.image.width + 2 * gutter + theCanvas.height * 0.05,
-				theCanvas.height/2 + theCanvas.height * 0.05);
-				
-			theContext.fillText("C",
-				theCanvas.width/2,
-				theCanvas.height/2 + 1.5 *  this.image.height + 2 * gutter + theCanvas.height * 0.1);
-			theContext.strokeText("C",
-				theCanvas.width/2,
-				theCanvas.height/2 + 1.5 *  this.image.height + 2 * gutter + theCanvas.height * 0.1);
-			
-			theContext.fillText("V",
-				theCanvas.width/2 - 1.5 *  this.image.width - 2 * gutter - theCanvas.height * 0.05,
-				theCanvas.height/2 + theCanvas.height * 0.05);
-			theContext.strokeText("V",
-				theCanvas.width/2 - 1.5 *  this.image.width - 2 * gutter - theCanvas.height * 0.05,
-				theCanvas.height/2 + theCanvas.height * 0.05);
-			
-			theContext.fillText("Press 'G' to return to the game.",
-				theCanvas.width/2,
-				theCanvas.height/2 - 1.5 *  this.image.height + 2 - gutter - 1.8 * theCanvas.height * 0.1);
-			theContext.strokeText("Press 'G' to return to the game.",
-				theCanvas.width/2,
-				theCanvas.height/2 - 1.5 *  this.image.height + 2 - gutter - 1.8 * theCanvas.height * 0.1);
-			
-			
-			theContext.fillStyle = "#FFFFFF";
-			
-			
-			theContext.lineWidth = 8;
-			
-			theContext.strokeStyle = "#000000";
-			
-			theContext.strokeRect(
-				theCanvas.width/2 - 1.5 *  this.image.width - 2 * gutter, 
-				theCanvas.height/2 - 0.5 * this.image.height - gutter,
-				this.image.width * 3 + 4 * gutter,
-				this.image.height + 2 * gutter);
-			
-			theContext.strokeRect(
-				theCanvas.width/2 - 0.5 * this.image.width - gutter, 
-				theCanvas.height/2 - 1.5 *  this.image.height - 2 * gutter,
-				this.image.width + 2 * gutter,
-				this.image.height * 3 + 4 * gutter);
-				
-			theContext.lineWidth = tempLine;  
-			
-			theContext.fillRect(
-				theCanvas.width/2 - 1.5 *  this.image.width - 2 * gutter, 
-				theCanvas.height/2 - 0.5 * this.image.height - gutter,
-				this.image.width * 3 + 4 * gutter,
-				this.image.height + 2 * gutter);
-			
-			theContext.fillRect(
-				theCanvas.width/2 - 0.5 * this.image.width - gutter, 
-				theCanvas.height/2 - 1.5 *  this.image.height - 2 * gutter,
-				this.image.width + 2 * gutter,
-				this.image.height * 3 + 4 * gutter); 
-				
-							  
-			
-			//dCI	(H_Icon, theCanvas.width/2, theCanvas.height/2, 1);	
-			
-		    dCI	(C_Icon, theCanvas.width/2 - this.image.width*1.5 - gutter*1.5, theCanvas.height/2, 1);	
-		    dCI	(FS_Icon, theCanvas.width/2 - this.image.width/2-gutter/2, theCanvas.height/2, 1);	
-		    dCI	(K_Icon, theCanvas.width/2 + this.image.width/2+gutter/2, theCanvas.height/2, 1);	
-		    dCI	(S_Icon, theCanvas.width/2 + this.image.width*1.5 + gutter*1.5, theCanvas.height/2, 1);	
-*/
-/*
-			theContext.fillText("Z",
-				theCanvas.width/2 - this.image.width*1.5 - gutter*1.5,
-				theCanvas.height/2 + this.image.height + theCanvas.height * 0.05);
-			theContext.strokeText("Z",
-				theCanvas.width/2 - this.image.width*1.5 - gutter*1.5,
-				theCanvas.height/2 + this.image.height + theCanvas.height * 0.05);
-			
-			theContext.fillText("X",
-				theCanvas.width/2 - this.image.width/2 - gutter/2,
-				theCanvas.height/2 + this.image.height + theCanvas.height * 0.05);
-			theContext.strokeText("X",
-				theCanvas.width/2 - this.image.width/2 - gutter/2,
-				theCanvas.height/2 + this.image.height + theCanvas.height * 0.05);
-				
-			theContext.fillText("C",
-				theCanvas.width/2 + this.image.width/2 + gutter/2,
-				theCanvas.height/2 + this.image.height + theCanvas.height * 0.05);
-			theContext.strokeText("C",
-				theCanvas.width/2 + this.image.width/2 + gutter/2,
-				theCanvas.height/2 + this.image.height + theCanvas.height * 0.05);
-			
-			theContext.fillText("V",
-				theCanvas.width/2 + this.image.width*1.5 + gutter*1.5,
-				theCanvas.height/2 + this.image.height + theCanvas.height * 0.05);
-			theContext.strokeText("V",
-				theCanvas.width/2 + this.image.width*1.5 + gutter*1.5,
-				theCanvas.height/2 + this.image.height + theCanvas.height * 0.05);
-			
-			/*theContext.fillText("Press 'G' to return to the game.",
-				theCanvas.width/2,
-				theCanvas.height/2 - this.image.height);
-			theContext.strokeText("Press 'G' to return to the game.",
-				theCanvas.width/2,
-				theCanvas.height/2 - this.image.height);
-			*/
-			/*
-			theContext.lineWidth = 8;
-			
-			theContext.strokeStyle = "#000000";
-			
-			theContext.strokeRect(
-				theCanvas.width/2 - this.image.width*2 - gutter*2, 
-				theCanvas.height/2 - this.image.height/2-gutter/2, 
-				this.image.width*4+gutter*4, 
-				this.image.height+gutter );
-			
-			theContext.lineWidth = tempLine;
-			  
-			theContext.fillRect(
-				theCanvas.width/2 - this.image.width*2 - gutter*2, 
-				theCanvas.height/2 - this.image.height/2-gutter/2, 
-				this.image.width*4+gutter*4, 
-				this.image.height+gutter );
-				
-			
-			
-		    dCI	(C_Icon, theCanvas.width/2 - this.image.width*1.5 - gutter*1.5, theCanvas.height/2, 1);	
-		    dCI	(FS_Icon, theCanvas.width/2 - this.image.width/2-gutter/2, theCanvas.height/2, 1);	
-		    dCI	(K_Icon, theCanvas.width/2 + this.image.width/2+gutter/2, theCanvas.height/2, 1);	
-		    dCI	(S_Icon, theCanvas.width/2 + this.image.width*1.5 + gutter*1.5, theCanvas.height/2, 1);	
-		    
-		 
-			theContext.textAlign= tempAlign; 
-			*/
-	//	}	
-	    
+	},
+	
+	draw: function(){
 	    
 	    var _offset = 0;
 		this.iW = this.image.width;
@@ -398,9 +245,12 @@ var PowerQueue = {
 function initPowerQueue(player){
 	self = PowerQueue;
 	self.queue = newList();
+	self.oldQueue = null;
+	
 	self.x = theCanvas.width/2 - self.image.width/2;
 	self.y = theCanvas.height - self.image.height;
 	self.player = player;
+	self.createQueueBackup();
 	self.animationList = newList(); 
 
 }
