@@ -26,10 +26,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="0"
      inkscape:zoom="0.50373355"
-     inkscape:cx="4704.1467"
-     inkscape:cy="-139.2582"
+     inkscape:cx="-67.396225"
+     inkscape:cy="-977.99512"
      inkscape:document-units="px"
-     inkscape:current-layer="background"
+     inkscape:current-layer="links"
      showgrid="true"
      inkscape:window-width="1920"
      inkscape:window-height="1028"
@@ -536,12 +536,12 @@
          id="tspan5362">you are at a good angle. </tspan></text>
     <g
        id="g5731"
-       transform="translate(220,-10)">
+       transform="translate(230,30)">
       <rect
          style="fill:#4d4d4d;fill-opacity:1;stroke:none"
          id="rect5392"
          width="380"
-         height="140"
+         height="110"
          x="-1100"
          y="582.36218"
          ry="0" />
@@ -560,14 +560,10 @@
            sodipodi:role="line"
            x="-1080"
            y="642.36218">level! You should solve all these</tspan><tspan
-           id="tspan5402"
-           sodipodi:role="line"
-           x="-1080"
-           y="672.36218">puzzles using just the spider and</tspan><tspan
            id="tspan5404"
            sodipodi:role="line"
            x="-1080"
-           y="702.36218">the human.</tspan></text>
+           y="672.36218">puzzles using just the spider.</tspan></text>
     </g>
     <g
        id="g5442">
@@ -983,6 +979,20 @@
            y="528.151"
            id="tspan3256">to swing on!</tspan></text>
     </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="links"
+     inkscape:label="links">
+    <rect
+       style="fill:#42e61f;fill-opacity:1;stroke:none;display:inline"
+       id="rect3956"
+       width="124"
+       height="778"
+       x="-1420"
+       y="1272.3622"
+       link="levels/level1.svg"
+       autoactivate="true" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -1489,8 +1499,8 @@
        id="finish"
        width="106.14927"
        height="772.7226"
-       x="-1386.1493"
-       y="1279.6396" />
+       x="-6026.1494"
+       y="1372.3622" />
     <rect
        y="490.36218"
        x="1610"
