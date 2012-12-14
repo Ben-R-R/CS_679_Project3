@@ -78,6 +78,12 @@ function parseInkscapeFile(){
 		}
 		
 		var xforms = this.getAttribute('transform');
+		var moveingType = this.getAttribute('type'); // so we can have moving things other than gears 
+		
+		if(! moveingType){
+			moveingType = 'box';
+		}
+		
 		var firstX = 0;
 		var firstY = 0;
 		if(xforms){
@@ -135,7 +141,15 @@ function parseInkscapeFile(){
 			pts.push(newVector(currX, currY));
 		}
 		
-		spawnNewEntity(newPathEntity(newBoxEntity(newVector(tx,ty), tw, th), newPath(pts), speed), staticList);
+		var entity;
+		
+		if(moveingType === 'box'){
+			entity =  newBoxEntity(newVector(tx,ty), tw, th);
+		} else if(moveingType === 'gear'){
+		    entity =  newGearEntity(tx + tw/2, ty + th/2);
+		}
+		
+		spawnNewEntity(newPathEntity(entity, newPath(pts), speed), staticList);
 		
 
 	});

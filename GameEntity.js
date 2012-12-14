@@ -691,8 +691,11 @@ function newPathEntity(ent, path, speed){
 		var reply = this.object.update(eTime);
 		var change = this.path.moveTrack(this.object.coords, this.speed, eTime);
 		this.object.coords.add(change);
-		this.object.aabb.x += change.x;
-		this.object.aabb.y += change.y;
+		if(this.object.aabb){
+			this.object.aabb.x += change.x;
+			this.object.aabb.y += change.y;
+		}	
+		
 		
 		this.coords = this.object.coords;
 		this.velocity = this.object.velocity;
