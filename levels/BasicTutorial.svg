@@ -25,18 +25,18 @@
      borderopacity="0.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="0"
-     inkscape:zoom="0.5"
-     inkscape:cx="2422"
-     inkscape:cy="907.0379"
+     inkscape:zoom="1"
+     inkscape:cx="3700.2201"
+     inkscape:cy="1245.3592"
      inkscape:document-units="px"
-     inkscape:current-layer="moving"
+     inkscape:current-layer="links"
      showgrid="true"
      inkscape:window-width="1920"
      inkscape:window-height="1028"
      inkscape:window-x="1358"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:snap-grids="false">
+     inkscape:snap-grids="true">
     <inkscape:grid
        type="xygrid"
        id="grid4321" />
@@ -487,7 +487,7 @@
      id="background">
     <image
        y="407.36218"
-       x="1020"
+       x="1560"
        id="image3077-9"
        height="155"
        width="200"
@@ -508,7 +508,7 @@
          y="440.36218" /></text>
     <g
        id="g7173"
-       transform="matrix(1,0,0,1.094528,-2040,-70.042163)">
+       transform="matrix(1,0,0,1.094528,-2694,-72.042163)">
       <rect
          ry="0"
          y="442.36218"
@@ -531,7 +531,7 @@
     </g>
     <g
        id="g7173-1"
-       transform="matrix(1,0,0,1.094528,-1990,-20.042163)">
+       transform="matrix(1,0,0,1.094528,-2644,-22.042163)">
       <rect
          ry="0"
          y="442.36218"
@@ -678,7 +678,7 @@
        sodipodi:nodetypes="ccccccccc"
        inkscape:connector-curvature="0"
        id="path4349"
-       d="m 458.02962,349.92362 -17.54283,78.05287 -15.12752,-23.89894 18.30557,55.36161 40.23409,-42.20448 -23.89893,15.1275 17.54284,-78.05285 -11.94947,7.56375 z"
+       d="m 482.03529,361.82347 -51.07071,61.57746 -2.62669,-28.16206 -8.82765,57.63744 55.01074,-19.33439 -28.16204,2.62667 51.07072,-61.57743 -14.08103,1.31333 z"
        style="fill:#ff0000;fill-opacity:1;stroke:none" />
     <text
        xml:space="preserve"
@@ -734,7 +734,7 @@
        width="200"
        height="266"
        id="image4644-1"
-       x="1020"
+       x="1560"
        y="126.36218"
        style="display:inline"
        xlink:href="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/Bell_Jar.png"
@@ -744,7 +744,7 @@
        id="rect4831"
        width="320"
        height="29"
-       x="960"
+       x="1500"
        y="383.36218" />
     <text
        sodipodi:linespacing="125%"
@@ -759,38 +759,38 @@
        id="rect4405"
        width="289.07819"
        height="140"
-       x="1390.9218"
+       x="1930.9218"
        y="252.36218"
        ry="0" />
     <text
        xml:space="preserve"
        style="font-size:25.1087265px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-       x="1465.64"
+       x="2030.59"
        y="268.19879"
        id="text4407"
        sodipodi:linespacing="125%"
-       transform="scale(0.955843,1.0461969)"><tspan
+       transform="scale(0.95584301,1.0461969)"><tspan
          id="tspan4415"
          sodipodi:role="line"
-         x="1465.64"
+         x="2030.59"
          y="268.19879">These are background</tspan><tspan
          sodipodi:role="line"
-         x="1465.64"
+         x="2030.59"
          y="299.58469"
          id="tspan4423">elements. They look nice</tspan><tspan
          sodipodi:role="line"
-         x="1465.64"
+         x="2030.59"
          y="330.97061"
          id="tspan4425">but you don't interact with</tspan><tspan
          sodipodi:role="line"
-         x="1465.64"
-         y="362.35648"
+         x="2030.59"
+         y="362.35651"
          id="tspan4427">them.</tspan></text>
     <path
        sodipodi:nodetypes="ccccccccc"
        inkscape:connector-curvature="0"
        id="path4429"
-       d="m 1362.4118,339.48187 -78.2417,-16.68009 23.7304,-15.39045 -55.1561,18.91558 42.6461,39.76573 -15.3905,-23.73046 78.2418,16.6801 -7.6952,-11.86523 z"
+       d="m 1902.4118,339.48187 -78.2417,-16.68009 23.7304,-15.39045 -55.1561,18.91558 42.6461,39.76573 -15.3905,-23.73046 78.2418,16.6801 -7.6952,-11.86523 z"
        style="fill:#000080;fill-opacity:1;stroke:none" />
     <text
        xml:space="preserve"
@@ -803,7 +803,7 @@
     <rect
        ry="0"
        y="382.36218"
-       x="1800"
+       x="2340"
        height="110"
        width="289.07819"
        id="rect4437"
@@ -812,20 +812,20 @@
        sodipodi:linespacing="125%"
        id="text4439"
        y="392.45837"
-       x="1893.6165"
+       x="2458.5425"
        style="font-size:25.1087265px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
        xml:space="preserve"
-       transform="scale(0.955843,1.0461969)"><tspan
+       transform="scale(0.95584301,1.0461969)"><tspan
          id="tspan4447"
          y="392.45837"
-         x="1893.6165"
+         x="2458.5425"
          sodipodi:role="line">This is an elevator, use it</tspan><tspan
          y="423.84427"
-         x="1893.6165"
+         x="2458.5425"
          sodipodi:role="line"
          id="tspan4455">to reach new heights of </tspan><tspan
          y="455.23019"
-         x="1893.6165"
+         x="2458.5425"
          sodipodi:role="line"
          id="tspan4457">awsomeness!</tspan></text>
     <rect
@@ -869,7 +869,7 @@
        sodipodi:linespacing="125%"
        transform="scale(0.955843,1.0461969)" />
     <g
-       transform="matrix(1,0,0,1.094528,2230.9218,-571.8156)"
+       transform="matrix(1,0,0,1.094528,2770.9218,-571.8156)"
        id="g4521">
       <rect
          style="fill:#4d4d4d;fill-opacity:1;stroke:none"
@@ -914,7 +914,7 @@
     <rect
        ry="0"
        y="412.36218"
-       x="1390.9218"
+       x="1930.9218"
        height="80"
        width="289.07819"
        id="rect4553"
@@ -923,34 +923,133 @@
        sodipodi:linespacing="125%"
        id="text4555"
        y="421.13367"
-       x="1465.64"
+       x="2030.59"
        style="font-size:25.1087265px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
        xml:space="preserve"
-       transform="scale(0.955843,1.0461969)"><tspan
+       transform="scale(0.95584301,1.0461969)"><tspan
          id="tspan4563"
          y="421.13367"
-         x="1465.64"
+         x="2030.59"
          sodipodi:role="line">In general, you can only</tspan><tspan
          y="452.51956"
-         x="1465.64"
+         x="2030.59"
          sodipodi:role="line"
          id="tspan4573">touch black objects.</tspan></text>
+    <g
+       id="g3965"
+       transform="matrix(1,0,0,1.094528,686.92181,-243.81561)">
+      <rect
+         ry="0"
+         y="442.36218"
+         x="270"
+         height="100.49994"
+         width="293.07819"
+         id="rect3967"
+         style="fill:#4d4d4d;fill-opacity:1;stroke:none" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text3969"
+         y="468.15097"
+         x="280"
+         style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+         xml:space="preserve"><tspan
+           y="468.15097"
+           x="280"
+           sodipodi:role="line"
+           id="tspan3977">This is a moving gear.</tspan><tspan
+           y="498.15097"
+           x="280"
+           sodipodi:role="line"
+           id="tspan3985">Guess what it does when</tspan><tspan
+           y="528.151"
+           x="280"
+           sodipodi:role="line"
+           id="tspan3987">you touch it?</tspan></text>
+    </g>
+    <path
+       style="fill:#ff0000;fill-opacity:1;stroke:none"
+       d="m 1103.3332,390.46022 70.6834,-37.46807 -8.3038,27.03789 30.1266,-49.92382 -58.2277,-3.08876 27.0379,8.30388 -70.6835,37.46801 13.519,4.15196 z"
+       id="path3991"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccccccc" />
+    <g
+       transform="matrix(1,0,0,1.094528,-2278.0782,-131.81561)"
+       id="g4013">
+      <rect
+         style="fill:#4d4d4d;fill-opacity:1;stroke:none"
+         id="rect4015"
+         width="356.07819"
+         height="44.696007"
+         x="282"
+         y="442.36218"
+         ry="0" />
+      <text
+         xml:space="preserve"
+         style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+         x="296"
+         y="472.71915"
+         id="text4017"
+         sodipodi:linespacing="125%"><tspan
+           id="tspan4019"
+           sodipodi:role="line"
+           x="296"
+           y="472.71915">Already completed the tutorial?</tspan></text>
+    </g>
+    <g
+       id="g4043"
+       transform="matrix(1,0,0,1.094528,-1892,-131.81561)">
+      <rect
+         ry="0"
+         y="442.36218"
+         x="282"
+         height="44.696007"
+         width="291.07819"
+         id="rect4045"
+         style="fill:#4d4d4d;fill-opacity:1;stroke:none" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4047"
+         y="472.71915"
+         x="296"
+         style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+         xml:space="preserve"><tspan
+           y="472.71915"
+           x="296"
+           sodipodi:role="line"
+           id="tspan4049">Want a queue refresher?</tspan></text>
+    </g>
+    <rect
+       style="fill:#00ffff;fill-opacity:0.83597885;stroke:none"
+       id="rect4051"
+       width="140"
+       height="230"
+       x="-1900"
+       y="412.36218" />
+    <rect
+       style="fill:#00ffff;fill-opacity:0.83597885;stroke:none"
+       id="rect4053"
+       width="140"
+       height="240"
+       x="-1540"
+       y="412.36218" />
   </g>
   <g
      inkscape:groupmode="layer"
      id="links"
-     inkscape:label="links">
+     inkscape:label="links"
+     style="display:inline">
     <rect
        style="fill:#42e61f;fill-opacity:1;stroke:none"
        id="rect3956"
        width="124"
        height="358"
-       x="2962"
+       x="3502"
        y="-249.63782"
-       link="levels/test4.svg"
+       link="levels/CheetahTutorial.svg"
        autoactivate="true" />
     <g
-       id="g3937">
+       id="g3937"
+       transform="translate(-20,0)">
       <rect
          style="fill:#ff0000;fill-opacity:1;stroke:none"
          id="rect3163"
@@ -967,7 +1066,18 @@
          height="220"
          width="140"
          id="rect3954"
-         style="fill:#000000;fill-opacity:1;stroke:none" />
+         style="fill:#000000;fill-opacity:0.83597885;stroke:none" />
+      <text
+         xml:space="preserve"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#009700;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+         x="-1861"
+         y="440.36218"
+         id="text4021"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4023"
+           x="-1861"
+           y="440.36218">Press 'L' to go to</tspan></text>
       <text
          sodipodi:linespacing="125%"
          id="text3165"
@@ -980,6 +1090,53 @@
            id="tspan3167"
            sodipodi:role="line">Level 1</tspan></text>
     </g>
+    <g
+       transform="translate(340,0)"
+       id="g4027">
+      <rect
+         ismain="true"
+         link="levels/queueTutorial.svg"
+         y="412.36218"
+         x="-1880"
+         height="220"
+         width="140"
+         id="rect4029"
+         style="fill:#ff0000;fill-opacity:1;stroke:none" />
+      <rect
+         style="fill:#000000;fill-opacity:0.83597885;stroke:none"
+         id="rect4031"
+         width="140"
+         height="220"
+         x="-1880"
+         y="412.36218"
+         link="levels/test6.svg" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4033"
+         y="440.36218"
+         x="-1861"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#009700;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+         xml:space="preserve"><tspan
+           y="440.36218"
+           x="-1861"
+           id="tspan4035"
+           sodipodi:role="line">Press 'L' to go to</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:36px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#42e61f;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+         x="-1867"
+         y="481.36218"
+         id="text4037"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4039"
+           x="-1867"
+           y="481.36218">Queue</tspan><tspan
+           sodipodi:role="line"
+           x="-1867"
+           y="526.36218"
+           id="tspan4041">Tutorial</tspan></text>
+    </g>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -988,9 +1145,9 @@
     <rect
        style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        id="rect4658"
-       width="1344"
+       width="1948"
        height="1539"
-       x="-1954"
+       x="-2558"
        y="633.36218"
        ry="769.5"
        rx="0" />
@@ -998,7 +1155,7 @@
        rx="0"
        ry="1030"
        y="112.36218"
-       x="2320"
+       x="2856"
        height="2060"
        width="768"
        id="rect4668"
@@ -1009,7 +1166,7 @@
        y="-1747.6378"
        x="-4720"
        height="3920"
-       width="2786"
+       width="2244"
        id="rect4226"
        style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
     <rect
@@ -1034,9 +1191,9 @@
        rx="0"
        ry="809.43933"
        y="553.48352"
-       x="460"
+       x="420"
        height="1618.8787"
-       width="1650"
+       width="2229"
        id="rect4351"
        style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
     <rect
@@ -1052,7 +1209,7 @@
        rx="0"
        ry="760"
        y="652.36218"
-       x="2110"
+       x="2648"
        height="1520"
        width="210"
        id="rect4515"
@@ -1079,7 +1236,7 @@
      inkscape:label="moving">
     <g
        id="g4725"
-       transform="translate(451,-248)"
+       transform="translate(989,-248)"
        type="box">
       <path
          inkscape:connector-curvature="0"
@@ -1098,21 +1255,21 @@
     </g>
     <g
        type="gear"
-       transform="translate(177,-492)"
+       transform="translate(-169,-668)"
        id="g3959">
       <path
          sodipodi:nodetypes="cc"
          style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         d="m 1621,872.36218 -112,-130"
+         d="m 1529,1162.3622 0,-322.00002"
          id="path3961"
          inkscape:connector-curvature="0" />
       <rect
          style="fill:#000000;fill-opacity:1;stroke:none"
          id="rect3963"
-         width="210"
-         height="30"
-         x="1659"
-         y="800.36218"
+         width="140"
+         height="140"
+         x="1581"
+         y="712.36218"
          ry="0" />
     </g>
   </g>
@@ -1141,7 +1298,7 @@
        id="rect4664"
        width="210"
        height="20"
-       x="2110"
+       x="2648"
        y="632.36218"
        ry="0" />
     <rect
@@ -1149,7 +1306,7 @@
        y="612.36218"
        x="220"
        height="40"
-       width="240"
+       width="200"
        id="rect4779"
        style="fill:#ff0000;fill-opacity:1;stroke:#800080;stroke-width:0;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
   </g>
@@ -1162,14 +1319,14 @@
        id="start"
        width="50"
        height="50"
-       x="-1620"
-       y="562.36218" />
+       x="-2274"
+       y="560.36218" />
     <rect
        style="fill:#008000;display:inline"
        id="finish"
-       width="100"
-       height="360"
-       x="3116"
-       y="178.36218" />
+       width="36"
+       height="26"
+       x="-36"
+       y="-6013.6377" />
   </g>
 </svg>

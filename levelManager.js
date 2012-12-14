@@ -407,6 +407,78 @@ function parseInkscapeFile(){
 	$("#links").children().each(function(){
 		var $target = $(this);
 		if ($target.is("g")){
+			var firstX = 0;
+			var firstY = 0;
+			var xforms = this.getAttribute('transform');
+		
+			var transformM = null;
+		
+			if(xforms){
+			    if(xforms.charAt(0) === 'm'){
+					
+				    transformM = xforms.substr(7, xforms.length - 8).split(',');
+					for(var i = 0; i < transformM.length; i++){
+						transformM[i] = parseFloat(transformM[i]);
+					}
+					
+					if(parentM){
+						var temp = new Array();
+						var t = parentM;
+						var p = transformM;
+						temp[0] = p[0] * t[0] + p[1] * t[2];
+						temp[1] = p[0] * t[1] + p[1] * t[3];
+						
+						temp[2] = p[2] * t[0] + p[3] * t[2];
+						temp[3] = p[2] * t[1] + p[3] * t[3];
+						
+						temp[4] = p[4] * t[0] + p[5] * t[2] + t[4];
+						temp[5] = p[4] * t[1] + p[5] * t[3] + t[5];
+						
+						
+						transformM = temp;						
+					}
+								 
+				} else if(xforms.charAt(0) === 's'){
+					
+					var parts  = /scale\(\s*([^\s,)]+)[ ,]([^\s,)]+)/.exec(xforms);
+					
+					
+				    transformM = new Array();
+				    
+				    transformM[0] = parseFloat(parts[1]);
+				    transformM[1] = 0;
+				    transformM[2] = 0;
+				    transformM[3] = parseFloat(parts[2]);
+				    transformM[4] = 0;
+				    transformM[5] = 0;
+				    
+					
+					
+					if(parentM){
+						var temp = new Array();
+						var t = parentM;
+						var p = transformM;
+						temp[0] = p[0] * t[0] + p[1] * t[2];
+						temp[1] = p[0] * t[1] + p[1] * t[3];
+						
+						temp[2] = p[2] * t[0] + p[3] * t[2];
+						temp[3] = p[2] * t[1] + p[3] * t[3];
+						
+						temp[4] = p[4] * t[0] + p[5] * t[2] + t[4];
+						temp[5] = p[4] * t[1] + p[5] * t[3] + t[5];
+						
+						
+						transformM = temp;						
+					}
+								 
+				} else{
+			        // this mess parses the translate form of the transform attribute 
+					var parts  = /translate\(\s*([^\s,)]+)[ ,]([^\s,)]+)/.exec(xforms);
+					firstX += parseFloat(parts[1]);
+					firstY += parseFloat(parts[2]);
+				}
+			}
+		
 		    var tw = 0;
 			var th = 0;
 			var tx = 0;
@@ -428,7 +500,7 @@ function parseInkscapeFile(){
 						tx = drawObj.x;
 						ty = drawObj.y;		
 					}
-					parseGroupToDrawables($target2, this, null, 0, 0, cb2); 	
+					parseGroupToDrawables($target2, this, transformM, firstX, firstY, cb2); 	
 					
 					if(this.getAttribute("autoactivate")){
 					  	auto = true;
@@ -439,7 +511,7 @@ function parseInkscapeFile(){
 					function cb(drawObj){
 						drawArr.push(drawObj);	
 					}
-					parseGroupToDrawables($target2, this, null, 0, 0, cb); 	
+					parseGroupToDrawables($target2, this, transformM, firstX, firstY, cb); 	
 				}		
 			});
 			

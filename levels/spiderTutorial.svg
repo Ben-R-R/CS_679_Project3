@@ -26,17 +26,17 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="0"
      inkscape:zoom="0.50373355"
-     inkscape:cx="-384.12047"
-     inkscape:cy="422.28929"
+     inkscape:cx="4704.1467"
+     inkscape:cy="-139.2582"
      inkscape:document-units="px"
-     inkscape:current-layer="box"
+     inkscape:current-layer="background"
      showgrid="true"
-     inkscape:window-width="1366"
-     inkscape:window-height="746"
-     inkscape:window-x="-8"
+     inkscape:window-width="1920"
+     inkscape:window-height="1028"
+     inkscape:window-x="1358"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:snap-grids="false"
+     inkscape:snap-grids="true"
      showguides="false"
      inkscape:guide-bbox="true">
     <inkscape:grid
@@ -65,15 +65,15 @@
      inkscape:label="instructions"
      style="display:none">
     <image
-       sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/AAGear.png"
+       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/AAGear.png"
        xlink:href="../images/AAGear.png"
-       src="./images/AAGear.png"
-       style="display:inline"
-       y="524.65869"
-       x="-367.45938"
-       id="image5517"
+       width="154"
        height="154"
-       width="154" />
+       id="image5517"
+       x="-367.45938"
+       y="524.65869"
+       style="display:inline"
+       src="./images/AAGear.png" />
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
@@ -153,35 +153,35 @@
          y="488.99551"
          id="tspan4536">Copy-Paste them as needed  </tspan></text>
     <image
-       sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/Girder3.png"
+       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/Girder3.png"
        xlink:href="../images/Girder3.png"
-       src="./images/Girder3.png"
-       y="564.06238"
-       x="-155.82343"
-       id="image3175"
-       height="60.18919"
+       style="display:inline"
        width="59.91684"
-       style="display:inline" />
+       height="60.18919"
+       id="image3175"
+       x="-155.82343"
+       y="564.06238"
+       src="./images/Girder3.png" />
     <image
-       sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/Girder1.png"
+       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/Girder1.png"
        xlink:href="../images/Girder1.png"
-       y="551.95593"
-       x="-51.225464"
-       id="image3077"
-       height="136.72792"
-       width="127.90677"
+       style="display:inline"
        src="./images/Girder1.png"
-       style="display:inline" />
+       width="127.90677"
+       height="136.72792"
+       id="image3077"
+       x="-51.225464"
+       y="551.95593" />
     <image
-       sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/Girder2.png"
+       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/Girder2.png"
        xlink:href="../images/Girder2.png"
-       y="657.62732"
-       x="-191.43137"
-       id="image3951"
-       height="37.108109"
-       width="114.16217"
+       style="display:inline"
        src="./images/Girder2.png"
-       style="display:inline" />
+       width="114.16217"
+       height="37.108109"
+       id="image3951"
+       x="-191.43137"
+       y="657.62732" />
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
@@ -218,23 +218,23 @@
        y="400.03778"
        ry="21.978909" />
     <image
-       sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/Bell_Jar.png"
+       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/Bell_Jar.png"
        xlink:href="../images/Bell_Jar.png"
-       src="./images/Bell_Jar.png"
-       width="189"
-       height="266"
-       id="image4644"
+       y="469.09711"
        x="-605.01971"
-       y="469.09711" />
-    <image
-       sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/Bell_Jar2.png"
-       xlink:href="../images/Bell_Jar2.png"
-       src="./images/Bell_Jar2.png"
-       width="189"
+       id="image4644"
        height="266"
-       id="image4655"
+       width="189"
+       src="./images/Bell_Jar.png" />
+    <image
+       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/Bell_Jar2.png"
+       xlink:href="../images/Bell_Jar2.png"
+       y="741.09711"
        x="-607.5"
-       y="741.09711" />
+       id="image4655"
+       height="266"
+       width="189"
+       src="./images/Bell_Jar2.png" />
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
@@ -460,13 +460,13 @@
        id="rect4904"
        style="fill:none;stroke:#0062c4;stroke-width:1.49691904;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
     <image
-       sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/Jumps.png"
+       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/Jumps.png"
        xlink:href="../images/Jumps.png"
-       y="1247.0682"
-       x="-445.90201"
-       id="image5026"
+       width="1189"
        height="517"
-       width="1189" />
+       id="image5026"
+       x="-445.90201"
+       y="1247.0682" />
     <text
        xml:space="preserve"
        style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
@@ -692,7 +692,7 @@
        style="fill:#00466d;fill-opacity:1;stroke:none" />
     <g
        id="g5517"
-       transform="matrix(1,0,0,1.094528,2950,-77.604392)">
+       transform="matrix(1,0,0,1.094528,2970,-117.60439)">
       <rect
          ry="0"
          y="442.36218"
@@ -952,6 +952,37 @@
            y="528.151"
            id="tspan5763">See you in the next Level!</tspan></text>
     </g>
+    <g
+       transform="matrix(1,0,0,1.094528,3000,-1.8156124)"
+       id="g3234">
+      <rect
+         style="fill:#4d4d4d;fill-opacity:1;stroke:none"
+         id="rect3236"
+         width="240"
+         height="96.65242"
+         x="270"
+         y="442.36218"
+         ry="0" />
+      <text
+         xml:space="preserve"
+         style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+         x="280"
+         y="468.15097"
+         id="text3238"
+         sodipodi:linespacing="125%"><tspan
+           id="tspan3244"
+           sodipodi:role="line"
+           x="280"
+           y="468.15097">Make sure you give </tspan><tspan
+           sodipodi:role="line"
+           x="280"
+           y="498.15097"
+           id="tspan3252">yourself enough web</tspan><tspan
+           sodipodi:role="line"
+           x="280"
+           y="528.151"
+           id="tspan3256">to swing on!</tspan></text>
+    </g>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -961,7 +992,7 @@
     <rect
        style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        id="rect4658"
-       width="1181.6145"
+       width="1090"
        height="440"
        x="-1160"
        y="832.36218"
@@ -982,7 +1013,7 @@
        y="722.36218"
        x="-140.37059"
        height="20"
-       width="140"
+       width="160.37059"
        id="rect4800"
        style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
     <rect
@@ -996,11 +1027,11 @@
        rx="0" />
     <rect
        rx="0"
-       ry="188.5"
-       y="895.36218"
-       x="-30"
-       height="377"
-       width="490"
+       ry="175"
+       y="922.36218"
+       x="-70"
+       height="350"
+       width="530"
        id="rect4804"
        style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
     <rect
@@ -1152,141 +1183,172 @@
      inkscape:label="gear"
      style="display:inline">
     <image
-       sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/AAGear.png"
+       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/AAGear.png"
        xlink:href="../images/AAGear.png"
-       src="./images/AAGear.png"
-       style="display:inline"
-       y="1380.8715"
-       x="3177.0527"
+       width="154"
+       height="154"
        id="image5517-7"
-       height="154"
-       width="154" />
+       x="3177.0527"
+       y="1380.8715"
+       style="display:inline"
+       src="./images/AAGear.png" />
     <image
-       sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/AAGear.png"
+       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/AAGear.png"
        xlink:href="../images/AAGear.png"
-       width="154"
-       height="154"
-       id="image5705"
-       x="2093.0186"
+       src="./images/AAGear.png"
+       style="display:inline"
        y="1442.5734"
-       style="display:inline"
-       src="./images/AAGear.png" />
+       x="2093.0186"
+       id="image5705"
+       height="154"
+       width="154" />
     <image
-       sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/AAGear.png"
+       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/AAGear.png"
        xlink:href="../images/AAGear.png"
-       src="./images/AAGear.png"
-       style="display:inline"
-       y="1683.1084"
-       x="1612.9425"
+       width="154"
+       height="154"
        id="image5707"
-       height="154"
-       width="154" />
+       x="1612.9425"
+       y="1683.1084"
+       style="display:inline"
+       src="./images/AAGear.png" />
     <image
-       sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/AAGear.png"
+       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/AAGear.png"
        xlink:href="../images/AAGear.png"
-       width="154"
-       height="154"
-       id="image5709"
-       x="1151.3889"
+       src="./images/AAGear.png"
+       style="display:inline"
        y="1833.9818"
-       style="display:inline"
-       src="./images/AAGear.png" />
+       x="1151.3889"
+       id="image5709"
+       height="154"
+       width="154" />
     <image
-       sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/AAGear.png"
+       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/AAGear.png"
        xlink:href="../images/AAGear.png"
-       src="./images/AAGear.png"
-       style="display:inline"
-       y="1882.8422"
-       x="454.84995"
+       width="154"
+       height="154"
        id="image5711"
-       height="154"
-       width="154" />
-    <image
-       sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/AAGear.png"
-       xlink:href="../images/AAGear.png"
-       src="./images/AAGear.png"
+       x="454.84995"
+       y="1882.8422"
        style="display:inline"
-       y="1796.8569"
-       x="-3.1544406"
+       src="./images/AAGear.png" />
+    <image
+       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/AAGear.png"
+       xlink:href="../images/AAGear.png"
+       width="154"
+       height="154"
        id="image5715"
-       height="154"
-       width="154" />
+       x="-3.1544406"
+       y="1796.8569"
+       style="display:inline"
+       src="./images/AAGear.png" />
     <image
-       sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/AAGear.png"
+       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/AAGear.png"
        xlink:href="../images/AAGear.png"
-       width="154"
-       height="154"
-       id="image5717"
-       x="-469.50772"
+       src="./images/AAGear.png"
+       style="display:inline"
        y="1834.9744"
-       style="display:inline"
-       src="./images/AAGear.png" />
+       x="-469.50772"
+       id="image5717"
+       height="154"
+       width="154" />
     <image
-       sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/AAGear.png"
+       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/AAGear.png"
        xlink:href="../images/AAGear.png"
-       src="./images/AAGear.png"
-       style="display:inline"
-       y="1415.1095"
-       x="1116.6483"
+       width="154"
+       height="154"
        id="image5719"
-       height="154"
-       width="154" />
-    <image
-       sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/AAGear.png"
-       xlink:href="../images/AAGear.png"
-       width="154"
-       height="154"
-       id="image5721"
-       x="29.764107"
-       y="1329.7469"
+       x="1116.6483"
+       y="1415.1095"
        style="display:inline"
        src="./images/AAGear.png" />
     <image
-       sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/AAGear.png"
+       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/AAGear.png"
        xlink:href="../images/AAGear.png"
        src="./images/AAGear.png"
        style="display:inline"
-       y="1479.6278"
-       x="-355.36014"
-       id="image5723"
+       y="1329.7469"
+       x="29.764107"
+       id="image5721"
        height="154"
        width="154" />
     <image
-       sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/AAGear.png"
+       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/AAGear.png"
        xlink:href="../images/AAGear.png"
        width="154"
        height="154"
-       id="image5725"
-       x="-700.78088"
-       y="1582.8569"
+       id="image5723"
+       x="-355.36014"
+       y="1479.6278"
        style="display:inline"
        src="./images/AAGear.png" />
     <image
-       sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/AAGear.png"
+       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/AAGear.png"
        xlink:href="../images/AAGear.png"
-       width="154"
-       height="154"
-       id="image5739"
-       x="156.07411"
+       src="./images/AAGear.png"
+       style="display:inline"
        y="2244.1252"
-       style="display:inline"
-       src="./images/AAGear.png" />
-    <image
-       sodipodi:absref="C:\Users\owner\Documents\GitHub\CS_679_Project3\levels\../images/AAGear.png"
-       xlink:href="../images/AAGear.png"
-       width="154"
+       x="156.07411"
+       id="image5739"
        height="154"
-       id="image5743"
-       x="1920"
-       y="2252.3623"
+       width="154" />
+    <image
+       sodipodi:absref="C:\Users\Ben_R_R\private\CODE\A_SCHOOL\Project3\CS_679_Project3\levels\../images/AAGear.png"
+       xlink:href="../images/AAGear.png"
+       src="./images/AAGear.png"
        style="display:inline"
-       src="./images/AAGear.png" />
+       y="2252.3623"
+       x="1920"
+       id="image5743"
+       height="154"
+       width="154" />
   </g>
   <g
      inkscape:groupmode="layer"
      id="moving"
      inkscape:label="moving"
-     style="display:inline" />
+     style="display:inline">
+    <g
+       id="g4725"
+       transform="translate(-2009,32)"
+       type="box">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4715"
+         d="m 1659,800.36218 0,-110"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         sodipodi:nodetypes="cc"
+         speed="0.2" />
+      <rect
+         ry="0"
+         y="800.36218"
+         x="1659"
+         height="20"
+         width="210"
+         id="rect4719"
+         style="fill:#000000;fill-opacity:1;stroke:none" />
+    </g>
+    <g
+       type="box"
+       transform="translate(-1729,122)"
+       id="g3228">
+      <path
+         sodipodi:nodetypes="cc"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 1659,800.36218 0,-90"
+         id="path3230"
+         inkscape:connector-curvature="0"
+         speed="0.2" />
+      <rect
+         style="fill:#000000;fill-opacity:1;stroke:none"
+         id="rect3232"
+         width="90"
+         height="20"
+         x="1659"
+         y="800.36218"
+         ry="0" />
+    </g>
+  </g>
   <g
      inkscape:groupmode="layer"
      id="grapple"
