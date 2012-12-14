@@ -383,7 +383,7 @@ var PowerQueue = {
 	    
 	    
 	    var _offset = 0;
-		
+		this.iW = this.image.width;
 		for(i_img in this.queue){
 			
 			theContext.drawImage(i_img, this.x + _offset * this.iW, this.y , this.image.width * 0.7 , this.image.height * 0.7);

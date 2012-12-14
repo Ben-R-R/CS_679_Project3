@@ -228,6 +228,56 @@ function newBoxEntity(org, w, h){
 		
 }
 
+function newDoorEntity(org, w, h, target, drawArray){
+	var newEnt = Object.create(GameEntity);
+	newEnt.coords = org;
+	newEnt.velocity = newVector(0,0);
+	newEnt.radius = 0;
+	newEnt.aabb = newBox(org.x, org.y, w, h);
+	newEnt.acceleration = newVector(0,0);
+	newEnt.fixed = true;
+	newEnt.virtual = true;
+	newEnt.playerhit = false;
+	newEnt.color = "#0000FF";
+	newEnt.drawArray = drawArray;
+	
+	newEnt.draw = function(origin){
+		if(this.playerhit){
+			theContext.strokeStyle = this.color;
+	        //theContext.fillStyle = "#000000";
+	        
+	        theContext.strokeRect(this.aabb.x + origin.x,this.aabb.y + origin.y,this.aabb.w,this.aabb.h);
+	        for(obj in this.drawArray){
+				obj.draw(origin);
+			}
+		}
+		 
+        this.playerhit = false;
+	}
+	
+	newEnt.collisionResponse = function(responseVector, other){
+		
+		if(other.isPlayer){
+			this.playerhit = true;		
+			if(charhit('L')){
+				HUD.items = [];
+				
+				initEntityManager();
+				initLevelManager(this.next);
+				HUD.init();
+			}
+		
+		}
+		
+		
+	}
+
+	
+	return newEnt;
+		
+}
+
+
 function newCheckpointEntity(org, w, h){
 	var newEnt = Object.create(GameEntity);
 	newEnt.coords = org;
